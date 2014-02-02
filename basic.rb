@@ -2,6 +2,8 @@
 
 require 'optparse'
 
+require 'parslet'
+
 require_relative 'arguments'
 require_relative 'exceptions'
 require_relative 'line'
