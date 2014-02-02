@@ -53,6 +53,11 @@ module Basic
       it_should_match '""'
       it_should_match '"abc"'
     end
+    
+    describe 'expression' do
+      let(:rule) {parser.expression}
+      it_should_match '"abc"'
+    end
 
     describe 'remark' do
       let(:rule) {parser.remark}

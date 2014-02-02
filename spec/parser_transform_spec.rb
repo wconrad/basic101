@@ -36,6 +36,11 @@ module Basic
       it_should_transform('"abc"', "abc")
     end
 
+    describe 'expression' do
+      let(:rule) {:expression}
+      it_should_transform('"abc"', "abc")
+    end
+
     describe 'remark' do
       let(:rule) {:remark}
       it_should_transform('REM THIS IS A REMARK',
