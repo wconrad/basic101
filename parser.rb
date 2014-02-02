@@ -7,8 +7,8 @@ module Basic
     rule(:printable) {match('[[:print:]]')}
     rule(:remark) {(str('REM') >> printable.repeat(0)).as(:remark)}
     rule(:print) {str('PRINT').as(:print)}
-    rule(:statement) {remark | print}
-    rule(:statements) {statement >>  (str(':') >> statement).repeat(0)}
+    rule(:statement) {(remark | print) >> space?}
+    rule(:statements) {statement >> (str(':') >> space? >> statement).repeat(0)}
     rule(:line) {integer.as(:line_number) >> space? >> statements.as(:statements)}
     root(:line)
   end
