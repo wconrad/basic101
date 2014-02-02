@@ -1,7 +1,6 @@
 module Basic
 
-  #TODO rename to Statement
-  class Line
+  class Statement
 
     include Comparable
 
@@ -15,7 +14,7 @@ module Basic
         raise SyntaxError, "Syntax error: #{line}"
       end
       [
-        Line.new(match_data[:line_number].to_i,
+        Statement.new(match_data[:line_number].to_i,
                  match_data[:source]),
       ]
     end

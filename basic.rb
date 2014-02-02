@@ -4,7 +4,7 @@ require 'optparse'
 
 require_relative 'arguments'
 require_relative 'exceptions'
-require_relative 'line'
+require_relative 'statement'
 require_relative 'lines'
 require_relative 'main'
 require_relative 'program'

@@ -2,11 +2,11 @@ require_relative 'spec_helper'
 
 module Basic
 
-  describe Line do
+  describe Statement do
 
     let(:line_number) {10}
     let(:source) {'REM'}
-    subject(:line) {Line.new(line_number, source)}
+    subject(:line) {Statement.new(line_number, source)}
 
     its(:line_number) {should eq line_number}
     its(:source) {should eq source}
@@ -15,16 +15,16 @@ module Basic
 
       context 'when normal' do
         specify do
-          expect(Line.parse('20 REM FOO')).to eq [
-            Line.new(20, 'REM FOO')
+          expect(Statement.parse('20 REM FOO')).to eq [
+            Statement.new(20, 'REM FOO')
           ]
         end
       end
 
       context 'when extra spaces' do
         specify do
-          expect(Line.parse(' 20  REM FOO ')).to eq [
-            Line.new(20, 'REM FOO'),
+          expect(Statement.parse(' 20  REM FOO ')).to eq [
+            Statement.new(20, 'REM FOO'),
           ]
         end
       end
@@ -32,7 +32,7 @@ module Basic
       context 'when line number only' do
         specify do
           expect {
-            Line.parse('20')
+            Statement.parse('20')
           }.to raise_error SyntaxError, 'Syntax error: 20'
         end
       end
@@ -40,7 +40,7 @@ module Basic
       context 'when missing line number' do
         specify do
           expect {
-            Line.parse('REM')
+            Statement.parse('REM')
           }.to raise_error SyntaxError, 'Syntax error: REM'
         end
       end

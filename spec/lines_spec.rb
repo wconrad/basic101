@@ -4,9 +4,9 @@ module Basic
 
   describe Lines do
 
-    let(:line1) {Line.new(10, 'REM a')}
-    let(:line2) {Line.new(20, 'REM b')}
-    let(:line3) {Line.new(nil, 'REM c')}
+    let(:line1) {Statement.new(10, 'REM a')}
+    let(:line2) {Statement.new(20, 'REM b')}
+    let(:line3) {Statement.new(nil, 'REM c')}
 
     subject(:lines) {described_class.new}
 
