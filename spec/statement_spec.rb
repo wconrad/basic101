@@ -47,6 +47,31 @@ module Basic
 
     end
 
+    describe 'comparison' do
+
+      context 'when equal' do
+        specify do
+          expect(Statement.new(10, 'REM A') <=>
+                 Statement.new(10, 'REM A')).to eq 0
+        end
+      end
+
+      context 'when line number less' do
+        specify do
+          expect(Statement.new(10, 'REM A') <=>
+                 Statement.new(20, 'REM A')).to eq -1
+        end
+      end
+
+      context 'when source greater' do
+        specify do
+          expect(Statement.new(10, 'REM B') <=>
+                 Statement.new(10, 'REM A')).to eq +1
+        end
+      end
+
+    end
+
   end
 
 end

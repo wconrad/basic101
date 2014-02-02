@@ -24,7 +24,6 @@ module Basic
       @source = source
     end
 
-    #TODO testme
     def <=>(other)
       self.state <=> other.state
     end
