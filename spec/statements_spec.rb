@@ -4,21 +4,19 @@ module Basic
 
   describe Statements do
 
-    let(:line1) {Statement.new(10, 'REM a')}
-    let(:line2) {Statement.new(20, 'REM b')}
-    let(:line3) {Statement.new(nil, 'REM c')}
+    let(:line1) {Statement.new(10)}
+    let(:line2) {Statement.new(20)}
 
     subject(:statements) {described_class.new}
 
     before(:each) do
       statements << line1
       statements << line2
-      statements << line3
     end
 
     describe '#lines' do
       specify do
-        expect(statements.statements).to eq [line1, line2, line3]
+        expect(statements.statements).to eq [line1, line2]
       end
     end
 
@@ -26,8 +24,7 @@ module Basic
       specify do
         expect(statements[0]).to eq line1
         expect(statements[1]).to eq line2
-        expect(statements[2]).to eq line3
-        expect(statements[3]).to be_nil
+        expect(statements[2]).to be_nil
       end
     end
 

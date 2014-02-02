@@ -8,20 +8,11 @@ module Basic
 
       subject(:line) {Line.new(source_line)}
 
-      context 'when normal' do
+      context 'single statement' do
         let(:source_line) {'20 REM FOO'}
         specify do
           expect(line.statements).to eq [
-            Statement.new(20, 'REM FOO')
-          ]
-        end
-      end
-
-      context 'when extra spaces' do
-        let(:source_line) {' 20  REM FOO '}
-        specify do
-          expect(line.statements).to eq [
-            Statement.new(20, 'REM FOO'),
+            RemarkStatement.new(20)
           ]
         end
       end
@@ -31,7 +22,7 @@ module Basic
         specify do
           expect {
             line.statements
-          }.to raise_error SyntaxError, 'Syntax error: 20'
+          }.to raise_error Parslet::ParseFailed
         end
       end
 
@@ -40,7 +31,7 @@ module Basic
         specify do
           expect {
             line.statements
-          }.to raise_error SyntaxError, 'Syntax error: REM'
+          }.to raise_error Parslet::ParseFailed
         end
       end
 

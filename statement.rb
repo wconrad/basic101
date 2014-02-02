@@ -2,28 +2,21 @@ module Basic
 
   class Statement
 
-    include Comparable
+    attr_accessor :line_number
 
-    attr_reader :line_number
-    attr_reader :source
-
-    def initialize(line_number, source)
+    def initialize(line_number = nil)
       @line_number = line_number
-      @source = source
     end
 
-    def <=>(other)
-      self.state <=> other.state
-    end
-
-    def execute(program)
-      program.goto_next
+    def ==(other)
+      return false unless other.is_a?(self.class)
+      self.state == other.state
     end
 
     protected
 
     def state
-      [@line_number, @source]
+      [line_number]
     end
 
   end

@@ -6,21 +6,14 @@ module Basic
       @source_line = source_line
     end
 
+
+    #TODO: User-friendly handling of parslet errors
     def statements
-      match_data = @source_line.match(SOURCE_REGEX)
-      unless match_data
-        raise SyntaxError, "Syntax error: #{@source_line}"
-      end
-      [
-        Statement.new(match_data[:line_number].to_i,
-                      match_data[:source]),
-      ]
+      parser = Parser.new
+      transform = ParserTransform.new
+      tree = parser.parse(@source_line.chomp)
+      transform.apply(tree)
     end
-
-    private
-
-    SOURCE_REGEX = /^ *(?<line_number>\d+) +(?<source>.*?) *$/
-    private_constant :SOURCE_REGEX
 
   end
 
