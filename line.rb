@@ -7,8 +7,7 @@ module Basic
     end
 
     def statements
-      #TODO fix long line
-      match_data = /^ *(?<line_number>\d+) +(?<source>.*?) *$/.match(@source_line)
+      match_data = @source_line.match(SOURCE_REGEX)
       unless match_data
         raise SyntaxError, "Syntax error: #{@source_line}"
       end
@@ -17,6 +16,11 @@ module Basic
                       match_data[:source]),
       ]
     end
+
+    private
+
+    SOURCE_REGEX = /^ *(?<line_number>\d+) +(?<source>.*?) *$/
+    private_constant :SOURCE_REGEX
 
   end
 
