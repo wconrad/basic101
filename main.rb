@@ -9,6 +9,7 @@ module Basic
 
     def run
       @program.load(ARGF)
+      @program.run
     end
 
   end

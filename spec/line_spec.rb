@@ -14,15 +14,19 @@ module Basic
     describe '.parse' do
 
       context 'when normal' do
-        subject(:line) {Line.parse('20 REM FOO')}
-        its(:line_number) {should eq 20}
-        its(:source) {should eq 'REM FOO'}
+        specify do
+          expect(Line.parse('20 REM FOO')).to eq [
+            Line.new(20, 'REM FOO')
+          ]
+        end
       end
 
       context 'when extra spaces' do
-        subject(:line) {Line.parse(' 20  REM FOO ')}
-        its(:line_number) {should eq 20}
-        its(:source) {should eq 'REM FOO'}
+        specify do
+          expect(Line.parse(' 20  REM FOO ')).to eq [
+            Line.new(20, 'REM FOO'),
+          ]
+        end
       end
 
       context 'when line number only' do

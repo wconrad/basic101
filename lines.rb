@@ -1,29 +1,33 @@
 module Basic
 
+  #TODO rename to Statements
   class Lines
 
     include Enumerable
 
+    attr_reader :lines
+
     def initialize
       @lines = []
+      @line_number_index = {}
+    end
+
+    def [](i)
+      @lines[i]
+    end
+
+    def index_of(line_number)
+      index = @line_number_index[line_number]
+      unless index
+        raise UndefinedLineNumberError, "Undefined line number #{line_number}"
+      end
+      index
     end
 
     def <<(line)
-      @lines[line.line_number] = line
-    end
-
-    def each(&block)
-      @lines.compact.each(&block)
-    end
-
-    def from_line(line_number)
-      unless @lines[line_number]
-        raise UndefinedLineNumberError, "Undefined line number: #{line_number}"
-      end
-      Enumerator.new do |yielder|
-        @lines[line_number..-1].compact.each do |line|
-          yielder.yield line
-        end
+      @lines << line
+      if line.line_number
+        @line_number_index[line.line_number] = @lines.size - 1
       end
     end
 

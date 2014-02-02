@@ -8,7 +8,24 @@ module Basic
 
     def load(file)
       file.each_line do |line|
-        @lines << Line.parse(line)
+        Line.parse(line).each do |statement|
+          @lines << statement
+        end
+      end
+    end
+
+    def goto(line_number)
+      @line_index = @lines.index_of(line_number)
+    end
+
+    def goto_next
+      @line_index += 1
+    end
+
+    def run
+      @line_index = 0
+      while line = @lines[@line_index]
+        line.execute(self)
       end
     end
 
