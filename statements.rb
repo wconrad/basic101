@@ -1,19 +1,18 @@
 module Basic
 
-  #TODO rename to Statements
-  class Lines
+  class Statements
 
     include Enumerable
 
-    attr_reader :lines
+    attr_reader :statements
 
     def initialize
-      @lines = []
+      @statements = []
       @line_number_index = {}
     end
 
     def [](i)
-      @lines[i]
+      @statements[i]
     end
 
     def index_of(line_number)
@@ -24,10 +23,10 @@ module Basic
       index
     end
 
-    def <<(line)
-      @lines << line
-      if line.line_number
-        @line_number_index[line.line_number] = @lines.size - 1
+    def <<(statement)
+      @statements << statement
+      if statement.line_number
+        @line_number_index[statement.line_number] = @statements.size - 1
       end
     end
 
