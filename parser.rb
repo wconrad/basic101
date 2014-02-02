@@ -3,7 +3,7 @@ module Basic
   class Parser < Parslet::Parser
     rule(:space) {match(' ').repeat(1)}
     rule(:space?) {space.maybe}
-    rule(:integer) {match('[0-9]').repeat(1)}
+    rule(:integer) {match('[0-9]').repeat(1).as(:integer)}
     rule(:printable) {match('[[:print:]]')}
     rule(:remark) {(str('REM') >> printable.repeat(0)).as(:remark)}
     rule(:print) {str('PRINT').as(:print)}
