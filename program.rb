@@ -7,8 +7,9 @@ module Basic
     end
 
     def load(file)
-      file.each_line do |line|
-        Statement.parse(line).each do |statement|
+      file.each_line do |source_line|
+        line = Line.new(source_line)
+        line.statements.each do |statement|
           @statements << statement
         end
       end
