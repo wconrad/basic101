@@ -35,17 +35,23 @@ module Basic
       it_should_match ' '
     end
 
-    describe 'integer' do
-      let(:rule) {parser.integer}
-      it_should_match '10'
-    end
-
     describe 'printable' do
       let(:rule) {parser.printable}
       it_should_not_match "\x1f"
       it_should_match "\x20"
       it_should_match "\x7e"
       it_should_not_match "\x7f"
+    end
+
+    describe 'integer' do
+      let(:rule) {parser.integer}
+      it_should_match '10'
+    end
+    
+    describe 'string' do
+      let(:rule) {parser.string}
+      it_should_match '""'
+      it_should_match '"abc"'
     end
 
     describe 'remark' do

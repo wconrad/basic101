@@ -31,6 +31,11 @@ module Basic
       it_should_transform('123', 123)
     end
 
+    describe 'string' do
+      let(:rule) {:string}
+      it_should_transform('"abc"', "abc")
+    end
+
     describe 'remark' do
       let(:rule) {:remark}
       it_should_transform('REM THIS IS A REMARK',
