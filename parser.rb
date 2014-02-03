@@ -9,7 +9,9 @@ module Basic
     rule(:expression) {string}
     rule(:remark) {(str('REM') >> printable.repeat(0)).as(:remark)}
     rule(:print_separator) {match('[;,]').as(:print_separator)}
-    rule(:print) {(str('PRINT') >> (space >> expression).maybe).as(:print)}
+    rule(:print) do
+      str('PRINT') >> (space >> expression).maybe.as(:print_expressions)
+    end
     rule(:statement) {(remark | print) >> space?}
     rule(:statements) do
       statement >> (str(':') >> space? >> statement).repeat(0)

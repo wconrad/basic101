@@ -6,11 +6,10 @@ module Basic
       @source_line = source_line
     end
 
-
     #TODO: User-friendly handling of parslet errors
     def statements
       parser = Parser.new
-      transform = ParserTransform.new
+      transform = Transform.new
       tree = parser.parse(@source_line.chomp)
       transform.apply(tree)
     end

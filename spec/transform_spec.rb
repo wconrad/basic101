@@ -2,7 +2,7 @@ require_relative 'spec_helper'
 
 module Basic
 
-  describe ParserTransform do
+  describe Transform do
 
     let(:parser) {Parser.new}
 
@@ -13,7 +13,7 @@ module Basic
 
     def self.transform(rule, s)
       parse_tree = parse(rule, s)
-      ParserTransform.new.apply(parse_tree)
+      Transform.new.apply(parse_tree)
     end
 
     def transform(s)
@@ -58,7 +58,7 @@ module Basic
       it_should_transform('PRINT',
                           PrintStatement.new)
       it_should_transform('PRINT "ABC"',
-                          PrintStatement.new)
+                          PrintStatement.new(nil, [BasicString.new("ABC")]))
     end
 
     describe 'line' do
