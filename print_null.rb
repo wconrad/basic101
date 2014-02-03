@@ -1,6 +1,6 @@
 module Basic
 
-  class TabPrintSeparator
+  class PrintNull
 
     def ==(other)
       other.is_a?(self.class)

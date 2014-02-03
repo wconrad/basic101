@@ -74,6 +74,7 @@ module Basic
     describe 'print' do
       let(:rule) {parser.print}
       it_should_match 'PRINT'
+      it_should_match 'PRINT "A"'
     end
 
     describe 'statement' do

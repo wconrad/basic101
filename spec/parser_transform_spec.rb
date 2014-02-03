@@ -49,8 +49,8 @@ module Basic
 
     describe 'print_separator' do
       let(:rule) {:print_separator}
-      it_should_transform(';', NoSpacePrintSeparator.new)
-      it_should_transform(',', TabPrintSeparator.new)
+      it_should_transform(';', PrintNull.new)
+      it_should_transform(',', PrintTab.new)
     end
 
     describe 'print' do

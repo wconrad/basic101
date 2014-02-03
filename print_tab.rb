@@ -1,6 +1,6 @@
 module Basic
 
-  class NoSpacePrintSeparator
+  class PrintTab
 
     def ==(other)
       other.is_a?(self.class)
