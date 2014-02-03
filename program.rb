@@ -2,8 +2,11 @@ module Basic
 
   class Program
 
+    attr_reader :output
+
     def initialize
       @statements = Statements.new
+      @output = Output.new
     end
 
     def load(file)
