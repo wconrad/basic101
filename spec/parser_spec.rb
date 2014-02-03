@@ -71,10 +71,20 @@ module Basic
       it_should_match ','
     end
 
+    describe 'print_arguments' do
+      let(:rule) {parser.print_arguments}
+      it_should_match ''
+      it_should_match '"A"'
+      it_should_match '"A",'
+      it_should_match '"A","B"' 
+      it_should_match '"A" , "B" ;'
+    end
+
     describe 'print' do
       let(:rule) {parser.print}
       it_should_match 'PRINT'
       it_should_match 'PRINT "A"'
+      it_should_match 'PRINT "A" ;'
     end
 
     describe 'statement' do

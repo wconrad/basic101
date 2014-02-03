@@ -53,12 +53,26 @@ module Basic
       it_should_transform(',', PrintTab.new)
     end
 
+    describe 'print_arguments' do
+      let(:rule) {:print_arguments}
+      it_should_transform('"a"', [BasicString.new('a')])
+      it_should_transform('"a",', [
+                            BasicString.new('a'),
+                            PrintTab.new,
+                          ])
+    end
+
     describe 'print' do
       let(:rule) {:print}
       it_should_transform('PRINT',
                           PrintStatement.new)
       it_should_transform('PRINT "ABC"',
                           PrintStatement.new(nil, [BasicString.new("ABC")]))
+      it_should_transform('PRINT "ABC";',
+                          PrintStatement.new(nil, [
+                                               BasicString.new("ABC"),
+                                               PrintNull.new
+                                             ]))
     end
 
     describe 'line' do

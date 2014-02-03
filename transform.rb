@@ -9,7 +9,10 @@ module Basic
     rule(:remark => simple(:x)) {RemarkStatement.new}
     rule(:print_separator => ';') {PrintNull.new}
     rule(:print_separator => ',') {PrintTab.new}
-    rule(:print_expressions => simple(:x)) do
+    rule(:print_arguments => sequence(:args)) do
+      PrintStatement.new(nil, args)
+    end
+    rule(:print => simple(:print), :print_arg => subtree(:x)) do
       PrintStatement.new(nil, Array(x))
     end
     rule(:line_number => simple(:line_number),
