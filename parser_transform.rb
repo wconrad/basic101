@@ -5,7 +5,7 @@ module Basic
 
   class ParserTransform < Parslet::Transform
     rule(:integer => simple(:integer)) {integer.to_i}
-    rule(:string => simple(:string)) {string}
+    rule(:string => simple(:s)) {BasicString.new(s)}
     rule(:remark => simple(:x)) {RemarkStatement.new}
     rule(:print_separator => ';') {PrintNull.new}
     rule(:print_separator => ',') {PrintTab.new}

@@ -33,12 +33,12 @@ module Basic
 
     describe 'string' do
       let(:rule) {:string}
-      it_should_transform('"abc"', "abc")
+      it_should_transform('"abc"', BasicString.new('abc'))
     end
 
     describe 'expression' do
       let(:rule) {:expression}
-      it_should_transform('"abc"', "abc")
+      it_should_transform('"abc"', BasicString.new('abc'))
     end
 
     describe 'remark' do
@@ -56,6 +56,8 @@ module Basic
     describe 'print' do
       let(:rule) {:print}
       it_should_transform('PRINT',
+                          PrintStatement.new)
+      it_should_transform('PRINT "ABC"',
                           PrintStatement.new)
     end
 

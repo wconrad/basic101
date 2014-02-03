@@ -16,7 +16,7 @@ module Basic
     protected
 
     def state
-      [@args]
+      super + [@args]
     end
 
   end
