@@ -16,11 +16,11 @@ module Basic
     end
 
     def print_string(output)
-      output.print_string @value
+      output.print @value
     end
 
     def print_new_line(output)
-      output.print_new_line
+      output.print "\n"
     end
 
     protected

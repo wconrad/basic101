@@ -7,23 +7,23 @@ module Basic
     let(:file) {StringIO.new}
     subject(:output) {described_class.new(file)}
 
-    describe '#print_string' do
+    context 'string' do
       specify do
-        output.print_string 'abc'
+        output.print 'abc'
         expect(file.string).to eq 'abc'
       end
     end
 
-    describe '#print_new_line' do
+    context 'new line' do
       specify do
-        output.print_new_line
+        output.print "\n"
         expect(file.string).to eq "\n"
       end
     end
 
-    describe '#print_tab' do
+    context 'tab' do
       specify do
-        output.print_tab
+        output.print "\t"
         expect(file.string).to eq "\t"
       end
     end

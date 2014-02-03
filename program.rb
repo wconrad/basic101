@@ -4,13 +4,13 @@ module Basic
 
     attr_reader :output
 
-    def initialize
+    def initialize(output_file = $stdout)
       @statements = Statements.new
-      @output = Output.new
+      @output = Output.new(output_file)
     end
 
-    def load(file)
-      file.each_line do |source_line|
+    def load(source_file)
+      source_file.each_line do |source_line|
         line = Line.new(source_line)
         line.statements.each do |statement|
           @statements << statement

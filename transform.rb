@@ -12,6 +12,7 @@ module Basic
     rule(:print_arguments => sequence(:args)) do
       PrintStatement.new(nil, args)
     end
+    #TODO try simple here instead of subtree
     rule(:print => simple(:print), :print_arg => subtree(:x)) do
       PrintStatement.new(nil, Array(x))
     end

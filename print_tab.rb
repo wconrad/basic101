@@ -11,7 +11,7 @@ module Basic
     end
 
     def print_string(output)
-      output.print_tab
+      output.print "\t"
     end
 
     def print_new_line(output)
