@@ -8,6 +8,7 @@ module Basic
     rule(:string) {str('"') >> match('[^"]').repeat(0).as(:string) >> str('"')}
     rule(:expression) {string}
     rule(:remark) {(str('REM') >> printable.repeat(0)).as(:remark)}
+    rule(:print_separator) {match('[;,]').as(:print_separator)}
     rule(:print) {str('PRINT').as(:print)}
     rule(:statement) {(remark | print) >> space?}
     rule(:statements) do

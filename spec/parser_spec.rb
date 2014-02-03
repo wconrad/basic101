@@ -65,6 +65,12 @@ module Basic
       it_should_match 'REM THIS IS A REMARK'
     end
 
+    describe 'print_separator' do
+      let(:rule) {parser.print_separator}
+      it_should_match ';'
+      it_should_match ','
+    end
+
     describe 'print' do
       let(:rule) {parser.print}
       it_should_match 'PRINT'

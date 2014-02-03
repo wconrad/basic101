@@ -47,6 +47,12 @@ module Basic
                           RemarkStatement.new)
     end
 
+    describe 'print_separator' do
+      let(:rule) {:print_separator}
+      it_should_transform(';', NoSpacePrintSeparator.new)
+      it_should_transform(',', TabPrintSeparator.new)
+    end
+
     describe 'print' do
       let(:rule) {:print}
       it_should_transform('PRINT',
