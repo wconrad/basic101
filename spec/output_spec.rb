@@ -14,6 +14,20 @@ module Basic
       end
     end
 
+    describe '#print_new_line' do
+      specify do
+        output.print_new_line
+        expect(file.string).to eq "\n"
+      end
+    end
+
+    describe '#print_tab' do
+      specify do
+        output.print_tab
+        expect(file.string).to eq "\t"
+      end
+    end
+
   end
 
 end

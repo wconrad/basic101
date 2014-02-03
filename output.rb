@@ -1,5 +1,6 @@
 module Basic
 
+  #TODO change API to just #print
   class Output
 
     def initialize(file = $stdout)
