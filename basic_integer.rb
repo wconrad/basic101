@@ -16,7 +16,11 @@ module Basic
     end
 
     def to_i
-      @value
+      @value.to_i
+    end
+
+    def to_f
+      @value.to_f
     end
 
     def print_string(output)

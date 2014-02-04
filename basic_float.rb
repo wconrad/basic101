@@ -15,6 +15,14 @@ module Basic
       self
     end
 
+    def to_i
+      @value.to_i
+    end
+
+    def to_f
+      @value.to_f
+    end
+
     def print_string(output)
       output.print @value.to_s
     end

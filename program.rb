@@ -8,6 +8,7 @@ module Basic
       @statements = Statements.new
       @output = Output.new(output_file)
       @functions = {
+        'RND' => RndFunction.new,
         'TAB' => TabFunction.new,
       }
       @variables = {}
@@ -31,6 +32,7 @@ module Basic
     end
 
     def run
+      srand(0)
       @statement_index = 0
       while statement = @statements[@statement_index]
         statement.execute(self)
