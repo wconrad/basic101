@@ -17,7 +17,7 @@ module Basic
         str('(') >> space? >> argument_list.as(:argument_list) >>
         space? >> str(')')
     end
-    rule(:expression) {string}
+    rule(:expression) {string | integer | function_call}
     rule(:remark) {(str('REM') >> printable.repeat(0)).as(:remark)}
     rule(:print_arguments) do
       (space? >> (expression | print_separator)).repeat(0)

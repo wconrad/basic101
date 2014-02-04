@@ -4,7 +4,7 @@ require_relative 'print_statement'
 module Basic
 
   class Transform < Parslet::Transform
-    rule(:integer => simple(:integer)) {integer.to_i}
+    rule(:integer => simple(:i)) {BasicInteger.new(i.to_i)}
     rule(:string => simple(:s)) {BasicString.new(s)}
     rule(:function_identifier => simple(:identifier), 
          :argument_list => subtree(:args)) do
@@ -22,7 +22,7 @@ module Basic
     rule(:line_number => simple(:line_number),
          :statements => subtree(:statements)) do
       s = Array(statements)
-      s.first.line_number = line_number
+      s.first.line_number = line_number.to_i
       s
     end
   end

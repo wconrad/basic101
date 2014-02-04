@@ -3,10 +3,14 @@ module Basic
   class Program
 
     attr_reader :output
+    attr_reader :functions
 
     def initialize(output_file = $stdout)
       @statements = Statements.new
       @output = Output.new(output_file)
+      @functions = {
+        'TAB' => TabFunction.new,
+      }
     end
 
     def load(source_file)

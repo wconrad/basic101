@@ -77,6 +77,8 @@ module Basic
     describe 'expression' do
       let(:rule) {parser.expression}
       it_should_match '"abc"'
+      it_should_match '123'
+      it_should_match 'TAB(10)'
     end
 
     describe 'remark' do

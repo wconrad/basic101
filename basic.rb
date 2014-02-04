@@ -5,6 +5,7 @@ require 'optparse'
 require 'parslet'
 
 require_relative 'arguments'
+require_relative 'basic_integer'
 require_relative 'basic_string'
 require_relative 'exceptions'
 require_relative 'function_call'
@@ -19,6 +20,8 @@ require_relative 'program'
 require_relative 'remark_statement'
 require_relative 'statement'
 require_relative 'statements'
+require_relative 'tab'
+require_relative 'tab_function'
 require_relative 'transform'
 
 Basic::Main.new(ARGV).run if $0 == __FILE__

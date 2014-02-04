@@ -28,7 +28,7 @@ module Basic
 
     describe 'integer' do
       let(:rule) {:integer}
-      it_should_transform('123', 123)
+      it_should_transform('123', BasicInteger.new(123))
     end
 
     describe 'string' do

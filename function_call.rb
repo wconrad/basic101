@@ -12,6 +12,17 @@ module Basic
       self.state == other.state
     end
 
+    def eval(program)
+      function = program.functions[@identifier.to_s]
+      unless function
+        raise UndefinedFunction, "Undefined function #{@identifier }"
+      end
+      argument_values = @arguments.map do |argument|
+        argument.eval(program)
+      end
+      function.call(program, argument_values)
+    end
+
     protected
 
     def state

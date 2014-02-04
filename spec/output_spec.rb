@@ -7,35 +7,69 @@ module Basic
     let(:file) {StringIO.new}
     subject(:output) {described_class.new(file)}
 
-    context 'string' do
-      specify do
-        output.print 'abc'
-        expect(file.string).to eq 'abc'
+    describe '#print' do
+
+      context 'string' do
+        specify do
+          output.print 'abc'
+          expect(file.string).to eq 'abc'
+        end
       end
+
+      context 'new line' do
+        specify do
+          output.print "\n"
+          expect(file.string).to eq "\n"
+        end
+      end
+
+      context 'tab' do
+
+        specify do
+          output.print "\tx"
+          expect(file.string).to eq "               x"
+        end
+
+        specify do
+          output.print "abcdefghijklmn\tx"
+          expect(file.string).to eq "abcdefghijklmn x"
+        end
+
+        specify do
+          output.print "abcdefghijklmno\tx"
+          expect(file.string).to eq "abcdefghijklmno               x"
+        end
+
+      end
+
     end
 
-    context 'new line' do
-      specify do
-        output.print "\n"
-        expect(file.string).to eq "\n"
-      end
-    end
+    context '#tab_to' do
 
-    context 'tab' do
-
-      specify do
-        output.print "\tx"
-        expect(file.string).to eq "               x"
+      context 'tab to following column' do
+        specify do
+          output.tab_to(4)
+          output.print('x')
+          expect(file.string).to eq '   x'
+        end
       end
 
-      specify do
-        output.print "abcdefghijklmn\tx"
-        expect(file.string).to eq "abcdefghijklmn x"
+      context 'tab to current column' do
+        specify do
+          output.print('   ')
+          output.tab_to(4)
+          output.print('x')
+          expect(file.string).to eq '   x'
+        end
       end
 
-      specify do
-        output.print "abcdefghijklmno\tx"
-        expect(file.string).to eq "abcdefghijklmno               x"
+      context 'tab to previous column' do
+        specify do
+          output.print('   x')
+          output.tab_to(4)
+          output.print('y')
+          expect(file.string).to eq "   x\n   y"
+        end
       end
 
     end

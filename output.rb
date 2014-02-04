@@ -24,6 +24,12 @@ module Basic
       end
     end
 
+    def tab_to(column)
+      spaces_needed = -> {column - (@chars_on_line + 1)}
+      print("\n") if spaces_needed.call < 0
+      print ' ' * spaces_needed.call
+    end
+
     private
 
     def write_char(c)
