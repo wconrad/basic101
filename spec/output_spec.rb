@@ -22,10 +22,22 @@ module Basic
     end
 
     context 'tab' do
+
       specify do
-        output.print "\t"
-        expect(file.string).to eq "\t"
+        output.print "\tx"
+        expect(file.string).to eq "               x"
       end
+
+      specify do
+        output.print "abcdefghijklmn\tx"
+        expect(file.string).to eq "abcdefghijklmn x"
+      end
+
+      specify do
+        output.print "abcdefghijklmno\tx"
+        expect(file.string).to eq "abcdefghijklmno               x"
+      end
+
     end
 
   end

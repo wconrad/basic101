@@ -3,7 +3,7 @@ module Basic
   class BasicString
 
     def initialize(value)
-      @value = value
+      @value = value.to_s
     end
 
     def ==(other)
