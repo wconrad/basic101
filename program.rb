@@ -3,7 +3,6 @@ module Basic
   class Program
 
     attr_reader :output
-    attr_reader :functions
 
     def initialize(output_file = $stdout)
       @statements = Statements.new
@@ -35,6 +34,14 @@ module Basic
       while statement = @statements[@statement_index]
         statement.execute(self)
       end
+    end
+
+    def function_exists?(identifier)
+      @functions.has_key?(identifier.to_s)
+    end
+
+    def call_function(identifier, argument_values)
+      @functions[identifier.to_s].call(self, argument_values)
     end
 
   end

@@ -13,20 +13,23 @@ module Basic
     end
 
     def eval(program)
-      function = program.functions[@identifier.to_s]
-      unless function
+      if program.function_exists?(@identifier)
+        program.call_function(@identifier, argument_values(program))
+      else
         raise UndefinedFunction, "Undefined function #{@identifier }"
       end
-      argument_values = @arguments.map do |argument|
-        argument.eval(program)
-      end
-      function.call(program, argument_values)
     end
 
     protected
 
     def state
       [@identifier, @arguments]
+    end
+
+    def argument_values(program)
+      @arguments.map do |argument|
+        argument.eval(program)
+      end
     end
 
   end
