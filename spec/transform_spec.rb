@@ -31,6 +31,11 @@ module Basic
       it_should_transform('123', BasicInteger.new(123))
     end
 
+    describe 'integer' do
+      let(:rule) {:float}
+      it_should_transform('1.2', BasicFloat.new(1.2))
+    end
+
     describe 'string' do
       let(:rule) {:string}
       it_should_transform('"abc"', BasicString.new('abc'))

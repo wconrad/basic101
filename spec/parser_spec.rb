@@ -43,10 +43,20 @@ module Basic
       it_should_not_match "\x7f"
     end
 
-    describe 'integer' do
-      let(:rule) {parser.integer}
+    describe 'decimal' do
+      let(:rule) {parser.decimal}
       it_should_match '0'
       it_should_match '123'
+    end
+
+    describe 'integer' do
+      let(:rule) {parser.integer}
+      it_should_match '123'
+    end
+
+    describe 'float' do
+      let(:rule) {parser.float}
+      it_should_match '1.2'
     end
 
     describe 'line_number' do
@@ -103,6 +113,7 @@ module Basic
       let(:rule) {parser.expression}
       it_should_match '"abc"'
       it_should_match '123'
+      it_should_match '1.2'
       it_should_match 'TAB(10)'
       it_should_match 'A(10)'
       it_should_match 'I'

@@ -5,6 +5,7 @@ module Basic
 
   class Transform < Parslet::Transform
     rule(:integer => simple(:i)) {BasicInteger.new(i.to_i)}
+    rule(:float => simple(:f)) {BasicFloat.new(f.to_f)}
     rule(:string => simple(:s)) {BasicString.new(s)}
     rule(:subscript_base => simple(:identifier), 
          :argument_list => subtree(:args)) do

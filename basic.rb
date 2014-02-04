@@ -5,6 +5,7 @@ require 'optparse'
 require 'parslet'
 
 require_relative 'arguments'
+require_relative 'basic_float'
 require_relative 'basic_integer'
 require_relative 'basic_string'
 require_relative 'exceptions'

@@ -4,7 +4,9 @@ module Basic
     rule(:space) {match(' ').repeat(1)}
     rule(:space?) {space.maybe}
     rule(:printable) {match('[[:print:]]')}
-    rule(:integer) {match('[0-9]').repeat(1).as(:integer)}
+    rule(:decimal) {match('[0-9]').repeat(1)}
+    rule(:integer) {decimal.as(:integer)}
+    rule(:float) {(decimal >> str('.') >> decimal).as(:float)}
     rule(:string) {str('"') >> match('[^"]').repeat(0).as(:string) >> str('"')}
     rule(:identifier) do
       match('[A-Z]') >> match('[A-Z0-9$]').repeat(0)
@@ -23,7 +25,7 @@ module Basic
       reference.as(:lvalue) >> space? >> 
         str('=') >> space? >> expression.as(:rvalue)
     end
-    rule(:expression) {string | integer | reference}
+    rule(:expression) {string | float | integer | reference}
     rule(:remark) {(str('REM') >> printable.repeat(0)).as(:remark)}
     rule(:print_arguments) do
       (space? >> (expression | print_separator)).repeat(0)
