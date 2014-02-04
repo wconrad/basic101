@@ -119,14 +119,34 @@ module Basic
       it_should_match 'S$ = "FOO"'
     end
 
-    describe 'expression' do
-      let(:rule) {parser.expression}
+    describe 'multiply_op' do
+      let(:rule) {parser.multiply_op}
+      it_should_match '*'
+      it_should_match '/'
+    end
+
+    describe 'factor' do
+      let(:rule) {parser.factor}
       it_should_match '"abc"'
       it_should_match '123'
       it_should_match '1.2'
       it_should_match 'TAB(10)'
       it_should_match 'A(10)'
       it_should_match 'I'
+    end
+
+    describe 'term' do
+      let(:rule) {parser.term}
+      it_should_match '1'
+      it_should_match '1 * 2'
+      it_should_match '1 / 2'
+      it_should_match '1 / 2 * 3'
+    end
+
+    describe 'expression' do
+      let(:rule) {parser.expression}
+      it_should_match '1'
+      it_should_match '1 * 2'
     end
 
     describe 'remark' do

@@ -26,7 +26,14 @@ module Basic
       reference.as(:lvalue) >> space? >> 
         str('=') >> space? >> expression.as(:rvalue)
     end
-    rule(:expression) {string | float | integer | reference}
+    rule(:factor) {string | float | integer | reference}
+    rule(:multiply_op) {str('*').as(:multiply) | str('/').as(:divide)}
+    rule(:term) do
+      factor.as(:left) >> space? >> multiply_op >>
+        space? >> term.as(:right) |
+        factor
+    end
+    rule(:expression) {term}
     rule(:remark) {(str('REM') >> printable.repeat(0)).as(:remark)}
     rule(:print_arguments) do
       (space? >> (expression | print_separator)).repeat(0)

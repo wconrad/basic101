@@ -14,6 +14,11 @@ module Basic
     rule(:scalar_reference => simple(:identifier)) do
       ScalarReference.new(identifier)
     end
+    rule(:left => subtree(:left),
+         :multiply => simple(:x),
+         :right => subtree(:right)) do
+      Multiply.new(left, right)
+    end
     rule(:remark => simple(:x)) {RemarkStatement.new}
     rule(:print_separator => ';') {PrintNull.new}
     rule(:print_separator => ',') {PrintTab.new}

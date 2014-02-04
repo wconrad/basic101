@@ -63,6 +63,13 @@ module Basic
                                                  ]))
     end
 
+    describe 'term' do
+      let(:rule) {:term}
+      it_should_transform("1 * 2",
+                          Multiply.new(BasicInteger.new(1),
+                                       BasicInteger.new(2)))
+    end
+
     describe 'expression' do
       let(:rule) {:expression}
       it_should_transform('"abc"', BasicString.new('abc'))
