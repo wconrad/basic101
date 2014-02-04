@@ -10,10 +10,14 @@ module Basic
     end
 
     def execute(program)
-      @args.each do |arg|
-        arg.eval.print_string program.output
+      if @args.empty?
+        program.output.print "\n"
+      else
+        @args.each do |arg|
+          arg.eval.print_string program.output
+        end
+        @args.last.eval.print_new_line program.output
       end
-      @args.last.eval.print_new_line program.output
       program.goto_next
     end
 
