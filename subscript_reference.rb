@@ -1,6 +1,6 @@
 module Basic
 
-  class FunctionCall
+  class SubscriptReference
 
     def initialize(identifier, arguments)
       @identifier = identifier

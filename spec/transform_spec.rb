@@ -36,17 +36,17 @@ module Basic
       it_should_transform('"abc"', BasicString.new('abc'))
     end
 
-    describe 'function_call' do
-      let(:rule) {:function_call}
+    describe 'subscript_reference' do
+      let(:rule) {:subscript_reference}
       it_should_transform('FNA("a")',
-                          FunctionCall.new('FNA', [
-                                             BasicString.new("a")
-                                           ]))
+                          SubscriptReference.new('FNA', [
+                                                   BasicString.new("a")
+                                                 ]))
       it_should_transform('FNA("a", "b")',
-                          FunctionCall.new('FNA', [
-                                             BasicString.new("a"),
-                                             BasicString.new("b")
-                                           ]))
+                          SubscriptReference.new('FNA', [
+                                                   BasicString.new("a"),
+                                                   BasicString.new("b")
+                                                 ]))
     end
 
     describe 'expression' do

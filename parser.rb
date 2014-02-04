@@ -12,12 +12,12 @@ module Basic
     rule(:argument_list) do
       expression >> (space? >> str(',') >> space? >> expression).repeat(0)
     end
-    rule(:function_call) do
+    rule(:subscript_reference) do
       identifier.as(:function_identifier) >> space? >> 
         str('(') >> space? >> argument_list.as(:argument_list) >>
         space? >> str(')')
     end
-    rule(:expression) {string | integer | function_call}
+    rule(:expression) {string | integer | subscript_reference}
     rule(:remark) {(str('REM') >> printable.repeat(0)).as(:remark)}
     rule(:print_arguments) do
       (space? >> (expression | print_separator)).repeat(0)

@@ -8,7 +8,7 @@ module Basic
     rule(:string => simple(:s)) {BasicString.new(s)}
     rule(:function_identifier => simple(:identifier), 
          :argument_list => subtree(:args)) do
-      FunctionCall.new(identifier, Array(args))
+      SubscriptReference.new(identifier, Array(args))
     end
     rule(:remark => simple(:x)) {RemarkStatement.new}
     rule(:print_separator => ';') {PrintNull.new}
