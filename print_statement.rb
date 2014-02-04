@@ -14,9 +14,9 @@ module Basic
         program.output.print "\n"
       else
         @args.each do |arg|
-          arg.eval.print_string program.output
+          arg.eval(program).print_string program.output
         end
-        @args.last.eval.print_new_line program.output
+        @args.last.eval(program).print_new_line program.output
       end
       program.goto_next
     end

@@ -11,7 +11,7 @@ module Basic
       self.value == other.value
     end
 
-    def eval
+    def eval(program)
       self
     end
 
