@@ -22,7 +22,7 @@ module Basic
     protected
 
     def state
-      [@reference, @expression]
+      super + [@reference, @expression]
     end
 
   end

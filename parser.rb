@@ -32,13 +32,16 @@ module Basic
     rule(:print) do
       str('PRINT') >> print_arguments.as(:print_arguments)
     end
-    rule(:statement) {remark | print | let}
+    rule(:goto) do
+      str('GOTO').as(:goto) >> space? >> integer
+    end
+    rule(:statement) {goto | remark | print | let}
     rule(:statements) do
       statement >>
         (space? >> str(':') >> space? >> statement).repeat(0) >> space?
     end
     rule(:line) do
-      integer.as(:line_number) >> space? >> statements.as(:statements)
+      integer >> space? >> statements.as(:statements)
     end
     root(:line)
   end

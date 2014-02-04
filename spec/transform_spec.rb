@@ -85,9 +85,9 @@ module Basic
       it_should_transform('PRINT',
                           PrintStatement.new)
       it_should_transform('PRINT "ABC"',
-                          PrintStatement.new(nil, [BasicString.new("ABC")]))
+                          PrintStatement.new([BasicString.new("ABC")]))
       it_should_transform('PRINT "ABC";',
-                          PrintStatement.new(nil, [
+                          PrintStatement.new([
                                                BasicString.new("ABC"),
                                                PrintNull.new
                                              ]))
@@ -100,10 +100,17 @@ module Basic
                                            BasicInteger.new(1)))
     end
 
+    describe 'goto' do
+      let(:rule) {:goto}
+      it_should_transform('GOTO 10', GotoStatement.new(10))
+    end
+
     describe 'line' do
       let(:rule) {:line}
+      print_statement = PrintStatement.new
+      print_statement.line_number = 10
       it_should_transform('10 PRINT:REM', [
-                            PrintStatement.new(10),
+                            print_statement,
                             RemarkStatement.new,
                           ])
     end

@@ -18,11 +18,15 @@ module Acceptance
     def run
       output_file = StringIO.new
       program = Basic::Program.new(output_file)
-      File.open(@basic_path, 'r') do |source_file|
-        program.load(source_file)
+      begin
+        File.open(@basic_path, 'r') do |source_file|
+          program.load(source_file)
+        end
+        program.run
+        @output = output_file.string
+      rescue Parslet::ParseFailed => e
+        @output = e.to_s + "\n"
       end
-      program.run
-      @output = output_file.string
     end
 
     def print_progress

@@ -16,16 +16,21 @@ module Basic
     rule(:remark => simple(:x)) {RemarkStatement.new}
     rule(:print_separator => ';') {PrintNull.new}
     rule(:print_separator => ',') {PrintTab.new}
+    #TODO what is the relationship between this rule and the next one?
+    #Are they both needed?
     rule(:print_arguments => sequence(:args)) do
-      PrintStatement.new(nil, args)
+      PrintStatement.new(args)
     end
     rule(:print => simple(:print), :print_arg => simple(:x)) do
-      PrintStatement.new(nil, Array(x))
+      PrintStatement.new(Array(x))
     end
     rule(:lvalue => simple(:lvalue), :rvalue => simple(:rvalue)) do
       LetStatement.new(lvalue, rvalue)
     end
-    rule(:line_number => simple(:line_number),
+    rule(:goto => simple(:x), :integer => simple(:line_number)) do
+      GotoStatement.new(line_number.to_i)
+    end
+    rule(:integer => simple(:line_number),
          :statements => subtree(:statements)) do
       s = Array(statements)
       s.first.line_number = line_number.to_i

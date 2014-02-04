@@ -45,7 +45,14 @@ module Basic
 
     describe 'integer' do
       let(:rule) {parser.integer}
+      it_should_match '0'
+      it_should_match '123'
+    end
+
+    describe 'line_number' do
+      let(:rule) {parser.integer}
       it_should_match '10'
+      it_should_match '20'
     end
     
     describe 'string' do
@@ -129,11 +136,18 @@ module Basic
       it_should_match 'PRINT "A" ;'
     end
 
+    describe 'goto' do
+      let(:rule) {parser.goto}
+      it_should_match 'GOTO 10'
+      it_should_match 'GOTO10'
+    end
+
     describe 'statement' do
       let(:rule) {parser.statement}
       it_should_match 'REM'
       it_should_match 'PRINT'
       it_should_match 'I=1'
+      it_should_match 'GOTO 10'
     end
 
     describe 'statements' do

@@ -4,8 +4,7 @@ module Basic
 
   class PrintStatement < Statement
 
-    def initialize(line_number = nil, args = [])
-      super(line_number)
+    def initialize(args = [])
       @args = args
     end
 
