@@ -53,7 +53,27 @@ module Basic
       it_should_match '""'
       it_should_match '"abc"'
     end
-    
+
+    describe 'identifier' do
+      let(:rule) {parser.identifier}
+      it_should_match 'A'
+      it_should_match 'A1'
+      it_should_match 'A$'
+      it_should_match 'A1$'
+    end
+
+    describe 'argument_list' do
+      let(:rule) {parser.argument_list}
+      it_should_match '"a"'
+      it_should_match '"a", "b"'
+    end
+
+    describe 'function_call' do
+      let(:rule) {parser.function_call}
+      it_should_match 'FNA("a")'
+      it_should_match 'FNA("a", "b")'
+    end
+
     describe 'expression' do
       let(:rule) {parser.expression}
       it_should_match '"abc"'
