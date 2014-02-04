@@ -29,11 +29,15 @@ module Basic
     describe 'integer' do
       let(:rule) {:integer}
       it_should_transform('123', BasicInteger.new(123))
+      it_should_transform('-123', BasicInteger.new(-123))
+      it_should_transform('+123', BasicInteger.new(123))
     end
 
-    describe 'integer' do
+    describe 'float' do
       let(:rule) {:float}
       it_should_transform('1.2', BasicFloat.new(1.2))
+      it_should_transform('-1.2', BasicFloat.new(-1.2))
+      it_should_transform('+1.2', BasicFloat.new(1.2))
     end
 
     describe 'string' do

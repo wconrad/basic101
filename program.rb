@@ -8,6 +8,7 @@ module Basic
       @statements = Statements.new
       @output = Output.new(output_file)
       @functions = {
+        'INT' => IntFunction.new,
         'RND' => RndFunction.new,
         'TAB' => TabFunction.new,
       }

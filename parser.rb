@@ -5,8 +5,9 @@ module Basic
     rule(:space?) {space.maybe}
     rule(:printable) {match('[[:print:]]')}
     rule(:decimal) {match('[0-9]').repeat(1)}
-    rule(:integer) {decimal.as(:integer)}
-    rule(:float) {(decimal >> str('.') >> decimal).as(:float)}
+    rule(:sign)  {match('[+-]')}
+    rule(:integer) {(sign.maybe >> decimal).as(:integer)}
+    rule(:float) {(sign.maybe >> decimal >> str('.') >> decimal).as(:float)}
     rule(:string) {str('"') >> match('[^"]').repeat(0).as(:string) >> str('"')}
     rule(:identifier) do
       match('[A-Z]') >> match('[A-Z0-9$]').repeat(0)

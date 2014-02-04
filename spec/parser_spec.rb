@@ -49,14 +49,24 @@ module Basic
       it_should_match '123'
     end
 
+    describe 'sign' do
+      let(:rule) {parser.sign}
+      it_should_match '+'
+      it_should_match '-'
+    end
+
     describe 'integer' do
       let(:rule) {parser.integer}
       it_should_match '123'
+      it_should_match '-123'
+      it_should_match '+123'
     end
 
     describe 'float' do
       let(:rule) {parser.float}
       it_should_match '1.2'
+      it_should_match '-1.2'
+      it_should_match '+1.2'
     end
 
     describe 'line_number' do
