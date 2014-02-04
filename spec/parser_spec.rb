@@ -74,11 +74,31 @@ module Basic
       it_should_match 'FNA("a", "b")'
     end
 
+    describe 'scalar_reference' do
+      let(:rule) {parser.scalar_reference}
+      it_should_match 'A'
+      it_should_match 'S$'
+    end
+
+    describe 'reference' do
+      let(:rule) {parser.reference}
+      it_should_match 'A(1)'
+      it_should_match 'S$'
+    end
+    
+    describe 'let' do
+      let(:rule) {parser.let}
+      it_should_match 'I=1'
+      it_should_match 'S$ = "FOO"'
+    end
+
     describe 'expression' do
       let(:rule) {parser.expression}
       it_should_match '"abc"'
       it_should_match '123'
       it_should_match 'TAB(10)'
+      it_should_match 'A(10)'
+      it_should_match 'I'
     end
 
     describe 'remark' do
@@ -113,20 +133,20 @@ module Basic
       let(:rule) {parser.statement}
       it_should_match 'REM'
       it_should_match 'PRINT'
-      it_should_match 'PRINT '
+      it_should_match 'I=1'
     end
 
     describe 'statements' do
       let(:rule) {parser.statements}
       it_should_match 'REM'
       it_should_match 'PRINT:PRINT'
-      it_should_match 'PRINT : PRINT'
+      it_should_match 'PRINT : PRINT '
     end
 
     describe 'line' do
       let(:rule) {parser.line}
       it_should_match '10 REM'
-      it_should_match '20 PRINT:PRINT'
+      it_should_match '20  PRINT:PRINT'
     end
 
   end

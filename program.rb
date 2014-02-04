@@ -10,6 +10,7 @@ module Basic
       @functions = {
         'TAB' => TabFunction.new,
       }
+      @variables = {}
     end
 
     def load(source_file)
@@ -42,6 +43,15 @@ module Basic
 
     def call_function(identifier, argument_values)
       @functions[identifier.to_s].call(self, argument_values)
+    end
+
+    def get_variable(identifier)
+      value = @variables[identifier.to_s]
+      value || BasicInteger.new(0)
+    end
+
+    def set_variable(identifier, value)
+      @variables[identifier.to_s] = value
     end
 
   end

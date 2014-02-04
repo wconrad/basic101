@@ -36,6 +36,11 @@ module Basic
       it_should_transform('"abc"', BasicString.new('abc'))
     end
 
+    describe 'scalar_reference' do
+      let(:rule) {:scalar_reference}
+      it_should_transform('A', ScalarReference.new('A'))
+    end
+
     describe 'subscript_reference' do
       let(:rule) {:subscript_reference}
       it_should_transform('FNA("a")',
@@ -86,6 +91,13 @@ module Basic
                                                BasicString.new("ABC"),
                                                PrintNull.new
                                              ]))
+    end
+
+    describe 'let' do
+      let(:rule) {:let}
+      it_should_transform('I=1',
+                          LetStatement.new(ScalarReference.new('I'),
+                                           BasicInteger.new(1)))
     end
 
     describe 'line' do

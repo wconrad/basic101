@@ -6,9 +6,12 @@ module Basic
   class Transform < Parslet::Transform
     rule(:integer => simple(:i)) {BasicInteger.new(i.to_i)}
     rule(:string => simple(:s)) {BasicString.new(s)}
-    rule(:function_identifier => simple(:identifier), 
+    rule(:subscript_base => simple(:identifier), 
          :argument_list => subtree(:args)) do
       SubscriptReference.new(identifier, Array(args))
+    end
+    rule(:scalar_reference => simple(:identifier)) do
+      ScalarReference.new(identifier)
     end
     rule(:remark => simple(:x)) {RemarkStatement.new}
     rule(:print_separator => ';') {PrintNull.new}
@@ -18,6 +21,9 @@ module Basic
     end
     rule(:print => simple(:print), :print_arg => simple(:x)) do
       PrintStatement.new(nil, Array(x))
+    end
+    rule(:lvalue => simple(:lvalue), :rvalue => simple(:rvalue)) do
+      LetStatement.new(lvalue, rvalue)
     end
     rule(:line_number => simple(:line_number),
          :statements => subtree(:statements)) do
