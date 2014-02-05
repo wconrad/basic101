@@ -2,6 +2,8 @@ module Basic
 
   class BasicInteger
 
+    attr_reader :value
+
     def initialize(value)
       @value = value
     end
@@ -30,10 +32,6 @@ module Basic
     def print_new_line(output)
       output.print "\n"
     end
-
-    protected
-
-    attr_reader :value
 
   end
 
