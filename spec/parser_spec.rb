@@ -125,6 +125,12 @@ module Basic
       it_should_match '/'
     end
 
+    describe 'addition_op' do
+      let(:rule) {parser.addition_op}
+      it_should_match '+'
+      it_should_match '-'
+    end
+
     describe 'factor' do
       let(:rule) {parser.factor}
       it_should_match '"abc"'

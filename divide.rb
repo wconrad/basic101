@@ -1,4 +1,4 @@
-require_relative 'wrap_value'
+require_relative 'binary_math_operation'
 
 module Basic
 

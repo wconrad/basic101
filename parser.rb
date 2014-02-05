@@ -28,13 +28,19 @@ module Basic
     end
     rule(:factor) {string | float | integer | reference}
     rule(:multiply_op) {str('*').as(:multiply) | str('/').as(:divide)}
+    rule(:addition_op) {str('+').as(:add) | str('-').as(:subtract)}
     rule(:term) do
       factor.as(:left) >>
         (space? >> multiply_op.as(:operator) >>
          space? >> factor.as(:right)
          ).repeat(1).as(:operations).maybe
     end
-    rule(:expression) {term}
+    rule(:expression) do
+      term >>
+        (space? >> addition_op.as(:operator) >>
+         space? >> factor.as(:right)
+         ).repeat(1).as(:operations).maybe
+    end
     rule(:remark) {(str('REM') >> printable.repeat(0)).as(:remark)}
     rule(:print_arguments) do
       (space? >> (expression | print_separator)).repeat(0)

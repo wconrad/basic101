@@ -69,6 +69,12 @@ module Basic
       it_should_transform('/', Divide.new)
     end
 
+    describe 'addition_op' do
+      let(:rule) {:addition_op}
+      it_should_transform('+', Add.new)
+      it_should_transform('-', Subtract.new)
+    end
+
     describe 'term' do
       let(:rule) {:term}
       it_should_transform("1 * 2",
@@ -83,6 +89,11 @@ module Basic
     describe 'expression' do
       let(:rule) {:expression}
       it_should_transform('"abc"', BasicString.new('abc'))
+      it_should_transform('1 + 2', BinaryOperations.new(BasicInteger.new(1),
+                                                        [
+                                                          BinaryOperation.new(Add.new,
+                                                                              BasicInteger.new(2)),
+                                                        ]))
     end
 
     describe 'remark' do

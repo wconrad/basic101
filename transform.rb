@@ -20,6 +20,12 @@ module Basic
     rule(:divide => simple(:x)) do
       Divide.new
     end
+    rule(:add => simple(:x)) do
+      Add.new
+    end
+    rule(:subtract => simple(:x)) do
+      Subtract.new
+    end
     rule(:operator => simple(:operator),
          :right => simple(:right)) do
       BinaryOperation.new(operator, right)

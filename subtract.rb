@@ -2,12 +2,12 @@ require_relative 'binary_math_operation'
 
 module Basic
 
-  class Multiply
+  class Subtract
 
     include BinaryMathOperation
 
     def do_math(left, right)
-      result = left * right
+      result = left - right
     end
 
   end
