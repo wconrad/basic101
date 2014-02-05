@@ -1,4 +1,4 @@
-require_relative 'numeric_operation'
+require_relative 'wrap_value'
 
 module Basic
 
