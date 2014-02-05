@@ -66,6 +66,7 @@ module Basic
     describe 'multiply_op' do
       let(:rule) {:multiply_op}
       it_should_transform('*', Multiply.new)
+      it_should_transform('/', Divide.new)
     end
 
     describe 'term' do

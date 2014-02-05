@@ -17,6 +17,9 @@ module Basic
     rule(:multiply => simple(:x)) do
       Multiply.new
     end
+    rule(:divide => simple(:x)) do
+      Divide.new
+    end
     rule(:operator => simple(:operator),
          :right => simple(:right)) do
       BinaryOperation.new(operator, right)
