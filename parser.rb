@@ -26,7 +26,10 @@ module Basic
       reference.as(:lvalue) >> space? >> 
         str('=') >> space? >> expression.as(:rvalue)
     end
-    rule(:factor) {string | float | integer | reference}
+    rule(:factor) do
+      string | float | integer | reference |
+        str('(') >> space? >> expression >> space? >> str(')')
+    end
     rule(:multiply_op) {str('*').as(:multiply) | str('/').as(:divide)}
     rule(:addition_op) {str('+').as(:add) | str('-').as(:subtract)}
     rule(:term) do
