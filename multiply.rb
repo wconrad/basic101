@@ -2,12 +2,19 @@ require_relative 'numeric_operation'
 
 module Basic
 
-  class Multiply < NumericOperation
+  class Multiply
 
-    protected
+    include WrapValue
 
-    def operate(left, right)
-      left * right
+    def operate(left, right, program)
+      left_value = left.eval(program).value
+      right_value = right.eval(program).value
+      result = left_value * right_value
+      wrap_value(result)
+    end
+
+    def ==(other)
+      other.is_a?(self.class)
     end
 
   end

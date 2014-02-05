@@ -63,11 +63,20 @@ module Basic
                                                  ]))
     end
 
+    describe 'multiply_op' do
+      let(:rule) {:multiply_op}
+      it_should_transform('*', Multiply.new)
+    end
+
     describe 'term' do
       let(:rule) {:term}
       it_should_transform("1 * 2",
-                          Multiply.new(BasicInteger.new(1),
-                                       BasicInteger.new(2)))
+                          BinaryOperations.new(BasicInteger.new(1),
+                                            [
+                                              BinaryOperation.new(Multiply.new,
+                                                                  BasicInteger.new(2)),
+                                            ]))
+      it_should_transform("1", BasicInteger.new(1))
     end
 
     describe 'expression' do
@@ -113,7 +122,7 @@ module Basic
       let(:rule) {:let}
       it_should_transform('I=1',
                           LetStatement.new(ScalarReference.new('I'),
-                                           BasicInteger.new(1)))
+                                           transform(:expression, '1')))
     end
 
     describe 'goto' do

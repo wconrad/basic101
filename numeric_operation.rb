@@ -2,6 +2,7 @@ require_relative 'wrap_value'
 
 module Basic
 
+  #TODO - delete?
   class NumericOperation
 
     include WrapValue

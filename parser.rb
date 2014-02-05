@@ -29,9 +29,10 @@ module Basic
     rule(:factor) {string | float | integer | reference}
     rule(:multiply_op) {str('*').as(:multiply) | str('/').as(:divide)}
     rule(:term) do
-      factor.as(:left) >> space? >> multiply_op >>
-        space? >> term.as(:right) |
-        factor
+      factor.as(:left) >>
+        (space? >> multiply_op.as(:operator) >>
+         space? >> factor.as(:right)
+         ).repeat(1).as(:operations).maybe
     end
     rule(:expression) {term}
     rule(:remark) {(str('REM') >> printable.repeat(0)).as(:remark)}

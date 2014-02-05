@@ -14,11 +14,18 @@ module Basic
     rule(:scalar_reference => simple(:identifier)) do
       ScalarReference.new(identifier)
     end
-    rule(:left => subtree(:left),
-         :multiply => simple(:x),
-         :right => subtree(:right)) do
-      Multiply.new(left, right)
+    rule(:multiply => simple(:x)) do
+      Multiply.new
     end
+    rule(:operator => simple(:operator),
+         :right => simple(:right)) do
+      BinaryOperation.new(operator, right)
+    end
+    rule(:left => simple(:left),
+         :operations => sequence(:operations)) do
+      BinaryOperations.new(left, operations)
+    end
+    rule(:left => simple(:left)) {left}
     rule(:remark => simple(:x)) {RemarkStatement.new}
     rule(:print_separator => ';') {PrintNull.new}
     rule(:print_separator => ',') {PrintTab.new}
