@@ -206,12 +206,18 @@ module Basic
       it_should_match 'GOTO10'
     end
 
+    describe 'if_statement' do
+      let(:rule) {parser.if_statement}
+      it_should_match 'IF 1 THEN 20'
+    end
+
     describe 'statement' do
       let(:rule) {parser.statement}
       it_should_match 'REM'
       it_should_match 'PRINT'
       it_should_match 'I=1'
       it_should_match 'GOTO 10'
+      it_should_match 'IF 1 THEN 20'
     end
 
     describe 'statements' do

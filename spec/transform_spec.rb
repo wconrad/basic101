@@ -163,6 +163,13 @@ module Basic
       let(:rule) {:goto}
       it_should_transform('GOTO 10', GotoStatement.new(10))
     end
+    
+    describe 'if_statement' do
+      let(:rule) {:if_statement}
+      it_should_transform('IF 1 THEN 10',
+                          IfStatement.new(BasicInteger.new(1),
+                                          BasicInteger.new(10)))
+    end
 
     describe 'line' do
       let(:rule) {:line}

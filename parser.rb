@@ -91,14 +91,14 @@ module Basic
     end
 
     rule(:simple_expression) do
-      term >>
+      term.as(:left) >>
         (space? >> addition_op.as(:operator) >>
          space? >> term.as(:right)
          ).repeat(1).as(:operations).maybe
     end
 
     rule(:expression) do
-      simple_expression >>
+      simple_expression.as(:left) >>
         (space? >> comparison_op.as(:operator) >>
          space? >> factor.as(:right)
          ).repeat(1).as(:operations).maybe
@@ -124,8 +124,13 @@ module Basic
       str('GOTO').as(:goto) >> space? >> integer
     end
 
+    rule(:if_statement) do
+      str('IF') >> space? >> expression.as(:condition) >> 
+        space? >> str('THEN') >> space? >> integer.as(:if_true)
+    end
+
     rule(:statement) do
-      goto | remark | print | let
+      goto | remark | print | let | if_statement
     end
 
     rule(:statements) do
