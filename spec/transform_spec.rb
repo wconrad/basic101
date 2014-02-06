@@ -171,6 +171,11 @@ module Basic
                                           BasicInteger.new(10)))
     end
 
+    describe 'randomize' do
+      let(:rule) {:randomize}
+      it_should_transform('RANDOMIZE', RandomizeStatement.new)
+    end
+
     describe 'line' do
       let(:rule) {:line}
       print_statement = PrintStatement.new

@@ -211,6 +211,11 @@ module Basic
       it_should_match 'IF 1 THEN 20'
     end
 
+    describe 'randomize' do
+      let(:rule) {parser.randomize}
+      it_should_match 'RANDOMIZE'
+    end
+
     describe 'statement' do
       let(:rule) {parser.statement}
       it_should_match 'REM'
@@ -218,6 +223,7 @@ module Basic
       it_should_match 'I=1'
       it_should_match 'GOTO 10'
       it_should_match 'IF 1 THEN 20'
+      it_should_match 'RANDOMIZE'
     end
 
     describe 'statements' do

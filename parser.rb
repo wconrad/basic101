@@ -129,8 +129,12 @@ module Basic
         space? >> str('THEN') >> space? >> integer.as(:if_true)
     end
 
+    rule(:randomize) do
+      str('RANDOMIZE').as(:randomize)
+    end
+
     rule(:statement) do
-      goto | remark | print | let | if_statement
+      goto | remark | print | let | if_statement | randomize
     end
 
     rule(:statements) do

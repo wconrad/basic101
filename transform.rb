@@ -104,6 +104,10 @@ module Basic
       GotoStatement.new(line_number.to_i)
     end
 
+    rule(:randomize => simple(:x)) do
+      RandomizeStatement.new
+    end
+
     rule(:condition => simple(:condition),
          :if_true => simple(:true_target)) do
       IfStatement.new(condition, true_target)
