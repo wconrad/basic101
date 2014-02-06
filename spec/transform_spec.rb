@@ -2,6 +2,8 @@ require_relative 'spec_helper'
 
 module Basic
 
+  #TODO do something about this mess.  The deep indentation is awful
+  #to read.
   describe Transform do
 
     let(:parser) {Parser.new}
@@ -75,6 +77,16 @@ module Basic
       it_should_transform('-', Subtract.new)
     end
 
+    describe 'comparison_op' do
+      let(:rule) {:comparison_op}
+      it_should_transform('=', Equal.new)
+      it_should_transform('<>', NotEqual.new)
+      it_should_transform('<', Less.new)
+      it_should_transform('<=', LessOrEqual.new)
+      it_should_transform('>', Greater.new)
+      it_should_transform('>=', GreaterOrEqual.new)
+    end
+
     describe 'term' do
       let(:rule) {:term}
       it_should_transform("1 * 2",
@@ -86,12 +98,22 @@ module Basic
       it_should_transform("1", BasicInteger.new(1))
     end
 
-    describe 'expression' do
-      let(:rule) {:expression}
+    describe 'simple_expression' do
+      let(:rule) {:simple_expression}
       it_should_transform('"abc"', BasicString.new('abc'))
       it_should_transform('1 + 2', BinaryOperations.new(BasicInteger.new(1),
                                                         [
                                                           BinaryOperation.new(Add.new,
+                                                                              BasicInteger.new(2)),
+                                                        ]))
+    end
+
+    describe 'simple_expression' do
+      let(:rule) {:expression}
+      it_should_transform('"abc"', BasicString.new('abc'))
+      it_should_transform('1 < 2', BinaryOperations.new(BasicInteger.new(1),
+                                                        [
+                                                          BinaryOperation.new(Less.new,
                                                                               BasicInteger.new(2)),
                                                         ]))
     end

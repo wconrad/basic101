@@ -1,3 +1,4 @@
+require_relative 'boolean'
 require_relative 'wrap_value'
 
 module Basic
@@ -5,6 +6,7 @@ module Basic
   module BinaryMathOperation
 
     include WrapValue
+    include Boolean
 
     def operate(left, right, program)
       left_value = left.eval(program).value

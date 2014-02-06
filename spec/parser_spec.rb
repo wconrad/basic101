@@ -131,6 +131,16 @@ module Basic
       it_should_match '-'
     end
 
+    describe 'comparison_op' do
+      let(:rule) {parser.comparison_op}
+      it_should_match '='
+      it_should_match '<>'
+      it_should_match '>'
+      it_should_match '>='
+      it_should_match '<'
+      it_should_match '<='
+    end
+
     describe 'factor' do
       let(:rule) {parser.factor}
       it_should_match '"abc"'
@@ -150,10 +160,16 @@ module Basic
       it_should_match '1 / 2 * 3'
     end
 
+    describe 'simple_expression' do
+      let(:rule) {parser.simple_expression}
+      it_should_match '1'
+      it_should_match '1 * 2'
+    end
+
     describe 'expression' do
       let(:rule) {parser.expression}
       it_should_match '1'
-      it_should_match '1 * 2'
+      it_should_match '1 > 2'
     end
 
     describe 'remark' do
