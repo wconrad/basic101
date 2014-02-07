@@ -2,6 +2,8 @@ module Basic
 
   class BasicString
 
+    attr_reader :value
+
     def initialize(value)
       @value = value.to_s
     end
@@ -26,10 +28,6 @@ module Basic
     def simplest
       self
     end
-
-    protected
-
-    attr_reader :value
 
   end
 
