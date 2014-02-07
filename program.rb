@@ -35,6 +35,10 @@ module Basic
       @statement_index += 1
     end
 
+    def end_program
+      @statement_index = @statements.end_index
+    end
+
     def run
       srand(0)
       @statement_index = 0

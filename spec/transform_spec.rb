@@ -184,7 +184,7 @@ module Basic
       it_should_transform('RANDOMIZE', RandomizeStatement.new)
     end
 
-    describe 'input 'do
+    describe 'input' do
       let(:rule) {:input}
       it_should_transform('INPUT I',
                           InputStatement.new(nil,
@@ -192,6 +192,11 @@ module Basic
       it_should_transform('INPUT "FOO"; I',
                           InputStatement.new(BasicString.new('FOO'),
                                              ScalarReference.new(NumericIdentifier.new('I'))))
+    end
+
+    describe 'end_statement' do
+      let(:rule) {:end_statement}
+      it_should_transform('END', EndStatement.new)
     end
 
     describe 'line' do

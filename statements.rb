@@ -30,6 +30,10 @@ module Basic
       end
     end
 
+    def end_index
+      @statements.size + 1
+    end
+
   end
 
 end

@@ -151,8 +151,13 @@ module Basic
         space? >> reference.as(:reference)
     end
 
+    rule(:end_statement) do
+      str('END').as(:end)
+    end
+
     rule(:statement) do
-      goto | remark | print | let | if_statement | randomize | input
+      goto | remark | print | let | if_statement | randomize | input |
+        end_statement
     end
 
     rule(:statements) do

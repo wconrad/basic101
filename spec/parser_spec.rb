@@ -232,6 +232,11 @@ module Basic
       it_should_match 'INPUT "FOO"; A$'
     end
 
+    describe 'end_statement' do
+      let(:rule) {parser.end_statement}
+      it_should_match 'END'
+    end
+
     describe 'statement' do
       let(:rule) {parser.statement}
       it_should_match 'REM'
@@ -241,6 +246,7 @@ module Basic
       it_should_match 'IF 1 THEN 20'
       it_should_match 'RANDOMIZE'
       it_should_match 'INPUT I'
+      it_should_match 'END'
     end
 
     describe 'statements' do

@@ -116,6 +116,10 @@ module Basic
       RandomizeStatement.new
     end
 
+    rule(:end => simple(:x)) do
+      EndStatement.new
+    end
+
     rule(:input => simple(:x),
          :reference => simple(:reference)) do
       InputStatement.new(nil, reference)
