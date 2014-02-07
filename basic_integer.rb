@@ -33,6 +33,10 @@ module Basic
       output.print "\n"
     end
 
+    def simplest
+      self
+    end
+
   end
 
 end

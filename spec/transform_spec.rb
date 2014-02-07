@@ -2,8 +2,6 @@ require_relative 'spec_helper'
 
 module Basic
 
-  #TODO do something about this mess.  The deep indentation is awful
-  #to read.
   describe Transform do
 
     let(:parser) {Parser.new}
@@ -47,19 +45,29 @@ module Basic
       it_should_transform('"abc"', BasicString.new('abc'))
     end
 
+    describe 'numeric_identifier' do
+      let(:rule) {:numeric_identifier}
+      it_should_transform('I', NumericIdentifier.new('I'))
+    end
+
+    describe 'string_identifier' do
+      let(:rule) {:string_identifier}
+      it_should_transform('A$', StringIdentifier.new('A$'))
+    end
+
     describe 'scalar_reference' do
       let(:rule) {:scalar_reference}
-      it_should_transform('A', ScalarReference.new('A'))
+      it_should_transform('A', ScalarReference.new(NumericIdentifier.new('A')))
     end
 
     describe 'subscript_reference' do
       let(:rule) {:subscript_reference}
       it_should_transform('FNA("a")',
-                          SubscriptReference.new('FNA', [
+                          SubscriptReference.new(NumericIdentifier.new('FNA'), [
                                                    BasicString.new("a")
                                                  ]))
       it_should_transform('FNA("a", "b")',
-                          SubscriptReference.new('FNA', [
+                          SubscriptReference.new(NumericIdentifier.new('FNA'), [
                                                    BasicString.new("a"),
                                                    BasicString.new("b")
                                                  ]))
@@ -155,7 +163,7 @@ module Basic
     describe 'let' do
       let(:rule) {:let}
       it_should_transform('I=1',
-                          LetStatement.new(ScalarReference.new('I'),
+                          LetStatement.new(ScalarReference.new(NumericIdentifier.new('I')),
                                            transform(:expression, '1')))
     end
 
@@ -174,6 +182,16 @@ module Basic
     describe 'randomize' do
       let(:rule) {:randomize}
       it_should_transform('RANDOMIZE', RandomizeStatement.new)
+    end
+
+    describe 'input 'do
+      let(:rule) {:input}
+      it_should_transform('INPUT I',
+                          InputStatement.new(nil,
+                                             ScalarReference.new(NumericIdentifier.new('I'))))
+      it_should_transform('INPUT "FOO"; I',
+                          InputStatement.new(BasicString.new('FOO'),
+                                             ScalarReference.new(NumericIdentifier.new('I'))))
     end
 
     describe 'line' do

@@ -17,6 +17,14 @@ module Basic
       BasicString.new(s)
     end
 
+    rule(:numeric_identifier => simple(:name)) do
+      NumericIdentifier.new(name)
+    end
+
+    rule(:string_identifier => simple(:name)) do
+      StringIdentifier.new(name)
+    end
+
     rule(:subscript_base => simple(:identifier), 
          :argument_list => subtree(:args)) do
       SubscriptReference.new(identifier, Array(args))
@@ -106,6 +114,17 @@ module Basic
 
     rule(:randomize => simple(:x)) do
       RandomizeStatement.new
+    end
+
+    rule(:input => simple(:x),
+         :reference => simple(:reference)) do
+      InputStatement.new(nil, reference)
+    end
+
+    rule(:input => simple(:x),
+         :prompt => simple(:prompt),
+         :reference => simple(:reference)) do
+      InputStatement.new(prompt, reference)
     end
 
     rule(:condition => simple(:condition),

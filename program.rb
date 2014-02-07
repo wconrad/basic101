@@ -2,10 +2,13 @@ module Basic
 
   class Program
 
+    attr_reader :input
     attr_reader :output
 
-    def initialize(output_file = $stdout)
+    def initialize(input_file = $stdin,
+                   output_file = $stdout)
       @statements = Statements.new
+      @input = input_file
       @output = Output.new(output_file)
       @functions = {
         'INT' => IntFunction.new,

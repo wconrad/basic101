@@ -15,8 +15,8 @@ module Basic
         arg_values = @args.map do |arg|
           arg.eval(program)
         end
-        arg_values.each do |value|
-          value.print_string program.output
+        arg_values.each do |value| 
+         value.print_string program.output
         end
         arg_values.last.print_new_line program.output
       end

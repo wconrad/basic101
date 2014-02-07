@@ -23,6 +23,10 @@ module Basic
       output.print "\n"
     end
 
+    def simplest
+      self
+    end
+
     protected
 
     attr_reader :value

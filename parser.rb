@@ -34,8 +34,20 @@ module Basic
       str('"') >> match('[^"]').repeat(0).as(:string) >> str('"')
     end
 
+    rule(:base_identifier) do
+      match('[A-Z]') >> match('[A-Z0-9]').repeat(0)
+    end
+
+    rule(:numeric_identifier) do
+      base_identifier.as(:numeric_identifier)
+    end
+
+    rule(:string_identifier) do
+      (base_identifier >> str('$')).as(:string_identifier)
+    end
+
     rule(:identifier) do
-      match('[A-Z]') >> match('[A-Z0-9$]').repeat(0)
+      string_identifier | numeric_identifier
     end
 
     rule(:argument_list) do
@@ -133,8 +145,14 @@ module Basic
       str('RANDOMIZE').as(:randomize)
     end
 
+    rule(:input) do
+      str('INPUT').as(:input) >>
+        (space? >> string.as(:prompt) >> space? >> str(';')).maybe >>
+        space? >> reference.as(:reference)
+    end
+
     rule(:statement) do
-      goto | remark | print | let | if_statement | randomize
+      goto | remark | print | let | if_statement | randomize | input
     end
 
     rule(:statements) do

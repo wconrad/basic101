@@ -6,6 +6,7 @@ module Acceptance
 
     def initialize(basic_path)
       @basic_path = basic_path
+      create_input
       create_expected_output
       @expected_output = read_expected_output
     end
@@ -16,16 +17,23 @@ module Acceptance
     end
 
     def run
-      output_file = StringIO.new
-      program = Basic::Program.new(output_file)
-      begin
-        File.open(@basic_path, 'r') do |source_file|
-          program.load(source_file)
+      File.open(input_path, 'r') do |input_file|
+        output_file = StringIO.new
+        program = Basic::Program.new(input_file, output_file)
+        begin
+          File.open(@basic_path, 'r') do |source_file|
+            program.load(source_file)
+          end
+          program.run
+          @output = output_file.string
+        rescue Parslet::ParseFailed => e
+          @output = e.to_s + "\n"
+        rescue Exception => e
+          @output = e.to_s
+          e.backtrace.each do |line|
+            @output << line + "\n"
+          end
         end
-        program.run
-        @output = output_file.string
-      rescue Parslet::ParseFailed => e
-        @output = e.to_s + "\n"
       end
     end
 
@@ -37,13 +45,13 @@ module Acceptance
       return if passed?
       puts
       puts "Failed: #{File.basename(@basic_path)}"
-      actual_output_file = Tempfile.new(output_filename)
+      actual_output_file = Tempfile.new(expected_output_filename)
       actual_output_file.write @output
       actual_output_file.close
       command = [
         'diff',
         '-u',
-        output_path,
+        expected_output_path,
         actual_output_file.path,
       ].join(' ')
       system(command)
@@ -51,7 +59,7 @@ module Acceptance
     end
 
     def train
-      File.open(output_path, 'w') do |file|
+      File.open(expected_output_path, 'w') do |file|
         file.write @output
       end
     end
@@ -70,21 +78,32 @@ module Acceptance
       end
     end
 
+    def create_input
+      FileUtils.touch(input_path)
+    end
+
     def create_expected_output
-      return if File.exists?(output_path)
-      FileUtils.touch(output_path)
+      FileUtils.touch(expected_output_path)
     end
 
     def read_expected_output
-      File.read(output_path)
+      File.read(expected_output_path)
     end
 
-    def output_filename
-      File.basename(output_path)
+    def expected_output_filename
+      File.basename(expected_output_path)
     end
 
-    def output_path
-      @basic_path.chomp('.bas') + '.output'
+    def input_path
+      path_without_extension + '.input'
+    end
+
+    def expected_output_path
+      path_without_extension + '.output'
+    end
+
+    def path_without_extension
+      @basic_path.chomp('.bas')
     end
 
   end

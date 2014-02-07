@@ -2,6 +2,8 @@ module Basic
 
   class ScalarReference
 
+    include WrapValue
+
     def initialize(identifier)
       @identifier = identifier
     end
@@ -17,6 +19,10 @@ module Basic
 
     def assign(program, value)
       program.set_variable(@identifier, value)
+    end
+
+    def read(input)
+      @identifier.read(input)
     end
 
     protected

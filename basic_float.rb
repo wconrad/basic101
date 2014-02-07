@@ -33,6 +33,14 @@ module Basic
       output.print "\n"
     end
 
+    def simplest
+      if @value.modulo(1) == 0
+        BasicInteger.new(@value.to_i)
+      else
+        self
+      end
+    end
+
   end
 
 end

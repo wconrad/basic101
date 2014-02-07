@@ -81,12 +81,22 @@ module Basic
       it_should_match '"abc"'
     end
 
+    describe 'numeric_identifier' do
+      let(:rule) {parser.numeric_identifier}
+      it_should_match 'A'
+      it_should_match 'A1'
+    end
+
+    describe 'string_identifier' do
+      let(:rule) {parser.string_identifier}
+      it_should_match 'A$'
+      it_should_match 'A1$'
+    end
+
     describe 'identifier' do
       let(:rule) {parser.identifier}
       it_should_match 'A'
-      it_should_match 'A1'
       it_should_match 'A$'
-      it_should_match 'A1$'
     end
 
     describe 'argument_list' do
@@ -216,6 +226,12 @@ module Basic
       it_should_match 'RANDOMIZE'
     end
 
+    describe 'input' do
+      let(:rule) {parser.input}
+      it_should_match 'INPUT I'
+      it_should_match 'INPUT "FOO"; A$'
+    end
+
     describe 'statement' do
       let(:rule) {parser.statement}
       it_should_match 'REM'
@@ -224,6 +240,7 @@ module Basic
       it_should_match 'GOTO 10'
       it_should_match 'IF 1 THEN 20'
       it_should_match 'RANDOMIZE'
+      it_should_match 'INPUT I'
     end
 
     describe 'statements' do
