@@ -19,12 +19,12 @@ module Acceptance
     def run
       File.open(input_path, 'r') do |input_file|
         output_file = StringIO.new
-        program = Basic::Program.new(input_file, output_file)
+        program = Basic::Program.load_file(@basic_path)
+        runtime = Basic::Runtime.new(:input_file => input_file,
+                                     :output_file => output_file,
+                                     :program => program)
         begin
-          File.open(@basic_path, 'r') do |source_file|
-            program.load(source_file)
-          end
-          program.run
+          runtime.run
           @output = output_file.string
         rescue Parslet::ParseFailed => e
           @output = e.to_s + "\n"

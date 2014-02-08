@@ -4,12 +4,12 @@ module Basic
 
     def initialize(argv)
       @args = Arguments.new(argv)
-      @program = Program.new
+      @program = Program.load(ARGF)
+      @runtime = Runtime.new(:program => @program)
     end
 
     def run
-      @program.load(ARGF)
-      @program.run
+      @runtime.run
     end
 
   end

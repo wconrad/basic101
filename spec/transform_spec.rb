@@ -16,7 +16,7 @@ module Basic
       Transform.new.apply(parse_tree)
     end
 
-    def transform(s)
+    def transform(s, rule = rule)
       self.class.transform(rule, s)
     end
 
@@ -201,12 +201,23 @@ module Basic
 
     describe 'line' do
       let(:rule) {:line}
-      print_statement = PrintStatement.new
-      print_statement.line_number = 10
-      it_should_transform('10 PRINT:REM', [
-                            print_statement,
-                            RemarkStatement.new,
-                          ])
+      it_should_transform('10 REM',
+                          Line.new(10, [RemarkStatement.new]))
+    end
+
+    describe 'program' do
+      let(:rule) {:program}
+      it_should_transform('',
+                          Program.new([]))
+      it_should_transform("10 REM\n",
+                          Program.new([
+                                        Line.new(10, [RemarkStatement.new]),
+                                      ]))
+      it_should_transform("10 REM\n20 PRINT",
+                          Program.new([
+                                        Line.new(10, [RemarkStatement.new]),
+                                        Line.new(20, [PrintStatement.new]),
+                                      ]))
     end
 
   end

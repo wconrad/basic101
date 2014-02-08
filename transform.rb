@@ -138,9 +138,11 @@ module Basic
 
     rule(:integer => simple(:line_number),
          :statements => subtree(:statements)) do
-      s = Array(statements)
-      s.first.line_number = line_number.to_i
-      s
+      Line.new(line_number.to_i, Array(statements))
+    end
+
+    rule(:program => subtree(:lines)) do
+      Program.new(Array(lines))
     end
 
   end

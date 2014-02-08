@@ -6,6 +6,10 @@ module Basic
       match(' ').repeat(1)
     end
 
+    rule(:new_line) do
+      str("\r").maybe >> str("\n")
+    end
+
     rule(:space?) do
       space.maybe
     end
@@ -166,10 +170,14 @@ module Basic
     end
 
     rule(:line) do
-      integer >> space? >> statements.as(:statements)
+      (integer >> space? >> statements.as(:statements))
     end
 
-    root(:line)
+    rule(:program) do
+      ((line >> (new_line >> line).repeat(0) >> new_line.maybe).maybe).as(:program)
+    end
+
+    root(:program)
 
   end
 

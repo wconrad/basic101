@@ -2,67 +2,55 @@ module Basic
 
   class Program
 
-    attr_reader :input
-    attr_reader :output
+    include Enumerable
 
-    def initialize(input_file = $stdin,
-                   output_file = $stdout)
-      @statements = Statements.new
-      @input = input_file
-      @output = Output.new(output_file)
-      @functions = {
-        'INT' => IntFunction.new,
-        'RND' => RndFunction.new,
-        'TAB' => TabFunction.new,
-      }
-      @variables = {}
-    end
+    attr_reader :statements
 
-    def load(source_file)
-      source_file.each_line do |source_line|
-        line = Line.new(source_line)
-        line.statements.each do |statement|
-          @statements << statement
-        end
+    def self.load_file(source_path)
+      File.open(source_path, 'r') do |file|
+        load(file)
       end
     end
 
-    def goto(line_number)
-      @statement_index = @statements.index_of(line_number)
+    def self.load(source_file)
+      source = source_file.read
+      parser = Parser.new
+      transform = Transform.new
+      tree = parser.parse(source)
+      transform.apply(tree)
     end
 
-    def goto_next
-      @statement_index += 1
-    end
-
-    def end_program
-      @statement_index = @statements.end_index
-    end
-
-    def run
-      srand(0)
-      @statement_index = 0
-      while statement = @statements[@statement_index]
-        statement.execute(self)
+    def initialize(lines = [])
+      @statements = []
+      @line_number_index = {}
+      lines.each do |line|
+        @line_number_index[line.line_number] = @statements.size
+        @statements += line.statements
       end
     end
 
-    def function_exists?(identifier)
-      @functions.has_key?(identifier.to_s)
+    def [](i)
+      @statements[i]
     end
 
-    def call_function(identifier, argument_values)
-      @functions[identifier.to_s].call(self, argument_values)
+    def index_of(line_number)
+      index = @line_number_index[line_number]
+      unless index
+        raise UndefinedLineNumberError, "Undefined line number #{line_number}"
+      end
+      index
     end
 
-    def get_variable(identifier)
-      value = @variables[identifier.to_s]
-      value || BasicInteger.new(0)
+    def end_index
+      @statements.size + 1
     end
 
-    def set_variable(identifier, value)
-      @variables[identifier.to_s] = value
+    def ==(other)
+      return false unless other.is_a?(self.class)
+      statements == other.statements
     end
+
+    private
 
   end
 

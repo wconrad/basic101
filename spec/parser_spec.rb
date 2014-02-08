@@ -22,6 +22,12 @@ module Basic
 
     let(:parser) {Parser.new}
 
+    describe 'new_line' do
+      let(:rule) {parser.new_line}
+      it_should_match "\n"
+      it_should_match "\r\n"
+    end
+
     describe 'space' do
       let(:rule) {parser.space}
       it_should_not_match ''
@@ -260,6 +266,13 @@ module Basic
       let(:rule) {parser.line}
       it_should_match '10 REM'
       it_should_match '20  PRINT:PRINT'
+    end
+
+    describe 'program' do
+      let(:rule) {parser.program}
+      it_should_match ""
+      it_should_match "10 REM\n"
+      it_should_match "10 REM\n20 PRINT\n"
     end
 
   end

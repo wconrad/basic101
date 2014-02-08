@@ -2,16 +2,23 @@ module Basic
 
   class Line
 
-    def initialize(source_line)
-      @source_line = source_line
+    attr_reader :line_number
+    attr_reader :statements
+
+    def initialize(line_number, statements)
+      @line_number = line_number.to_i
+      @statements = statements
     end
 
-    #TODO: User-friendly handling of parslet errors
-    def statements
-      parser = Parser.new
-      transform = Transform.new
-      tree = parser.parse(@source_line.chomp)
-      transform.apply(tree)
+    def ==(other)
+      return false unless other.is_a?(self.class)
+      state == other.state
+    end
+
+    protected
+
+    def state
+      [@line_number, @statements]
     end
 
   end
