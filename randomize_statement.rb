@@ -10,7 +10,6 @@ module Basic
 
     def execute(program)
       srand
-      program.goto_next
     end
 
   end

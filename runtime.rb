@@ -18,21 +18,19 @@ module Basic
     end
 
     def goto(line_number)
-      @statement_index = @program.index_of(line_number)
-    end
-
-    def goto_next
-      @statement_index += 1
+      @program_counter.goto(line_number)
     end
 
     def end_program
-      @statement_index = @program.end_index
+      @program_counter.goto_end
     end
 
     def run
       srand(0)
-      @statement_index = 0
-      while statement = @program[@statement_index]
+      @program_counter = ProgramCounter.new(@program)
+      while !@program_counter.end?
+        statement = @program_counter.current_statement
+        @program_counter.goto_next
         statement.execute(self)
       end
     end

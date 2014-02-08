@@ -29,6 +29,10 @@ module Basic
       end
     end
 
+    def statement_count
+      @statements.size
+    end
+
     def [](i)
       @statements[i]
     end
@@ -39,10 +43,6 @@ module Basic
         raise UndefinedLineNumberError, "Undefined line number #{line_number}"
       end
       index
-    end
-
-    def end_index
-      @statements.size + 1
     end
 
     def ==(other)

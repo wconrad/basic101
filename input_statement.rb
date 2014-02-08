@@ -16,7 +16,6 @@ module Basic
       end
       value = @reference.read(program.input)
       @reference.assign(program, value)
-      program.goto_next
     end
 
     protected

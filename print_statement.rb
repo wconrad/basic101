@@ -20,7 +20,6 @@ module Basic
         end
         arg_values.last.print_new_line program.output
       end
-      program.goto_next
     end
 
     protected

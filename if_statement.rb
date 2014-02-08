@@ -12,8 +12,6 @@ module Basic
     def execute(program)
       if @condition.eval(program).to_f != 0
         program.goto(@true_target.eval(program).to_i)
-      else
-        program.goto_next
       end
     end
 

@@ -5,7 +5,6 @@ module Basic
   class RemarkStatement < Statement
 
     def execute(program)
-      program.goto_next
     end
 
   end

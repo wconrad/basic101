@@ -16,7 +16,6 @@ module Basic
 
     def execute(program)
       @reference.assign(program, @expression.eval(program))
-      program.goto_next
     end
 
     protected
