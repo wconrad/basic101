@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'csv'
 require 'optparse'
 require 'pp'
 
@@ -17,12 +18,14 @@ require_relative 'boolean'
 require_relative 'divide'
 require_relative 'end_statement'
 require_relative 'equal'
-require_relative 'exceptions'
+require_relative 'errors'
 require_relative 'goto_statement'
 require_relative 'greater'
 require_relative 'greater_or_equal'
 require_relative 'identifier'
 require_relative 'if_statement'
+require_relative 'input'
+require_relative 'input_reader'
 require_relative 'input_statement'
 require_relative 'int_function'
 require_relative 'less'

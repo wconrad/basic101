@@ -7,6 +7,10 @@ module Basic
       @chars_on_line = 0
     end
 
+    def puts(s)
+      print s.to_s + "\n"
+    end
+
     def print(s)
       s.chars.each do |c|
         case c

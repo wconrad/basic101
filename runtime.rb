@@ -6,7 +6,7 @@ module Basic
     attr_reader :output
 
     def initialize(args = {})
-      @input = args.fetch(:input_file, $stdin)
+      @input = Input.new(args.fetch(:input_file, $stdin))
       @output = Output.new(args.fetch(:output_file, $stdout))
       @program = args.fetch(:program, Program.new)
       @functions = {

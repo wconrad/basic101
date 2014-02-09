@@ -16,7 +16,8 @@ module Basic
       if program.function_exists?(@identifier)
         program.call_function(@identifier, argument_values(program))
       else
-        raise UndefinedFunction, "Undefined function or array #{@identifier }"
+        raise UndefinedFunctionError,
+        "Undefined function or array #{@identifier }"
       end
     end
 

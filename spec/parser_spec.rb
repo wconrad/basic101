@@ -128,7 +128,13 @@ module Basic
       it_should_match 'A(1)'
       it_should_match 'S$'
     end
-    
+
+    describe 'reference_list' do
+      let(:rule) {parser.reference_list}
+      it_should_match 'A(1)'
+      it_should_match 'I,J'
+    end
+
     describe 'let' do
       let(:rule) {parser.let}
       it_should_match 'I=1'
@@ -235,6 +241,7 @@ module Basic
     describe 'input' do
       let(:rule) {parser.input}
       it_should_match 'INPUT I'
+      it_should_match 'INPUT I, J'
       it_should_match 'INPUT "FOO"; A$'
     end
 

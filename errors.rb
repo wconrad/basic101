@@ -2,7 +2,11 @@ module Basic
 
   class Error < StandardError ; end
   class UndefinedLineNumberError < Error ; end
-  class UndefinedFunction < Error ; end
+  class UndefinedFunctionError < Error ; end
+  class NoMoreInputError < Error ; end
+  class InputError < Error ; end
+  class TooFewInputItemsError < InputError ; end
+  class BadInputFormatError < InputError ; end
 
   class SyntaxError < Error
 

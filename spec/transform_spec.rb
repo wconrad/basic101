@@ -187,11 +187,18 @@ module Basic
     describe 'input' do
       let(:rule) {:input}
       it_should_transform('INPUT I',
-                          InputStatement.new(nil,
-                                             ScalarReference.new(NumericIdentifier.new('I'))))
+                          InputStatement.new(nil, [
+                                               ScalarReference.new(NumericIdentifier.new('I')),
+                                             ]))
       it_should_transform('INPUT "FOO"; I',
-                          InputStatement.new(BasicString.new('FOO'),
-                                             ScalarReference.new(NumericIdentifier.new('I'))))
+                          InputStatement.new(BasicString.new('FOO'), [
+                                               ScalarReference.new(NumericIdentifier.new('I')),
+                                             ]))
+      it_should_transform('INPUT I,J',
+                          InputStatement.new(nil, [
+                                               ScalarReference.new(NumericIdentifier.new('I')),
+                                               ScalarReference.new(NumericIdentifier.new('J')),
+                                             ]))
     end
 
     describe 'end_statement' do

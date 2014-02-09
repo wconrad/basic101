@@ -2,9 +2,8 @@ module Basic
 
   class NumericIdentifier < Identifier
 
-    def read(input)
-      line = input.gets
-      value = line.to_f
+    def read(input_reader)
+      value = input_reader.read_numeric
       wrap_value(value).simplest
     end
 

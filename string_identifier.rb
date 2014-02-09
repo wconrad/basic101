@@ -2,9 +2,8 @@ module Basic
 
   class StringIdentifier < Identifier
 
-    def read(input)
-      line = input.gets
-      value = line.chomp
+    def read(input_parser)
+      value = input_parser.read_string
       wrap_value(value)
     end
 

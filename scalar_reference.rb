@@ -21,8 +21,8 @@ module Basic
       program.set_variable(@identifier, value)
     end
 
-    def read(input)
-      @identifier.read(input)
+    def read(input_reader)
+      @identifier.read(input_reader)
     end
 
     protected

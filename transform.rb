@@ -121,14 +121,14 @@ module Basic
     end
 
     rule(:input => simple(:x),
-         :reference => simple(:reference)) do
-      InputStatement.new(nil, reference)
+         :references => subtree(:references)) do
+      InputStatement.new(nil, Array(references))
     end
 
     rule(:input => simple(:x),
          :prompt => simple(:prompt),
-         :reference => simple(:reference)) do
-      InputStatement.new(prompt, reference)
+         :references => subtree(:references)) do
+      InputStatement.new(prompt, Array(references))
     end
 
     rule(:condition => simple(:condition),

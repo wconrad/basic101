@@ -4,24 +4,40 @@ module Basic
 
   class InputStatement < Statement
 
-    def initialize(prompt, reference)
+    def initialize(prompt, references)
       @prompt = prompt
-      @reference = reference
+      @references = references
     end
 
     def execute(program)
-      if @prompt
-        @prompt.print_string program.output
-        program.output.print('? ')
+      begin
+        print_prompt(program)
+        read_references(program)
+      rescue InputError => e
+        program.output.puts "#{e}, try again"
+        retry
       end
-      value = @reference.read(program.input)
-      @reference.assign(program, value)
     end
 
     protected
 
     def state
-      super + [@prompt, @reference]
+      [@prompt, @references]
+    end
+
+    def print_prompt(program)
+      if @prompt
+        @prompt.print_string program.output
+        program.output.print('? ')
+      end
+    end
+
+    def read_references(program)
+      input_reader = InputReader.new(program.input)
+      @references.each do |reference|
+        value = reference.read(input_reader)
+        reference.assign(program, value)
+      end
     end
 
   end

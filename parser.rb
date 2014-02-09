@@ -72,6 +72,10 @@ module Basic
       subscript_reference | scalar_reference
     end
 
+    rule(:reference_list) do
+      reference >> (space? >> str(',') >> space? >> reference).repeat(0)
+    end
+
     rule(:let) do
       reference.as(:lvalue) >> space? >> 
         str('=') >> space? >> expression.as(:rvalue)
@@ -152,7 +156,7 @@ module Basic
     rule(:input) do
       str('INPUT').as(:input) >>
         (space? >> string.as(:prompt) >> space? >> str(';')).maybe >>
-        space? >> reference.as(:reference)
+        space? >> reference_list.as(:references)
     end
 
     rule(:end_statement) do
