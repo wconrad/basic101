@@ -18,6 +18,11 @@ module Basic
       transform = Transform.new
       tree = parser.parse(source)
       transform.apply(tree)
+    rescue Parslet::ParseFailed => error
+      line_number, column_number =
+        error.cause.source.line_and_column(error.cause.pos)
+      line = source.lines[line_number - 1]
+      raise SyntaxError.new(line, line_number, column_number, error.message)
     end
 
     def initialize(lines = [])

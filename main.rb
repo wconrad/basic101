@@ -4,12 +4,15 @@ module Basic
 
     def initialize(argv)
       @args = Arguments.new(argv)
-      @program = Program.load(ARGF)
-      @runtime = Runtime.new(:program => @program)
     end
 
     def run
-      @runtime.run
+      program = Program.load(ARGF)
+      runtime = Runtime.new(:program => program)
+      runtime.run
+    rescue Error => e
+      $stderr.puts e
+      exit 1
     end
 
   end
