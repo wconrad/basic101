@@ -188,10 +188,21 @@ module Basic
       it_should_match '1 * 2'
     end
 
-    describe 'expression' do
+    describe 'comparison_expression' do
       let(:rule) {parser.expression}
       it_should_match '1'
       it_should_match '1 > 2'
+    end
+
+    describe 'not_expression' do
+      let(:rule) {parser.expression}
+      it_should_match '1'
+      it_should_match 'NOT 1'
+    end
+
+    describe 'expression' do
+      let(:rule) {parser.expression}
+      it_should_match 'NOT 2 * (3 + 1) + 4 > 5'
     end
 
     describe 'remark' do

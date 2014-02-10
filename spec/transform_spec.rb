@@ -116,7 +116,7 @@ module Basic
                                                         ]))
     end
 
-    describe 'simple_expression' do
+    describe 'comparison_expression' do
       let(:rule) {:expression}
       it_should_transform('"abc"', BasicString.new('abc'))
       it_should_transform('1 < 2', BinaryOperations.new(BasicInteger.new(1),
@@ -124,6 +124,13 @@ module Basic
                                                           BinaryOperation.new(Less.new,
                                                                               BasicInteger.new(2)),
                                                         ]))
+    end
+
+    describe 'not_expression' do
+      let(:rule) {:not_expression}
+      it_should_transform('1', BasicInteger.new(1))
+      it_should_transform('NOT 1',
+                          NotOperation.new(BasicInteger.new(1)))
     end
 
     describe 'remark' do

@@ -88,6 +88,10 @@ module Basic
       left
     end
 
+     rule(:not => simple(:x)) do
+      NotOperation.new(x)
+    end
+
     rule(:remark => simple(:x)) do
       RemarkStatement.new
     end

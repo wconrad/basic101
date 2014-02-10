@@ -117,11 +117,20 @@ module Basic
          ).repeat(1).as(:operations).maybe
     end
 
-    rule(:expression) do
+    rule(:comparison_expression) do
       simple_expression.as(:left) >>
         (space? >> comparison_op.as(:operator) >>
          space? >> factor.as(:right)
          ).repeat(1).as(:operations).maybe
+    end
+
+    rule(:not_expression) do
+      (str('NOT') >> space? >> comparison_expression).as(:not) |
+        comparison_expression
+    end
+
+    rule(:expression) do
+      not_expression
     end
 
     rule(:remark) do
