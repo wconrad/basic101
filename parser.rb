@@ -103,6 +103,10 @@ module Basic
        str('>').as(:gt)
     end
 
+    rule(:and_op) do
+      str('AND').as(:and)
+    end
+
     rule(:term) do
       factor.as(:left) >>
         (space? >> multiply_op.as(:operator) >>
@@ -129,8 +133,15 @@ module Basic
         comparison_expression
     end
 
+    rule(:and_expression) do
+      not_expression.as(:left) >>
+        (space? >> and_op.as(:operator) >>
+         space? >> not_expression.as(:right)
+         ).repeat(1).as(:operations).maybe
+    end
+
     rule(:expression) do
-      not_expression
+      and_expression
     end
 
     rule(:remark) do

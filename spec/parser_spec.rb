@@ -163,6 +163,11 @@ module Basic
       it_should_match '<='
     end
 
+    describe 'and_op' do
+      let(:rule) {parser.and_op}
+      it_should_match 'AND'
+    end
+
     describe 'factor' do
       let(:rule) {parser.factor}
       it_should_match '"abc"'
@@ -178,14 +183,14 @@ module Basic
       let(:rule) {parser.term}
       it_should_match '1'
       it_should_match '1 * 2'
-      it_should_match '1 / 2'
-      it_should_match '1 / 2 * 3'
+      it_should_match '1 * 2 / 3'
     end
 
     describe 'simple_expression' do
       let(:rule) {parser.simple_expression}
       it_should_match '1'
-      it_should_match '1 * 2'
+      it_should_match '1 + 2'
+      it_should_match '1 + 2 - 3'
     end
 
     describe 'comparison_expression' do
@@ -200,9 +205,16 @@ module Basic
       it_should_match 'NOT 1'
     end
 
+    describe 'and_expression' do
+      let(:rule) {parser.expression}
+      it_should_match '1'
+      it_should_match '1 AND 1'
+      it_should_match '1 AND 1 AND 0'
+    end
+
     describe 'expression' do
       let(:rule) {parser.expression}
-      it_should_match 'NOT 2 * (3 + 1) + 4 > 5'
+      it_should_match 'NOT 2 * (3 + 1) + 4 > 5 AND 1'
     end
 
     describe 'remark' do
