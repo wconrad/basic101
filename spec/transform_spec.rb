@@ -95,6 +95,11 @@ module Basic
       it_should_transform('>=', GreaterOrEqual.new)
     end
 
+    describe 'and_op' do
+      let(:rule) {:and_op}
+      it_should_transform('AND', And.new)
+    end
+
     describe 'term' do
       let(:rule) {:term}
       it_should_transform("1 * 2",
@@ -117,7 +122,7 @@ module Basic
     end
 
     describe 'comparison_expression' do
-      let(:rule) {:expression}
+      let(:rule) {:comparison_expression}
       it_should_transform('"abc"', BasicString.new('abc'))
       it_should_transform('1 < 2', BinaryOperations.new(BasicInteger.new(1),
                                                         [
@@ -131,6 +136,16 @@ module Basic
       it_should_transform('1', BasicInteger.new(1))
       it_should_transform('NOT 1',
                           NotOperation.new(BasicInteger.new(1)))
+    end
+
+    describe 'and_expression' do
+      let(:rule) {:and_expression}
+      it_should_transform('1', BasicInteger.new(1))
+      it_should_transform('1 AND 0', BinaryOperations.new(BasicInteger.new(1),
+                                                        [
+                                                          BinaryOperation.new(And.new,
+                                                                              BasicInteger.new(0)),
+                                                        ]))
     end
 
     describe 'remark' do

@@ -25,6 +25,10 @@ module Basic
       @value.to_f
     end
 
+    def to_b
+      to_i != 0
+    end
+
     def print_string(output)
       output.print @value.to_s
     end

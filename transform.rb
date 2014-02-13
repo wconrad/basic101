@@ -74,6 +74,10 @@ module Basic
       GreaterOrEqual.new
     end
 
+    rule(:and => simple(:x)) do
+      And.new
+    end
+
     rule(:operator => simple(:operator),
          :right => simple(:right)) do
       BinaryOperation.new(operator, right)
