@@ -6,26 +6,23 @@ module Basic
 
     def initialize(num_dimensions, default)
       @default = default
-      dimensions = [10] * num_dimensions
-      dimension(dimensions)
-    end
-
-    def dimensions
-      result = []
-      array_dimensions(result, @array)
-      result
+      dimension [10] * num_dimensions
     end
 
     def dimension(dimensions)
+      check_dimensions(dimensions)
+      @dimensions = dimensions
       @array = make_array(dimensions)
     end
 
     def get(indices)
-      get_array(@array, indices)
+      check_indices(indices)
+      array_get(@array, indices)
     end
 
     def set(indices, value)
-      set_array(@array, value, indices)
+      check_indices(indices)
+      array_set(@array, value, indices)
     end
 
     private
@@ -40,26 +37,33 @@ module Basic
       end
     end
 
-    def get_array(a, indices)
+    def array_get(a, indices)
       if indices.size == 0
         a
       else
-        get_array(a[indices.first.to_i], indices[1..-1])
+        array_get(a[indices.first.to_i], indices[1..-1])
       end
     end
 
-    def set_array(a, value, dimensions)
-      if dimensions.size == 1
-        a[dimensions.first] = value
+    def array_set(a, value, indices)
+      if indices.size == 1
+        a[indices.first] = value
       else
-        set_array(a[dimensions.first], value, dimensions[1..-1])
+        array_set(a[indices.first], value, indices[1..-1])
       end
     end
 
-    def array_dimensions(result, array)
-      return unless array.is_a?(Array)
-      result << array.size
-      array_dimensions(result, array.first)
+    def check_dimensions(dimensions)
+      dimensions.each do |dimension|
+        raise ArraySizeError if dimension <= 0
+      end
+    end
+
+    def check_indices(indices)
+      raise IndexError unless indices.size == dimensions.size
+      indices.zip(dimensions).each do |index, dimension|
+        raise IndexError unless (0...dimension).include?(index)
+      end
     end
 
   end

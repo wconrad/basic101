@@ -1,11 +1,15 @@
 module Basic
 
   class Error < StandardError ; end
-  class UndefinedLineNumberError < Error ; end
-  class NoMoreInputError < Error ; end
+
+  class ArraySizeError < Error ; end
+  class IndexError < Error ; end
   class InputError < Error ; end
-  class TooFewInputItemsError < InputError ; end
+  class NoMoreInputError < Error ; end
+  class UndefinedLineNumberError < Error ; end
+
   class BadInputFormatError < InputError ; end
+  class TooFewInputItemsError < InputError ; end
 
   class SyntaxError < Error
 
