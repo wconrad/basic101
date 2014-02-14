@@ -4,9 +4,9 @@ module Basic
 
   describe Program do
 
-    let(:statement1) {double Statement}
-    let(:statement2) {double Statement}
-    let(:statement3) {double Statement}
+    let(:statement1) {Statement.new}
+    let(:statement2) {Statement.new}
+    let(:statement3) {Statement.new}
     let(:statements) {[statement1, statement2, statement3]}
     let(:line1) {Line.new(10, [statement1])}
     let(:line2) {Line.new(20, [statement2, statement3])}
@@ -29,12 +29,12 @@ module Basic
       end
     end
 
-    describe '#index_of' do
+    describe '#index_of_line' do
       specify do
-        expect(program.index_of(10)).to eq 0
-        expect(program.index_of(20)).to eq 1
+        expect(program.index_of_line(10)).to eq 0
+        expect(program.index_of_line(20)).to eq 1
         expect {
-          program.index_of(30)
+          program.index_of_line(30)
         }.to raise_error(UndefinedLineNumberError,
                          "Undefined line number 30")
       end

@@ -11,7 +11,7 @@ module Basic
 
     def execute(program)
       if @condition.eval(program).to_f != 0
-        program.goto(@true_target.eval(program).to_i)
+        program.goto_line(@true_target.eval(program).to_i)
       end
     end
 

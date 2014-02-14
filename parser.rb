@@ -200,9 +200,37 @@ module Basic
         (space? >> str(',') >> space? >> subscript_reference.as(:reference)).repeat(0)
     end
 
+    rule(:for_statement) do
+      str('FOR') >>
+        space? >> scalar_reference.as(:reference) >>
+        space? >> str('=') >>
+        space? >> expression.as(:from) >>
+        space? >> str('TO') >>
+        space? >> expression.as(:to) >>
+        (space? >> str('STEP') >> space >> expression).maybe.as(:step)
+    end
+
+    rule(:next_statement) do
+      str('NEXT').as(:next) >>
+        (space? >> reference >>
+         (space? >> str(',') >>
+          space? >> reference
+          ).repeat(0)
+         ).maybe.as(:references)
+    end
+
     rule(:statement) do
-      goto | remark | print | let | if_statement | randomize | input |
-        end_statement | dim_statement
+      (goto |
+       remark |
+       print |
+       let |
+       if_statement |
+       randomize |
+       input |
+       end_statement |
+       dim_statement |
+       for_statement |
+       next_statement)
     end
 
     rule(:statements) do

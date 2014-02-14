@@ -32,6 +32,8 @@ module Basic
         @line_number_index[line.line_number] = @statements.size
         @statements += line.statements
       end
+      set_statement_indices
+      link_for_and_next_statements
     end
 
     def statement_count
@@ -42,7 +44,7 @@ module Basic
       @statements[i]
     end
 
-    def index_of(line_number)
+    def index_of_line(line_number)
       index = @line_number_index[line_number]
       unless index
         raise UndefinedLineNumberError, "Undefined line number #{line_number}"
@@ -56,6 +58,27 @@ module Basic
     end
 
     private
+
+    def link_for_and_next_statements
+      stack = []
+      @statements.each do |statement|
+        if statement.is_a?(ForStatement)
+          stack.push statement
+        elsif statement.is_a?(NextStatement)
+          raise NextWithoutFor if stack.empty?
+          for_statement = stack.pop
+          for_statement.next_statement = statement
+          statement.for_statement = for_statement
+        end
+      end
+      raise ForWithoutNext unless stack.empty?
+    end
+
+    def set_statement_indices
+      @statements.each.with_index do |statement, i|
+        statement.index = i
+      end
+    end
 
   end
 

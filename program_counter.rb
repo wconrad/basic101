@@ -2,8 +2,6 @@ module Basic
 
   class ProgramCounter
 
-    attr_reader :index
-
     def initialize(program)
       @program = program
       @index = 0
@@ -17,8 +15,16 @@ module Basic
       @index >= @program.statement_count
     end
 
-    def goto(line_number)
-      @index = @program.index_of(line_number)
+    def goto_index(index)
+      @index = index
+    end
+
+    def goto_index_after(index)
+      goto_index(index + 1)
+    end
+
+    def goto_line(line_number)
+      goto_index @program.index_of_line(line_number)
     end
 
     def goto_end

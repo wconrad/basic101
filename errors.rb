@@ -3,8 +3,11 @@ module Basic
   class Error < StandardError ; end
 
   class ArraySizeError < Error ; end
+  class ForNextSequenceError < Error ; end
+  class ForWithoutNext < Error ; end
   class IndexError < Error ; end
   class InputError < Error ; end
+  class NextWithoutFor < Error ; end
   class NoMoreInputError < Error ; end
   class UndefinedLineNumberError < Error ; end
 

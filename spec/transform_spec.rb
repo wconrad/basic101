@@ -253,6 +253,34 @@ module Basic
                                          ]))
     end
 
+    describe 'for_statement' do
+      let(:rule) {:for_statement}
+      it_should_transform('FOR I = 1 TO 10',
+                          ForStatement.new(ScalarReference.new(NumericIdentifier.new('I')),
+                                           BasicInteger.new(1),
+                                           BasicInteger.new(10),
+                                           nil))
+      it_should_transform('FOR I = 1 TO 10 STEP 2',
+                          ForStatement.new(ScalarReference.new(NumericIdentifier.new('I')),
+                                           BasicInteger.new(1),
+                                           BasicInteger.new(10),
+                                           BasicInteger.new(2)))
+    end
+
+    describe 'next_statement' do
+      let(:rule) {:next_statement}
+      it_should_transform('NEXT', [
+                            NextStatement.new(nil),
+                          ])
+      it_should_transform('NEXT I', [
+                            NextStatement.new(ScalarReference.new(NumericIdentifier.new('I'))),
+                          ])
+      it_should_transform('NEXT I, J', [
+                            NextStatement.new(ScalarReference.new(NumericIdentifier.new('I'))),
+                            NextStatement.new(ScalarReference.new(NumericIdentifier.new('J'))),
+                          ])
+    end
+
     describe 'line' do
       let(:rule) {:line}
       it_should_transform('10 REM',

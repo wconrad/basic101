@@ -148,6 +148,20 @@ module Basic
       DimStatement.new(Array(references))
     end
 
+    rule(:reference => simple(:reference),
+         :from => simple(:from),
+         :to => simple(:to),
+         :step => simple(:step)) do
+      ForStatement.new(reference, from, to, step)
+    end
+
+    rule(:next => simple(:_),
+         :references => subtree(:references)) do
+      Array(references || [nil]).map do |reference|
+        NextStatement.new(reference)
+      end
+    end
+
     rule(:condition => simple(:condition),
          :if_true => simple(:true_target)) do
       IfStatement.new(condition, true_target)

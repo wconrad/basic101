@@ -18,8 +18,16 @@ module Basic
       @arrays = {}
     end
 
-    def goto(line_number)
-      @program_counter.goto(line_number)
+    def goto_line(line_number)
+      @program_counter.goto_line(line_number)
+    end
+
+    def goto_index(index)
+      @program_counter.goto_index(index)
+    end
+
+    def goto_index_after(index)
+      @program_counter.goto_index_after(index)
     end
 
     def end_program

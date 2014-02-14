@@ -295,6 +295,19 @@ module Basic
       it_should_match 'DIM A(10), B(10)'
     end
 
+    describe 'for_statement' do
+      let(:rule) {parser.for_statement}
+      it_should_match 'FOR I = 1 TO 10'
+      it_should_match 'FOR I = 1 TO 10 STEP 2'
+    end
+
+    describe 'next_statement' do
+      let(:rule) {parser.next_statement}
+      it_should_match 'NEXT'
+      it_should_match 'NEXT I'
+      it_should_match 'NEXT I, J'
+    end
+
     describe 'statement' do
       let(:rule) {parser.statement}
       it_should_match 'REM'
@@ -306,6 +319,8 @@ module Basic
       it_should_match 'INPUT I'
       it_should_match 'END'
       it_should_match 'DIM A(10)'
+      it_should_match 'FOR I = 1 TO 10'
+      it_should_match 'NEXT'
     end
 
     describe 'statements' do

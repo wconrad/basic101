@@ -9,7 +9,7 @@ module Basic
     end
 
     def execute(program)
-      program.goto(@target_line_number)
+      program.goto_line(@target_line_number)
     end
 
     protected
