@@ -13,12 +13,12 @@ module Basic
       self.state == other.state
     end
 
-    def eval(program)
-      program.get_variable(@identifier)
+    def eval(runtime)
+      runtime.get_scalar(@identifier)
     end
 
-    def assign(program, value)
-      program.set_variable(@identifier, value)
+    def assign(runtime, value)
+      runtime.set_scalar(@identifier, value)
     end
 
     def read(input_reader)

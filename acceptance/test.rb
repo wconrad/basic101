@@ -29,7 +29,7 @@ module Acceptance
         rescue Parslet::ParseFailed => e
           @output = e.to_s + "\n"
         rescue Exception => e
-          @output = e.to_s
+          @output = e.to_s + "\n"
           e.backtrace.each do |line|
             @output << line + "\n"
           end

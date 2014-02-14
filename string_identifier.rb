@@ -7,6 +7,10 @@ module Basic
       wrap_value(value)
     end
 
+    def default
+      BasicString.new('')
+    end
+
   end
 
 end

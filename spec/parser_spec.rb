@@ -137,7 +137,10 @@ module Basic
 
     describe 'let' do
       let(:rule) {parser.let}
+      it_should_match 'LET I=1'
       it_should_match 'I=1'
+      it_should_match 'A(10) = 1'
+      it_should_match 'A$(10) = 1'
       it_should_match 'S$ = "FOO"'
     end
 
@@ -168,6 +171,11 @@ module Basic
       it_should_match 'AND'
     end
 
+    describe 'or_op' do
+      let(:rule) {parser.or_op}
+      it_should_match 'OR'
+    end
+
     describe 'factor' do
       let(:rule) {parser.factor}
       it_should_match '"abc"'
@@ -194,27 +202,34 @@ module Basic
     end
 
     describe 'comparison_expression' do
-      let(:rule) {parser.expression}
+      let(:rule) {parser.comparison_expression}
       it_should_match '1'
       it_should_match '1 > 2'
     end
 
     describe 'not_expression' do
-      let(:rule) {parser.expression}
+      let(:rule) {parser.not_expression}
       it_should_match '1'
       it_should_match 'NOT 1'
     end
 
     describe 'and_expression' do
-      let(:rule) {parser.expression}
+      let(:rule) {parser.and_expression}
       it_should_match '1'
       it_should_match '1 AND 1'
       it_should_match '1 AND 1 AND 0'
     end
 
+    describe 'or_expression' do
+      let(:rule) {parser.or_expression}
+      it_should_match '1'
+      it_should_match '1 OR 0'
+      it_should_match '1 OR 0 OR 1'
+    end
+
     describe 'expression' do
       let(:rule) {parser.expression}
-      it_should_match 'NOT 2 * (3 + 1) + 4 > 5 AND 1'
+      it_should_match 'NOT 2 * (3 + 1) + 4 > 5 AND 1 OR 0'
     end
 
     describe 'remark' do
@@ -273,6 +288,13 @@ module Basic
       it_should_match 'END'
     end
 
+    describe 'dim_statement' do
+      let(:rule) {parser.dim_statement}
+      it_should_match 'DIM A(20)'
+      it_should_match 'DIM A(X, Y)'
+      it_should_match 'DIM A(10), B(10)'
+    end
+
     describe 'statement' do
       let(:rule) {parser.statement}
       it_should_match 'REM'
@@ -283,6 +305,7 @@ module Basic
       it_should_match 'RANDOMIZE'
       it_should_match 'INPUT I'
       it_should_match 'END'
+      it_should_match 'DIM A(10)'
     end
 
     describe 'statements' do

@@ -78,6 +78,10 @@ module Basic
       And.new
     end
 
+    rule(:or => simple(:x)) do
+      Or.new
+    end
+
     rule(:operator => simple(:operator),
          :right => simple(:right)) do
       BinaryOperation.new(operator, right)
@@ -137,6 +141,11 @@ module Basic
          :prompt => simple(:prompt),
          :references => subtree(:references)) do
       InputStatement.new(prompt, Array(references))
+    end
+
+    rule(:dim => simple(:x),
+         :reference => subtree(:references)) do
+      DimStatement.new(Array(references))
     end
 
     rule(:condition => simple(:condition),

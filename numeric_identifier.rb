@@ -7,6 +7,10 @@ module Basic
       wrap_value(value).simplest
     end
 
+    def default
+      BasicInteger.new(0)
+    end
+
   end
 
 end

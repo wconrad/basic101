@@ -100,6 +100,11 @@ module Basic
       it_should_transform('AND', And.new)
     end
 
+    describe 'or_op' do
+      let(:rule) {:or_op}
+      it_should_transform('OR', Or.new)
+    end
+
     describe 'term' do
       let(:rule) {:term}
       it_should_transform("1 * 2",
@@ -144,6 +149,16 @@ module Basic
       it_should_transform('1 AND 0', BinaryOperations.new(BasicInteger.new(1),
                                                         [
                                                           BinaryOperation.new(And.new,
+                                                                              BasicInteger.new(0)),
+                                                        ]))
+    end
+
+    describe 'or_expression' do
+      let(:rule) {:or_expression}
+      it_should_transform('1', BasicInteger.new(1))
+      it_should_transform('1 OR 0', BinaryOperations.new(BasicInteger.new(1),
+                                                        [
+                                                          BinaryOperation.new(Or.new,
                                                                               BasicInteger.new(0)),
                                                         ]))
     end
@@ -226,6 +241,16 @@ module Basic
     describe 'end_statement' do
       let(:rule) {:end_statement}
       it_should_transform('END', EndStatement.new)
+    end
+
+    describe 'dim_statement' do
+      let(:rule) {:dim_statement}
+      it_should_transform('DIM A(10)',
+                          DimStatement.new([
+                                             SubscriptReference.new(NumericIdentifier.new('A'), [
+                                                                      BasicInteger.new(10),
+                                                                    ]),
+                                         ]))
     end
 
     describe 'line' do

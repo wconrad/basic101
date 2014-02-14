@@ -14,7 +14,8 @@ module Basic
         'RND' => RndFunction.new,
         'TAB' => TabFunction.new,
       }
-      @variables = {}
+      @scalars = {}
+      @arrays = {}
     end
 
     def goto(line_number)
@@ -43,14 +44,20 @@ module Basic
       @functions[identifier.to_s].call(self, argument_values)
     end
 
-    def get_variable(identifier)
-      value = @variables[identifier.to_s]
-      value || BasicInteger.new(0)
+    def get_scalar(identifier)
+      @scalars[identifier.to_s] ||= BasicInteger.new(0)
     end
 
-    def set_variable(identifier, value)
-      @variables[identifier.to_s] = value
+    def set_scalar(identifier, value)
+      @scalars[identifier.to_s] = value
     end
+
+    def get_array(identifier, num_dimensions) 
+      @arrays[identifier.to_s] ||=
+        BasicArray.new(num_dimensions, identifier.default)
+    end
+
+    private
 
   end
 

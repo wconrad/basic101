@@ -12,13 +12,20 @@ module Basic
       self.state == other.state
     end
 
-    def eval(program)
-      if program.function_exists?(@identifier)
-        program.call_function(@identifier, argument_values(program))
+    def eval(runtime)
+      if runtime.function_exists?(@identifier)
+        runtime.call_function(@identifier, argument_values(runtime))
       else
-        raise UndefinedFunctionError,
-        "Undefined function or array #{@identifier }"
+        get_array(runtime).get(indices(runtime))
       end
+    end
+
+    def assign(runtime, value)
+      get_array(runtime).set(indices(runtime), value)
+    end
+
+    def dimension_array(runtime)
+      get_array(runtime).dimension(indices(runtime))
     end
 
     protected
@@ -27,9 +34,23 @@ module Basic
       [@identifier, @arguments]
     end
 
-    def argument_values(program)
+    private
+
+    def get_array(runtime)
+      runtime.get_array(@identifier, num_dimensions)
+    end
+
+    def num_dimensions
+      @arguments.size
+    end
+
+    def indices(runtime)
+      argument_values(runtime).map(&:to_i)
+    end
+
+    def argument_values(runtime)
       @arguments.map do |argument|
-        argument.eval(program)
+        argument.eval(runtime)
       end
     end
 

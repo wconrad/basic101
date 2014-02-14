@@ -77,7 +77,8 @@ module Basic
     end
 
     rule(:let) do
-      reference.as(:lvalue) >> space? >> 
+      (str('LET') >> space?).maybe >>
+        reference.as(:lvalue) >> space? >> 
         str('=') >> space? >> expression.as(:rvalue)
     end
 
@@ -105,6 +106,10 @@ module Basic
 
     rule(:and_op) do
       str('AND').as(:and)
+    end
+
+    rule(:or_op) do
+      str('OR').as(:or)
     end
 
     rule(:term) do
@@ -140,8 +145,15 @@ module Basic
          ).repeat(1).as(:operations).maybe
     end
 
+    rule(:or_expression) do
+      and_expression.as(:left) >>
+        (space? >> or_op.as(:operator) >>
+         space? >> and_expression.as(:right)
+         ).repeat(1).as(:operations).maybe
+    end
+
     rule(:expression) do
-      and_expression
+      or_expression
     end
 
     rule(:remark) do
@@ -183,9 +195,14 @@ module Basic
       str('END').as(:end)
     end
 
+    rule(:dim_statement) do
+      str('DIM').as(:dim) >> space >> subscript_reference.as(:reference) >>
+        (space? >> str(',') >> space? >> subscript_reference.as(:reference)).repeat(0)
+    end
+
     rule(:statement) do
       goto | remark | print | let | if_statement | randomize | input |
-        end_statement
+        end_statement | dim_statement
     end
 
     rule(:statements) do
