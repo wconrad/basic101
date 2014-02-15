@@ -205,6 +205,7 @@ module Basic
       let(:rule) {parser.comparison_expression}
       it_should_match '1'
       it_should_match '1 > 2'
+      it_should_match '1 + 2 > 2 + 3'
     end
 
     describe 'not_expression' do

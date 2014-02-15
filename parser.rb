@@ -132,7 +132,7 @@ module Basic
     rule(:comparison_expression) do
       simple_expression.as(:left) >>
         (space? >> comparison_op.as(:operator) >>
-         space? >> factor.as(:right)
+         space? >> simple_expression.as(:right)
          ).repeat(1).as(:operations).maybe
     end
 
