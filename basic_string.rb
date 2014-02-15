@@ -17,6 +17,10 @@ module Basic
       self
     end
 
+    def to_s
+      @value
+    end
+
     def print_string(output)
       output.print @value
     end

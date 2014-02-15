@@ -9,11 +9,7 @@ module Basic
       @input = Input.new(args.fetch(:input_file, $stdin))
       @output = Output.new(args.fetch(:output_file, $stdout))
       @program = args.fetch(:program, Program.new)
-      @functions = {
-        'INT' => IntFunction.new,
-        'RND' => RndFunction.new,
-        'TAB' => TabFunction.new,
-      }
+      @functions = Functions::FUNCTIONS.dup
     end
 
     def goto_line(line_number)
