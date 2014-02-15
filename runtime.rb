@@ -36,10 +36,14 @@ module Basic
 
     def run
       @program_counter = ProgramCounter.new(@program)
-      while !@program_counter.end?
-        statement = @program_counter.current_statement
-        @program_counter.goto_next
-        statement.execute(self)
+      begin
+        while !@program_counter.end?
+          statement = @program_counter.current_statement
+          @program_counter.goto_next
+          statement.execute(self)
+        end
+      rescue Error => e
+        statement.error(e)
       end
     end
 

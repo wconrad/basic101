@@ -8,6 +8,7 @@ module Basic
     def initialize(line_number, statements)
       @line_number = line_number.to_i
       @statements = statements
+      link_statements_to_line
     end
 
     def ==(other)
@@ -19,6 +20,12 @@ module Basic
 
     def state
       [@line_number, @statements]
+    end
+
+    def link_statements_to_line
+      @statements.each do |statement|
+        statement.line = self
+      end
     end
 
   end
