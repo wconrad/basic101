@@ -125,34 +125,34 @@ module Basic
 
     describe 'multiply_op' do
       let(:rule) {:multiply_op}
-      it_should_transform('*', Multiply.new)
-      it_should_transform('/', Divide.new)
+      it_should_transform('*', :*)
+      it_should_transform('/', :/)
     end
 
     describe 'addition_op' do
       let(:rule) {:addition_op}
-      it_should_transform('+', Add.new)
-      it_should_transform('-', Subtract.new)
+      it_should_transform('+', :+)
+      it_should_transform('-', :-)
     end
 
     describe 'comparison_op' do
       let(:rule) {:comparison_op}
-      it_should_transform('=', Equal.new)
-      it_should_transform('<>', NotEqual.new)
-      it_should_transform('<', Less.new)
-      it_should_transform('<=', LessOrEqual.new)
-      it_should_transform('>', Greater.new)
-      it_should_transform('>=', GreaterOrEqual.new)
+      it_should_transform('=', :eq)
+      it_should_transform('<>', :ne)
+      it_should_transform('<', :lt)
+      it_should_transform('<=', :le)
+      it_should_transform('>', :gt)
+      it_should_transform('>=', :ge)
     end
 
     describe 'and_op' do
       let(:rule) {:and_op}
-      it_should_transform('AND', And.new)
+      it_should_transform('AND', :and)
     end
 
     describe 'or_op' do
       let(:rule) {:or_op}
-      it_should_transform('OR', Or.new)
+      it_should_transform('OR', :or)
     end
 
     describe 'term' do
@@ -160,7 +160,7 @@ module Basic
       it_should_transform("1 * 2",
                           BinaryOperations.new(BasicInteger.new(1),
                                             [
-                                              BinaryOperation.new(Multiply.new,
+                                              BinaryOperation.new(:*,
                                                                   BasicInteger.new(2)),
                                             ]))
       it_should_transform("1", BasicInteger.new(1))
@@ -171,7 +171,7 @@ module Basic
       it_should_transform('"abc"', BasicString.new('abc'))
       it_should_transform('1 + 2', BinaryOperations.new(BasicInteger.new(1),
                                                         [
-                                                          BinaryOperation.new(Add.new,
+                                                          BinaryOperation.new(:+,
                                                                               BasicInteger.new(2)),
                                                         ]))
     end
@@ -181,7 +181,7 @@ module Basic
       it_should_transform('"abc"', BasicString.new('abc'))
       it_should_transform('1 < 2', BinaryOperations.new(BasicInteger.new(1),
                                                         [
-                                                          BinaryOperation.new(Less.new,
+                                                          BinaryOperation.new(:lt,
                                                                               BasicInteger.new(2)),
                                                         ]))
     end
@@ -198,7 +198,7 @@ module Basic
       it_should_transform('1', BasicInteger.new(1))
       it_should_transform('1 AND 0', BinaryOperations.new(BasicInteger.new(1),
                                                         [
-                                                          BinaryOperation.new(And.new,
+                                                          BinaryOperation.new(:and,
                                                                               BasicInteger.new(0)),
                                                         ]))
     end
@@ -208,7 +208,7 @@ module Basic
       it_should_transform('1', BasicInteger.new(1))
       it_should_transform('1 OR 0', BinaryOperations.new(BasicInteger.new(1),
                                                         [
-                                                          BinaryOperation.new(Or.new,
+                                                          BinaryOperation.new(:or,
                                                                               BasicInteger.new(0)),
                                                         ]))
     end

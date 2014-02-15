@@ -35,51 +35,51 @@ module Basic
     end
 
     rule(:multiply => simple(:_)) do
-      Multiply.new
+      :*
     end
 
     rule(:divide => simple(:_)) do
-      Divide.new
+      :/
     end
 
     rule(:add => simple(:_)) do
-      Add.new
+      :+
     end
 
     rule(:subtract => simple(:_)) do
-      Subtract.new
+      :-
     end
 
     rule(:eq => simple(:_)) do
-      Equal.new
+      :eq
     end
 
     rule(:ne => simple(:_)) do
-      NotEqual.new
+      :ne
     end
 
     rule(:lt => simple(:_)) do
-      Less.new
+      :lt
     end
 
     rule(:le => simple(:_)) do
-      LessOrEqual.new
+      :le
     end
 
     rule(:gt => simple(:_)) do
-      Greater.new
+      :gt
     end
 
     rule(:ge => simple(:_)) do
-      GreaterOrEqual.new
+      :ge
     end
 
     rule(:and => simple(:_)) do
-      And.new
+      :and
     end
 
     rule(:or => simple(:_)) do
-      Or.new
+      :or
     end
 
     rule(:operator => simple(:operator),

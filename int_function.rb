@@ -2,10 +2,10 @@ module Basic
 
   class IntFunction
 
-    def call(program, args)
+    def call(runtime, args)
       raise IllegalFunctionCall unless args.size == 1
-      value = args.first.eval(program).to_f.floor
-      BasicInteger.new(value)
+      value = args.first.eval(runtime)
+      value.to_float.floor
     end
 
   end

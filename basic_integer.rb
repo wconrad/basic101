@@ -1,6 +1,14 @@
+require_relative 'basic_numeric'
+
 module Basic
 
-  class BasicInteger
+  class BasicInteger < BasicNumeric
+
+    include CoercionHelper
+
+    def self.from_bool(b)
+      new(b ? -1 : 0)
+    end
 
     attr_reader :value
 
@@ -39,6 +47,37 @@ module Basic
 
     def simplest
       self
+    end
+
+    def coerce(other)
+      case other
+      when self.class
+        [other, self]
+      when BasicFloat
+        [other, BasicFloat.new(value)]
+      else
+        coercion_failed(self, other)
+      end
+    end
+
+    def to_integer
+      self
+    end
+
+    def to_float
+      BasicFloat.new(@value)
+    end
+
+    def and(other)
+      self.class.new(value & other.to_integer.value)
+    end
+
+    def or(other)
+      self.class.new(value | other.to_integer.value)
+    end
+
+    def not
+      self.class.new(~value)
     end
 
   end

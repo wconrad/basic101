@@ -12,8 +12,14 @@ module Basic
       self.state == other.state
     end
 
-    def operate(left, program)
-      @operator.operate(left, @right, program)
+    def operate(left, runtime)
+      if @operator.is_a?(Symbol)
+        left_value = left.eval(runtime)
+        right_value = @right.eval(runtime)
+        left_value.public_send(@operator, right_value)
+      else
+        @operator.operate(left, @right, runtime)
+      end
     end
 
     protected
