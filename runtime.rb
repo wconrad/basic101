@@ -35,7 +35,6 @@ module Basic
     end
 
     def run
-      srand(0)
       @program_counter = ProgramCounter.new(@program)
       while !@program_counter.end?
         statement = @program_counter.current_statement
