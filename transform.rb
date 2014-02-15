@@ -162,6 +162,12 @@ module Basic
       end
     end
 
+    rule(:on_goto => simple(:_),
+         :reference => simple(:reference),
+         :line_numbers => subtree(:line_numbers)) do
+      OnGotoStatement.new(reference, Array(line_numbers))
+    end
+
     rule(:condition => simple(:condition),
          :if_true => simple(:true_target)) do
       IfStatement.new(condition, true_target)

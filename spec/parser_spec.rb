@@ -308,6 +308,12 @@ module Basic
       it_should_match 'NEXT I, J'
     end
 
+    describe 'on_goto_statement' do
+      let(:rule) {parser.on_goto_statement}
+      it_should_match 'ON I GOTO 10'
+      it_should_match 'ON I GOTO 10, 20'
+    end
+
     describe 'statement' do
       let(:rule) {parser.statement}
       it_should_match 'REM'
@@ -321,6 +327,7 @@ module Basic
       it_should_match 'DIM A(10)'
       it_should_match 'FOR I = 1 TO 10'
       it_should_match 'NEXT'
+      it_should_match 'ON I GOTO 10, 20'
     end
 
     describe 'statements' do

@@ -219,6 +219,19 @@ module Basic
          ).maybe.as(:references)
     end
 
+    rule(:on_goto_statement) do
+      str('ON').as(:on_goto) >>
+        space? >>reference.as(:reference) >>
+        space? >> str('GOTO') >>
+        (
+         space? >> integer >>
+         (
+          space? >> str(',') >>
+          space? >> integer
+          ).repeat(0)
+         ).as(:line_numbers)
+    end
+
     rule(:statement) do
       (goto |
        remark |
@@ -230,7 +243,8 @@ module Basic
        end_statement |
        dim_statement |
        for_statement |
-       next_statement)
+       next_statement |
+       on_goto_statement)
     end
 
     rule(:statements) do

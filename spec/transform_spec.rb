@@ -281,6 +281,21 @@ module Basic
                           ])
     end
 
+    describe 'on_goto_statement' do
+      let(:rule) {:on_goto_statement}
+      it_should_transform('ON I GOTO 10',
+                          OnGotoStatement.new(ScalarReference.new(NumericIdentifier.new('I')),
+                                              [
+                                                BasicInteger.new(10),
+                                              ]))
+      it_should_transform('ON I GOTO 10, 20',
+                          OnGotoStatement.new(ScalarReference.new(NumericIdentifier.new('I')),
+                                              [
+                                                BasicInteger.new(10),
+                                                BasicInteger.new(20),
+                                              ]))
+    end
+
     describe 'line' do
       let(:rule) {:line}
       it_should_transform('10 REM',
