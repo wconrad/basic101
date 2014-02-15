@@ -15,8 +15,8 @@ module Basic
       expression = other.expression
     end
 
-    def eval(program)
-      value = @expression.eval(program).to_i
+    def eval(runtime)
+      value = @expression.eval(runtime).to_i
       value = value == 0 ? 1 : 0
       wrap_value(value)
     end

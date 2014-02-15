@@ -84,6 +84,17 @@ module Basic
                                             ]))
     end
 
+    describe 'gosub_statement' do
+      let(:rule) {:gosub_statement}
+      it_should_transform('GOSUB 100',
+                          GosubStatement.new(100))
+    end
+
+    describe 'return_statement' do
+      let(:rule) {:return_statement}
+      it_should_transform('RETURN', ReturnStatement.new)
+    end
+
     describe 'numeric_identifier' do
       let(:rule) {:numeric_identifier}
       it_should_transform('I', NumericIdentifier.new('I'))

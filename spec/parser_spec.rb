@@ -347,6 +347,16 @@ module Basic
       it_should_match 'READ I, A(1)'
     end
 
+    describe 'gosub_statement' do
+      let(:rule) {parser.gosub_statement}
+      it_should_match 'GOSUB 100'
+    end
+
+    describe 'return_statement' do
+      let(:rule) {parser.return_statement}
+      it_should_match 'RETURN'
+    end
+
     describe 'statement' do
       let(:rule) {parser.statement}
       it_should_match 'REM'
@@ -363,6 +373,8 @@ module Basic
       it_should_match 'ON I GOTO 10, 20'
       it_should_match 'DATA 1'
       it_should_match 'READ I'
+      it_should_match 'GOSUB 100'
+      it_should_match 'RETURN'
     end
 
     describe 'statements' do

@@ -261,6 +261,15 @@ module Basic
         space? >> reference_list.as(:references)
     end
 
+    rule(:gosub_statement) do
+      str('GOSUB').as(:gosub) >>
+        space? >> integer.as(:line_number)
+    end
+
+    rule(:return_statement) do
+      str('RETURN').as(:return)
+    end
+
     rule(:statement) do
       (goto |
        remark |
@@ -275,7 +284,9 @@ module Basic
        next_statement |
        on_goto_statement |
        data_statement |
-       read_statement)
+       read_statement |
+       gosub_statement |
+       return_statement)
     end
 
     rule(:statements) do

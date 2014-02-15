@@ -10,6 +10,7 @@ module Basic
   class NextWithoutFor < Error ; end
   class NoMoreInputError < Error ; end
   class OutOfDataError < Error ; end
+  class ReturnWithoutGosub < Error ; end
   class UndefinedLineNumberError < Error ; end
 
   class BadInputFormatError < InputError ; end

@@ -20,6 +20,14 @@ module Basic
       @program_counter.goto_line(line_number)
     end
 
+    def gosub_line(line_number)
+      @program_counter.gosub_line(line_number)
+    end
+
+    def return
+      @program_counter.return
+    end
+
     def goto_index(index)
       @program_counter.goto_index(index)
     end

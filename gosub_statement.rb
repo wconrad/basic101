@@ -2,14 +2,14 @@ require_relative 'statement'
 
 module Basic
 
-  class GotoStatement < Statement
+  class GosubStatement < Statement
 
     def initialize(target_line_number)
       @target_line_number = target_line_number
     end
 
-    def execute(program)
-      program.goto_line(@target_line_number)
+    def execute(runtime)
+      runtime.gosub_line(@target_line_number)
     end
 
     protected

@@ -5,6 +5,7 @@ module Basic
     def initialize(program)
       @program = program
       @index = 0
+      @stack = []
     end
 
     def goto_next
@@ -27,8 +28,19 @@ module Basic
       goto_index @program.index_of_line(line_number)
     end
 
+    def gosub_line(line_number)
+      @stack.push @index
+      goto_line line_number
+    end
+
     def goto_end
       @index = @program.statement_count + 1
+    end
+
+    def return
+      index = @stack.pop
+      raise ReturnWithoutGosub unless index
+      @index = index
     end
 
     def current_statement

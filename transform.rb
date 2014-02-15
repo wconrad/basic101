@@ -34,51 +34,51 @@ module Basic
       ScalarReference.new(identifier)
     end
 
-    rule(:multiply => simple(:x)) do
+    rule(:multiply => simple(:_)) do
       Multiply.new
     end
 
-    rule(:divide => simple(:x)) do
+    rule(:divide => simple(:_)) do
       Divide.new
     end
 
-    rule(:add => simple(:x)) do
+    rule(:add => simple(:_)) do
       Add.new
     end
 
-    rule(:subtract => simple(:x)) do
+    rule(:subtract => simple(:_)) do
       Subtract.new
     end
 
-    rule(:eq => simple(:x)) do
+    rule(:eq => simple(:_)) do
       Equal.new
     end
 
-    rule(:ne => simple(:x)) do
+    rule(:ne => simple(:_)) do
       NotEqual.new
     end
 
-    rule(:lt => simple(:x)) do
+    rule(:lt => simple(:_)) do
       Less.new
     end
 
-    rule(:le => simple(:x)) do
+    rule(:le => simple(:_)) do
       LessOrEqual.new
     end
 
-    rule(:gt => simple(:x)) do
+    rule(:gt => simple(:_)) do
       Greater.new
     end
 
-    rule(:ge => simple(:x)) do
+    rule(:ge => simple(:_)) do
       GreaterOrEqual.new
     end
 
-    rule(:and => simple(:x)) do
+    rule(:and => simple(:_)) do
       And.new
     end
 
-    rule(:or => simple(:x)) do
+    rule(:or => simple(:_)) do
       Or.new
     end
 
@@ -96,11 +96,11 @@ module Basic
       left
     end
 
-     rule(:not => simple(:x)) do
-      NotOperation.new(x)
+     rule(:not => simple(:expression)) do
+      NotOperation.new(expression)
     end
 
-    rule(:remark => simple(:x)) do
+    rule(:remark => simple(:_)) do
       RemarkStatement.new
     end
 
@@ -120,24 +120,24 @@ module Basic
       LetStatement.new(lvalue, rvalue)
     end
 
-    rule(:goto => simple(:x), :integer => simple(:line_number)) do
+    rule(:goto => simple(:_), :integer => simple(:line_number)) do
       GotoStatement.new(line_number.to_i)
     end
 
-    rule(:randomize => simple(:x)) do
+    rule(:randomize => simple(:_)) do
       RandomizeStatement.new
     end
 
-    rule(:end => simple(:x)) do
+    rule(:end => simple(:_)) do
       EndStatement.new
     end
 
-    rule(:input => simple(:x),
+    rule(:input => simple(:_),
          :references => subtree(:references)) do
       InputStatement.new(nil, Array(references))
     end
 
-    rule(:input => simple(:x),
+    rule(:input => simple(:_),
          :prompt => simple(:prompt),
          :references => subtree(:references)) do
       InputStatement.new(prompt, Array(references))
@@ -185,6 +185,15 @@ module Basic
     rule(:integer => simple(:line_number),
          :statements => subtree(:statements)) do
       Line.new(line_number.to_i, Array(statements))
+    end
+
+    rule(:gosub => simple(:_),
+         :line_number => simple(:line_number)) do
+      GosubStatement.new(line_number.to_i)
+    end
+
+    rule(:return => simple(:_)) do
+      ReturnStatement.new
     end
 
     rule(:program => subtree(:lines)) do
