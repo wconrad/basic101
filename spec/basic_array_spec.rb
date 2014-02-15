@@ -4,26 +4,26 @@ module Basic
 
   describe BasicArray do
 
-    let(:dimensions) {[10]}
-    let(:num_dimensions) {dimensions.size}
     let(:default) {BasicInteger.new(0)}
     subject {BasicArray.new(num_dimensions, default)}
 
     describe 'default dimensions' do
 
       context 'when 1 dimension' do
-        let(:dimensions) {[10]}
-        its(:dimensions) {should eq [10]}
+        let(:num_dimensions) {1}
         it 'should set each element to the default' do
-          expect(subject.get([9])).to eq default
+          expect(subject.get([0])).to eq default
+          expect(subject.get([10])).to eq default
         end
       end
 
       context 'when 2 dimensions' do
-        let(:dimensions) {[10, 10]}
-        its(:dimensions) {should eq [10, 10]}
+        let(:num_dimensions) {2}
         it 'should set each element to the default' do
-          expect(subject.get([9, 9])).to eq default
+          expect(subject.get([0, 0])).to eq default
+          expect(subject.get([0, 10])).to eq default
+          expect(subject.get([10, 0])).to eq default
+          expect(subject.get([10, 10])).to eq default
         end
       end
 
@@ -31,21 +31,27 @@ module Basic
 
     describe '#dimension' do
 
-      context 'normal' do
-        before(:each) {subject.dimension([2, 3, 4])} 
-        its(:dimensions) {should eq [2, 3, 4]}
+      context 'when normal' do
+        let(:num_dimensions) {2}
+        before(:each) {subject.dimension([2, 3])} 
         it 'should set each element to the default' do
-          expect(subject.get([1, 2, 3])).to eq default
+          expect(subject.get([0, 0])).to eq default
+          expect(subject.get([0, 3])).to eq default
+          expect(subject.get([2, 0])).to eq default
+          expect(subject.get([2, 3])).to eq default
         end
       end
 
-      context 'zero size' do
+      context 'max index 0' do
+        let(:num_dimensions) {1}
+        before(:each) {subject.dimension([0])} 
         specify do
-          expect{subject.dimension([0])}.to raise_error ArraySizeError
+          expect(subject.get([0])).to eq default
         end
       end
 
-      context 'negative size' do
+      context 'negative max index' do
+        let(:num_dimensions) {1}
         specify do
           expect{subject.dimension([-1])}.to raise_error ArraySizeError
         end
@@ -54,9 +60,9 @@ module Basic
     end
 
     describe '#set' do
-      let(:dimensions) {[2, 2]}
+      let(:num_dimensions) {2}
       before(:each) do
-        subject.dimension(dimensions)
+        subject.dimension([1, 1])
         subject.set([0, 0], BasicInteger.new(1))
         subject.set([0, 1], BasicInteger.new(2))
         subject.set([1, 0], BasicInteger.new(3))
@@ -70,7 +76,7 @@ module Basic
 
     describe 'bounds checking' do
 
-      let(:dimensions) {[10, 10]}
+      let(:num_dimensions) {2}
 
       it 'should reject negative indices' do
         expect{subject.get([0, -1])}.to raise_error IndexError
@@ -85,7 +91,7 @@ module Basic
       end
 
       it 'should reject too large an index' do
-        expect{subject.get([0, 10])}.to raise_error IndexError
+        expect{subject.get([0, 11])}.to raise_error IndexError
       end
     end
 

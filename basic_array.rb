@@ -2,17 +2,15 @@ module Basic
 
   class BasicArray
 
-    attr_reader :dimensions
-
     def initialize(num_dimensions, default)
       @default = default
       dimension [10] * num_dimensions
     end
 
-    def dimension(dimensions)
-      check_dimensions(dimensions)
-      @dimensions = dimensions
-      @array = make_array(dimensions)
+    def dimension(max_indices)
+      check_max_indices(max_indices)
+      @max_indices = max_indices
+      @array = make_array(max_indices)
     end
 
     def get(indices)
@@ -27,12 +25,12 @@ module Basic
 
     private
 
-    def make_array(dimensions)
-      if dimensions.size == 0
+    def make_array(max_indices)
+      if max_indices.size == 0
         @default
       else
-        Array.new(dimensions.first) do
-          make_array(dimensions[1..-1])
+        Array.new(max_indices.first + 1) do
+          make_array(max_indices[1..-1])
         end
       end
     end
@@ -53,16 +51,16 @@ module Basic
       end
     end
 
-    def check_dimensions(dimensions)
-      dimensions.each do |dimension|
-        raise ArraySizeError if dimension <= 0
+    def check_max_indices(max_indices)
+      max_indices.each do |max_index|
+        raise ArraySizeError if max_index < 0
       end
     end
 
     def check_indices(indices)
-      raise IndexError unless indices.size == dimensions.size
-      indices.zip(dimensions).each do |index, dimension|
-        raise IndexError unless (0...dimension).include?(index)
+      raise IndexError unless indices.size == @max_indices.size
+      indices.zip(@max_indices).each do |index, dimension|
+        raise IndexError unless (0..dimension).include?(index)
       end
     end
 
