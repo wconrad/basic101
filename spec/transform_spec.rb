@@ -40,9 +40,48 @@ module Basic
       it_should_transform('+1.2', BasicFloat.new(1.2))
     end
 
-    describe 'string' do
-      let(:rule) {:string}
+    describe 'quoted_string' do
+      let(:rule) {:unquoted_string}
+      it_should_transform('abc', BasicString.new('abc'))
+    end
+
+    describe 'quoted_string' do
+      let(:rule) {:quoted_string}
       it_should_transform('"abc"', BasicString.new('abc'))
+    end
+
+    describe 'data_item' do
+      let(:rule) {:data_item}
+      it_should_transform('abc', BasicString.new('abc'))
+      it_should_transform('"abc"', BasicString.new('abc'))
+      it_should_transform('123', BasicInteger.new(123))
+      it_should_transform('123.45', BasicFloat.new(123.45))
+    end
+
+    describe 'data_statement' do
+      let(:rule) {:data_statement}
+      it_should_transform('DATA 1', 
+                          DataStatement.new([
+                                              BasicInteger.new(1),
+                                            ]))
+      it_should_transform('DATA 1, 2', 
+                          DataStatement.new([
+                                              BasicInteger.new(1),
+                                              BasicInteger.new(2),
+                                            ]))
+    end
+
+    describe 'read_statement' do
+      let(:rule) {:read_statement}
+      it_should_transform('READ I',
+                          ReadStatement.new([
+                                              ScalarReference.new(NumericIdentifier.new('I')),
+                                            ]))
+      it_should_transform('READ I, J',
+                          ReadStatement.new([
+                                              ScalarReference.new(NumericIdentifier.new('I')),
+                                              ScalarReference.new(NumericIdentifier.new('J')),
+                                            ]))
     end
 
     describe 'numeric_identifier' do

@@ -52,6 +52,10 @@ module Basic
       index
     end
 
+    def data_items
+      @statements.flat_map(&:data_items)
+    end
+
     def ==(other)
       return false unless other.is_a?(self.class)
       statements == other.statements

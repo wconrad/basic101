@@ -14,8 +14,6 @@ module Basic
         'RND' => RndFunction.new,
         'TAB' => TabFunction.new,
       }
-      @scalars = {}
-      @arrays = {}
     end
 
     def goto_line(line_number)
@@ -35,7 +33,7 @@ module Basic
     end
 
     def run
-      @program_counter = ProgramCounter.new(@program)
+      reset
       begin
         while !@program_counter.end?
           statement = @program_counter.current_statement
@@ -68,7 +66,20 @@ module Basic
         BasicArray.new(num_dimensions, identifier.default)
     end
 
+    def get_data_item
+      data_item = @data_items.shift
+      raise OutOfDataError unless data_item
+      data_item
+    end
+
     private
+
+    def reset
+      @scalars = {}
+      @arrays = {}
+      @program_counter = ProgramCounter.new(@program)
+      @data_items = @program.data_items
+    end
 
   end
 

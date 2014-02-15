@@ -15,6 +15,10 @@ module Basic
       raise exception, message
     end
 
+    def data_items
+      []
+    end
+
     protected
 
     def state

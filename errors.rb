@@ -9,6 +9,7 @@ module Basic
   class InputError < Error ; end
   class NextWithoutFor < Error ; end
   class NoMoreInputError < Error ; end
+  class OutOfDataError < Error ; end
   class UndefinedLineNumberError < Error ; end
 
   class BadInputFormatError < InputError ; end

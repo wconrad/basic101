@@ -168,6 +168,15 @@ module Basic
       OnGotoStatement.new(reference, Array(line_numbers))
     end
 
+    rule(:data_items => subtree(:data_items)) do
+      DataStatement.new(Array(data_items))
+    end
+
+    rule(:read => simple(:_),
+         :references => subtree(:references)) do
+      ReadStatement.new(Array(references))
+    end
+
     rule(:condition => simple(:condition),
          :if_true => simple(:true_target)) do
       IfStatement.new(condition, true_target)

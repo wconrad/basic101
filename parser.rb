@@ -34,7 +34,11 @@ module Basic
       (sign.maybe >> decimal >> str('.') >> decimal).as(:float)
     end
 
-    rule(:string) do
+    rule(:unquoted_string) do
+      match('(?=[[:print:]])[^,": ]').repeat(0).as(:string)
+    end
+
+    rule(:quoted_string) do
       str('"') >> match('[^"]').repeat(0).as(:string) >> str('"')
     end
 
@@ -83,7 +87,7 @@ module Basic
     end
 
     rule(:factor) do
-      string |
+      quoted_string |
         float |
         integer |
         reference |
@@ -190,7 +194,7 @@ module Basic
 
     rule(:input) do
       str('INPUT').as(:input) >>
-        (space? >> string.as(:prompt) >> space? >> str(';')).maybe >>
+        (space? >> quoted_string.as(:prompt) >> space? >> str(';')).maybe >>
         space? >> reference_list.as(:references)
     end
 
@@ -214,7 +218,7 @@ module Basic
         space? >> expression.as(:from) >>
         space? >> str('TO') >>
         space? >> expression.as(:to) >>
-        (space? >> str('STEP') >> space >> expression).maybe.as(:step)
+       (space? >> str('STEP') >> space >> expression).maybe.as(:step)
     end
 
     rule(:next_statement) do
@@ -239,6 +243,24 @@ module Basic
          ).as(:line_numbers)
     end
 
+    rule(:data_item) do
+      float | integer | quoted_string | unquoted_string
+    end
+
+    rule(:data_statement) do
+      str('DATA') >>
+        (space? >> data_item >> 
+         (space? >> str(',') >>
+          space? >> data_item
+          ).repeat(0)
+         ).as(:data_items)
+    end
+
+    rule(:read_statement) do
+      str('READ').as(:read) >>
+        space? >> reference_list.as(:references)
+    end
+
     rule(:statement) do
       (goto |
        remark |
@@ -251,7 +273,9 @@ module Basic
        dim_statement |
        for_statement |
        next_statement |
-       on_goto_statement)
+       on_goto_statement |
+       data_statement |
+       read_statement)
     end
 
     rule(:statements) do

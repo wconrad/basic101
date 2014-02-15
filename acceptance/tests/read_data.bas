@@ -1,0 +1,6 @@
+10 READ I
+30 READ J, A, B
+40 PRINT I, J, A, B
+30 DATA 1
+40 DATA 2.3
+50 DATA "foo", bar

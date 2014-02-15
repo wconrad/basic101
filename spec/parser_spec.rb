@@ -80,9 +80,21 @@ module Basic
       it_should_match '10'
       it_should_match '20'
     end
+
+    describe 'unquoted_string' do
+      let(:rule) {parser.unquoted_string}
+      it_should_match 'abc'
+      it_should_match ''
+      it_should_not_match ','
+      it_should_not_match '"'
+      it_should_not_match ':'
+      it_should_not_match ' '
+      it_should_not_match "\n"
+      it_should_not_match "\r"
+    end
     
-    describe 'string' do
-      let(:rule) {parser.string}
+    describe 'quoted_string' do
+      let(:rule) {parser.quoted_string}
       it_should_match '""'
       it_should_match '"abc"'
     end
@@ -315,6 +327,26 @@ module Basic
       it_should_match 'ON I GOTO 10, 20'
     end
 
+    describe 'data_item' do
+      let(:rule) {parser.data_item}
+      it_should_match 'abc'
+      it_should_match '"abc"'
+      it_should_match '123'
+      it_should_match '123.45'
+    end
+
+    describe 'data_statement' do
+      let(:rule) {parser.data_statement}
+      it_should_match 'DATA 1'
+      it_should_match 'DATA 1.23,"ABC",def'
+    end
+
+    describe 'read_statement' do
+      let(:rule) {parser.read_statement}
+      it_should_match 'READ I'
+      it_should_match 'READ I, A(1)'
+    end
+
     describe 'statement' do
       let(:rule) {parser.statement}
       it_should_match 'REM'
@@ -329,6 +361,8 @@ module Basic
       it_should_match 'FOR I = 1 TO 10'
       it_should_match 'NEXT'
       it_should_match 'ON I GOTO 10, 20'
+      it_should_match 'DATA 1'
+      it_should_match 'READ I'
     end
 
     describe 'statements' do
