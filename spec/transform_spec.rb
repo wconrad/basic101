@@ -263,7 +263,10 @@ module Basic
       let(:rule) {:if_statement}
       it_should_transform('IF 1 THEN 10',
                           IfStatement.new(BasicInteger.new(1),
-                                          BasicInteger.new(10)))
+                                          GotoStatement.new(10)))
+      it_should_transform('IF 0 THEN RANDOMIZE',
+                          IfStatement.new(BasicInteger.new(0),
+                                          RandomizeStatement.new))
     end
 
     describe 'randomize' do

@@ -178,8 +178,13 @@ module Basic
     end
 
     rule(:condition => simple(:condition),
-         :if_true => simple(:true_target)) do
-      IfStatement.new(condition, true_target)
+         :line_number => simple(:line_number)) do
+      IfStatement.new(condition, GotoStatement.new(line_number.to_i))
+    end
+
+    rule(:condition => simple(:condition),
+         :statement => simple(:statement)) do
+      IfStatement.new(condition, statement)
     end
 
     rule(:integer => simple(:line_number),

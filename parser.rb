@@ -184,8 +184,11 @@ module Basic
     end
 
     rule(:if_statement) do
-      str('IF') >> space? >> expression.as(:condition) >> 
-        space? >> str('THEN') >> space? >> integer.as(:if_true)
+      str('IF') >>
+        space? >> expression.as(:condition) >> 
+        space? >> str('THEN') >>
+        space? >>
+        (integer.as(:line_number) | statement.as(:statement))
     end
 
     rule(:randomize) do

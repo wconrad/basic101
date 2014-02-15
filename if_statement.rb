@@ -4,14 +4,14 @@ module Basic
 
   class IfStatement < Statement
 
-    def initialize(condition, true_target)
+    def initialize(condition, true_statement)
       @condition = condition
-      @true_target = true_target
+      @true_statement = true_statement
     end
 
     def execute(program)
       if @condition.eval(program).to_f != 0
-        program.goto_line(@true_target.eval(program).to_i)
+        @true_statement.execute(program)
       end
     end
 
@@ -23,7 +23,7 @@ module Basic
     protected
 
     def state
-      [@condition, @true_target]
+      [@condition, @true_statement]
     end
 
   end
