@@ -197,6 +197,10 @@ module Basic
       GosubStatement.new(line_number.to_i)
     end
 
+    rule(:stop => simple(:_)) do
+      StopStatement.new
+    end
+
     rule(:return => simple(:_)) do
       ReturnStatement.new
     end

@@ -358,6 +358,11 @@ module Basic
                                               ]))
     end
 
+    describe 'stop_statement' do
+      let(:rule) {:stop_statement}
+      it_should_transform('STOP', StopStatement.new)
+    end
+
     describe 'line' do
       let(:rule) {:line}
       it_should_transform('10 REM',

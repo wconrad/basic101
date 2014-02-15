@@ -273,11 +273,14 @@ module Basic
       str('RETURN').as(:return)
     end
 
+    rule(:stop_statement) do
+      str('STOP').as(:stop)
+    end
+
     rule(:statement) do
       (goto |
        remark |
        print |
-       let |
        if_statement |
        randomize |
        input |
@@ -289,7 +292,9 @@ module Basic
        data_statement |
        read_statement |
        gosub_statement |
-       return_statement)
+       return_statement |
+       stop_statement |
+       let)
     end
 
     rule(:statements) do

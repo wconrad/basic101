@@ -358,6 +358,11 @@ module Basic
       it_should_match 'RETURN'
     end
 
+    describe 'stop_statement' do
+      let(:rule) {parser.stop_statement}
+      it_should_match 'STOP'
+    end
+
     describe 'statement' do
       let(:rule) {parser.statement}
       it_should_match 'REM'
@@ -376,6 +381,7 @@ module Basic
       it_should_match 'READ I'
       it_should_match 'GOSUB 100'
       it_should_match 'RETURN'
+      it_should_match 'STOP'
     end
 
     describe 'statements' do
