@@ -143,8 +143,8 @@ module Basic
       InputStatement.new(prompt, Array(references))
     end
 
-    rule(:dim => simple(:x),
-         :reference => subtree(:references)) do
+    rule(:dim => simple(:_),
+         :references => subtree(:references)) do
       DimStatement.new(Array(references))
     end
 

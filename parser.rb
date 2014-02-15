@@ -199,8 +199,12 @@ module Basic
     end
 
     rule(:dim_statement) do
-      str('DIM').as(:dim) >> space >> subscript_reference.as(:reference) >>
-        (space? >> str(',') >> space? >> subscript_reference.as(:reference)).repeat(0)
+      str('DIM').as(:dim) >>
+        (space? >> subscript_reference >>
+         (space? >> str(',') >>
+          space? >> subscript_reference
+          ).repeat(0)
+         ).as(:references)
     end
 
     rule(:for_statement) do

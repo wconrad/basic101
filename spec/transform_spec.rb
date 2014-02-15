@@ -251,6 +251,15 @@ module Basic
                                                                       BasicInteger.new(10),
                                                                     ]),
                                          ]))
+      it_should_transform('DIM A(10), B(20)',
+                          DimStatement.new([
+                                             SubscriptReference.new(NumericIdentifier.new('A'), [
+                                                                      BasicInteger.new(10),
+                                                                    ]),
+                                             SubscriptReference.new(NumericIdentifier.new('B'), [
+                                                                      BasicInteger.new(20),
+                                                                    ]),
+                                         ]))
     end
 
     describe 'for_statement' do
