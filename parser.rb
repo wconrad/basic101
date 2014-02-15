@@ -83,7 +83,10 @@ module Basic
     end
 
     rule(:factor) do
-      string | float | integer | reference |
+      string |
+        float |
+        integer |
+        reference |
         str('(') >> space? >> expression >> space? >> str(')')
     end
 
