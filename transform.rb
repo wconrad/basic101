@@ -189,7 +189,7 @@ module Basic
 
     rule(:integer => simple(:line_number),
          :statements => subtree(:statements)) do
-      Line.new(line_number.to_i, Array(statements))
+      Line.new(line_number.to_i, Array(statements).flatten)
     end
 
     rule(:gosub => simple(:_),
