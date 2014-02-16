@@ -29,6 +29,7 @@ module Basic
     end
 
     def tab_to(column)
+      column = [1, column].max
       spaces_needed = -> {column - (@chars_on_line + 1)}
       print("\n") if spaces_needed.call < 0
       print ' ' * spaces_needed.call

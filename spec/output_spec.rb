@@ -72,6 +72,22 @@ module Basic
         end
       end
 
+      context 'tab to first column' do
+        specify do
+          output.tab_to(1)
+          output.print('x')
+          expect(file.string).to eq "x"
+        end
+      end
+
+      context "tab to zero'th column" do
+        specify do
+          output.tab_to(0)
+          output.print('x')
+          expect(file.string).to eq "x"
+        end
+      end
+
     end
 
   end
