@@ -95,11 +95,13 @@ module Basic
     end
 
     rule(:multiply_op) do
-      str('*').as(:multiply) | str('/').as(:divide)
+      (str('*').as(:multiply) |
+       str('/').as(:divide))
     end
 
     rule(:addition_op) do
-      str('+').as(:add) | str('-').as(:subtract)
+      (str('+').as(:add) |
+       str('-').as(:subtract))
     end
 
     rule(:comparison_op) do
