@@ -68,6 +68,10 @@ module Basic
       self
     end
 
+    def to_string
+      raise TypeError, 'float cannot be converted to string'
+    end
+
     def or(other)
       to_integer.or(other)
     end

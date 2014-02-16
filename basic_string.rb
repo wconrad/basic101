@@ -50,6 +50,17 @@ module Basic
       raise TypeError, "string cannot be converted to float"
     end
 
+    def to_string
+      self
+    end
+
+    def left(n)
+      if n < 0
+        raise InvalidArgumentError, 'LEFT$ cannot take negative count'
+      end
+      BasicString.new(@value[0...n])
+    end
+
   end
 
 end
