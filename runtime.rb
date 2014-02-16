@@ -41,7 +41,7 @@ module Basic
       begin
         while !@program_counter.end?
           statement = @program_counter.current_statement
-          @program_counter.goto_next
+          @program_counter.goto_next_statement
           statement.execute(self)
         end
       rescue StandardError => e

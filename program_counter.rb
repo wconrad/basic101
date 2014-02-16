@@ -8,7 +8,7 @@ module Basic
       @stack = []
     end
 
-    def goto_next
+    def goto_next_statement
       @index += 1
     end
 
