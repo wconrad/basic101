@@ -22,6 +22,7 @@ module Basic
     math_op :-
     math_op :*
     math_op :/
+    math_op :**
 
     def compare(other)
       if other.is_a?(self.class)

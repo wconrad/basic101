@@ -196,12 +196,6 @@ module Basic
       it_should_match 'OR'
     end
 
-    describe 'negation' do
-      let(:rule) {parser.negation}
-      it_should_match '-I'
-      it_should_match '-(1 + 2)'
-    end
-
     describe 'factor' do
       let(:rule) {parser.factor}
       it_should_match '"abc"'
@@ -209,7 +203,19 @@ module Basic
       it_should_match '123'
       it_should_match 'I'
       it_should_match '(1 + 2)'
+    end
+
+    describe 'power' do
+      let(:rule) {parser.power}
+      it_should_match '1^2'
+      it_should_match '1^2^3'
+      it_should_match 'I'
+    end
+
+    describe 'negation' do
+      let(:rule) {parser.negation}
       it_should_match '-I'
+      it_should_match 'I'
     end
 
     describe 'term' do

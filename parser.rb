@@ -89,19 +89,6 @@ module Basic
         str('=') >> space? >> expression.as(:rvalue)
     end
 
-    rule(:negation) do
-      (str('-') >> space? >> factor).as(:negation)
-    end
-
-    rule(:factor) do
-      quoted_string |
-        float |
-        integer |
-        reference |
-        str('(') >> space? >> expression >> space? >> str(')') |
-        negation
-    end
-
     rule(:multiply_op) do
       (str('*').as(:multiply) |
        str('/').as(:divide))
@@ -129,10 +116,31 @@ module Basic
       str('OR').as(:or)
     end
 
+    rule(:factor) do
+      quoted_string |
+        float |
+        integer |
+        reference |
+        str('(') >> space? >> expression >> space? >> str(')')
+    end
+
+    rule(:power) do
+      (factor.as(:left) >>
+       space? >> str('^').as(:power) >>
+       space? >> power.as(:right)) |
+        factor
+    end
+
+    rule(:negation) do
+      (str('-') >>
+       space? >> power).as(:negation) |
+        power
+    end
+
     rule(:term) do
-      factor.as(:left) >>
+      negation.as(:left) >>
         (space? >> multiply_op.as(:operator) >>
-         space? >> factor.as(:right)
+         space? >> negation.as(:right)
          ).repeat(1).as(:operations).maybe
     end
 

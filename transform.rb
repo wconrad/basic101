@@ -100,6 +100,12 @@ module Basic
       left
     end
 
+    rule(:left => subtree(:left),
+         :power => simple(:_),
+         :right => subtree(:right)) do
+      PowerOperation.new(left, right)
+    end
+
      rule(:not => simple(:expression)) do
       NotOperation.new(expression)
     end

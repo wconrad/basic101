@@ -124,6 +124,18 @@ module Basic
                                                  ]))
     end
 
+    describe 'power' do
+      let(:rule) {:power}
+      it_should_transform('1', BasicInteger.new(1))
+      it_should_transform('1^2',
+                          PowerOperation.new(BasicInteger.new(1),
+                                             BasicInteger.new(2)))
+      it_should_transform('1^2^3',
+                          PowerOperation.new(BasicInteger.new(1),
+                                             PowerOperation.new(BasicInteger.new(2),
+                                                                BasicInteger.new(3))))
+    end
+
     describe 'negation' do
       let(:rule) {:negation}
       it_should_transform('-1',
