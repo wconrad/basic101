@@ -45,7 +45,8 @@ module Basic
     end
 
     rule(:base_identifier) do
-      match('[A-Z]') >> match('[A-Z0-9]').repeat(0)
+      str('ELSE').absent? >>
+        match('[A-Z]') >> match('[A-Z0-9]').repeat(0)
     end
 
     rule(:numeric_identifier) do
@@ -196,7 +197,8 @@ module Basic
       str('IF').as(:if) >>
         space? >> expression.as(:condition) >> 
         (space? >> str('THEN')).maybe >>
-        space? >> if_block.as(:true_block)
+        space? >> if_block.as(:then_block) >>
+        (space? >> str('ELSE') >> space? >> if_block).maybe.as(:else_block)
     end
 
     rule(:randomize) do

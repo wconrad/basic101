@@ -183,13 +183,15 @@ module Basic
 
     rule(:if => simple(:_),
          :condition => simple(:condition),
-         :true_block => subtree(:true_block)) do
+         :then_block => subtree(:then_block),
+         :else_block => subtree(:else_block)) do
       [
         IfStatement.new(condition),
-        true_block,
+        then_block,
         ElseStatement.new,
+        else_block,
         EndifStatement.new,
-      ].flatten
+      ].flatten.compact
     end
 
     rule(:integer => simple(:line_number),

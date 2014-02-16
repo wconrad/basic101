@@ -15,7 +15,7 @@ module Basic
     end
 
     def self.it_should_not_match(s)
-      it "should consume #{s.inspect}" do
+      it "should not consume #{s.inspect}" do
         expect{rule.parse(s)}.to raise_error Parslet::ParseFailed
       end
     end
@@ -98,6 +98,13 @@ module Basic
       it_should_match '""'
       it_should_match '"abc"'
       it_should_not_match %Q'"\n"'
+    end
+
+    describe 'base_identifier' do
+      let(:rule) {parser.base_identifier}
+      it_should_match 'A'
+      it_should_match 'A1'
+      it_should_not_match 'ELSE'
     end
 
     describe 'numeric_identifier' do
@@ -272,6 +279,7 @@ module Basic
       it_should_match 'PRINT'
       it_should_match 'PRINT "A"'
       it_should_match 'PRINT "A" ;'
+      it_should_not_match 'PRINT "ok" ELSE'
     end
 
     describe 'goto' do
@@ -291,7 +299,7 @@ module Basic
       let(:rule) {parser.if_statement}
       it_should_match 'IF 1 THEN 20'
       it_should_match 'IF 1 THEN PRINT "FOO"'
-      it_should_match 'IF 1 THEN PRINT "FOO" : I=1'
+      it_should_match 'IF 1 THEN PRINT "FOO" ELSE PRINT "BAR"'
     end
 
     describe 'randomize' do

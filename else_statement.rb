@@ -10,10 +10,11 @@ module Basic
     end
 
     def execute(runtime)
+      @end_statement.goto_following_statement(runtime)
     end
 
-    def goto(runtime)
-      runtime.goto_index(@index)
+    def goto_following_statement(runtime)
+      runtime.goto_index(@index + 1)
     end
 
   end

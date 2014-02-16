@@ -291,6 +291,13 @@ module Basic
                             ElseStatement.new,
                             EndifStatement.new,
                           ])
+      it_should_transform('IF 0 THEN RANDOMIZE ELSE PRINT', [
+                            IfStatement.new(BasicInteger.new(0)),
+                            RandomizeStatement.new,
+                            ElseStatement.new,
+                            PrintStatement.new,
+                            EndifStatement.new,
+                          ])
     end
 
     describe 'randomize' do

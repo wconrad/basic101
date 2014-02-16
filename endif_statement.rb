@@ -10,6 +10,10 @@ module Basic
     def execute(runtime)
     end
 
+    def goto_following_statement(runtime)
+      runtime.goto_index(@index + 1)
+    end
+
   end
 
 end

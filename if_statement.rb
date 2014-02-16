@@ -16,7 +16,7 @@ module Basic
 
     def execute(runtime)
       if @condition.eval(runtime).to_f == 0
-        @else_statement.goto(runtime)
+        @else_statement.goto_following_statement(runtime)
       end
     end
 

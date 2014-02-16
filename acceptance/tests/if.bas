@@ -1,20 +1,25 @@
-5 REM IF...THEN line_number; true
+5 REM IF false THEN line_number
 10 IF 0 THEN 40
 20 PRINT "ok"
 30 GOTO 45
 40 PRINT "fail"
-45 REM IF...THEN line_number; false
+45 REM IF true THEN line_number
 50 IF -1 THEN 80
 60 PRINT "fail"
 70 GOTO 90
 80 PRINT "ok"
-90 REM IF...THEN statements; true
+90 REM IF true THEN statements
 110 IF -1 THEN PRINT "ok" : PRINT "ok"
-105 REM IF...THEN statements; false
+105 REM IF false THEN statements
 120 IF 0 THEN PRINT "fail" : PRINT "fail"
-128 REM IF...GOTO
+128 REM IF true GOTO
 130 IF -1 GOTO 160
 140 PRINT "fail"
 150 GOTO 170
 160 PRINT "ok"
-170 REM
+170 REM IF true THEN...ELSE
+180 IF -1 THEN PRINT "ok" ELSE PRINT "fail"
+185 REM IF false THEN...ELSE
+190 IF 0 THEN PRINT "fail" ELSE PRINT "ok"
+200 REM nested
+210 IF -1 THEN IF -1 THEN PRINT "ok" ELSE PRINT "fail" ELSE PRINT "fail"
