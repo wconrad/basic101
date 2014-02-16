@@ -205,9 +205,15 @@ module Basic
       str('RANDOMIZE').as(:randomize)
     end
 
-    rule(:input) do
+    rule(:prompt_delimeter) do
+      str(';').as(:prompt_delimeter) |
+        str(',').as(:null_prompt_delimeter)
+    end
+
+    rule(:input_statement) do
       str('INPUT').as(:input) >>
-        (space? >> quoted_string.as(:prompt) >> space? >> str(';')).maybe >>
+        (space? >> quoted_string.as(:prompt) >>
+         space? >> prompt_delimeter.as(:prompt_delimeter)).maybe >>
         space? >> reference_list.as(:references)
     end
 
@@ -293,7 +299,7 @@ module Basic
        print |
        if_statement |
        randomize |
-       input |
+       input_statement |
        end_statement |
        dim_statement |
        for_statement |

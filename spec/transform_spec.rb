@@ -305,18 +305,26 @@ module Basic
       it_should_transform('RANDOMIZE', RandomizeStatement.new)
     end
 
+    describe 'prompt_delimeter' do
+      let(:rule) {:prompt_delimeter}
+      it_should_transform(';', PromptDelimeter.new)
+      it_should_transform(',', NullPromptDelimeter.new)
+    end
+
     describe 'input' do
-      let(:rule) {:input}
+      let(:rule) {:input_statement}
       it_should_transform('INPUT I',
-                          InputStatement.new(nil, [
+                          InputStatement.new(nil, nil, [
                                                ScalarReference.new(NumericIdentifier.new('I')),
                                              ]))
       it_should_transform('INPUT "FOO"; I',
-                          InputStatement.new(BasicString.new('FOO'), [
+                          InputStatement.new(BasicString.new('FOO'),
+                                             PromptDelimeter.new,
+                                             [
                                                ScalarReference.new(NumericIdentifier.new('I')),
                                              ]))
       it_should_transform('INPUT I,J',
-                          InputStatement.new(nil, [
+                          InputStatement.new(nil, nil, [
                                                ScalarReference.new(NumericIdentifier.new('I')),
                                                ScalarReference.new(NumericIdentifier.new('J')),
                                              ]))

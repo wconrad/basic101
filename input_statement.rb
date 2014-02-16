@@ -4,8 +4,9 @@ module Basic
 
   class InputStatement < Statement
 
-    def initialize(prompt, references)
+    def initialize(prompt, prompt_delimeter, references)
       @prompt = prompt
+      @prompt_delimeter = prompt_delimeter
       @references = references
     end
 
@@ -22,13 +23,15 @@ module Basic
     protected
 
     def state
-      [@prompt, @references]
+      [@prompt, @prompt_delimeter, @references]
     end
 
     def print_prompt(runtime)
       if @prompt
         @prompt.print_string runtime.output
-        runtime.output.print('? ')
+      end
+      if @prompt_delimeter
+        @prompt_delimeter.print(runtime.output)
       end
     end
 

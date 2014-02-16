@@ -307,10 +307,17 @@ module Basic
       it_should_match 'RANDOMIZE'
     end
 
-    describe 'input' do
-      let(:rule) {parser.input}
+    describe 'prompt_delimeter' do
+      let(:rule) {parser.prompt_delimeter}
+      it_should_match ','
+      it_should_match ';'
+    end
+
+    describe 'input_statement' do
+      let(:rule) {parser.input_statement}
       it_should_match 'INPUT I'
       it_should_match 'INPUT I, J'
+      it_should_match 'INPUT "FOO", A$'
       it_should_match 'INPUT "FOO"; A$'
     end
 

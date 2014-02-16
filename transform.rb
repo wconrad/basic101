@@ -132,15 +132,24 @@ module Basic
       EndStatement.new
     end
 
+    rule(:prompt_delimeter => simple(:_)) do
+      PromptDelimeter.new
+    end
+
+    rule(:null_prompt_delimeter => simple(:_)) do
+      NullPromptDelimeter.new
+    end
+
     rule(:input => simple(:_),
          :references => subtree(:references)) do
-      InputStatement.new(nil, Array(references))
+      InputStatement.new(nil, nil, Array(references))
     end
 
     rule(:input => simple(:_),
          :prompt => simple(:prompt),
+         :prompt_delimeter => simple(:prompt_delimeter),
          :references => subtree(:references)) do
-      InputStatement.new(prompt, Array(references))
+      InputStatement.new(prompt, prompt_delimeter, Array(references))
     end
 
     rule(:dim => simple(:_),
