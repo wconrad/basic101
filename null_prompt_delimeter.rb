@@ -2,11 +2,11 @@ module Basic
 
   class NullPromptDelimeter
 
-    def ==(other)
-      other.is_a?(self.class)
+    def print(output)
     end
 
-    def print(output)
+    def ==(other)
+      other.is_a?(self.class)
     end
 
   end

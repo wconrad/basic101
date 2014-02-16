@@ -142,7 +142,7 @@ module Basic
 
     rule(:input => simple(:_),
          :references => subtree(:references)) do
-      InputStatement.new(nil, nil, Array(references))
+      InputStatement.new(nil, PromptDelimeter.new, Array(references))
     end
 
     rule(:input => simple(:_),

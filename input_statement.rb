@@ -30,9 +30,7 @@ module Basic
       if @prompt
         @prompt.print_string runtime.output
       end
-      if @prompt_delimeter
-        @prompt_delimeter.print(runtime.output)
-      end
+      @prompt_delimeter.print(runtime.output)
     end
 
     def read_references(runtime)

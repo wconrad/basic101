@@ -1,16 +1,16 @@
 NUMERIC
-123
+? 123
 FLOAT
-123.456
+? 123.456
 STRING WITH PROMPT
 PROMPT? FOO,BAR
 NUMERIC AND STRING
-10             BAR
+? 10           BAR
 TWO NUMERICS, BUT ONLY ONE ENTIRED AT FIRST
-Too few items, try again
-1              2
+? Too few items, try again
+? 1            2
 NUMERIC, BUT BAD FORMAT AT FIRST
-Not numeric: "FOO", try again
--1.2
+? Not numeric: "FOO", try again
+? -1.2
 SUPPRESSED PROMPT
 PROMPT:321

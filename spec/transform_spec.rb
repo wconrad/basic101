@@ -314,7 +314,7 @@ module Basic
     describe 'input' do
       let(:rule) {:input_statement}
       it_should_transform('INPUT I',
-                          InputStatement.new(nil, nil, [
+                          InputStatement.new(nil, PromptDelimeter.new, [
                                                ScalarReference.new(NumericIdentifier.new('I')),
                                              ]))
       it_should_transform('INPUT "FOO"; I',
@@ -324,7 +324,7 @@ module Basic
                                                ScalarReference.new(NumericIdentifier.new('I')),
                                              ]))
       it_should_transform('INPUT I,J',
-                          InputStatement.new(nil, nil, [
+                          InputStatement.new(nil, PromptDelimeter.new, [
                                                ScalarReference.new(NumericIdentifier.new('I')),
                                                ScalarReference.new(NumericIdentifier.new('J')),
                                              ]))
