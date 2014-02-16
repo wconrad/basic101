@@ -1,6 +1,10 @@
+require_relative 'comparison_methods'
+
 module Basic
 
   class BasicString
+
+    include ComparisonMethods
 
     attr_reader :value
 
@@ -31,6 +35,11 @@ module Basic
 
     def simplest
       self
+    end
+
+    def compare(other)
+      raise TypeError unless other.is_a?(self.class)
+      value <=> other.value
     end
 
   end

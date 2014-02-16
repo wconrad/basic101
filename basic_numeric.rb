@@ -1,9 +1,11 @@
 require_relative 'coercion_helper'
+require_relative 'comparison_methods'
 
 module Basic
 
   class BasicNumeric
 
+    include ComparisonMethods
     include CoercionHelper
 
     def self.math_op(method)
@@ -13,13 +15,6 @@ module Basic
         else
           apply_through_coercion(other, __method__)
         end
-      end
-    end
-
-    def self.comparison_op(method, op)
-      define_method(method) do |other|
-        b = self.compare(other).send(op, 0)
-        BasicInteger.from_bool(b)
       end
     end
 
@@ -35,13 +30,6 @@ module Basic
         apply_through_coercion(other, __method__)
       end
     end
-
-    comparison_op :lt, '<'
-    comparison_op :le, '<='
-    comparison_op :eq, '=='
-    comparison_op :ge, '>='
-    comparison_op :gt, '>'
-    comparison_op :ne, '!='
 
   end
 

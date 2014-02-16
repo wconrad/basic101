@@ -12,6 +12,7 @@ module Basic
   class NoMoreInputError < Error ; end
   class OutOfDataError < Error ; end
   class ReturnWithoutGosub < Error ; end
+  class TypeError < Error ; end
   class UndefinedLineNumberError < Error ; end
 
   class BadInputFormatError < InputError ; end
