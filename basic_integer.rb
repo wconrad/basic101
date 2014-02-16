@@ -37,6 +37,10 @@ module Basic
       to_i != 0
     end
 
+    def str
+      BasicString.new(@value.to_s)
+    end
+
     def print_string(output)
       output.print @value.to_s
     end

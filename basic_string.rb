@@ -21,8 +21,8 @@ module Basic
       self
     end
 
-    def to_s
-      @value
+    def str
+      self
     end
 
     def print_string(output)
@@ -52,6 +52,10 @@ module Basic
 
     def to_string
       self
+    end
+
+    def to_s
+      @value
     end
 
     def left(count)

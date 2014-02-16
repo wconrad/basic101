@@ -4,6 +4,7 @@ require_relative 'len_function'
 require_relative 'mid_function'
 require_relative 'right_function'
 require_relative 'rnd_function'
+require_relative 'str_function'
 require_relative 'tab_function'
 require_relative 'val_function'
 
@@ -18,6 +19,7 @@ module Basic
       'MID$' => MidFunction.new,
       'RIGHT$' => RightFunction.new,
       'RND' => RndFunction.new,
+      'STR$' => StrFunction.new,
       'TAB' => TabFunction.new,
       'VAL' => ValFunction.new,
     }

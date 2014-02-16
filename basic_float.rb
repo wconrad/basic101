@@ -72,6 +72,10 @@ module Basic
       raise TypeError, 'float cannot be converted to string'
     end
 
+    def str
+      BasicString.new(@value.to_s)
+    end
+
     def or(other)
       to_integer.or(other)
     end
