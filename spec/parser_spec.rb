@@ -280,6 +280,13 @@ module Basic
       it_should_match 'GOTO10'
     end
 
+    describe 'if_block' do
+      let(:rule) {parser.if_block}
+      it_should_match '123'
+      it_should_match 'GOTO 10'
+      it_should_match 'PRINT:PRINT'
+    end
+
     describe 'if_statement' do
       let(:rule) {parser.if_statement}
       it_should_match 'IF 1 THEN 20'

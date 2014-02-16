@@ -188,15 +188,15 @@ module Basic
     end
 
     rule(:if_block) do
-      (integer.as(:line_number) |
-       statements.as(:statements))
+      (integer.as(:if_line_number) |
+       statements)
     end
 
     rule(:if_statement) do
-      str('IF') >>
+      str('IF').as(:if) >>
         space? >> expression.as(:condition) >> 
         (space? >> str('THEN')).maybe >>
-        space? >> if_block
+        space? >> if_block.as(:true_block)
     end
 
     rule(:randomize) do

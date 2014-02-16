@@ -177,21 +177,16 @@ module Basic
       ReadStatement.new(Array(references))
     end
 
-    rule(:condition => simple(:condition),
-         :line_number => simple(:line_number)) do
-      [
-        IfStatement.new(condition),
-        GotoStatement.new(line_number.to_i),
-        ElseStatement.new,
-        EndifStatement.new,
-      ]
+    rule(:if_line_number => simple(:line_number)) do
+      GotoStatement.new(line_number.to_i)
     end
 
-    rule(:condition => simple(:condition),
-         :statements => subtree(:statements)) do
+    rule(:if => simple(:_),
+         :condition => simple(:condition),
+         :true_block => subtree(:true_block)) do
       [
         IfStatement.new(condition),
-        statements,
+        true_block,
         ElseStatement.new,
         EndifStatement.new,
       ].flatten

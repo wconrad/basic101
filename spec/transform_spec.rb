@@ -259,6 +259,16 @@ module Basic
       let(:rule) {:goto}
       it_should_transform('GOTO 10', GotoStatement.new(10))
     end
+
+    describe 'if_block' do
+      let(:rule) {:if_block}
+      it_should_transform('10', GotoStatement.new(10))
+      it_should_transform('PRINT', PrintStatement.new)
+      it_should_transform('PRINT:PRINT', [
+                            PrintStatement.new,
+                            PrintStatement.new
+                          ])
+    end
     
     describe 'if_statement' do
       let(:rule) {:if_statement}
