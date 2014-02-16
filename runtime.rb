@@ -44,7 +44,7 @@ module Basic
           @program_counter.goto_next
           statement.execute(self)
         end
-      rescue Error => e
+      rescue StandardError => e
         statement.error(e)
       end
     end
