@@ -12,7 +12,7 @@ module Basic
 
     def error(exception)
       message = "Error on line #{@line.line_number}: #{exception}"
-      raise exception, message
+      raise exception, message, exception.backtrace
     end
 
     def data_items
