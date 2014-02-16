@@ -31,6 +31,10 @@ module Basic
       end
     end
 
+    def negate
+      self.class.new(-value)
+    end
+
   end
 
 end

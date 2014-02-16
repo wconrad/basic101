@@ -34,6 +34,10 @@ module Basic
       ScalarReference.new(identifier)
     end
 
+    rule(:negation => simple(:expression)) do
+      NegateOperation.new(expression)
+    end
+
     rule(:multiply => simple(:_)) do
       :*
     end

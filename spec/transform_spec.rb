@@ -124,6 +124,12 @@ module Basic
                                                  ]))
     end
 
+    describe 'negation' do
+      let(:rule) {:negation}
+      it_should_transform('-1',
+                          NegateOperation.new(BasicInteger.new(1)))
+    end
+
     describe 'multiply_op' do
       let(:rule) {:multiply_op}
       it_should_transform('*', :*)

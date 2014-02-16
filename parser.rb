@@ -89,12 +89,17 @@ module Basic
         str('=') >> space? >> expression.as(:rvalue)
     end
 
+    rule(:negation) do
+      (str('-') >> space? >> factor).as(:negation)
+    end
+
     rule(:factor) do
       quoted_string |
         float |
         integer |
         reference |
-        str('(') >> space? >> expression >> space? >> str(')')
+        str('(') >> space? >> expression >> space? >> str(')') |
+        negation
     end
 
     rule(:multiply_op) do
