@@ -42,6 +42,14 @@ module Basic
       value <=> other.value
     end
 
+    def to_integer
+      raise TypeError, "string cannot be converted to integer"
+    end
+
+    def to_float
+      raise TypeError, "string cannot be converted to float"
+    end
+
   end
 
 end

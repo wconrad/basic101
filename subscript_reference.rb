@@ -45,7 +45,7 @@ module Basic
     end
 
     def indices(runtime)
-      argument_values(runtime).map(&:to_i)
+      argument_values(runtime).map(&:to_integer).map(&:to_i)
     end
 
     def argument_values(runtime)
