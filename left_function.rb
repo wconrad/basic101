@@ -6,7 +6,7 @@ module Basic
       raise IllegalFunctionCall unless args.size == 2
       string, count = *args
       string = string.eval(runtime).to_string
-      count = count.eval(runtime).to_integer.to_i
+      count = count.eval(runtime).to_integer
       string.left(count)
     end
 

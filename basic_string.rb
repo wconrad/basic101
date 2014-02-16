@@ -54,11 +54,30 @@ module Basic
       self
     end
 
-    def left(n)
-      if n < 0
-        raise InvalidArgumentError, 'LEFT$ cannot take negative count'
+    def left(count)
+      count = count.to_i
+      if count < 0
+        raise InvalidArgumentError
       end
-      BasicString.new(@value[0...n])
+      BasicString.new(@value[0...count])
+    end
+
+    def length
+      BasicInteger.new(@value.size)
+    end
+
+    def mid(start, count = nil)
+      start = start.to_i
+      count = count && count.to_i
+      raise InvalidArgumentError if start < 1
+      raise InvalidArgumentError if count && count < 1
+      start -= 1
+      substring = if count
+                    @value[start, count]
+                  else
+                    @value[start..-1]
+                  end
+      self.class.new(substring)
     end
 
   end
