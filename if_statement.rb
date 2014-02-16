@@ -9,9 +9,9 @@ module Basic
       @true_statement = true_statement
     end
 
-    def execute(program)
-      if @condition.eval(program).to_f != 0
-        @true_statement.execute(program)
+    def execute(runtime)
+      if @condition.eval(runtime).to_f != 0
+        @true_statement.execute(runtime)
       end
     end
 

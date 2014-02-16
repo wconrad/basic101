@@ -4,7 +4,7 @@ module Basic
 
   class RemarkStatement < Statement
 
-    def execute(program)
+    def execute(runtime)
     end
 
   end

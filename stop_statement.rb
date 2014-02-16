@@ -4,9 +4,9 @@ module Basic
 
   class StopStatement < Statement
 
-    def execute(program)
-      program.output.puts "Break in line #{@line.line_number}"
-      program.end_program
+    def execute(runtime)
+      runtime.output.puts "Break in line #{@line.line_number}"
+      runtime.end_program
     end
 
   end

@@ -14,8 +14,8 @@ module Basic
       self.state == other.state
     end
 
-    def execute(program)
-      @reference.assign(program, @expression.eval(program))
+    def execute(runtime)
+      @reference.assign(runtime, @expression.eval(runtime))
     end
 
     protected

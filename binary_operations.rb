@@ -7,9 +7,9 @@ module Basic
       @operations = operations
     end
 
-    def eval(program)
+    def eval(runtime)
       @operations.inject(@left) do |result, operation|
-        operation.operate(result, program)
+        operation.operate(result, runtime)
       end
     end
 

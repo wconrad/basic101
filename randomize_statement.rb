@@ -8,7 +8,7 @@ module Basic
       other.is_a?(self.class)
     end
 
-    def execute(program)
+    def execute(runtime)
       srand
     end
 

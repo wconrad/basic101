@@ -6,7 +6,7 @@ module Basic
       other.is_a?(self.class)
     end
 
-    def eval(program)
+    def eval(runtime)
       self
     end
 

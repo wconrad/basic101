@@ -4,8 +4,8 @@ module Basic
 
   class EndStatement < Statement
 
-    def execute(program)
-      program.end_program
+    def execute(runtime)
+      runtime.end_program
     end
 
   end

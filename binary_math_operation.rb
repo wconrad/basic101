@@ -8,9 +8,9 @@ module Basic
     include WrapValue
     include Boolean
 
-    def operate(left, right, program)
-      left_value = left.eval(program).value
-      right_value = right.eval(program).value
+    def operate(left, right, runtime)
+      left_value = left.eval(runtime).value
+      right_value = right.eval(runtime).value
       result = do_math(left_value, right_value)
       wrap_value(result)
     end

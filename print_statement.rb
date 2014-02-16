@@ -8,17 +8,17 @@ module Basic
       @args = args
     end
 
-    def execute(program)
+    def execute(runtime)
       if @args.empty?
-        program.output.print "\n"
+        runtime.output.print "\n"
       else
         arg_values = @args.map do |arg|
-          arg.eval(program)
+          arg.eval(runtime)
         end
         arg_values.each do |value| 
-         value.print_string program.output
+         value.print_string runtime.output
         end
-        arg_values.last.print_new_line program.output
+        arg_values.last.print_new_line runtime.output
       end
     end
 

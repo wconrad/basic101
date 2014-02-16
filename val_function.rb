@@ -4,9 +4,9 @@ module Basic
 
     include WrapValue
 
-    def call(program, args)
+    def call(runtime, args)
       raise InvalidArgumentError unless args.size == 1
-      value = args.first.eval(program).to_s.to_f
+      value = args.first.eval(runtime).to_s.to_f
       wrap_value(value)
     end
 

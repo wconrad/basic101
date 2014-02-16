@@ -6,9 +6,9 @@ module Basic
       @rand = 0
     end
 
-    def call(program, args)
+    def call(runtime, args)
       raise IllegalFunctionCall unless args.size == 1
-      new_number = args.first.eval(program).to_f > 0
+      new_number = args.first.eval(runtime).to_f > 0
       if new_number
         @rand = rand
       end

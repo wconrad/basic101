@@ -7,9 +7,9 @@ module Basic
 
     include WrapValue
 
-    def operate(left, right, program)
-      left_value = left.eval(program).to_b
-      right_value = right.eval(program).to_b
+    def operate(left, right, runtime)
+      left_value = left.eval(runtime).to_b
+      right_value = right.eval(runtime).to_b
       result = do_operation(left_value, right_value)
       wrap_value(result)
     end

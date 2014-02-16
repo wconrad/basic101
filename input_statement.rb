@@ -9,12 +9,12 @@ module Basic
       @references = references
     end
 
-    def execute(program)
+    def execute(runtime)
       begin
-        print_prompt(program)
-        read_references(program)
+        print_prompt(runtime)
+        read_references(runtime)
       rescue InputError => e
-        program.output.puts "#{e}, try again"
+        runtime.output.puts "#{e}, try again"
         retry
       end
     end
@@ -25,18 +25,18 @@ module Basic
       [@prompt, @references]
     end
 
-    def print_prompt(program)
+    def print_prompt(runtime)
       if @prompt
-        @prompt.print_string program.output
-        program.output.print('? ')
+        @prompt.print_string runtime.output
+        runtime.output.print('? ')
       end
     end
 
-    def read_references(program)
-      input_reader = InputReader.new(program.input)
+    def read_references(runtime)
+      input_reader = InputReader.new(runtime.input)
       @references.each do |reference|
         value = reference.read(input_reader)
-        reference.assign(program, value)
+        reference.assign(runtime, value)
       end
     end
 

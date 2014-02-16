@@ -8,9 +8,9 @@ module Basic
       @subscript_references = subscript_references
     end
 
-    def execute(program)
+    def execute(runtime)
       @subscript_references.each do |reference|
-        reference.dimension_array program
+        reference.dimension_array runtime
       end
     end
 
