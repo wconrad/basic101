@@ -39,7 +39,9 @@ module Basic
     end
 
     rule(:quoted_string) do
-      str('"') >> match('[^"]').repeat(0).as(:string) >> str('"')
+      str('"') >>
+        match('(?=[[:print:]])[^"]').repeat(0).maybe.as(:string) >>
+        str('"')
     end
 
     rule(:base_identifier) do

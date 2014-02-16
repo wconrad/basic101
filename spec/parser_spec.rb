@@ -97,6 +97,7 @@ module Basic
       let(:rule) {parser.quoted_string}
       it_should_match '""'
       it_should_match '"abc"'
+      it_should_not_match %Q'"\n"'
     end
 
     describe 'numeric_identifier' do

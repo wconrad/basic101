@@ -48,6 +48,7 @@ module Basic
     describe 'quoted_string' do
       let(:rule) {:quoted_string}
       it_should_transform('"abc"', BasicString.new('abc'))
+      it_should_transform('""', BasicString.new(''))
     end
 
     describe 'data_item' do
