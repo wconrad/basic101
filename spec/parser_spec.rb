@@ -70,6 +70,7 @@ module Basic
 
     describe 'float' do
       let(:rule) {parser.float}
+      it_should_match '.2'
       it_should_match '1.2'
       it_should_match '-1.2'
       it_should_match '+1.2'

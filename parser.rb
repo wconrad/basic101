@@ -31,7 +31,7 @@ module Basic
     end
 
     rule(:float) do
-      (sign.maybe >> decimal >> str('.') >> decimal).as(:float)
+      (sign.maybe >> decimal.maybe >> str('.') >> decimal).as(:float)
     end
 
     rule(:unquoted_string) do

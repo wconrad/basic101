@@ -35,6 +35,7 @@ module Basic
 
     describe 'float' do
       let(:rule) {:float}
+      it_should_transform('.2', BasicFloat.new(0.2))
       it_should_transform('1.2', BasicFloat.new(1.2))
       it_should_transform('-1.2', BasicFloat.new(-1.2))
       it_should_transform('+1.2', BasicFloat.new(1.2))
