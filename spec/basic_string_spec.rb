@@ -95,6 +95,15 @@ module Basic
 
     end
 
+    describe '#+' do
+      specify do
+        a = BasicString.new('abc')
+        b = BasicString.new('123')
+        c = a + b
+        expect(c).to eq BasicString.new('abc123')
+      end
+    end
+
   end
 
 end

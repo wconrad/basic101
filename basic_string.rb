@@ -80,6 +80,10 @@ module Basic
       self.class.new(substring)
     end
 
+    def +(other)
+      BasicString.new(value + other.value)
+    end
+
   end
 
 end
