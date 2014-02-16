@@ -4,14 +4,19 @@ module Basic
 
   class IfStatement < Statement
 
-    def initialize(condition, true_statement)
+    attr_writer :else_statement
+
+    def initialize(condition)
       @condition = condition
-      @true_statement = true_statement
+    end
+
+    def end_statement=(statement)
+      @else_statement.end_statement = statement
     end
 
     def execute(runtime)
-      if @condition.eval(runtime).to_f != 0
-        @true_statement.execute(runtime)
+      if @condition.eval(runtime).to_f == 0
+        @else_statement.goto(runtime)
       end
     end
 

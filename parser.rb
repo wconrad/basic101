@@ -192,7 +192,7 @@ module Basic
         space? >> expression.as(:condition) >> 
         space? >> str('THEN') >>
         space? >>
-        (integer.as(:line_number) | statement.as(:statement))
+        (integer.as(:line_number) | statements.as(:statements))
     end
 
     rule(:randomize) do

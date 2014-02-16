@@ -284,6 +284,7 @@ module Basic
       let(:rule) {parser.if_statement}
       it_should_match 'IF 1 THEN 20'
       it_should_match 'IF 1 THEN PRINT "FOO"'
+      it_should_match 'IF 1 THEN PRINT "FOO" : I=1'
     end
 
     describe 'randomize' do

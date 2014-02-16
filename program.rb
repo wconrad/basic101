@@ -34,6 +34,7 @@ module Basic
       end
       set_statement_indices
       link_for_and_next_statements
+      link_if_statements
     end
 
     def statement_count
@@ -76,6 +77,22 @@ module Basic
         end
       end
       raise ForWithoutNext unless stack.empty?
+    end
+
+    def link_if_statements
+      stack = []
+      @statements.each do |statement|
+        case statement
+        when IfStatement
+          stack.push statement
+        when ElseStatement
+          if_statement = stack.last
+          if_statement.else_statement = statement
+        when EndifStatement
+          if_statement = stack.pop
+          if_statement.end_statement = statement
+        end
+      end
     end
 
     def set_statement_indices

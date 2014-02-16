@@ -8,5 +8,5 @@
 80 PRINT "ok"
 90 REM
 100 IF 0 THEN PRINT "fail"
-110 IF 1 THEN PRINT "ok"
-120 IF 0 THEN PRINT "fail" : PRINT "ok"
+110 IF 1 THEN PRINT "ok" : PRINT "ok"
+120 IF 0 THEN PRINT "fail" : PRINT "fail"

@@ -179,12 +179,22 @@ module Basic
 
     rule(:condition => simple(:condition),
          :line_number => simple(:line_number)) do
-      IfStatement.new(condition, GotoStatement.new(line_number.to_i))
+      [
+        IfStatement.new(condition),
+        GotoStatement.new(line_number.to_i),
+        ElseStatement.new,
+        EndifStatement.new,
+      ]
     end
 
     rule(:condition => simple(:condition),
-         :statement => simple(:statement)) do
-      IfStatement.new(condition, statement)
+         :statements => subtree(:statements)) do
+      [
+        IfStatement.new(condition),
+        statements,
+        ElseStatement.new,
+        EndifStatement.new,
+      ].flatten
     end
 
     rule(:integer => simple(:line_number),
