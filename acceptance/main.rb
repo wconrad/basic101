@@ -33,7 +33,7 @@ module Acceptance
     end
 
     def test_dir
-      File.expand_path('tests', File.dirname(__FILE__))
+      File.expand_path('tests', __dir__)
     end
 
     def exitcode(tests)
