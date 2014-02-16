@@ -17,7 +17,6 @@ module Basic
     end
 
     def execute(runtime)
-      raise ForNextSequenceError if @active
       @active = true
       @final = @to.eval(runtime)
       @reference.assign(runtime, @from.eval(runtime))
