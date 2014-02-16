@@ -187,12 +187,16 @@ module Basic
       str('GOTO').as(:goto) >> space? >> integer
     end
 
+    rule(:if_block) do
+      (integer.as(:line_number) |
+       statements.as(:statements))
+    end
+
     rule(:if_statement) do
       str('IF') >>
         space? >> expression.as(:condition) >> 
-        space? >> str('THEN') >>
-        space? >>
-        (integer.as(:line_number) | statements.as(:statements))
+        (space? >> str('THEN')).maybe >>
+        space? >> if_block
     end
 
     rule(:randomize) do
