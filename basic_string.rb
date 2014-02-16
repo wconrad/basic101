@@ -62,6 +62,15 @@ module Basic
       BasicString.new(@value[0...count])
     end
 
+    def right(count)
+      count = count.to_i
+      if count < 0
+        raise InvalidArgumentError
+      end
+      substring = @value[/.{0,#{count}}$/]
+      BasicString.new(substring)
+    end
+
     def length
       BasicInteger.new(@value.size)
     end

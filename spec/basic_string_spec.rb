@@ -104,6 +104,41 @@ module Basic
       end
     end
 
+    describe '#right' do
+
+      context 'when entire string' do
+        specify do
+          a = BasicString.new('abc')
+          b = a.right(10)
+          expect(b).to eq BasicString.new('abc')
+        end
+      end
+
+      context 'when substring' do
+        specify do
+          a = BasicString.new('abc')
+          b = a.right(2)
+          expect(b).to eq BasicString.new('bc')
+        end
+      end
+
+      context 'when zero count' do
+        specify do
+          a = BasicString.new('abc')
+          b = a.right(0)
+          expect(b).to eq BasicString.new('')
+        end
+      end
+
+      context 'when negative count' do
+        specify do
+          a = BasicString.new('abc')
+          expect { a.right(-1) }.to raise_error InvalidArgumentError
+        end
+      end
+
+    end
+
   end
 
 end
