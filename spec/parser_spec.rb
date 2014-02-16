@@ -199,10 +199,8 @@ module Basic
     describe 'factor' do
       let(:rule) {parser.factor}
       it_should_match '"abc"'
-      it_should_match '123'
       it_should_match '1.2'
-      it_should_match 'TAB(10)'
-      it_should_match 'A(10)'
+      it_should_match '123'
       it_should_match 'I'
       it_should_match '(1 + 2)'
     end
