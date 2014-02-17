@@ -67,9 +67,10 @@ module Basic
     def link_for_and_next_statements
       stack = []
       @statements.each do |statement|
-        if statement.is_a?(ForStatement)
+        case statement
+        when ForStatement
           stack.push statement
-        elsif statement.is_a?(NextStatement)
+        when NextStatement
           raise NextWithoutFor if stack.empty?
           for_statement = stack.pop
           for_statement.next_statement = statement
