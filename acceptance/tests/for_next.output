@@ -14,8 +14,10 @@ START = END, BACKWARDS
 0
 ALREADY DONE
 1
+2
 ALREADY DONE, BACKWARDS
 0
+-1
 NESTED
 0              0
 0              1
@@ -36,3 +38,9 @@ NESTED, SHARED NEXT
 0              1
 1              0
 1              1
+OUT OF ORDER
+1
+2
+RESTART
+1
+2

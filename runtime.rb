@@ -4,12 +4,14 @@ module Basic
 
     attr_reader :input
     attr_reader :output
+    attr_reader :for_stack
 
     def initialize(args = {})
       @input = Input.new(args.fetch(:input_file, $stdin))
       @output = Output.new(args.fetch(:output_file, $stdout))
       @program = args.fetch(:program, Program.new)
       @functions = Functions::FUNCTIONS.dup
+      @for_stack = ForStack.new
     end
 
     def goto_line(line_number)

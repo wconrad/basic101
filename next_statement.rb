@@ -4,18 +4,22 @@ module Basic
 
   class NextStatement < Statement
 
-    attr_writer :for_statement
-
     def initialize(reference)
       @reference = reference
     end
 
     def execute(runtime) 
-      @for_statement.repeat(runtime, @reference)
-    end
-
-    def goto_following_statement(runtime)
-      runtime.goto_index_after(@index)
+      for_statement = if @reference.nil?
+                        runtime.for_stack.top
+                      else
+                        runtime.for_stack[@reference]
+                      end
+      for_statement.increment(runtime)
+      if for_statement.done?(runtime)
+        for_statement.delete_from_for_stack(runtime)
+      else
+        for_statement.goto_following_statement(runtime)
+      end
     end
 
     protected

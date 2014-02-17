@@ -19,6 +19,9 @@ module Basic
       []
     end
 
+    def exec(runtime)
+    end
+
     protected
 
     def state

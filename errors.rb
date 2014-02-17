@@ -7,6 +7,7 @@ module Basic
   class ForWithoutNext < Error ; end
   class IndexError < Error ; end
   class InputError < Error ; end
+  class InternalError < Error ; end
   class InvalidArgumentError < Error ; end
   class NextWithoutFor < Error ; end
   class NoMoreInputError < Error ; end
@@ -17,6 +18,8 @@ module Basic
 
   class BadInputFormatError < InputError ; end
   class TooFewInputItemsError < InputError ; end
+
+  class DuplicateReferenceInForStack < InternalError ; end
 
   class SyntaxError < Error
 

@@ -33,7 +33,6 @@ module Basic
         @statements += line.statements
       end
       set_statement_indices
-      link_for_and_next_statements
       link_if_statements
     end
 
@@ -63,22 +62,6 @@ module Basic
     end
 
     private
-
-    def link_for_and_next_statements
-      stack = []
-      @statements.each do |statement|
-        case statement
-        when ForStatement
-          stack.push statement
-        when NextStatement
-          raise NextWithoutFor if stack.empty?
-          for_statement = stack.pop
-          for_statement.next_statement = statement
-          statement.for_statement = for_statement
-        end
-      end
-      raise ForWithoutNext unless stack.empty?
-    end
 
     def link_if_statements
       stack = []
