@@ -17,7 +17,7 @@ module Basic
     end
 
     def execute(runtime)
-      delete_from_for_stack(runtime)
+      delete_from_stack(runtime)
       runtime.for_stack.push self
       from = @from.eval(runtime)
       @reference.assign(runtime, from)
@@ -44,7 +44,7 @@ module Basic
       runtime.goto_index_after @index
     end
 
-    def delete_from_for_stack(runtime)
+    def delete_from_stack(runtime)
       runtime.for_stack.delete_reference(@reference)
     end
 
