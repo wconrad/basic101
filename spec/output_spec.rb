@@ -27,17 +27,17 @@ module Basic
 
         specify do
           output.print "\tx"
-          expect(file.string).to eq "               x"
+          expect(file.string).to eq "              x"
+        end
+
+        specify do
+          output.print "abcdefghijklm\tx"
+          expect(file.string).to eq "abcdefghijklm x"
         end
 
         specify do
           output.print "abcdefghijklmn\tx"
-          expect(file.string).to eq "abcdefghijklmn x"
-        end
-
-        specify do
-          output.print "abcdefghijklmno\tx"
-          expect(file.string).to eq "abcdefghijklmno               x"
+          expect(file.string).to eq "abcdefghijklmn              x"
         end
 
       end

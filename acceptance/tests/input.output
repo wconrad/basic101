@@ -5,10 +5,10 @@ FLOAT
 STRING WITH PROMPT
 PROMPT? FOO,BAR
 NUMERIC AND STRING
-? 10           BAR
+? 10          BAR
 TWO NUMERICS, BUT ONLY ONE ENTIRED AT FIRST
 ? Too few items, try again
-? 1            2
+? 1           2
 NUMERIC, BUT BAD FORMAT AT FIRST
 ? Not numeric: "FOO", try again
 ? -1.2

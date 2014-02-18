@@ -19,7 +19,7 @@ module Basic
           @chars_on_line = 0
         when "\t"
           write_char ' '
-          while @chars_on_line % 15 > 0
+          while @chars_on_line % COLUMNS_PER_TAB > 0
             write_char ' '
           end
         else
@@ -36,6 +36,8 @@ module Basic
     end
 
     private
+
+    COLUMNS_PER_TAB = 14
 
     def write_char(c)
       @file.print c
