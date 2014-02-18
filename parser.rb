@@ -79,6 +79,12 @@ module Basic
       subscript_reference | scalar_reference
     end
 
+    rule(:scalar_reference_list) do
+      scalar_reference >>
+        (space? >> str(',') >>
+         space? >> scalar_reference).repeat(0)
+    end
+
     rule(:reference_list) do
       reference >> (space? >> str(',') >> space? >> reference).repeat(0)
     end
@@ -311,6 +317,17 @@ module Basic
         (space? >> integer).maybe.as(:line_number)
     end
 
+    rule(:define_function_statement) do
+      str('DEF').as(:def) >>
+        space? >> identifier.as(:identifier) >>
+        (space? >> str('(') >>
+         space? >> scalar_reference_list >>
+         space? >> str(')')
+         ).maybe.as(:parameters) >>
+        space? >> str('=') >>
+        space? >> expression.as(:expression)
+    end
+
     rule(:statement) do
       (goto |
        remark |
@@ -329,6 +346,7 @@ module Basic
        return_statement |
        stop_statement |
        restore_statement |
+       define_function_statement |
        let)
     end
 

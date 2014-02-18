@@ -1,0 +1,12 @@
+10 PRINT "no arguments"
+20 DEF FNA = 1
+30 PRINT FNA
+40 PRINT "arguments"
+50 I = 10
+60 DEF FNB(I) = I * 2
+70 PRINT FNB(3)
+80 PRINT I
+90 PRINT "nested"
+100 DEF FNC(I) = I * 2
+110 DEF FND(I) = I + 1
+120 PRINT FND(FNC(FNC(2)))

@@ -428,6 +428,20 @@ module Basic
                           RestoreStatement.new(BasicInteger.new(10)))
     end
 
+    describe 'define_function_statement' do
+      let(:rule) {:define_function_statement}
+      it_should_transform('DEF FNA = 1',
+                          DefineFunctionStatement.new(NumericIdentifier.new('FNA'),
+                                                      [],
+                                                      BasicInteger.new(1)))
+      it_should_transform('DEF FNA$(A) = "."',
+                          DefineFunctionStatement.new(StringIdentifier.new('FNA$'),
+                                                      [
+                                                        ScalarReference.new(NumericIdentifier.new('A')),
+                                                      ],
+                                                      BasicString.new('.')))
+    end
+
     describe 'line' do
       let(:rule) {:line}
       it_should_transform('10 REM',

@@ -236,6 +236,15 @@ module Basic
       RestoreStatement.new(line_number)
     end
 
+    rule(:def => simple(:x),
+         :identifier => simple(:identifier),
+         :parameters => subtree(:parameters),
+         :expression => simple(:expression)) do
+      DefineFunctionStatement.new(identifier,
+                                  Array(parameters),
+                                  expression)
+    end
+
     rule(:program => subtree(:lines)) do
       Program.new(Array(lines))
     end

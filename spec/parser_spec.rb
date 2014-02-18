@@ -156,6 +156,12 @@ module Basic
       it_should_match 'I,J'
     end
 
+    describe 'scalar_reference_list' do
+      let(:rule) {parser.scalar_reference_list}
+      it_should_match 'I'
+      it_should_match 'I,J'
+    end
+
     describe 'let' do
       let(:rule) {parser.let}
       it_should_match 'LET I=1'
@@ -405,6 +411,13 @@ module Basic
       it_should_match 'RESTORE 100'
     end
 
+    describe 'define_function_statement' do
+      let(:rule) {parser.define_function_statement}
+      it_should_match 'DEF FNS$ = "FOO"'
+      it_should_match 'DEF FNA(I) = 2 * I'
+      it_should_match 'DEF FNA(I, J) = I + J'
+    end
+
     describe 'statement' do
       let(:rule) {parser.statement}
       it_should_match 'REM'
@@ -425,6 +438,7 @@ module Basic
       it_should_match 'RETURN'
       it_should_match 'STOP'
       it_should_match 'RESTORE'
+      it_should_match 'DEF FNA(I) = 2 * I'
     end
 
     describe 'statements' do

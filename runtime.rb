@@ -59,6 +59,10 @@ module Basic
       @functions.call(self, identifier, argument_values)
     end
 
+    def add_function(function)
+      @functions.add_function(function)
+    end
+
     def get_scalar(identifier)
       @scalars[identifier.to_s] ||= BasicInteger.new(0)
     end

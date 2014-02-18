@@ -14,7 +14,11 @@ module Basic
     end
 
     def eval(runtime)
-      runtime.get_scalar(@identifier)
+      if runtime.function_exists?(@identifier)
+        runtime.call_function(@identifier, [])
+      else
+        runtime.get_scalar(@identifier)
+      end
     end
 
     def assign(runtime, value)
