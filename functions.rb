@@ -15,24 +15,7 @@ module Basic
 
   class Functions
 
-    def self.make_builtins
-      [
-        AbsFunction,
-        AscFunction,
-        ChrFunction,
-        IntFunction,
-        LeftFunction,
-        LenFunction,
-        MidFunction,
-        RightFunction,
-        RndFunction,
-        StrFunction,
-        TabFunction,
-        ValFunction,
-      ].map(&:new)
-    end
-
-    def initialize(functions = self.class.make_builtins)
+    def initialize(functions = BuiltInFunctions.make)
       @functions = {}
       functions.each do |function|
         add_function function

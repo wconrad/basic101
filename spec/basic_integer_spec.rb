@@ -268,6 +268,14 @@ module Basic
 
     end
 
+    describe '#sqr' do
+      specify do
+        a = BasicInteger.new(4)
+        b = a.sqr
+        expect(b).to eq BasicInteger.new(2)
+      end
+    end
+
   end
 
 end

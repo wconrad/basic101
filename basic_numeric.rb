@@ -50,6 +50,10 @@ module Basic
       self.class.new(@value.abs)
     end
 
+    def sqr
+      BasicFloat.new(@value ** 0.5).simplest
+    end
+
   end
 
 end
