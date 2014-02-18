@@ -127,6 +127,22 @@ module Basic
       end
     end
 
+    describe '#abs' do
+
+      it 'should turn negative into positive' do
+        a = BasicFloat.new(-1.5)
+        b = a.abs
+        expect(b).to eq BasicFloat.new(1.5)
+      end
+
+      it 'should leave positive alone' do
+        a = BasicFloat.new(1.5)
+        b = a.abs
+        expect(b).to eq BasicFloat.new(1.5)
+      end
+
+    end
+
   end
 
 end

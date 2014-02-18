@@ -46,6 +46,10 @@ module Basic
       output.print "\n"
     end
 
+    def abs
+      self.class.new(@value.abs)
+    end
+
   end
 
 end

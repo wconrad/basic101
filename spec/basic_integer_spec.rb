@@ -252,6 +252,22 @@ module Basic
 
     end
 
+    describe '#abs' do
+
+      it 'should turn negative into positive' do
+        a = BasicInteger.new(-1)
+        b = a.abs
+        expect(b).to eq BasicInteger.new(1)
+      end
+
+      it 'should leave positive alone' do
+        a = BasicInteger.new(1)
+        b = a.abs
+        expect(b).to eq BasicInteger.new(1)
+      end
+
+    end
+
   end
 
 end

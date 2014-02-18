@@ -1,3 +1,4 @@
+require_relative 'abs_function'
 require_relative 'asc_function'
 require_relative 'chr_function'
 require_relative 'int_function'
@@ -15,6 +16,7 @@ module Basic
   module Functions
 
     FUNCTIONS = {
+      'ABS' => AbsFunction.new,
       'ASC' => AscFunction.new,
       'CHR$' => ChrFunction.new,
       'INT' => IntFunction.new,

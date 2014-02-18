@@ -7,6 +7,7 @@ require 'pp'
 require 'parslet'
 
 require_relative 'arguments'
+require_relative 'abs_function'
 require_relative 'asc_function'
 require_relative 'basic_array'
 require_relative 'basic_float'
