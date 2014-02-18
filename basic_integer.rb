@@ -88,6 +88,12 @@ module Basic
       self.class.new(~value)
     end
 
+    def chr
+      raise InvalidArgumentError unless (0..255).include?(@value)
+      BasicString.new(@value.chr)
+    rescue RangeError
+    end
+
   end
 
 end

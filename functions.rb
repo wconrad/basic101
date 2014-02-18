@@ -1,4 +1,5 @@
 require_relative 'asc_function'
+require_relative 'chr_function'
 require_relative 'int_function'
 require_relative 'left_function'
 require_relative 'len_function'
@@ -15,6 +16,7 @@ module Basic
 
     FUNCTIONS = {
       'ASC' => AscFunction.new,
+      'CHR$' => ChrFunction.new,
       'INT' => IntFunction.new,
       'LEFT$' => LeftFunction.new,
       'LEN' => LenFunction.new,

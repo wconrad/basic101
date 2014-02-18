@@ -220,7 +220,33 @@ module Basic
         specify do
           a = BasicInteger.new(123)
           b = a.not
-          expect(b).to eq BasicInteger.new(-124)
+            expect(b).to eq BasicInteger.new(-124)
+        end
+      end
+
+    end
+
+    describe '#chr' do
+
+      context 'normal' do
+        specify do
+          a = BasicInteger.new(65)
+          b = a.chr
+          expect(b).to eq BasicString.new("A")
+        end
+      end
+
+      context 'value too small' do
+        specify do
+          a = BasicInteger.new(-1)
+          expect {a.chr}.to raise_error InvalidArgumentError
+        end
+      end
+
+      context 'value too large' do
+        specify do
+          a = BasicInteger.new(256)
+          expect {a.chr}.to raise_error InvalidArgumentError
         end
       end
 
