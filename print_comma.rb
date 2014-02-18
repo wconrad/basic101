@@ -1,6 +1,6 @@
 module Basic
 
-  class PrintNull
+  class PrintComma
 
     def ==(other)
       other.is_a?(self.class)
@@ -11,6 +11,7 @@ module Basic
     end
 
     def print_string(output)
+      output.print "\t"
     end
 
     def print_new_line(output)

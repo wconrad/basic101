@@ -115,11 +115,11 @@ module Basic
     end
 
     rule(:print_separator => ';') do
-      PrintNull.new
+      PrintSemicolon.new
     end
 
     rule(:print_separator => ',') do
-      PrintTab.new
+      PrintComma.new
     end
 
     rule(:print_arguments => sequence(:args)) do

@@ -241,8 +241,8 @@ module Basic
 
     describe 'print_separator' do
       let(:rule) {:print_separator}
-      it_should_transform(';', PrintNull.new)
-      it_should_transform(',', PrintTab.new)
+      it_should_transform(';', PrintSemicolon.new)
+      it_should_transform(',', PrintComma.new)
     end
 
     describe 'print_arguments' do
@@ -250,7 +250,7 @@ module Basic
       it_should_transform('"a"', [BasicString.new('a')])
       it_should_transform('"a",', [
                             BasicString.new('a'),
-                            PrintTab.new,
+                            PrintComma.new,
                           ])
     end
 
@@ -263,7 +263,7 @@ module Basic
       it_should_transform('PRINT "ABC";',
                           PrintStatement.new([
                                                BasicString.new("ABC"),
-                                               PrintNull.new
+                                               PrintSemicolon.new
                                              ]))
     end
 
