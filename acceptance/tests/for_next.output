@@ -1,46 +1,46 @@
 NORMAL LOOP
-1
-2
-3
+ 1 
+ 2 
+ 3 
 BACKWARDS
-2
-1
-0
+ 2 
+ 1 
+ 0 
 START = END
-1
-2
+ 1 
+ 2 
 START = END, BACKWARDS
-1
-0
+ 1 
+ 0 
 ALREADY DONE
-1
-2
+ 1 
+ 2 
 ALREADY DONE, BACKWARDS
-0
--1
+ 0 
+-1 
 NESTED
-0             0
-0             1
-1             0
-1             1
+ 0             0 
+ 0             1 
+ 1             0 
+ 1             1 
 FLOAT
-0
-0.2
-0.4
-0.6000000000000001
-0.8
-1.0
+ 0 
+ 0.2 
+ 0.4 
+ 0.6000000000000001 
+ 0.8 
+ 1.0 
 BARE NEXT
-1
-2
+ 1 
+ 2 
 NESTED, SHARED NEXT
-0             0
-0             1
-1             0
-1             1
+ 0             0 
+ 0             1 
+ 1             0 
+ 1             1 
 OUT OF ORDER
-1
-2
+ 1 
+ 2 
 RESTART
-1
-2
+ 1 
+ 2 

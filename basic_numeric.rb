@@ -36,6 +36,16 @@ module Basic
       self.class.new(-value)
     end
 
+    def print_string(output)
+      s = format + ' '
+      s = ' ' + s unless s =~ /^-/
+      output.print s
+    end
+
+    def print_new_line(output)
+      output.print "\n"
+    end
+
   end
 
 end

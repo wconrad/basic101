@@ -41,14 +41,6 @@ module Basic
       BasicString.new(@value.to_s)
     end
 
-    def print_string(output)
-      output.print @value.to_s
-    end
-
-    def print_new_line(output)
-      output.print "\n"
-    end
-
     def simplest
       self
     end
@@ -92,6 +84,12 @@ module Basic
       raise InvalidArgumentError unless (0..255).include?(@value)
       BasicString.new(@value.chr)
     rescue RangeError
+    end
+
+    private
+
+    def format
+      @value.to_s
     end
 
   end

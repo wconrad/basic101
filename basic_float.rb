@@ -33,14 +33,6 @@ module Basic
       to_i != 0
     end
 
-    def print_string(output)
-      output.print @value.to_s
-    end
-
-    def print_new_line(output)
-      output.print "\n"
-    end
-
     def simplest
       if @value.modulo(1) == 0
         to_integer
@@ -90,6 +82,12 @@ module Basic
 
     def floor
       BasicFloat.new(@value.floor)
+    end
+
+    private
+
+    def format
+      @value.to_s
     end
 
   end
