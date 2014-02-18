@@ -10,7 +10,7 @@ module Basic
       @input = Input.new(args.fetch(:input_file, $stdin))
       @output = Output.new(args.fetch(:output_file, $stdout))
       @program = args.fetch(:program, Program.new)
-      @functions = Functions::FUNCTIONS.dup
+      @functions = Functions.new
       @for_stack = ForStack.new
     end
 
@@ -52,11 +52,11 @@ module Basic
     end
 
     def function_exists?(identifier)
-      @functions.has_key?(identifier.to_s)
+      @functions.has_function?(identifier)
     end
 
     def call_function(identifier, argument_values)
-      @functions[identifier.to_s].call(self, argument_values)
+      @functions.call(self, identifier, argument_values)
     end
 
     def get_scalar(identifier)

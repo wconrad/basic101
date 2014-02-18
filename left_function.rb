@@ -2,6 +2,10 @@ module Basic
 
   class LeftFunction
 
+    def name
+      'LEFT$'
+    end
+
     def call(runtime, args)
       raise IllegalFunctionCall unless args.size == 2
       string, count = *args

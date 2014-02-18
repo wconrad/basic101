@@ -2,6 +2,10 @@ module Basic
 
   class MidFunction
 
+    def name
+      'MID$'
+    end
+
     def call(runtime, args)
       raise IllegalFunctionCall unless (2..3).include?(args.size)
       string, start, count = *args

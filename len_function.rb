@@ -2,6 +2,10 @@ module Basic
 
   class LenFunction
 
+    def name
+      'LEN'
+    end
+
     def call(runtime, args)
       raise IllegalFunctionCall unless args.size == 1
       string = args.first

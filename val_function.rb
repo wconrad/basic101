@@ -2,6 +2,9 @@ module Basic
 
   class ValFunction
 
+    def name
+      'VAL'
+    end
 
     def call(runtime, args)
       raise InvalidArgumentError unless args.size == 1

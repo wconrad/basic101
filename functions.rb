@@ -13,22 +13,43 @@ require_relative 'val_function'
 
 module Basic
 
-  module Functions
+  class Functions
 
-    FUNCTIONS = {
-      'ABS' => AbsFunction.new,
-      'ASC' => AscFunction.new,
-      'CHR$' => ChrFunction.new,
-      'INT' => IntFunction.new,
-      'LEFT$' => LeftFunction.new,
-      'LEN' => LenFunction.new,
-      'MID$' => MidFunction.new,
-      'RIGHT$' => RightFunction.new,
-      'RND' => RndFunction.new,
-      'STR$' => StrFunction.new,
-      'TAB' => TabFunction.new,
-      'VAL' => ValFunction.new,
-    }
+    def self.make_builtins
+      [
+        AbsFunction,
+        AscFunction,
+        ChrFunction,
+        IntFunction,
+        LeftFunction,
+        LenFunction,
+        MidFunction,
+        RightFunction,
+        RndFunction,
+        StrFunction,
+        TabFunction,
+        ValFunction,
+      ].map(&:new)
+    end
+
+    def initialize(functions = self.class.make_builtins)
+      @functions = {}
+      functions.each do |function|
+        add_function function
+      end
+    end
+
+    def call(runtime, identifier, argument_values)
+      @functions[identifier.to_s].call(runtime, argument_values)
+    end
+
+    def add_function(function)
+      @functions[function.name] = function
+    end
+
+    def has_function?(name)
+      @functions.has_key?(name.to_s)
+    end
 
   end
 
