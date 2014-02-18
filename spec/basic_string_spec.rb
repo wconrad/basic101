@@ -139,6 +139,24 @@ module Basic
 
     end
 
+    describe '#asc' do
+
+      context 'when not empty' do
+        specify do
+          a = BasicString.new('ABC')
+          expect(a.asc).to eq BasicInteger.new(65)
+        end
+      end
+
+      context 'when empty' do
+        specify do
+          a = BasicString.new('')
+          expect {a.asc}.to raise_error InvalidArgumentError
+        end
+      end
+
+    end
+
   end
 
 end

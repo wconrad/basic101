@@ -1,3 +1,4 @@
+require_relative 'asc_function'
 require_relative 'int_function'
 require_relative 'left_function'
 require_relative 'len_function'
@@ -13,6 +14,7 @@ module Basic
   module Functions
 
     FUNCTIONS = {
+      'ASC' => AscFunction.new,
       'INT' => IntFunction.new,
       'LEFT$' => LeftFunction.new,
       'LEN' => LenFunction.new,

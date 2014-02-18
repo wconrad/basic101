@@ -97,6 +97,11 @@ module Basic
       BasicString.new(value + other.value)
     end
 
+    def asc
+      raise InvalidArgumentError if @value.empty?
+      BasicInteger.new(@value.chars.first.ord)
+    end
+
   end
 
 end
