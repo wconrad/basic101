@@ -102,6 +102,10 @@ module Basic
       BasicInteger.new(@value.chars.first.ord)
     end
 
+    def val
+      BasicFloat.new(@value.to_f).simplest
+    end
+
   end
 
 end

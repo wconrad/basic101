@@ -157,6 +157,25 @@ module Basic
 
     end
 
+    describe '#val' do
+
+      it 'converts to a float' do
+        a = BasicString.new('1.23')
+        expect(a.val).to eq BasicFloat.new(1.23)
+      end
+
+      it 'converts to an integer' do
+        a = BasicString.new('-123')
+        expect(a.val).to eq BasicInteger.new(-123)
+      end
+
+      it 'ignores white space' do
+        a = BasicString.new("\t\n 123\t\n ")
+        expect(a.val).to eq BasicInteger.new(123)
+      end
+
+    end
+
   end
 
 end
