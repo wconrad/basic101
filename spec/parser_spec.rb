@@ -399,6 +399,12 @@ module Basic
       it_should_match 'STOP'
     end
 
+    describe 'restore_statement' do
+      let(:rule) {parser.restore_statement}
+      it_should_match 'RESTORE'
+      it_should_match 'RESTORE 100'
+    end
+
     describe 'statement' do
       let(:rule) {parser.statement}
       it_should_match 'REM'
@@ -418,6 +424,7 @@ module Basic
       it_should_match 'GOSUB 100'
       it_should_match 'RETURN'
       it_should_match 'STOP'
+      it_should_match 'RESTORE'
     end
 
     describe 'statements' do

@@ -19,6 +19,10 @@ module Basic
       []
     end
 
+    def line_number
+      @line.line_number
+    end
+
     def exec(runtime)
     end
 

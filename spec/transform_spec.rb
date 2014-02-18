@@ -421,6 +421,13 @@ module Basic
       it_should_transform('STOP', StopStatement.new)
     end
 
+    describe 'restore_statement' do
+      let(:rule) {:restore_statement}
+      it_should_transform('RESTORE', RestoreStatement.new(nil))
+      it_should_transform('RESTORE 10',
+                          RestoreStatement.new(BasicInteger.new(10)))
+    end
+
     describe 'line' do
       let(:rule) {:line}
       it_should_transform('10 REM',

@@ -78,13 +78,17 @@ module Basic
       data_item
     end
 
+    def restore(line_number = nil)
+      @data_items = @program.data_items(line_number)
+    end
+
     private
 
     def reset
       @scalars = {}
       @arrays = {}
       @program_counter = ProgramCounter.new(@program)
-      @data_items = @program.data_items
+      restore
     end
 
   end

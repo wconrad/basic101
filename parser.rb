@@ -306,6 +306,11 @@ module Basic
       str('STOP').as(:stop)
     end
 
+    rule(:restore_statement) do
+      str('RESTORE').as(:restore) >>
+        (space? >> integer).maybe.as(:line_number)
+    end
+
     rule(:statement) do
       (goto |
        remark |
@@ -323,6 +328,7 @@ module Basic
        gosub_statement |
        return_statement |
        stop_statement |
+       restore_statement |
        let)
     end
 

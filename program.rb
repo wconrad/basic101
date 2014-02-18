@@ -52,8 +52,15 @@ module Basic
       index
     end
 
-    def data_items
-      @statements.flat_map(&:data_items)
+    def data_items(starting_line_number = nil)
+      if starting_line_number
+        statements = @statements.select do |statement|
+          statement.line_number >= starting_line_number
+        end
+      else
+        statements = @statements
+      end
+      statements.flat_map(&:data_items)
     end
 
     def ==(other)

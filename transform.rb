@@ -231,6 +231,11 @@ module Basic
       ReturnStatement.new
     end
 
+    rule(:restore => simple(:_),
+         :line_number => simple(:line_number)) do
+      RestoreStatement.new(line_number)
+    end
+
     rule(:program => subtree(:lines)) do
       Program.new(Array(lines))
     end
