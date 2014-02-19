@@ -1,15 +1,10 @@
 module Basic
 
-  class SubscriptReference
+  class SubscriptReference < Reference
 
     def initialize(identifier, arguments)
-      @identifier = identifier
+      super(identifier)
       @arguments = arguments
-    end
-
-    def ==(other)
-      return false unless other.is_a?(self.class)
-      self.state == other.state
     end
 
     def eval(runtime)
@@ -31,7 +26,7 @@ module Basic
     protected
 
     def state
-      [@identifier, @arguments]
+      super + [@arguments]
     end
 
     private

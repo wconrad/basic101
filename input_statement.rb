@@ -36,7 +36,7 @@ module Basic
     def read_references(runtime)
       input_reader = InputReader.new(runtime.input)
       @references.each do |reference|
-        value = reference.read(input_reader)
+        value = reference.input(input_reader)
         reference.assign(runtime, value)
       end
     end
