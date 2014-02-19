@@ -4,6 +4,122 @@ module NumericHelpers
 
   shared_examples 'a numeric' do
 
+    shared_examples 'does math operations' do
+
+      describe '+' do
+
+        it 'should add a BasicInteger' do
+          a = described_class.new(1)
+          b = BasicInteger.new(2)
+          c = a + b
+          expect(c).to be_a BasicInteger
+          expect(c.value).to eq 3
+        end
+
+        it 'should add a BasicFloat yielding a BasicInteger' do
+          a = described_class.new(1)
+          b = BasicFloat.new(2)
+          c = a + b
+          expect(c).to be_a BasicInteger
+          expect(c.value).to eq 3
+        end
+
+        it 'should add a BasicFloat yielding a BasicFloat' do
+          a = described_class.new(1)
+          b = BasicFloat.new(2.5)
+          c = a + b
+          expect(c).to be_a BasicFloat
+          expect(c.value).to eq 1 + 2.5
+        end
+
+      end
+
+      describe '-' do
+
+        it 'should subtract a BasicInteger' do
+          a = described_class.new(1)
+          b = BasicInteger.new(2)
+          c = a - b
+          expect(c).to be_a BasicInteger
+          expect(c.value).to eq -1
+        end
+
+        it 'should subtract a BasicFloat yielding a BasicInteger' do
+          a = described_class.new(1)
+          b = BasicFloat.new(2)
+          c = a - b
+          expect(c).to be_a BasicInteger
+          expect(c.value).to eq -1
+        end
+
+        it 'should subtract a BasicFloat yielding a BasicFloat' do
+          a = described_class.new(1)
+          b = BasicFloat.new(2.5)
+          c = a - b
+          expect(c).to be_a BasicFloat
+          expect(c.value).to eq 1 - 2.5
+        end
+
+      end
+
+      describe '*' do
+
+        it 'should multiply a BasicInteger' do
+          a = described_class.new(4)
+          b = BasicInteger.new(2)
+          c = a * b
+          expect(c).to be_a BasicInteger
+          expect(c.value).to eq 8
+        end
+
+        it 'should multiply a BasicFloat yielding a BasicInteger' do
+          a = described_class.new(4)
+          b = BasicFloat.new(2)
+          c = a * b
+          expect(c).to be_a BasicInteger
+          expect(c.value).to eq 8
+        end
+
+        it 'should multiply a BasicFloat yielding a BasicFloat' do
+          a = described_class.new(4)
+          b = BasicFloat.new(0.3)
+          c = a * b
+          expect(c).to be_a BasicFloat
+          expect(c.value).to eq 4 * 0.3
+        end
+
+      end
+
+      describe '/' do
+
+        it 'should divide a BasicInteger' do
+          a = described_class.new(4)
+          b = BasicInteger.new(2)
+          c = a / b
+          expect(c).to be_a BasicInteger
+          expect(c.value).to eq 2
+        end
+
+        it 'should divide a BasicFloat yielding a BasicInteger' do
+          a = described_class.new(4)
+          b = BasicFloat.new(2)
+          c = a / b
+          expect(c).to be_a BasicInteger
+          expect(c.value).to eq 2
+        end
+
+        it 'should divide a BasicFloat yielding a BasicFloat' do
+          a = described_class.new(5)
+          b = BasicFloat.new(2)
+          c = a / b
+          expect(c).to be_a BasicFloat
+          expect(c.value).to eq 5 / 2.0
+        end
+
+      end
+
+    end
+
     shared_examples 'compares against type' do |type|
 
       describe '#compare' do

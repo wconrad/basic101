@@ -12,6 +12,18 @@ module Basic
       @value = value
     end
 
+    def self.math_op(method)
+      define_method(method) do |other|
+        self.class.new(to_f.public_send(method, other.value)).simplest
+      end
+    end
+
+    math_op :+
+    math_op :-
+    math_op :*
+    math_op :/
+    math_op :**
+
     def ==(other)
       return false unless other.is_a?(self.class)
       self.value == other.value
