@@ -80,6 +80,34 @@ module NumericHelpers
     it_should_behave_like 'compares against type', BasicInteger
     it_should_behave_like 'compares against type', BasicFloat
 
+    describe '#sgn' do
+
+      context 'when negative' do
+        specify do
+          a = described_class.new(-10)
+          b = a.sgn
+          expect(b).to eq BasicInteger.new(-1)
+        end
+      end
+
+      context 'when zero' do
+        specify do
+          a = described_class.new(00)
+          b = a.sgn
+          expect(b).to eq BasicInteger.new(0)
+        end
+      end
+
+      context 'when positive' do
+        specify do
+          a = described_class.new(+10)
+          b = a.sgn
+          expect(b).to eq BasicInteger.new(+1)
+        end
+      end
+
+    end
+
   end
 
 end

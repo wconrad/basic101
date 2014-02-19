@@ -55,7 +55,11 @@ module Basic
     end
 
     def exp
-      BasicFloat.new(Math::E ** value).simplest
+      BasicFloat.new(Math::E ** @value).simplest
+    end
+
+    def sgn 
+      BasicInteger.new(@value <=> 0)
     end
 
   end

@@ -14,6 +14,7 @@ module Basic
         MidFunction,
         RightFunction,
         RndFunction,
+        SgnFunction,
         SqrFunction,
         StrFunction,
         TabFunction,
