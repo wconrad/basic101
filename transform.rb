@@ -182,9 +182,9 @@ module Basic
     end
 
     rule(:on_goto => simple(:_),
-         :reference => simple(:reference),
+         :expression => simple(:expression),
          :line_numbers => subtree(:line_numbers)) do
-      OnGotoStatement.new(reference, Array(line_numbers))
+      OnGotoStatement.new(expression, Array(line_numbers))
     end
 
     rule(:data_items => subtree(:data_items)) do

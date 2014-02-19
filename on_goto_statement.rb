@@ -6,13 +6,13 @@ module Basic
 
     attr_writer :next_statement
 
-    def initialize(reference, line_numbers)
-      @reference = reference
+    def initialize(expression, line_numbers)
+      @expression = expression
       @line_numbers = line_numbers
     end
 
     def execute(runtime)
-      index = @reference.eval(runtime).to_i - 1
+      index = @expression.eval(runtime).to_i - 1
       if (0...@line_numbers.size).include?(index)
         runtime.goto_line(@line_numbers[index].to_i)
       end
@@ -21,7 +21,7 @@ module Basic
     protected
 
     def state
-      [@reference, @line_numbers]
+      [@expression, @line_numbers]
     end
 
   end

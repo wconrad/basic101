@@ -270,7 +270,7 @@ module Basic
 
     rule(:on_goto_statement) do
       str('ON').as(:on_goto) >>
-        space? >>reference.as(:reference) >>
+        space? >>expression.as(:expression) >>
         space? >> str('GOTO') >>
         (
          space? >> integer >>

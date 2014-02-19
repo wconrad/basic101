@@ -389,7 +389,8 @@ module Basic
     describe 'on_goto_statement' do
       let(:rule) {parser.on_goto_statement}
       it_should_match 'ON I GOTO 10'
-      it_should_match 'ON I GOTO 10, 20'
+      it_should_match 'ON I + 1 GOTO 10, 20'
+      it_should_match 'ONI+1GOTO10,20'
     end
 
     describe 'data_item' do
