@@ -47,6 +47,10 @@ module Basic
       BasicInteger.new(@value <=> 0)
     end
 
+    def log
+      BasicFloat.new(Math.log(@value))
+    end
+
   end
 
 end

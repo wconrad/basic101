@@ -224,6 +224,14 @@ module NumericHelpers
 
     end
 
+    describe '#log' do
+      specify do
+        a = described_class.new(2)
+        b = a.log
+        expect(b).to eq BasicFloat.new(Math.log(2))
+      end
+    end
+
   end
 
 end

@@ -11,6 +11,7 @@ module Basic
         IntFunction,
         LeftFunction,
         LenFunction,
+        LogFunction,
         MidFunction,
         RightFunction,
         RndFunction,
