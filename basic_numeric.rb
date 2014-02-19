@@ -51,6 +51,18 @@ module Basic
       BasicFloat.new(Math.log(@value))
     end
 
+    def sin
+      BasicFloat.new(Math.sin(@value))
+    end
+
+    def cos
+      BasicFloat.new(Math.cos(@value))
+    end
+
+    def tan
+      BasicFloat.new(Math.tan(@value))
+    end
+
   end
 
 end

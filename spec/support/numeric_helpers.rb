@@ -4,120 +4,143 @@ module NumericHelpers
 
   shared_examples 'a numeric' do
 
-    shared_examples 'does math operations' do
+    describe '+' do
 
-      describe '+' do
-
-        it 'should add a BasicInteger' do
-          a = described_class.new(1)
-          b = BasicInteger.new(2)
-          c = a + b
-          expect(c).to be_a BasicInteger
-          expect(c.value).to eq 3
-        end
-
-        it 'should add a BasicFloat yielding a BasicInteger' do
-          a = described_class.new(1)
-          b = BasicFloat.new(2)
-          c = a + b
-          expect(c).to be_a BasicInteger
-          expect(c.value).to eq 3
-        end
-
-        it 'should add a BasicFloat yielding a BasicFloat' do
-          a = described_class.new(1)
-          b = BasicFloat.new(2.5)
-          c = a + b
-          expect(c).to be_a BasicFloat
-          expect(c.value).to eq 1 + 2.5
-        end
-
+      it 'should add a BasicInteger' do
+        a = described_class.new(1)
+        b = BasicInteger.new(2)
+        c = a + b
+        expect(c).to be_a BasicInteger
+        expect(c.value).to eq 3
       end
 
-      describe '-' do
-
-        it 'should subtract a BasicInteger' do
-          a = described_class.new(1)
-          b = BasicInteger.new(2)
-          c = a - b
-          expect(c).to be_a BasicInteger
-          expect(c.value).to eq -1
-        end
-
-        it 'should subtract a BasicFloat yielding a BasicInteger' do
-          a = described_class.new(1)
-          b = BasicFloat.new(2)
-          c = a - b
-          expect(c).to be_a BasicInteger
-          expect(c.value).to eq -1
-        end
-
-        it 'should subtract a BasicFloat yielding a BasicFloat' do
-          a = described_class.new(1)
-          b = BasicFloat.new(2.5)
-          c = a - b
-          expect(c).to be_a BasicFloat
-          expect(c.value).to eq 1 - 2.5
-        end
-
+      it 'should add a BasicFloat yielding a BasicInteger' do
+        a = described_class.new(1)
+        b = BasicFloat.new(2)
+        c = a + b
+        expect(c).to be_a BasicInteger
+        expect(c.value).to eq 3
       end
 
-      describe '*' do
-
-        it 'should multiply a BasicInteger' do
-          a = described_class.new(4)
-          b = BasicInteger.new(2)
-          c = a * b
-          expect(c).to be_a BasicInteger
-          expect(c.value).to eq 8
-        end
-
-        it 'should multiply a BasicFloat yielding a BasicInteger' do
-          a = described_class.new(4)
-          b = BasicFloat.new(2)
-          c = a * b
-          expect(c).to be_a BasicInteger
-          expect(c.value).to eq 8
-        end
-
-        it 'should multiply a BasicFloat yielding a BasicFloat' do
-          a = described_class.new(4)
-          b = BasicFloat.new(0.3)
-          c = a * b
-          expect(c).to be_a BasicFloat
-          expect(c.value).to eq 4 * 0.3
-        end
-
+      it 'should add a BasicFloat yielding a BasicFloat' do
+        a = described_class.new(1)
+        b = BasicFloat.new(2.5)
+        c = a + b
+        expect(c).to be_a BasicFloat
+        expect(c.value).to eq 1 + 2.5
       end
 
-      describe '/' do
+    end
 
-        it 'should divide a BasicInteger' do
-          a = described_class.new(4)
-          b = BasicInteger.new(2)
-          c = a / b
-          expect(c).to be_a BasicInteger
-          expect(c.value).to eq 2
-        end
+    describe '-' do
 
-        it 'should divide a BasicFloat yielding a BasicInteger' do
-          a = described_class.new(4)
-          b = BasicFloat.new(2)
-          c = a / b
-          expect(c).to be_a BasicInteger
-          expect(c.value).to eq 2
-        end
-
-        it 'should divide a BasicFloat yielding a BasicFloat' do
-          a = described_class.new(5)
-          b = BasicFloat.new(2)
-          c = a / b
-          expect(c).to be_a BasicFloat
-          expect(c.value).to eq 5 / 2.0
-        end
-
+      it 'should subtract a BasicInteger' do
+        a = described_class.new(1)
+        b = BasicInteger.new(2)
+        c = a - b
+        expect(c).to be_a BasicInteger
+        expect(c.value).to eq -1
       end
 
+      it 'should subtract a BasicFloat yielding a BasicInteger' do
+        a = described_class.new(1)
+        b = BasicFloat.new(2)
+        c = a - b
+        expect(c).to be_a BasicInteger
+        expect(c.value).to eq -1
+      end
+
+      it 'should subtract a BasicFloat yielding a BasicFloat' do
+        a = described_class.new(1)
+        b = BasicFloat.new(2.5)
+        c = a - b
+        expect(c).to be_a BasicFloat
+        expect(c.value).to eq 1 - 2.5
+      end
+
+    end
+
+    describe '*' do
+
+      it 'should multiply a BasicInteger' do
+        a = described_class.new(4)
+        b = BasicInteger.new(2)
+        c = a * b
+        expect(c).to be_a BasicInteger
+        expect(c.value).to eq 8
+      end
+
+      it 'should multiply a BasicFloat yielding a BasicInteger' do
+        a = described_class.new(4)
+        b = BasicFloat.new(2)
+        c = a * b
+        expect(c).to be_a BasicInteger
+        expect(c.value).to eq 8
+      end
+
+      it 'should multiply a BasicFloat yielding a BasicFloat' do
+        a = described_class.new(4)
+        b = BasicFloat.new(0.3)
+        c = a * b
+        expect(c).to be_a BasicFloat
+        expect(c.value).to eq 4 * 0.3
+      end
+
+    end
+
+    describe '/' do
+
+      it 'should divide a BasicInteger' do
+        a = described_class.new(4)
+        b = BasicInteger.new(2)
+        c = a / b
+        expect(c).to be_a BasicInteger
+        expect(c.value).to eq 2
+      end
+
+      it 'should divide a BasicFloat yielding a BasicInteger' do
+        a = described_class.new(4)
+        b = BasicFloat.new(2)
+        c = a / b
+        expect(c).to be_a BasicInteger
+        expect(c.value).to eq 2
+      end
+
+      it 'should divide a BasicFloat yielding a BasicFloat' do
+        a = described_class.new(5)
+        b = BasicFloat.new(2)
+        c = a / b
+        expect(c).to be_a BasicFloat
+        expect(c.value).to eq 5 / 2.0
+      end
+
+    end
+
+    describe 'sin' do
+      specify do
+        a = described_class.new(Math::PI / 8.0)
+        b = a.sin
+        expect(b).to be_a BasicFloat
+        expect(b.value).to be_within(0.001).of(0.3826)
+      end
+    end
+
+    describe 'cos' do
+      specify do
+        a = described_class.new(Math::PI / 8.0)
+        b = a.cos
+        expect(b).to be_a BasicFloat
+        expect(b.value).to be_within(0.001).of(0.9238)
+      end
+    end
+
+    describe 'tan' do
+      specify do
+        a = described_class.new(Math::PI / 8.0)
+        b = a.tan
+        expect(b).to be_a BasicFloat
+        expect(b.value).to be_within(0.001).of(0.4142)
+      end
     end
 
     shared_examples 'compares against type' do |type|

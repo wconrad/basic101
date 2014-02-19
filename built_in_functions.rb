@@ -7,6 +7,7 @@ module Basic
         AbsFunction,
         AscFunction,
         ChrFunction,
+        CosFunction,
         ExpFunction,
         IntFunction,
         LeftFunction,
@@ -16,9 +17,11 @@ module Basic
         RightFunction,
         RndFunction,
         SgnFunction,
+        SinFunction,
         SqrFunction,
         StrFunction,
         TabFunction,
+        TanFunction,
         ValFunction,
       ].map(&:new)
     end
