@@ -44,11 +44,11 @@ module Basic
 
     end
 
-    context '#tab_to' do
+    describe '#tab_to' do
 
       context 'tab to following column' do
         specify do
-          output.tab_to(4)
+          output.tab_to(3)
           output.print('x')
           expect(file.string).to eq '   x'
         end
@@ -57,7 +57,7 @@ module Basic
       context 'tab to current column' do
         specify do
           output.print('   ')
-          output.tab_to(4)
+          output.tab_to(3)
           output.print('x')
           expect(file.string).to eq '   x'
         end
@@ -66,23 +66,23 @@ module Basic
       context 'tab to previous column' do
         specify do
           output.print('   x')
-          output.tab_to(4)
+          output.tab_to(3)
           output.print('y')
-          expect(file.string).to eq "   x\n   y"
+          expect(file.string).to eq "   xy"
         end
       end
 
       context 'tab to first column' do
         specify do
-          output.tab_to(1)
+          output.tab_to(0)
           output.print('x')
           expect(file.string).to eq "x"
         end
       end
 
-      context "tab to zero'th column" do
+      context "tab to negative column" do
         specify do
-          output.tab_to(0)
+          output.tab_to(-1)
           output.print('x')
           expect(file.string).to eq "x"
         end
