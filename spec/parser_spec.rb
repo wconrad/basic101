@@ -39,6 +39,7 @@ module Basic
       let(:rule) {parser.space?}
       it_should_match ''
       it_should_match ' '
+      it_should_match '  '
     end
 
     describe 'printable' do
@@ -129,13 +130,15 @@ module Basic
     describe 'argument_list' do
       let(:rule) {parser.argument_list}
       it_should_match '"a"'
-      it_should_match '"a", "b"'
+      it_should_match '"a" , "b"'
+      it_should_match '"a","b"'
     end
 
     describe 'subscript_reference' do
       let(:rule) {parser.subscript_reference}
       it_should_match 'FNA("a")'
-      it_should_match 'FNA("a", "b")'
+      it_should_match 'FNA ( "a", "b" )'
+      it_should_match 'FNA("a","b")'
     end
 
     describe 'scalar_reference' do
@@ -144,8 +147,16 @@ module Basic
       it_should_match 'S$'
     end
 
+    describe 'scalar_reference_list' do
+      let(:rule) {parser.scalar_reference_list}
+      it_should_match 'I'
+      it_should_match 'I , J'
+      it_should_match 'I,J'
+    end
+
     describe 'reference' do
       let(:rule) {parser.reference}
+      it_should_match 'A ( 1 )'
       it_should_match 'A(1)'
       it_should_match 'S$'
     end
@@ -156,16 +167,11 @@ module Basic
       it_should_match 'I,J'
     end
 
-    describe 'scalar_reference_list' do
-      let(:rule) {parser.scalar_reference_list}
-      it_should_match 'I'
-      it_should_match 'I,J'
-    end
-
     describe 'let' do
       let(:rule) {parser.let}
-      it_should_match 'LET I=1'
-      it_should_match 'I=1'
+      it_should_match 'LET I = 1'
+      it_should_match 'LETI=1'
+      it_should_match 'I = 1'
       it_should_match 'A(10) = 1'
       it_should_match 'A$(10) = 1'
       it_should_match 'S$ = "FOO"'
@@ -209,7 +215,8 @@ module Basic
       it_should_match '1.2'
       it_should_match '123'
       it_should_match 'I'
-      it_should_match '(1 + 2)'
+      it_should_match '( 1 + 2 )'
+      it_should_match '(1+2)'
     end
 
     describe 'power' do
@@ -230,6 +237,7 @@ module Basic
       it_should_match '1'
       it_should_match '1 * 2'
       it_should_match '1 * 2 / 3'
+      it_should_match '1*2/3'
     end
 
     describe 'simple_expression' do
@@ -237,6 +245,7 @@ module Basic
       it_should_match '1'
       it_should_match '1 + 2'
       it_should_match '1 + 2 - 3'
+      it_should_match '1+2-3'
     end
 
     describe 'comparison_expression' do
@@ -244,12 +253,14 @@ module Basic
       it_should_match '1'
       it_should_match '1 > 2'
       it_should_match '1 + 2 > 2 + 3'
+      it_should_match '1+2>2+3'
     end
 
     describe 'not_expression' do
       let(:rule) {parser.not_expression}
       it_should_match '1'
       it_should_match 'NOT 1'
+      it_should_match 'NOT1'
     end
 
     describe 'and_expression' do
@@ -257,6 +268,7 @@ module Basic
       it_should_match '1'
       it_should_match '1 AND 1'
       it_should_match '1 AND 1 AND 0'
+      it_should_match '1AND1AND0'
     end
 
     describe 'or_expression' do
@@ -264,17 +276,20 @@ module Basic
       it_should_match '1'
       it_should_match '1 OR 0'
       it_should_match '1 OR 0 OR 1'
+      it_should_match '1OR0OR1'
     end
 
     describe 'expression' do
       let(:rule) {parser.expression}
       it_should_match 'NOT 2 * (3 + 1) + 4 > 5 AND 1 OR 0'
+      it_should_match 'NOT2*(3+1)+4>5AND1OR0'
     end
 
     describe 'remark' do
       let(:rule) {parser.remark}
       it_should_match 'REM'
       it_should_match 'REM THIS IS A REMARK'
+      it_should_match 'REMTHISISAREMARK'
     end
 
     describe 'print_separator' do
@@ -290,6 +305,7 @@ module Basic
       it_should_match '"A",'
       it_should_match '"A","B"' 
       it_should_match '"A" , "B" ;'
+      it_should_match '"A","B";'
     end
 
     describe 'print' do
@@ -297,6 +313,7 @@ module Basic
       it_should_match 'PRINT'
       it_should_match 'PRINT "A"'
       it_should_match 'PRINT "A" ;'
+      it_should_match 'PRINT1,"A";'
       it_should_not_match 'PRINT "ok" ELSE'
     end
 
@@ -318,6 +335,7 @@ module Basic
       it_should_match 'IF 1 THEN 20'
       it_should_match 'IF 1 THEN PRINT "FOO"'
       it_should_match 'IF 1 THEN PRINT "FOO" ELSE PRINT "BAR"'
+      it_should_match 'IF1THENPRINT"FOO"ELSEPRINT"BAR"'
     end
 
     describe 'randomize' do
@@ -336,7 +354,8 @@ module Basic
       it_should_match 'INPUT I'
       it_should_match 'INPUT I, J'
       it_should_match 'INPUT "FOO", A$'
-      it_should_match 'INPUT "FOO"; A$'
+      it_should_match 'INPUT "FOO" ; A$'
+      it_should_match 'INPUT"FOO";A$'
     end
 
     describe 'end_statement' do
@@ -348,13 +367,15 @@ module Basic
       let(:rule) {parser.dim_statement}
       it_should_match 'DIM A(20)'
       it_should_match 'DIM A(X, Y)'
-      it_should_match 'DIM A(10), B(10)'
+      it_should_match 'DIM A ( 10 ), B ( 10 )'
+      it_should_match 'DIMA(10),B(10)'
     end
 
     describe 'for_statement' do
       let(:rule) {parser.for_statement}
       it_should_match 'FOR I = 1 TO 10'
       it_should_match 'FOR I = 1 TO 10 STEP 2'
+      it_should_match 'FORI=1TO10STEP-2'
     end
 
     describe 'next_statement' do
@@ -362,6 +383,7 @@ module Basic
       it_should_match 'NEXT'
       it_should_match 'NEXT I'
       it_should_match 'NEXT I, J'
+      it_should_match 'NEXTI,J'
     end
 
     describe 'on_goto_statement' do
@@ -387,12 +409,14 @@ module Basic
     describe 'read_statement' do
       let(:rule) {parser.read_statement}
       it_should_match 'READ I'
-      it_should_match 'READ I, A(1)'
+      it_should_match 'READ I, A ( 1 )'
+      it_should_match 'READI,A(1)'
     end
 
     describe 'gosub_statement' do
       let(:rule) {parser.gosub_statement}
       it_should_match 'GOSUB 100'
+      it_should_match 'GOSUB100'
     end
 
     describe 'return_statement' do
@@ -409,13 +433,15 @@ module Basic
       let(:rule) {parser.restore_statement}
       it_should_match 'RESTORE'
       it_should_match 'RESTORE 100'
+      it_should_match 'RESTORE100'
     end
 
     describe 'define_function_statement' do
       let(:rule) {parser.define_function_statement}
       it_should_match 'DEF FNS$ = "FOO"'
       it_should_match 'DEF FNA(I) = 2 * I'
-      it_should_match 'DEF FNA(I, J) = I + J'
+      it_should_match 'DEF FNA ( I , J ) = I + J'
+      it_should_match 'DEFFNA(I,J)=I+J'
     end
 
     describe 'statement' do
@@ -450,6 +476,7 @@ module Basic
 
     describe 'line' do
       let(:rule) {parser.line}
+      it_should_match '10REM'
       it_should_match '10 REM'
       it_should_match '20  PRINT:PRINT'
     end

@@ -256,7 +256,7 @@ module Basic
         space? >> expression.as(:from) >>
         space? >> str('TO') >>
         space? >> expression.as(:to) >>
-       (space? >> str('STEP') >> space >> expression).maybe.as(:step)
+       (space? >> str('STEP') >> space? >> expression).maybe.as(:step)
     end
 
     rule(:next_statement) do
