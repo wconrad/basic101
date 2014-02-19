@@ -7,6 +7,7 @@ module Basic
         AbsFunction,
         AscFunction,
         ChrFunction,
+        ExpFunction,
         IntFunction,
         LeftFunction,
         LenFunction,

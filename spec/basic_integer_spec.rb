@@ -276,6 +276,14 @@ module Basic
       end
     end
 
+    describe '#exp' do
+      specify do
+        a = BasicInteger.new(4)
+        b = a.exp
+        expect(b).to eq BasicFloat.new(Math::E ** 4)
+      end
+    end
+
   end
 
 end

@@ -151,6 +151,14 @@ module Basic
       end
     end
 
+    describe '#exp' do
+      specify do
+        a = BasicFloat.new(1.5)
+        b = a.exp
+        expect(b).to eq BasicFloat.new(Math::E ** 1.5)
+      end
+    end
+
   end
 
 end

@@ -54,6 +54,10 @@ module Basic
       BasicFloat.new(@value ** 0.5).simplest
     end
 
+    def exp
+      BasicFloat.new(Math::E ** value).simplest
+    end
+
   end
 
 end
