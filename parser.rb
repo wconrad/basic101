@@ -362,7 +362,9 @@ module Basic
 
     rule(:statements) do
       statement >>
-        (space? >> str(':') >> space? >> statement).repeat(0) >> space?
+        (space? >> str(':') >>
+         space? >> statement).repeat(0) >>
+        space? >> str(':').maybe
     end
 
     rule(:line) do

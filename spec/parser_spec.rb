@@ -489,7 +489,8 @@ module Basic
       let(:rule) {parser.statements}
       it_should_match 'REM'
       it_should_match 'PRINT:PRINT'
-      it_should_match 'PRINT : PRINT '
+      it_should_match 'PRINT:PRINT:'
+      it_should_match 'PRINT : PRINT :'
     end
 
     describe 'line' do
