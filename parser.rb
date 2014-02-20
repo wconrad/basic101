@@ -30,8 +30,18 @@ module Basic
       (sign.maybe >> decimal).as(:integer)
     end
 
+    rule(:fixed) do
+      sign.maybe >> decimal.maybe >>
+        str('.') >> decimal
+    end
+
+    rule(:exponent) do
+      str('E') >> sign.maybe >> decimal
+    end
+
     rule(:float) do
-      (sign.maybe >> decimal.maybe >> str('.') >> decimal).as(:float)
+      (fixed >> exponent.maybe |
+       sign.maybe >> decimal >> exponent).as(:float)
     end
 
     rule(:unquoted_string) do
@@ -110,8 +120,8 @@ module Basic
        str('<>').as(:ne) |
        str('>=').as(:ge) |
        str('<=').as(:le)) |
-       str('<').as(:lt) |
-       str('>').as(:gt)
+        str('<').as(:lt) |
+        str('>').as(:gt)
     end
 
     rule(:and_op) do
@@ -256,7 +266,7 @@ module Basic
         space? >> expression.as(:from) >>
         space? >> str('TO') >>
         space? >> expression.as(:to) >>
-       (space? >> str('STEP') >> space? >> expression).maybe.as(:step)
+        (space? >> str('STEP') >> space? >> expression).maybe.as(:step)
     end
 
     rule(:next_statement) do

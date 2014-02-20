@@ -39,6 +39,7 @@ module Basic
       it_should_transform('1.2', BasicFloat.new(1.2))
       it_should_transform('-1.2', BasicFloat.new(-1.2))
       it_should_transform('+1.2', BasicFloat.new(1.2))
+      it_should_transform('1E-10', BasicFloat.new(1E-10))
     end
 
     describe 'quoted_string' do

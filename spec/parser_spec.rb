@@ -69,12 +69,29 @@ module Basic
       it_should_match '+123'
     end
 
-    describe 'float' do
+    describe 'fixed' do
       let(:rule) {parser.float}
       it_should_match '.2'
       it_should_match '1.2'
       it_should_match '-1.2'
       it_should_match '+1.2'
+      it_should_not_match '1'
+    end
+
+    describe 'exponent' do
+      let(:rule) {parser.exponent}
+      it_should_match 'E10'
+      it_should_match 'E-10'
+      it_should_match 'E+10'
+    end
+
+    describe 'float' do
+      let(:rule) {parser.float}
+      it_should_match '1.2'
+      it_should_match '1E10'
+      it_should_match '1E+10'
+      it_should_match '1E-10'
+      it_should_not_match '1'
     end
 
     describe 'line_number' do
