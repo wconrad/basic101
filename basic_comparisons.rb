@@ -1,11 +1,10 @@
 module Basic
 
-  module ComparisonMethods
+  module BasicComparisons
 
     def self.comparison_op(method, op)
       define_method(method) do |other|
-        b = self.compare(other).send(op, 0)
-        BasicInteger.from_bool(b)
+        BasicInteger.from_bool(self.send(op, other))
       end
     end
 

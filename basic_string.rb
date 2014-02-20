@@ -1,10 +1,9 @@
-require_relative 'comparison_methods'
-
 module Basic
 
   class BasicString
 
-    include ComparisonMethods
+    include Comparable
+    include BasicComparisons
 
     attr_reader :value
 
@@ -12,16 +11,12 @@ module Basic
       @value = value.to_s
     end
 
-    def ==(other)
-      return false unless other.is_a?(self.class)
-      self.value == other.value
+    def <=>(other)
+      return nil unless other.is_a?(self.class)
+      value <=> other.value
     end
 
     def eval(runtime)
-      self
-    end
-
-    def str
       self
     end
 
@@ -35,11 +30,6 @@ module Basic
 
     def simplest
       self
-    end
-
-    def compare(other)
-      raise TypeError unless other.is_a?(self.class)
-      value <=> other.value
     end
 
     def to_integer
@@ -104,6 +94,10 @@ module Basic
 
     def val
       BasicFloat.new(@value.to_f).simplest
+    end
+
+    def str
+      self
     end
 
   end

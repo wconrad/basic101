@@ -1,18 +1,45 @@
-require_relative 'coercion_helper'
-require_relative 'comparison_methods'
+require_relative 'basic_math'
 
 module Basic
 
   class BasicNumeric
 
-    include ComparisonMethods
-    include CoercionHelper
+    include BasicComparisons
+    include BasicMath
+    include Comparable
 
-    def compare(other)
-      if other.is_a?(self.class)
-        value <=> other.value
+    attr_reader :value
+
+    def initialize(value)
+      @value = value
+    end
+
+    def eval(runtime)
+      self
+    end
+
+    def <=>(other)
+      return nil unless other.is_a?(BasicNumeric)
+      value <=> other.value
+    end
+
+    def to_i
+      @value.to_i
+    end
+
+    def to_f
+      @value.to_f
+    end
+
+    def to_b
+      to_i != 0
+    end
+
+    def simplest
+      if @value.modulo(1) == 0
+        to_integer
       else
-        apply_through_coercion(other, __method__)
+        self
       end
     end
 

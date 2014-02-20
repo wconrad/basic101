@@ -145,24 +145,24 @@ module NumericHelpers
 
     shared_examples 'compares against type' do |type|
 
-      describe '#compare' do
+      describe '#<=>' do
 
         it "should be less than a #{type}" do
           a = described_class.new(-1)
           b = BasicInteger.new(0)
-          expect(a.compare(b)).to eq -1
+          expect(a.<=>(b)).to eq -1
         end
 
         it "should be equal to a #{type}" do
           a = described_class.new(0)
           b = BasicInteger.new(0)
-          expect(a.compare(b)).to eq 0
+          expect(a.<=>(b)).to eq 0
         end
 
         it "should be greater than a #{type}" do
           a = described_class.new(1)
           b = BasicInteger.new(0)
-          expect(a.compare(b)).to eq +1
+          expect(a.<=>(b)).to eq +1
         end
 
       end
