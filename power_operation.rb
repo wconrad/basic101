@@ -1,10 +1,6 @@
-require_relative 'binary_math_operation'
-
 module Basic
 
   class PowerOperation
-
-    include WrapValue
 
     def initialize(left, right)
       @left = left

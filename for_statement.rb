@@ -4,8 +4,6 @@ module Basic
 
   class ForStatement < Statement
 
-    include WrapValue
-
     # attr_writer :next_statement
     attr_reader :reference
 

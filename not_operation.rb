@@ -1,10 +1,6 @@
-require_relative 'binary_math_operation'
-
 module Basic
 
   class NotOperation
-
-    include WrapValue
 
     def initialize(expression)
       @expression = expression

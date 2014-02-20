@@ -4,7 +4,7 @@ module Basic
 
     def input(input_parser)
       value = input_parser.read_string
-      wrap_value(value)
+      BasicString.new(value)
     end
 
     def default

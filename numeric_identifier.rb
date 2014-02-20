@@ -4,7 +4,7 @@ module Basic
 
     def input(input_reader)
       value = input_reader.read_numeric
-      wrap_value(value).simplest
+      BasicFloat.new(value).simplest
     end
 
     def default

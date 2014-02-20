@@ -2,8 +2,6 @@ module Basic
 
   class Identifier
 
-    include WrapValue
-
     def initialize(name)
       @name = name.to_s
     end

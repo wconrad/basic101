@@ -1,6 +1,5 @@
 require_relative 'coercion_helper'
 require_relative 'comparison_methods'
-require_relative 'wrap_value'
 
 module Basic
 

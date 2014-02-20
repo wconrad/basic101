@@ -1,5 +1,3 @@
-require_relative 'binary_math_operation'
-
 module Basic
 
   class NegateOperation
