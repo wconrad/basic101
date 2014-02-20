@@ -9,8 +9,8 @@ module Basic
       BasicInteger.new(i.to_i)
     end
 
-    rule(:float => simple(:f)) do
-      BasicFloat.new(f.to_f)
+    rule(:float => simple(:s)) do
+      BasicFloat.from_s(s)
     end
 
     rule(:string => simple(:s)) do

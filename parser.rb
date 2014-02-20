@@ -31,8 +31,9 @@ module Basic
     end
 
     rule(:fixed) do
-      sign.maybe >> decimal.maybe >>
-        str('.') >> decimal
+      sign.maybe >>
+        (decimal >> str('.') >> decimal.maybe) |
+        (str('.') >> decimal)
     end
 
     rule(:exponent) do

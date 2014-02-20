@@ -6,6 +6,42 @@ module Basic
 
     it_should_behave_like 'a numeric'
 
+    describe '.from_s' do
+
+      context 'when fixed-point' do
+        specify do
+          a = '1.2'
+          b = BasicFloat.from_s(a)
+          expect(b.value).to eq 1.2
+        end
+      end
+
+      context 'when exponential' do
+        specify do
+          a = '-1.2E-2'
+          b = BasicFloat.from_s(a)
+          expect(b.value).to eq -1.2E-2
+        end
+      end
+
+      context 'when no leading digits' do
+        specify do
+          a = '.2'
+          b = BasicFloat.from_s(a)
+          expect(b.value).to eq 0.2
+        end
+      end
+
+      context 'when no trailing digits' do
+        specify do
+          a = '2.'
+          b = BasicFloat.from_s(a)
+          expect(b.value).to eq 2.0
+        end
+      end
+
+    end
+
     describe '#to_integer' do
       specify do
         a = BasicFloat.new(2.6)

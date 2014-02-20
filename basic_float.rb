@@ -4,6 +4,11 @@ module Basic
 
   class BasicFloat < BasicNumeric
 
+    def self.from_s(s)
+      value = s.to_f
+      new(value)
+    end
+
     def to_integer
       BasicInteger.new(@value.to_i)
     end
