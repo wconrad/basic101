@@ -214,7 +214,7 @@ module Basic
       str('PRINT') >> print_arguments.as(:print_arguments)
     end
 
-    rule(:goto) do
+    rule(:goto_statement) do
       str('GOTO').as(:goto) >> space? >> integer
     end
 
@@ -340,7 +340,7 @@ module Basic
     end
 
     rule(:statement) do
-      (goto |
+      (goto_statement |
        remark |
        print_statement |
        if_statement |

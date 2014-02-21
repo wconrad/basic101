@@ -334,8 +334,8 @@ module Basic
       it_should_not_match 'PRINT "ok" ELSE'
     end
 
-    describe 'goto' do
-      let(:rule) {parser.goto}
+    describe 'goto_statement' do
+      let(:rule) {parser.goto_statement}
       it_should_match 'GOTO 10'
       it_should_match 'GOTO10'
     end

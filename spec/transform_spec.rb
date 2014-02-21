@@ -275,8 +275,8 @@ module Basic
                                            transform(:expression, '1')))
     end
 
-    describe 'goto' do
-      let(:rule) {:goto}
+    describe 'goto_statement' do
+      let(:rule) {:goto_statement}
       it_should_transform('GOTO 10', GotoStatement.new(10))
     end
 
