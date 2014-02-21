@@ -231,7 +231,7 @@ module Basic
         (space? >> str('ELSE') >> space? >> if_block).maybe.as(:else_block)
     end
 
-    rule(:randomize) do
+    rule(:randomize_statement) do
       str('RANDOMIZE').as(:randomize)
     end
 
@@ -344,7 +344,7 @@ module Basic
        remark_statement |
        print_statement |
        if_statement |
-       randomize |
+       randomize_statement |
        input_statement |
        end_statement |
        dim_statement |

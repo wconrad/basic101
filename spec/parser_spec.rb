@@ -355,8 +355,8 @@ module Basic
       it_should_match 'IF1THENPRINT"FOO"ELSEPRINT"BAR"'
     end
 
-    describe 'randomize' do
-      let(:rule) {parser.randomize}
+    describe 'randomize_statement' do
+      let(:rule) {parser.randomize_statement}
       it_should_match 'RANDOMIZE'
     end
 

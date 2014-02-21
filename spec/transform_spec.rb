@@ -320,8 +320,8 @@ module Basic
                           ])
     end
 
-    describe 'randomize' do
-      let(:rule) {:randomize}
+    describe 'randomize_statement' do
+      let(:rule) {:randomize_statement}
       it_should_transform('RANDOMIZE', RandomizeStatement.new)
     end
 
