@@ -122,7 +122,8 @@ module Basic
       PrintComma.new
     end
 
-    rule(:print_arguments => sequence(:args)) do
+    rule(:print => simple(:_),
+         :print_arguments => sequence(:args)) do
       PrintStatement.new(args)
     end
 

@@ -211,7 +211,7 @@ module Basic
     end
 
     rule(:print_statement) do
-      str('PRINT') >> print_arguments.as(:print_arguments)
+      str('PRINT').as(:print) >> print_arguments.as(:print_arguments)
     end
 
     rule(:goto_statement) do
