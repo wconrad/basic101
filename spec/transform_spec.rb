@@ -255,8 +255,8 @@ module Basic
                           ])
     end
 
-    describe 'print' do
-      let(:rule) {:print}
+    describe 'print_statement' do
+      let(:rule) {:print_statement}
       it_should_transform('PRINT',
                           PrintStatement.new)
       it_should_transform('PRINT "ABC"',

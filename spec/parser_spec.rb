@@ -325,8 +325,8 @@ module Basic
       it_should_match '"A","B";'
     end
 
-    describe 'print' do
-      let(:rule) {parser.print}
+    describe 'print_statement' do
+      let(:rule) {parser.print_statement}
       it_should_match 'PRINT'
       it_should_match 'PRINT "A"'
       it_should_match 'PRINT "A" ;'

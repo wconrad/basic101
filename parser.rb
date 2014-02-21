@@ -210,7 +210,7 @@ module Basic
       match('[;,]').as(:print_separator)
     end
 
-    rule(:print) do
+    rule(:print_statement) do
       str('PRINT') >> print_arguments.as(:print_arguments)
     end
 
@@ -342,7 +342,7 @@ module Basic
     rule(:statement) do
       (goto |
        remark |
-       print |
+       print_statement |
        if_statement |
        randomize |
        input_statement |
