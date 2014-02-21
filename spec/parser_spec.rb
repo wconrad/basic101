@@ -184,8 +184,8 @@ module Basic
       it_should_match 'I,J'
     end
 
-    describe 'let' do
-      let(:rule) {parser.let}
+    describe 'let_statement' do
+      let(:rule) {parser.let_statement}
       it_should_match 'LET I = 1'
       it_should_match 'LETI=1'
       it_should_match 'I = 1'

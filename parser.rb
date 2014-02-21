@@ -100,7 +100,7 @@ module Basic
       reference >> (space? >> str(',') >> space? >> reference).repeat(0)
     end
 
-    rule(:let) do
+    rule(:let_statement) do
       (str('LET') >> space?).maybe >>
         reference.as(:lvalue) >> space? >> 
         str('=') >> space? >> expression.as(:rvalue)
@@ -358,7 +358,7 @@ module Basic
        stop_statement |
        restore_statement |
        define_function_statement |
-       let)
+       let_statement)
     end
 
     rule(:statements) do

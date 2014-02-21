@@ -268,8 +268,8 @@ module Basic
                                              ]))
     end
 
-    describe 'let' do
-      let(:rule) {:let}
+    describe 'let_statement' do
+      let(:rule) {:let_statement}
       it_should_transform('I=1',
                           LetStatement.new(ScalarReference.new(NumericIdentifier.new('I')),
                                            transform(:expression, '1')))
