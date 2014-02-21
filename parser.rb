@@ -198,7 +198,7 @@ module Basic
       or_expression
     end
 
-    rule(:remark) do
+    rule(:remark_statement) do
       (str('REM') >> printable.repeat(0)).as(:remark)
     end
 
@@ -341,7 +341,7 @@ module Basic
 
     rule(:statement) do
       (goto_statement |
-       remark |
+       remark_statement |
        print_statement |
        if_statement |
        randomize |

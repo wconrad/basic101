@@ -234,8 +234,8 @@ module Basic
                                                         ]))
     end
 
-    describe 'remark' do
-      let(:rule) {:remark}
+    describe 'remark_statement' do
+      let(:rule) {:remark_statement}
       it_should_transform('REM THIS IS A REMARK',
                           RemarkStatement.new)
     end

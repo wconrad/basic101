@@ -302,8 +302,8 @@ module Basic
       it_should_match 'NOT2*(3+1)+4>5AND1OR0'
     end
 
-    describe 'remark' do
-      let(:rule) {parser.remark}
+    describe 'remark_statement' do
+      let(:rule) {parser.remark_statement}
       it_should_match 'REM'
       it_should_match 'REM THIS IS A REMARK'
       it_should_match 'REMTHISISAREMARK'
