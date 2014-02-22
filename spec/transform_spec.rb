@@ -127,12 +127,12 @@ module Basic
 
     describe 'array_reference' do
       let(:rule) {:array_reference}
-      it_should_transform('FNA("a")',
-                          ArrayReference.new(NumericIdentifier.new('FNA'), [
+      it_should_transform('A("a")',
+                          ArrayReference.new(NumericIdentifier.new('A'), [
                                                BasicString.new("a")
                                              ]))
-      it_should_transform('FNA("a", "b")',
-                          ArrayReference.new(NumericIdentifier.new('FNA'), [
+      it_should_transform('A("a", "b")',
+                          ArrayReference.new(NumericIdentifier.new('A'), [
                                                BasicString.new("a"),
                                                BasicString.new("b"),
                                              ]))
@@ -454,16 +454,19 @@ module Basic
 
     describe 'define_function_statement' do
       let(:rule) {:define_function_statement}
-      it_should_transform('DEF FNA = 1',
-                          DefineFunctionStatement.new(FunctionIdentifier.new('FNA'),
-                                                      [],
-                                                      BasicInteger.new(1)))
       it_should_transform('DEF FNA$(A) = "."',
                           DefineFunctionStatement.new(FunctionIdentifier.new('FNA$'),
                                                       [
                                                         ScalarReference.new(NumericIdentifier.new('A')),
                                                       ],
                                                       BasicString.new('.')))
+      it_should_transform('DEF FNA(I, J) = 1',
+                          DefineFunctionStatement.new(FunctionIdentifier.new('FNA'),
+                                                      [
+                                                        ScalarReference.new(NumericIdentifier.new('I')),
+                                                        ScalarReference.new(NumericIdentifier.new('J')),
+                                                      ],
+                                                      BasicInteger.new(1)))
     end
 
     describe 'line' do

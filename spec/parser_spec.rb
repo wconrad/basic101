@@ -195,9 +195,9 @@ module Basic
 
     describe 'array_reference' do
       let(:rule) {parser.array_reference}
-      it_should_match 'FNA("a")'
-      it_should_match 'FNA ( "a", "b" )'
-      it_should_match 'FNA("a","b")'
+      it_should_match 'A("a")'
+      it_should_match 'A ( "a", "b" )'
+      it_should_match 'A("a","b")'
     end
 
     describe 'scalar_reference' do
@@ -497,7 +497,7 @@ module Basic
 
     describe 'define_function_statement' do
       let(:rule) {parser.define_function_statement}
-      it_should_match 'DEF FNS$ = "FOO"'
+      it_should_match 'DEF FNS$(S) = "FOO"'
       it_should_match 'DEF FNA(I) = 2 * I'
       it_should_match 'DEF FNA ( I , J ) = I + J'
       it_should_match 'DEFFNA(I,J)=I+J'

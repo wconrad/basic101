@@ -1,6 +1,3 @@
-10 PRINT "no arguments"
-20 DEF FNA = 1
-30 PRINT FNA
 40 PRINT "arguments"
 50 I = 10
 60 DEF FNB(I) = I * 2

@@ -89,7 +89,7 @@ module Basic
 
     rule(:base_identifier) do
       str('ELSE').absent? >>
-        match('[A-Z]') >> match('[A-Z0-9]').repeat(0)
+        match('[A-Z]') >> match('[0-9]').repeat(0)
     end
 
     rule(:numeric_identifier) do
@@ -372,7 +372,7 @@ module Basic
         (space? >> str('(') >>
          space? >> scalar_reference_list >>
          space? >> str(')')
-         ).maybe.as(:parameters) >>
+         ).as(:parameters) >>
         space? >> str('=') >>
         space? >> expression.as(:expression)
     end
