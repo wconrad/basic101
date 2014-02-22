@@ -1,6 +1,6 @@
 require_relative 'spec_helper'
 
-module Basic
+module Basic101
 
   describe BasicString do
 

@@ -20,10 +20,10 @@ module Acceptance
       srand(0)
       File.open(input_path, 'r') do |input_file|
         output_file = StringIO.new
-        program = Basic::Program.load_file(@basic_path)
-        runtime = Basic::Runtime.new(:input_file => input_file,
-                                     :output_file => output_file,
-                                     :program => program)
+        program = Basic101::Program.load_file(@basic_path)
+        runtime = Basic101::Runtime.new(:input_file => input_file,
+                                        :output_file => output_file,
+                                        :program => program)
         begin
           runtime.run
           @output = output_file.string

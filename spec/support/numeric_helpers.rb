@@ -1,6 +1,6 @@
 module NumericHelpers
 
-  include Basic
+  include Basic101
 
   shared_examples 'a numeric' do
 
