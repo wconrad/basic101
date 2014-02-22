@@ -1,2 +1,2 @@
 desc 'Run all tests'
-task :test => ['test:spec', 'test:acceptance']
+task :test => ['test:spec', 'test:integration']

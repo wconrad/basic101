@@ -1,4 +1,4 @@
-module Acceptance
+module Integration
 
   class Test
 
