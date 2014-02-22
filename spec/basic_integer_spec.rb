@@ -6,6 +6,48 @@ module Basic
 
     it_should_behave_like 'a numeric'
 
+    describe '.from_bool' do
+
+      it 'should convert true to basic -1' do
+        a = BasicInteger.from_bool(true)
+        expect(a).to eq BasicInteger.new(-1)
+      end
+
+      it 'should convert false to basic 0' do
+        a = BasicInteger.from_bool(false)
+        expect(a).to eq BasicInteger.new(0)
+      end
+
+    end
+
+    describe '#str' do
+      specify do
+        a = BasicInteger.new(-12)
+        expect(a.str).to eq BasicString.new('-12')
+      end
+    end
+
+    describe '#to_integer' do
+      specify do
+        a = BasicInteger.new(1)
+        expect(a.to_integer).to eq a
+      end
+    end
+
+    describe '#to_float' do
+      specify do
+        a = BasicInteger.new(1)
+        expect(a.to_float).to eq BasicFloat.new(1)
+      end
+    end
+
+    describe '#to_string' do
+      specify do
+        a = BasicInteger.new(1)
+        expect {a.to_string}.to raise_error TypeError
+      end
+    end
+
     describe '#and' do
 
       context 'when 0, 0' do

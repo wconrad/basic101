@@ -8,10 +8,6 @@ module Basic
       new(b ? -1 : 0)
     end
 
-    def str
-      BasicString.new(@value.to_s)
-    end
-
     def to_integer
       self
     end
@@ -39,6 +35,10 @@ module Basic
     def chr
       raise InvalidArgumentError unless (0..255).include?(@value)
       BasicString.new(@value.chr)
+    end
+
+    def str
+      BasicString.new(@value.to_s)
     end
 
     private
