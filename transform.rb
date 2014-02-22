@@ -36,7 +36,7 @@ module Basic
 
     rule(:subscript_base => simple(:identifier), 
          :argument_list => subtree(:args)) do
-      SubscriptReference.new(identifier, Array(args))
+      ArrayReference.new(identifier, Array(args))
     end
 
     rule(:scalar_reference => simple(:identifier)) do

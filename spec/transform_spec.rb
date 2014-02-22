@@ -125,17 +125,17 @@ module Basic
       it_should_transform('A', ScalarReference.new(NumericIdentifier.new('A')))
     end
 
-    describe 'subscript_reference' do
-      let(:rule) {:subscript_reference}
+    describe 'array_reference' do
+      let(:rule) {:array_reference}
       it_should_transform('FNA("a")',
-                          SubscriptReference.new(NumericIdentifier.new('FNA'), [
-                                                   BasicString.new("a")
-                                                 ]))
+                          ArrayReference.new(NumericIdentifier.new('FNA'), [
+                                               BasicString.new("a")
+                                             ]))
       it_should_transform('FNA("a", "b")',
-                          SubscriptReference.new(NumericIdentifier.new('FNA'), [
-                                                   BasicString.new("a"),
-                                                   BasicString.new("b"),
-                                                 ]))
+                          ArrayReference.new(NumericIdentifier.new('FNA'), [
+                                               BasicString.new("a"),
+                                               BasicString.new("b"),
+                                             ]))
     end
 
     describe 'function_call' do
@@ -206,10 +206,10 @@ module Basic
       let(:rule) {:term}
       it_should_transform("1 * 2",
                           BinaryOperations.new(BasicInteger.new(1),
-                                            [
-                                              BinaryOperation.new(:*,
-                                                                  BasicInteger.new(2)),
-                                            ]))
+                                               [
+                                                 BinaryOperation.new(:*,
+                                                                     BasicInteger.new(2)),
+                                               ]))
       it_should_transform("1", BasicInteger.new(1))
     end
 
@@ -244,20 +244,20 @@ module Basic
       let(:rule) {:and_expression}
       it_should_transform('1', BasicInteger.new(1))
       it_should_transform('1 AND 0', BinaryOperations.new(BasicInteger.new(1),
-                                                        [
-                                                          BinaryOperation.new(:and,
-                                                                              BasicInteger.new(0)),
-                                                        ]))
+                                                          [
+                                                            BinaryOperation.new(:and,
+                                                                                BasicInteger.new(0)),
+                                                          ]))
     end
 
     describe 'or_expression' do
       let(:rule) {:or_expression}
       it_should_transform('1', BasicInteger.new(1))
       it_should_transform('1 OR 0', BinaryOperations.new(BasicInteger.new(1),
-                                                        [
-                                                          BinaryOperation.new(:or,
-                                                                              BasicInteger.new(0)),
-                                                        ]))
+                                                         [
+                                                           BinaryOperation.new(:or,
+                                                                               BasicInteger.new(0)),
+                                                         ]))
     end
 
     describe 'remark_statement' do
@@ -382,19 +382,19 @@ module Basic
       let(:rule) {:dim_statement}
       it_should_transform('DIM A(10)',
                           DimStatement.new([
-                                             SubscriptReference.new(NumericIdentifier.new('A'), [
-                                                                      BasicInteger.new(10),
-                                                                    ]),
-                                         ]))
+                                             ArrayReference.new(NumericIdentifier.new('A'), [
+                                                                  BasicInteger.new(10),
+                                                                ]),
+                                           ]))
       it_should_transform('DIM A(10), B(20)',
                           DimStatement.new([
-                                             SubscriptReference.new(NumericIdentifier.new('A'), [
-                                                                      BasicInteger.new(10),
-                                                                    ]),
-                                             SubscriptReference.new(NumericIdentifier.new('B'), [
-                                                                      BasicInteger.new(20),
-                                                                    ]),
-                                         ]))
+                                             ArrayReference.new(NumericIdentifier.new('A'), [
+                                                                  BasicInteger.new(10),
+                                                                ]),
+                                             ArrayReference.new(NumericIdentifier.new('B'), [
+                                                                  BasicInteger.new(20),
+                                                                ]),
+                                           ]))
     end
 
     describe 'for_statement' do

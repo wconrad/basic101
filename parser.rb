@@ -108,7 +108,7 @@ module Basic
       expression >> (space? >> str(',') >> space? >> expression).repeat(0)
     end
 
-    rule(:subscript_reference) do
+    rule(:array_reference) do
       identifier.as(:subscript_base) >> space? >> 
         str('(') >> space? >> argument_list.as(:argument_list) >>
         space? >> str(')')
@@ -119,7 +119,7 @@ module Basic
     end
 
     rule(:reference) do
-      subscript_reference | scalar_reference
+      array_reference | scalar_reference
     end
 
     rule(:scalar_reference_list) do
@@ -291,9 +291,9 @@ module Basic
 
     rule(:dim_statement) do
       str('DIM').as(:dim) >>
-        (space? >> subscript_reference >>
+        (space? >> array_reference >>
          (space? >> str(',') >>
-          space? >> subscript_reference
+          space? >> array_reference
           ).repeat(0)
          ).as(:references)
     end

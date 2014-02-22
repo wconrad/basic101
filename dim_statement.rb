@@ -4,12 +4,12 @@ module Basic
 
   class DimStatement < Statement
 
-    def initialize(subscript_references)
-      @subscript_references = subscript_references
+    def initialize(array_references)
+      @array_references = array_references
     end
 
     def execute(runtime)
-      @subscript_references.each do |reference|
+      @array_references.each do |reference|
         reference.dimension_array runtime
       end
     end
@@ -17,7 +17,7 @@ module Basic
     protected
 
     def state
-      [@subscript_references]
+      [@array_references]
     end
 
   end

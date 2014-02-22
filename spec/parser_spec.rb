@@ -193,8 +193,8 @@ module Basic
       it_should_match '"a","b"'
     end
 
-    describe 'subscript_reference' do
-      let(:rule) {parser.subscript_reference}
+    describe 'array_reference' do
+      let(:rule) {parser.array_reference}
       it_should_match 'FNA("a")'
       it_should_match 'FNA ( "a", "b" )'
       it_should_match 'FNA("a","b")'

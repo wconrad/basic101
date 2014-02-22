@@ -1,6 +1,6 @@
 module Basic
 
-  class SubscriptReference < Reference
+  class ArrayReference < Reference
 
     def initialize(identifier, arguments)
       super(identifier)
