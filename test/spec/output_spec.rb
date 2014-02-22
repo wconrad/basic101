@@ -7,23 +7,41 @@ module Basic101
     let(:file) {StringIO.new}
     subject(:output) {described_class.new(file)}
 
+    describe '#puts' do
+
+      context 'with no string' do
+        specify do
+          output.puts
+          expect(file.string).to eq "\n"
+        end
+      end
+
+      context 'with string' do
+        specify do
+          output.puts "abc"
+          expect(file.string).to eq "abc\n"
+        end
+      end
+
+    end
+
     describe '#print' do
 
-      context 'string' do
+      context 'when string' do
         specify do
           output.print 'abc'
           expect(file.string).to eq 'abc'
         end
       end
 
-      context 'new line' do
+      context 'when new line' do
         specify do
           output.print "\n"
           expect(file.string).to eq "\n"
         end
       end
 
-      context 'tab' do
+      context 'when tab' do
 
         specify do
           output.print "\tx"
@@ -46,7 +64,7 @@ module Basic101
 
     describe '#tab_to' do
 
-      context 'tab to following column' do
+      context 'when tab to following column' do
         specify do
           output.tab_to(3)
           output.print('x')
@@ -54,7 +72,7 @@ module Basic101
         end
       end
 
-      context 'tab to current column' do
+      context 'when tab to current column' do
         specify do
           output.print('   ')
           output.tab_to(3)
@@ -63,7 +81,7 @@ module Basic101
         end
       end
 
-      context 'tab to previous column' do
+      context 'when tab to previous column' do
         specify do
           output.print('   x')
           output.tab_to(3)
@@ -72,7 +90,7 @@ module Basic101
         end
       end
 
-      context 'tab to first column' do
+      context 'when tab to first column' do
         specify do
           output.tab_to(0)
           output.print('x')
@@ -80,7 +98,7 @@ module Basic101
         end
       end
 
-      context "tab to negative column" do
+      context 'when tab to negative column' do
         specify do
           output.tab_to(-1)
           output.print('x')

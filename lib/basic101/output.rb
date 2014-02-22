@@ -7,7 +7,7 @@ module Basic101
       @chars_on_line = 0
     end
 
-    def puts(s)
+    def puts(s = '')
       print s.to_s + "\n"
     end
 
