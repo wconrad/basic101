@@ -8,11 +8,7 @@ module Basic
     end
 
     def eval(runtime)
-      if runtime.function_exists?(@identifier)
-        runtime.call_function(@identifier, argument_values(runtime))
-      else
-        get_array(runtime).get(indices(runtime))
-      end
+      get_array(runtime).get(indices(runtime))
     end
 
     def assign(runtime, value)

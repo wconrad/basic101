@@ -55,10 +55,6 @@ module Basic
         str('"')
     end
 
-    rule(:built_in_function_identifier) do
-      match('[A-Z]').repeat(1) >> str('$').maybe
-    end
-
     rule(:user_defined_function_identifier) do
       (str('FN') >> base_identifier >>
        str('$').maybe).as(:function_identifier)
@@ -84,6 +80,11 @@ module Basic
        str('TAB') |
        str('TAN') |
        str('VAL')).as(:function_identifier)
+    end
+
+    rule(:function_identifier) do
+      user_defined_function_identifier | 
+        built_in_function_identifier
     end
 
     rule(:base_identifier) do
@@ -164,10 +165,17 @@ module Basic
       str('OR').as(:or)
     end
 
+    rule(:function_call) do
+      function_identifier.as(:function_identifier) >> space? >> 
+        str('(') >> space? >> argument_list.as(:argument_list) >>
+        space? >> str(')')
+    end
+
     rule(:factor) do
       quoted_string |
         float |
         integer |
+        function_call |
         reference |
         str('(') >> space? >> expression >> space? >> str(')')
     end

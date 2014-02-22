@@ -29,6 +29,11 @@ module Basic
       StringIdentifier.new(name)
     end
 
+    rule(:function_identifier => simple(:identifier),
+         :argument_list => subtree(:arguments)) do
+      FunctionCall.new(identifier, Array(arguments))
+    end
+
     rule(:subscript_base => simple(:identifier), 
          :argument_list => subtree(:args)) do
       SubscriptReference.new(identifier, Array(args))

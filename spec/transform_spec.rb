@@ -134,8 +134,22 @@ module Basic
       it_should_transform('FNA("a", "b")',
                           SubscriptReference.new(NumericIdentifier.new('FNA'), [
                                                    BasicString.new("a"),
-                                                   BasicString.new("b")
+                                                   BasicString.new("b"),
                                                  ]))
+    end
+
+    describe 'function_call' do
+      let(:rule) {:function_call}
+      it_should_transform('LEN("a")',
+                          FunctionCall.new(FunctionIdentifier.new('LEN'), [
+                                             BasicString.new("a")
+                                           ]))
+      it_should_transform('FNA(1, 2)',
+                          FunctionCall.new(FunctionIdentifier.new('FNA'), [
+                                             BasicInteger.new(1),
+                                             BasicInteger.new(2),
+                                           ]))
+      
     end
 
     describe 'power' do

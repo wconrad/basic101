@@ -119,10 +119,23 @@ module Basic
       it_should_not_match %Q'"\n"'
     end
 
+    describe 'user_defined_function_identifier' do
+      let(:rule) {parser.user_defined_function_identifier}
+      it_should_match 'FNA'
+      it_should_match 'FNB1'
+      it_should_match 'FNS$'
+    end
+
     describe 'built_in_function_identifier' do
       let(:rule) {parser.built_in_function_identifier}
       it_should_match 'LEN'
       it_should_match 'RIGHT$'
+    end
+
+    describe 'function_identifier' do
+      let(:rule) {parser.function_identifier}
+      it_should_match 'FNA'
+      it_should_match 'LEN'
     end
 
     describe 'base_identifier' do
@@ -130,13 +143,6 @@ module Basic
       it_should_match 'A'
       it_should_match 'A1'
       it_should_not_match 'ELSE'
-    end
-
-    describe 'user_defined_function_identifier' do
-      let(:rule) {parser.user_defined_function_identifier}
-      it_should_match 'FNA'
-      it_should_match 'FNB1'
-      it_should_match 'FNS$'
     end
 
     describe 'built_in_function_identifier' do
@@ -262,12 +268,19 @@ module Basic
       it_should_match 'OR'
     end
 
+    describe 'function_call' do
+      let(:rule) {parser.function_call}
+      it_should_match 'FNA(1, 2)'
+      it_should_match 'STR$("abc")'
+    end
+
     describe 'factor' do
       let(:rule) {parser.factor}
       it_should_match '"abc"'
       it_should_match '1.2'
       it_should_match '123'
       it_should_match 'I'
+      it_should_match 'FNA(1)'
       it_should_match '( 1 + 2 )'
       it_should_match '(1+2)'
     end
