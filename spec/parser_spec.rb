@@ -315,21 +315,13 @@ module Basic
       it_should_match ','
     end
 
-    describe 'print_arguments' do
-      let(:rule) {parser.print_arguments}
-      it_should_match ''
-      it_should_match '"A"'
-      it_should_match '"A",'
-      it_should_match '"A","B"' 
-      it_should_match '"A" , "B" ;'
-      it_should_match '"A","B";'
-    end
-
     describe 'print_statement' do
       let(:rule) {parser.print_statement}
       it_should_match 'PRINT'
       it_should_match 'PRINT "A"'
       it_should_match 'PRINT "A" ;'
+      it_should_match 'PRINT "A", 1'
+      it_should_match 'PRINT "A", 1 ;'
       it_should_match 'PRINT1,"A";'
       it_should_not_match 'PRINT "ok" ELSE'
     end

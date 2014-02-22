@@ -202,16 +202,15 @@ module Basic
       (str('REM') >> printable.repeat(0)).as(:remark)
     end
 
-    rule(:print_arguments) do
-      (space? >> (expression | print_separator)).repeat(0)
-    end
-
     rule(:print_separator) do
       match('[;,]').as(:print_separator)
     end
 
     rule(:print_statement) do
-      str('PRINT').as(:print) >> print_arguments.as(:print_arguments)
+      str('PRINT').as(:print) >>
+        (space? >> expression.as(:print_arg1) >>
+         (space? >> print_separator.as(:print_arg2)).maybe
+         ).repeat(0).as(:args)
     end
 
     rule(:goto_statement) do
