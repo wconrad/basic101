@@ -1,3 +1,5 @@
+require 'simplecov'
+
 require_relative '../lib/basic101'
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration

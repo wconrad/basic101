@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+require 'simplecov'
+SimpleCov.command_name 'Acceptance'
+
 lib_path = File.expand_path('../lib', __dir__)
 unless $LOAD_PATH.include?(lib_path)
   $:.unshift lib_path
