@@ -1,6 +1,7 @@
 require 'simplecov'
 
-require_relative '../lib/basic101'
+require_relative '../../lib/basic101'
+SimpleCov.command_name 'RSpec'
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
