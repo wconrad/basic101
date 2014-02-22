@@ -2,12 +2,10 @@ module Basic101
 
   class PromptDelimeter
 
+    include Identity
+
     def print(output)
       output.print '? '
-    end
-
-    def ==(other)
-      other.is_a?(self.class)
     end
 
   end

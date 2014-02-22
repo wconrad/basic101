@@ -1,15 +1,14 @@
+require_relative 'identity'
+
 module Basic101
 
   class BinaryOperation
 
+    include Identity
+
     def initialize(operator, right)
       @operator = operator
       @right = right
-    end
-
-    def ==(other)
-      return false unless other.is_a?(self.class)
-      self.state == other.state
     end
 
     def operate(left, runtime)

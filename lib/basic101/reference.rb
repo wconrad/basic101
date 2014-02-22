@@ -2,18 +2,10 @@ module Basic101
 
   class Reference
 
+    include Identity
+
     def initialize(identifier)
       @identifier = identifier
-    end
-
-    def ==(other)
-      return false unless other.is_a?(self.class)
-      self.state == other.state
-    end
-
-    def ==(other)
-      return false unless other.is_a?(self.class)
-      self.state == other.state
     end
 
     def input(input_reader)

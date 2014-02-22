@@ -2,17 +2,20 @@ module Basic101
 
   class Identifier
 
+    include Identity
+
     def initialize(name)
       @name = name.to_s
     end
 
-    def ==(other)
-      return false unless other.is_a?(self.class)
-      to_s == other.to_s
-    end
-
     def to_s
       @name
+    end
+
+    protected
+
+    def state
+      [@name]
     end
 
   end

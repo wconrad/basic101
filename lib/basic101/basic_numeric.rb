@@ -4,9 +4,10 @@ module Basic101
 
   class BasicNumeric
 
+    include Comparable
+
     include BasicComparisons
     include BasicMath
-    include Comparable
 
     attr_reader :value
 

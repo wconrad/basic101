@@ -9,11 +9,6 @@ module Basic101
       @expression = expression
     end
 
-    def ==(other)
-      return false unless other.is_a?(self.class)
-      self.state == other.state
-    end
-
     def execute(runtime)
       @reference.assign(runtime, @expression.eval(runtime))
     end
@@ -21,7 +16,7 @@ module Basic101
     protected
 
     def state
-      super + [@reference, @expression]
+      [@reference, @expression]
     end
 
   end

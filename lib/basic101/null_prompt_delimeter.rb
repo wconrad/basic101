@@ -2,11 +2,9 @@ module Basic101
 
   class NullPromptDelimeter
 
-    def print(output)
-    end
+    include Identity
 
-    def ==(other)
-      other.is_a?(self.class)
+    def print(output)
     end
 
   end

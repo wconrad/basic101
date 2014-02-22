@@ -2,6 +2,8 @@ module Basic101
 
   class UserDefinedFunction
 
+    include Identity
+
     def initialize(identifier, parameters, expression)
       @identifier = identifier
       @parameters = parameters
@@ -19,11 +21,6 @@ module Basic101
       result = @expression.eval(runtime)
       restore_parameters(runtime)
       result
-    end
-
-    def ==(other)
-      return false unless other.is_a?(self.class)
-      state == other.state
     end
 
     protected

@@ -4,6 +4,8 @@ module Basic101
 
     include Enumerable
 
+    include Identity
+
     attr_reader :statements
 
     def self.load_file(source_path)
@@ -63,9 +65,10 @@ module Basic101
       statements.flat_map(&:data_items)
     end
 
-    def ==(other)
-      return false unless other.is_a?(self.class)
-      statements == other.statements
+    protected
+
+    def state
+      [@statements]
     end
 
     private

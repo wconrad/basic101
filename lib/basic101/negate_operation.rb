@@ -2,13 +2,10 @@ module Basic101
 
   class NegateOperation
 
+    include Identity
+
     def initialize(expression)
       @expression = expression
-    end
-
-    def ==(other)
-      return false unless other.is_a?(self.class)
-      expression == other.expression
     end
 
     def eval(runtime)

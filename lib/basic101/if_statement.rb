@@ -20,11 +20,6 @@ module Basic101
       end
     end
 
-    def ==(other)
-      return false unless other.is_a?(self.class)
-      self.state == other.state
-    end
-
     protected
 
     def state

@@ -2,13 +2,10 @@ module Basic101
 
   class NotOperation
 
+    include Identity
+
     def initialize(expression)
       @expression = expression
-    end
-
-    def ==(other)
-      return false unless other.is_a?(self.class)
-      expression = other.expression
     end
 
     def eval(runtime)
@@ -17,7 +14,9 @@ module Basic101
 
     protected
 
-    attr_reader :expression
+    def state
+      [@expression]
+    end
 
   end
 

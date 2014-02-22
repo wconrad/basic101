@@ -2,9 +2,7 @@ module Basic101
 
   class PrintSemicolon
 
-    def ==(other)
-      other.is_a?(self.class)
-    end
+    include Identity
 
     def eval(runtime)
       self

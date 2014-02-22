@@ -2,6 +2,8 @@ module Basic101
 
   class FunctionCall
 
+    include Identity
+
     def initialize(identifier, arguments)
       @identifier = identifier
       @arguments = arguments
@@ -9,11 +11,6 @@ module Basic101
 
     def eval(runtime)
       runtime.call_function(@identifier, argument_values(runtime))
-    end
-
-    def ==(other)
-      return false unless other.is_a?(self.class)
-      state == other.state
     end
 
     protected

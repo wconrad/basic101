@@ -2,6 +2,8 @@ module Basic101
 
   class BinaryOperations
 
+    include Identity
+
     def initialize(left, operations)
       @left = left
       @operations = operations
@@ -11,11 +13,6 @@ module Basic101
       @operations.inject(@left) do |result, operation|
         operation.operate(result, runtime)
       end
-    end
-
-    def ==(other)
-      return false unless other.is_a?(self.class)
-      self.state == other.state
     end
 
     protected
