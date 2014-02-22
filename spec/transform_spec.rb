@@ -98,6 +98,18 @@ module Basic
       it_should_transform('RETURN', ReturnStatement.new)
     end
 
+    describe 'built_in_function_identifier' do
+      let(:rule) {:built_in_function_identifier}
+      it_should_transform('LEN', FunctionIdentifier.new('LEN'))
+      it_should_transform('STR$', FunctionIdentifier.new('STR$'))
+    end
+
+    describe 'user_defined_function_identifier' do
+      let(:rule) {:user_defined_function_identifier}
+      it_should_transform('FNA', FunctionIdentifier.new('FNA'))
+      it_should_transform('FNS$', FunctionIdentifier.new('FNS$'))
+    end
+
     describe 'numeric_identifier' do
       let(:rule) {:numeric_identifier}
       it_should_transform('I', NumericIdentifier.new('I'))
@@ -429,11 +441,11 @@ module Basic
     describe 'define_function_statement' do
       let(:rule) {:define_function_statement}
       it_should_transform('DEF FNA = 1',
-                          DefineFunctionStatement.new(NumericIdentifier.new('FNA'),
+                          DefineFunctionStatement.new(FunctionIdentifier.new('FNA'),
                                                       [],
                                                       BasicInteger.new(1)))
       it_should_transform('DEF FNA$(A) = "."',
-                          DefineFunctionStatement.new(StringIdentifier.new('FNA$'),
+                          DefineFunctionStatement.new(FunctionIdentifier.new('FNA$'),
                                                       [
                                                         ScalarReference.new(NumericIdentifier.new('A')),
                                                       ],

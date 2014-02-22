@@ -17,6 +17,10 @@ module Basic
       BasicString.new(s)
     end
 
+    rule(:function_identifier => simple(:name)) do
+      FunctionIdentifier.new(name)
+    end
+
     rule(:numeric_identifier => simple(:name)) do
       NumericIdentifier.new(name)
     end

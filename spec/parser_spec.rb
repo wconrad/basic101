@@ -119,11 +119,47 @@ module Basic
       it_should_not_match %Q'"\n"'
     end
 
+    describe 'built_in_function_identifier' do
+      let(:rule) {parser.built_in_function_identifier}
+      it_should_match 'LEN'
+      it_should_match 'RIGHT$'
+    end
+
     describe 'base_identifier' do
       let(:rule) {parser.base_identifier}
       it_should_match 'A'
       it_should_match 'A1'
       it_should_not_match 'ELSE'
+    end
+
+    describe 'user_defined_function_identifier' do
+      let(:rule) {parser.user_defined_function_identifier}
+      it_should_match 'FNA'
+      it_should_match 'FNB1'
+      it_should_match 'FNS$'
+    end
+
+    describe 'built_in_function_identifier' do
+      let(:rule) {parser.built_in_function_identifier}
+      it_should_match 'ABS'
+      it_should_match 'ASC'
+      it_should_match 'CHR$'
+      it_should_match 'COS'
+      it_should_match 'EXP'
+      it_should_match 'INT'
+      it_should_match 'LEFT$'
+      it_should_match 'LEN'
+      it_should_match 'LOG'
+      it_should_match 'MID$'
+      it_should_match 'RIGHT$'
+      it_should_match 'RND'
+      it_should_match 'SGN'
+      it_should_match 'SIN'
+      it_should_match 'SQR'
+      it_should_match 'STR$'
+      it_should_match 'TAB'
+      it_should_match 'TAN'
+      it_should_match 'VAL'
     end
 
     describe 'numeric_identifier' do

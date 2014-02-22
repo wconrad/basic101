@@ -55,6 +55,37 @@ module Basic
         str('"')
     end
 
+    rule(:built_in_function_identifier) do
+      match('[A-Z]').repeat(1) >> str('$').maybe
+    end
+
+    rule(:user_defined_function_identifier) do
+      (str('FN') >> base_identifier >>
+       str('$').maybe).as(:function_identifier)
+    end
+
+    rule(:built_in_function_identifier) do
+      (str('ABS') |
+       str('ASC') |
+       str('CHR$') |
+       str('COS') |
+       str('EXP') |
+       str('INT') |
+       str('LEFT$') |
+       str('LEN') |
+       str('LOG') |
+       str('MID$') |
+       str('RIGHT$') |
+       str('RND') |
+       str('SGN') |
+       str('SIN') |
+       str('SQR') |
+       str('STR$') |
+       str('TAB') |
+       str('TAN') |
+       str('VAL')).as(:function_identifier)
+    end
+
     rule(:base_identifier) do
       str('ELSE').absent? >>
         match('[A-Z]') >> match('[A-Z0-9]').repeat(0)
@@ -329,7 +360,7 @@ module Basic
 
     rule(:define_function_statement) do
       str('DEF').as(:def) >>
-        space? >> identifier.as(:identifier) >>
+        space? >> user_defined_function_identifier.as(:identifier) >>
         (space? >> str('(') >>
          space? >> scalar_reference_list >>
          space? >> str(')')
