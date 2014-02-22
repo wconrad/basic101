@@ -9,6 +9,7 @@ module Basic101
     def run
       program = Program.load(ARGF)
       runtime = Runtime.new(:program => program)
+      runtime.randomize
       runtime.run
     rescue Error => e
       $stderr.puts e

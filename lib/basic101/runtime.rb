@@ -12,6 +12,15 @@ module Basic101
       @program = args.fetch(:program, Program.new)
       @functions = Functions.new
       @for_stack = ForStack.new
+      @random = Random.new(0)
+    end
+
+    def randomize
+      @random = Random.new
+    end
+
+    def rand
+      @random.rand
     end
 
     def goto_line(line_number)

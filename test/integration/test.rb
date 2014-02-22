@@ -17,7 +17,6 @@ module Integration
     end
 
     def run
-      srand(0)
       File.open(input_path, 'r') do |input_file|
         output_file = StringIO.new
         program = Basic101::Program.load_file(@basic_path)

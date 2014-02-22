@@ -14,7 +14,7 @@ module Basic101
       raise IllegalFunctionCall unless args.size == 1
       new_number = args.first.eval(runtime).to_f > 0
       if new_number
-        @rand = rand
+        @rand = runtime.rand
       end
       BasicFloat.new(@rand)
     end
