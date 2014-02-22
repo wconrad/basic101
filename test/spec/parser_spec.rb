@@ -4,13 +4,9 @@ module Basic101
 
   describe Parser do
 
-    def self.it_should_match(s, expected_parse_tree = nil)
+    def self.it_should_match(s)
       it "should consume #{s.inspect}" do
-        if expected_parse_tree
-          expect(rule.parse(s)).to eq expected_parse_tree
-        else
-          expect {rule.parse(s)}.to_not raise_error
-        end
+        expect {rule.parse(s)}.to_not raise_error
       end
     end
 
