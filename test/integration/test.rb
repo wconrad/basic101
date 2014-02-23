@@ -17,26 +17,23 @@ module Integration
     end
 
     def run
+      output_file = StringIO.new
       File.open(input_path, 'r') do |input_file|
-        output_file = StringIO.new
-        program = Basic101::Program.load_file(@basic_path)
-        runtime = Basic101::Runtime.new(:input_file => input_file,
-                                        :output_file => output_file,
-                                        :program => program)
         begin
+          program = Basic101::Program.load_file(@basic_path)
+          runtime = Basic101::Runtime.new(:input_file => input_file,
+                                          :output_file => output_file,
+                                          :program => program)
           runtime.run
-          @output = output_file.string
         rescue Parslet::ParseFailed => e
-          @output = e.to_s + "\n"
+          output_file.puts e
         rescue Basic101::Error => e
-          @output = e.to_s + "\n"
+          output_file.puts e
         rescue Exception => e
-          @output = e.to_s + "\n"
-          e.backtrace.each do |line|
-            @output << line + "\n"
-          end
+          output_file.puts e, e.backtrace
         end
       end
+      @output = output_file.string
     end
 
     def print_progress
