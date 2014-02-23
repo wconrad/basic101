@@ -72,7 +72,7 @@ module Basic101
     end
 
     def +(other)
-      BasicString.new(value + other.value)
+      BasicString.new(value + other.to_string.value)
     end
 
     def asc

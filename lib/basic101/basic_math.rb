@@ -5,7 +5,7 @@ module Basic101
     def self.basic_math_op(method)
       define_method(method) do |other|
         a = to_float.to_f
-        b = other.to_f
+        b = other.to_float.to_f
         result = a.send(method, b)
         BasicFloat.new(result).simplest
       end

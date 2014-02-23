@@ -28,6 +28,8 @@ module Integration
           @output = output_file.string
         rescue Parslet::ParseFailed => e
           @output = e.to_s + "\n"
+        rescue Basic101::Error => e
+          @output = e.to_s + "\n"
         rescue Exception => e
           @output = e.to_s + "\n"
           e.backtrace.each do |line|

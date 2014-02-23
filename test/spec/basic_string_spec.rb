@@ -107,12 +107,20 @@ module Basic101
     end
 
     describe '#+' do
-      specify do
+
+      it 'should concatenate a string' do
         a = described_class.new('abc')
         b = described_class.new('123')
         c = a + b
         expect(c).to eq described_class.new('abc123')
       end
+
+      it 'should not concatenate an integer' do
+        a = described_class.new('abc')
+        b = BasicInteger.new(1)
+        expect {a + b}.to raise_error TypeError
+      end
+
     end
 
     describe '#right' do
