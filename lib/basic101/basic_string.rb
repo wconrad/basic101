@@ -24,10 +24,6 @@ module Basic101
       output.print "\n"
     end
 
-    def simplest
-      self
-    end
-
     def to_integer
       raise TypeError, "string cannot be converted to integer"
     end
@@ -38,10 +34,6 @@ module Basic101
 
     def to_string
       self
-    end
-
-    def to_s
-      @value
     end
 
     def left(count)

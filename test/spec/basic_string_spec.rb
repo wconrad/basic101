@@ -12,28 +12,28 @@ module Basic101
 
       context 'when extracting substring' do
         specify do
-          s = BasicString.new('abcd')
-          expect(s.left(2)).to eq BasicString.new('ab')
+          s = described_class.new('abcd')
+          expect(s.left(2)).to eq described_class.new('ab')
         end
       end
 
       context 'when extracting null string' do
         specify do
-          s = BasicString.new('abcd')
-          expect(s.left(0)).to eq BasicString.new('')
+          s = described_class.new('abcd')
+          expect(s.left(0)).to eq described_class.new('')
         end
       end
 
       context 'when extracting entire string' do
         specify do
-          s = BasicString.new('abcd')
-          expect(s.left(10)).to eq BasicString.new('abcd')
+          s = described_class.new('abcd')
+          expect(s.left(10)).to eq described_class.new('abcd')
         end
       end
 
       context 'when negative' do
         specify do
-          s = BasicString.new('abcd')
+          s = described_class.new('abcd')
           expect do
             s.left(-1)
           end.to raise_error InvalidArgumentError
@@ -44,7 +44,7 @@ module Basic101
 
     describe '#length' do
       specify do
-        s = BasicString.new('abc')
+        s = described_class.new('abc')
         expect(s.length).to eq BasicInteger.new(3)
       end
     end
@@ -53,35 +53,35 @@ module Basic101
 
       context 'when substring' do
         specify do
-          s = BasicString.new('abc')
-          expect(s.mid(2)).to eq BasicString.new('bc')
+          s = described_class.new('abc')
+          expect(s.mid(2)).to eq described_class.new('bc')
         end
       end
 
       context 'when short count' do
         specify do
-          s = BasicString.new('abc')
-          expect(s.mid(2, 1)).to eq BasicString.new('b')
+          s = described_class.new('abc')
+          expect(s.mid(2, 1)).to eq described_class.new('b')
         end
       end
 
       context 'when long count' do
         specify do
-          s = BasicString.new('abc')
-          expect(s.mid(2, 100)).to eq BasicString.new('bc')
+          s = described_class.new('abc')
+          expect(s.mid(2, 100)).to eq described_class.new('bc')
         end
       end
 
       context 'when start past end of string' do
         specify do
-          s = BasicString.new('abc')
-          expect(s.mid(100)).to eq BasicString.new('')
+          s = described_class.new('abc')
+          expect(s.mid(100)).to eq described_class.new('')
         end
       end
 
       context 'when zero start' do
         specify do
-          s = BasicString.new('abc')
+          s = described_class.new('abc')
           expect do
             s.mid(0)
           end.to raise_error InvalidArgumentError
@@ -90,7 +90,7 @@ module Basic101
 
       context 'when zero count' do
         specify do
-          s = BasicString.new('abc')
+          s = described_class.new('abc')
           expect do
             s.mid(1, 0)
           end.to raise_error InvalidArgumentError
@@ -101,10 +101,10 @@ module Basic101
 
     describe '#+' do
       specify do
-        a = BasicString.new('abc')
-        b = BasicString.new('123')
+        a = described_class.new('abc')
+        b = described_class.new('123')
         c = a + b
-        expect(c).to eq BasicString.new('abc123')
+        expect(c).to eq described_class.new('abc123')
       end
     end
 
@@ -112,31 +112,31 @@ module Basic101
 
       context 'when entire string' do
         specify do
-          a = BasicString.new('abc')
+          a = described_class.new('abc')
           b = a.right(10)
-          expect(b).to eq BasicString.new('abc')
+          expect(b).to eq described_class.new('abc')
         end
       end
 
       context 'when substring' do
         specify do
-          a = BasicString.new('abc')
+          a = described_class.new('abc')
           b = a.right(2)
-          expect(b).to eq BasicString.new('bc')
+          expect(b).to eq described_class.new('bc')
         end
       end
 
       context 'when zero count' do
         specify do
-          a = BasicString.new('abc')
+          a = described_class.new('abc')
           b = a.right(0)
-          expect(b).to eq BasicString.new('')
+          expect(b).to eq described_class.new('')
         end
       end
 
       context 'when negative count' do
         specify do
-          a = BasicString.new('abc')
+          a = described_class.new('abc')
           expect { a.right(-1) }.to raise_error InvalidArgumentError
         end
       end
@@ -147,14 +147,14 @@ module Basic101
 
       context 'when not empty' do
         specify do
-          a = BasicString.new('ABC')
+          a = described_class.new('ABC')
           expect(a.asc).to eq BasicInteger.new(65)
         end
       end
 
       context 'when empty' do
         specify do
-          a = BasicString.new('')
+          a = described_class.new('')
           expect {a.asc}.to raise_error InvalidArgumentError
         end
       end
@@ -164,18 +164,67 @@ module Basic101
     describe '#val' do
 
       it 'converts to a float' do
-        a = BasicString.new('1.23')
+        a = described_class.new('1.23')
         expect(a.val).to eq BasicFloat.new(1.23)
       end
 
       it 'converts to an integer' do
-        a = BasicString.new('-123')
+        a = described_class.new('-123')
         expect(a.val).to eq BasicInteger.new(-123)
       end
 
       it 'ignores white space' do
-        a = BasicString.new("\t\n 123\t\n ")
+        a = described_class.new("\t\n 123\t\n ")
         expect(a.val).to eq BasicInteger.new(123)
+      end
+
+    end
+
+    describe '#to_integer' do
+      specify do
+        a = described_class.new(12)
+        expect {a.to_integer}.to raise_error TypeError
+      end
+    end
+
+    describe '#to_float' do
+      specify do
+        a = described_class.new(12.34)
+        expect {a.to_float}.to raise_error TypeError
+      end
+    end
+
+    describe '#to_string' do
+      specify do
+        a = described_class.new('abc')
+        expect(a.to_string).to eq a
+      end
+    end
+
+    describe '#str' do
+      it 'should return itself' do
+        a = described_class.new('abc')
+        expect(a.str).to eq a
+      end
+    end
+
+    describe 'printing' do
+
+      let(:output) {double Output}
+      subject {described_class.new('123')}
+
+      describe '#print_string' do
+        specify do
+          output.should_receive(:print).with('123')
+          subject.print_string(output)
+        end
+      end
+
+      describe '#print_new_line' do
+        specify do
+          output.should_receive(:print).with("\n")
+          subject.print_new_line(output)
+        end
       end
 
     end

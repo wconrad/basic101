@@ -6,6 +6,14 @@ module Basic101
 
     it_should_behave_like 'a basic numeric'
 
+    describe '#simplest' do
+      it 'should return itself' do
+        a = BasicInteger.new(1)
+        b = a.simplest
+        expect(b).to eq a
+      end
+    end
+
     describe '.from_bool' do
 
       it 'should convert true to basic -1' do
@@ -19,8 +27,8 @@ module Basic101
       end
 
     end
-
-    describe '#str' do
+ 
+   describe '#str' do
       specify do
         a = BasicInteger.new(-12)
         expect(a.str).to eq BasicString.new('-12')
