@@ -68,6 +68,7 @@ module Basic101
     describe 'fixed' do
       let(:rule) {parser.float}
       it_should_match '.2'
+      it_should_match '2.'
       it_should_match '1.2'
       it_should_match '-1.2'
       it_should_match '+1.2'
@@ -390,6 +391,7 @@ module Basic101
       it_should_match 'IF 1 THEN PRINT "FOO"'
       it_should_match 'IF 1 THEN PRINT "FOO" ELSE PRINT "BAR"'
       it_should_match 'IF1THENPRINT"FOO"ELSEPRINT"BAR"'
+      it_should_match 'IFK9>T9THENT9=K9+1'
     end
 
     describe 'randomize_statement' do
