@@ -24,14 +24,6 @@ module Basic101
       output.print "\n"
     end
 
-    def to_integer
-      raise TypeError, "string cannot be converted to integer"
-    end
-
-    def to_float
-      raise TypeError, "string cannot be converted to float"
-    end
-
     def to_string
       self
     end

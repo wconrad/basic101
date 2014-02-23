@@ -8,7 +8,15 @@ module BasicNumericHelpers
       let(:default_value) {0}
     end
 
-    describe '#val' do
+    describe '#to_numeric' do
+      it 'should return itself' do
+        a = described_class.new(1)
+        b = a.to_numeric
+        expect(b).to eq a
+      end
+    end
+
+    describe '#eval' do
       it 'should return itself' do
         runtime = double Runtime
         a = described_class.new(1)
@@ -300,6 +308,14 @@ module BasicNumericHelpers
         end
       end
 
+    end
+
+    describe '#to_numeric' do
+      it 'should return itself' do
+        a = described_class.new(123)
+        b = a.to_numeric
+        expect(b).to eq a
+      end
     end
 
   end

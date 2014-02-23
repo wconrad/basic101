@@ -17,10 +17,6 @@ module Basic101
       self
     end
 
-    def to_string
-      raise TypeError, 'float cannot be converted to string'
-    end
-
     def str
       BasicString.new(@value.to_s)
     end

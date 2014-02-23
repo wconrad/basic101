@@ -21,6 +21,10 @@ module Basic101
       value <=> other.value
     end
 
+    def to_numeric
+      self
+    end
+
     def to_i
       @value.to_i
     end

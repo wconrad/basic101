@@ -195,6 +195,16 @@ module Basic101
 
     end
 
+    describe '#to_numeric' do
+      it 'should refuse' do
+        a = described_class.new('abc')
+        expect do
+          a.to_numeric
+        end.to raise_error TypeError,
+        'string cannot be converted to numeric'
+      end
+    end
+
     describe '#to_integer' do
       specify do
         a = described_class.new(12)

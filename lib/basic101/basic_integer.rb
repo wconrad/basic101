@@ -16,10 +16,6 @@ module Basic101
       BasicFloat.new(@value)
     end
 
-    def to_string
-      raise TypeError, 'integer cannot be converted to string'
-    end
-
     def and(other)
       self.class.new(value & other.to_integer.value)
     end
