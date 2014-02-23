@@ -1,0 +1,7 @@
+-o doc-api
+--exclude '[~#]$'
+--readme README.md
+--files LICENSE.md
+--files Changelog.md
+--files doc/*.md
+lib/**/*.rb
