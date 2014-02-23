@@ -27,6 +27,13 @@ module Basic101
       end
 
     end
+
+    describe 'type_name' do
+      let(:type_name) {'integer'}
+      subject {described_class.new(0)}
+      specify {expect(subject.class.type_name).to eq type_name}
+      specify {expect(subject.type_name).to eq type_name}
+    end
  
    describe '#str' do
       specify do

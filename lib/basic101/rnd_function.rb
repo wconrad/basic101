@@ -1,6 +1,6 @@
 module Basic101
 
-  class RndFunction
+  class RndFunction < Function
 
     def initialize
       @rand = 0
@@ -11,7 +11,7 @@ module Basic101
     end
 
     def call(runtime, args)
-      raise IllegalFunctionCall unless args.size == 1
+      check_args args, [BasicNumeric]
       new_number = args.first.eval(runtime).to_f > 0
       if new_number
         @rand = runtime.rand

@@ -1,13 +1,13 @@
 module Basic101
 
-  class TabFunction
+  class TabFunction < Function
 
     def name
       'TAB'
     end
 
     def call(runtime, args)
-      raise IllegalFunctionCall unless args.size == 1
+      check_args args, [BasicNumeric]
       column = args.first.eval(runtime).to_i
       Tab.new(column)
     end

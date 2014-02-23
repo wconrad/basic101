@@ -38,7 +38,7 @@ module Basic101
     end
 
     def floor
-      BasicFloat.new(@value.floor)
+      BasicInteger.new(@value.floor)
     end
 
     private

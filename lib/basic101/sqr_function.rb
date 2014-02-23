@@ -1,13 +1,13 @@
 module Basic101
 
-  class SqrFunction
+  class SqrFunction < Function
 
     def name
       'SQR'
     end
 
     def call(runtime, args)
-      raise IllegalFunctionCall unless args.size == 1
+      check_args args, [BasicNumeric]
       value = args.first.eval(runtime)
       value.sqr
     end

@@ -1,13 +1,13 @@
 module Basic101
 
-  class StrFunction
+  class StrFunction < Function
 
     def name
       'STR$'
     end
 
     def call(runtime, args)
-      raise IllegalFunctionCall unless args.size == 1
+      check_args args, [BasicObject]
       args.first.eval(runtime).str
     end
 

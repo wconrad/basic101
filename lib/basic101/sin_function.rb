@@ -1,13 +1,13 @@
 module Basic101
 
-  class SinFunction
+  class SinFunction < Function
 
     def name
       'SIN'
     end
 
     def call(runtime, args)
-      raise IllegalFunctionCall unless args.size == 1
+      check_args args, [BasicNumeric]
       value = args.first.eval(runtime)
       value.sin
     end

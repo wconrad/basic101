@@ -1,13 +1,13 @@
 module Basic101
 
-  class IntFunction
+  class IntFunction < Function
 
     def name
       'INT'
     end
 
     def call(runtime, args)
-      raise IllegalFunctionCall unless args.size == 1
+      check_args args, [BasicNumeric]
       value = args.first.eval(runtime)
       value.to_float.floor
     end

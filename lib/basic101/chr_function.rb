@@ -1,13 +1,13 @@
 module Basic101
 
-  class ChrFunction
+  class ChrFunction < Function
 
     def name
       'CHR$'
     end
 
     def call(runtime, args)
-      raise IllegalFunctionCall unless args.size == 1
+      check_args args, [BasicNumeric]
       value = args.first.eval(runtime)
       value.to_integer.chr
     end

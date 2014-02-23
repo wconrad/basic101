@@ -1,13 +1,13 @@
 module Basic101
 
-  class LogFunction
+  class LogFunction < Function
 
     def name
       'LOG'
     end
 
     def call(runtime, args)
-      raise IllegalFunctionCall unless args.size == 1
+      check_args args, [BasicNumeric]
       arg = args.first
       arg.eval(runtime).log
     end

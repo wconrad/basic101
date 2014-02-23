@@ -8,6 +8,13 @@ module Basic101
       let(:default_value) {''}
     end
 
+    describe 'type_name' do
+      let(:type_name) {'string'}
+      subject {described_class.new(0)}
+      specify {expect(subject.class.type_name).to eq type_name}
+      specify {expect(subject.type_name).to eq type_name}
+    end
+
     describe '#left' do
 
       context 'when extracting substring' do

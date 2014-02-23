@@ -1,13 +1,13 @@
 module Basic101
 
-  class CosFunction
+  class CosFunction < Function
 
     def name
       'COS'
     end
 
     def call(runtime, args)
-      raise IllegalFunctionCall unless args.size == 1
+      check_args args, [BasicNumeric]
       value = args.first.eval(runtime)
       value.cos
     end

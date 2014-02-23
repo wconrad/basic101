@@ -1,13 +1,15 @@
+require_relative 'function'
+
 module Basic101
 
-  class AbsFunction
+  class AbsFunction < Function
 
     def name
       'ABS'
     end
 
     def call(runtime, args)
-      raise IllegalFunctionCall unless args.size == 1
+      check_args args, [BasicNumeric]
       value = args.first.eval(runtime)
       value.abs
     end

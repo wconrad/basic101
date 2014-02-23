@@ -1,13 +1,13 @@
 module Basic101
 
-  class ValFunction
+  class ValFunction < Function
 
     def name
       'VAL'
     end
 
     def call(runtime, args)
-      raise InvalidArgumentError unless args.size == 1
+      check_args args, [BasicString]
       args.first.eval(runtime).val
     end
 

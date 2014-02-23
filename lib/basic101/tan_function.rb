@@ -1,13 +1,13 @@
 module Basic101
 
-  class TanFunction
+  class TanFunction < Function
 
     def name
       'TAN'
     end
 
     def call(runtime, args)
-      raise IllegalFunctionCall unless args.size == 1
+      check_args args, [BasicNumeric]
       value = args.first.eval(runtime)
       value.tan
     end

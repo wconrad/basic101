@@ -1,13 +1,13 @@
 module Basic101
 
-  class LenFunction
+  class LenFunction < Function
 
     def name
       'LEN'
     end
 
     def call(runtime, args)
-      raise IllegalFunctionCall unless args.size == 1
+      check_args args, [BasicString]
       string = args.first
       string = string.eval(runtime).to_string
       string.length

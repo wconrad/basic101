@@ -1,6 +1,6 @@
 module Basic101
 
-  class UserDefinedFunction
+  class UserDefinedFunction < Function
 
     include Identity
 

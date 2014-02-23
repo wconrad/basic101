@@ -1,13 +1,13 @@
 module Basic101
 
-  class ExpFunction
+  class ExpFunction < Function
 
     def name
       'EXP'
     end
 
     def call(runtime, args)
-      raise IllegalFunctionCall unless args.size == 1
+      check_args args, [BasicNumeric]
       value = args.first.eval(runtime)
       value.exp
     end

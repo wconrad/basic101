@@ -26,6 +26,13 @@ module Basic101
 
     end
 
+    describe 'type_name' do
+      let(:type_name) {'float'}
+      subject {described_class.new(0)}
+      specify {expect(subject.class.type_name).to eq type_name}
+      specify {expect(subject.type_name).to eq type_name}
+    end
+
     describe '.from_s' do
 
       context 'when fixed-point' do
@@ -113,7 +120,7 @@ module Basic101
       specify do
         a = described_class.new(-1.5)
         b = a.floor
-        expect(b).to eq described_class.new(-2.0)
+        expect(b).to eq BasicInteger.new(-2.0)
       end
     end
 
