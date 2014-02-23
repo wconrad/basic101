@@ -70,6 +70,11 @@ or just:
 
 ## References
 
+* [Basic Computer Games, Microcomputer Edition][2]
+* [Basic-80 Reference Manual, v. 5][1]
+* [Vintage BASIC][3] and its [source][10]
+* [Classic Basic Games][9]
+
 ## Credits
 
 ### David H. Ahl
@@ -116,3 +121,4 @@ Wayne Conrad <wconrad@yagni.com>
 [7]: http://www.vintage-basic.net/bcg/civilwar.bas
 [8]: http://www.vintage-basic.net/games.html
 [9]: http://www.classicbasicgames.org/
+[10]: https://github.com/lylek/vintage-basic
