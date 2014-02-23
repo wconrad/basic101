@@ -13,7 +13,7 @@ module Integration
 
     def matches_patterns?(patterns)
       return true if patterns.empty?
-      @basic_path =~ Regexp.union(patterns)
+      File.basename(@basic_path) =~ Regexp.union(patterns)
     end
 
     def run
