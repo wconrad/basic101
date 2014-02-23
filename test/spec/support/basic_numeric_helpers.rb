@@ -1,8 +1,21 @@
-module NumericHelpers
+module BasicNumericHelpers
 
   include Basic101
 
-  shared_examples 'a numeric' do
+  shared_examples 'a basic numeric' do
+
+    it_behaves_like 'a basic object' do
+      let(:default_value) {0}
+    end
+
+    describe '#val' do
+      it 'should return itself' do
+        runtime = double Runtime
+        a = described_class.new(1)
+        b = a.eval(runtime)
+        expect(b).to eq a
+      end
+    end
 
     describe '+' do
 
@@ -260,5 +273,5 @@ module NumericHelpers
 end
 
 RSpec.configure do |config|
-  config.include NumericHelpers
+  config.include BasicNumericHelpers
 end

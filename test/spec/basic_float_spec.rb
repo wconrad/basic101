@@ -4,7 +4,7 @@ module Basic101
 
   describe BasicFloat do
 
-    it_should_behave_like 'a numeric'
+    it_should_behave_like 'a basic numeric'
 
     describe '.from_s' do
 

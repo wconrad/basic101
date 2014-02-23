@@ -1,8 +1,9 @@
 require_relative 'basic_math'
+require_relative 'basic_object'
 
 module Basic101
 
-  class BasicNumeric
+  class BasicNumeric < BasicObject
 
     include Comparable
 
@@ -13,10 +14,6 @@ module Basic101
 
     def initialize(value)
       @value = value
-    end
-
-    def eval(runtime)
-      self
     end
 
     def <=>(other)

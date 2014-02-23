@@ -4,6 +4,10 @@ module Basic101
 
   describe BasicString do
 
+    it_behaves_like 'a basic object' do
+      let(:default_value) {''}
+    end
+
     describe '#left' do
 
       context 'when extracting substring' do

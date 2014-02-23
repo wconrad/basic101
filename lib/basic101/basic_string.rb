@@ -1,6 +1,6 @@
 module Basic101
 
-  class BasicString
+  class BasicString < BasicObject
 
     include Comparable
     include BasicComparisons
@@ -14,10 +14,6 @@ module Basic101
     def <=>(other)
       return nil unless other.is_a?(self.class)
       value <=> other.value
-    end
-
-    def eval(runtime)
-      self
     end
 
     def print_string(output)
