@@ -9,7 +9,7 @@ module Basic101
     end
 
     def eval(runtime)
-      @expression.eval(runtime).not
+      @expression.eval(runtime).to_numeric.not
     end
 
     protected
