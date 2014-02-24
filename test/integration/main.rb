@@ -24,7 +24,7 @@ module Integration
     private
 
     def load_tests
-      glob = File.join(test_dir, '*' + Test::BASIC_EXTENSION)
+      glob = File.join(test_dir, '**', '*' + Test::BASIC_EXTENSION)
       Dir[glob].map do |basic_path|
         Test.new(basic_path)
       end.select do |test|

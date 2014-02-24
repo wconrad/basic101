@@ -10,6 +10,7 @@ end
 
 require 'fileutils'
 require 'optparse'
+require 'pathname'
 require 'stringio'
 require 'tempfile'
 

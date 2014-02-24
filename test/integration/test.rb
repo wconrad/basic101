@@ -13,7 +13,9 @@ module Integration
 
     def matches_patterns?(patterns)
       return true if patterns.empty?
-      File.basename(@basic_path) =~ Regexp.union(patterns)
+      path = Pathname.new(@basic_path)
+      path = path.relative_path_from(base_path)
+      path.to_s =~ Regexp.union(patterns)
     end
 
     def run
@@ -68,6 +70,10 @@ module Integration
     end
 
     private
+
+    def base_path
+      Pathname.new(__dir__) + 'tests'
+    end
 
     def progress_character
       if passed?
