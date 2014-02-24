@@ -26,6 +26,7 @@ module Basic101
           write_char c
         end
       end
+      flush
     end
 
     def tab_to(column)
@@ -46,6 +47,11 @@ module Basic101
     def write_char(c)
       @file.print c
       @chars_on_line += 1
+    end
+
+    def flush
+      return if isatty
+      @file.flush
     end
 
   end
