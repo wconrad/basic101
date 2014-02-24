@@ -15,7 +15,7 @@ module Basic101
       s.chars.each do |c|
         case c
         when "\n"
-          @file.print c
+          write_char c
           @chars_on_line = 0
         when "\t"
           write_char ' '
@@ -46,7 +46,7 @@ module Basic101
 
     def write_char(c)
       @file.print c
-      @chars_on_line += 1
+      @chars_on_line += 1 if c =~ /[[:print:]]/
     end
 
     def flush
