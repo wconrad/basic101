@@ -7,8 +7,8 @@ module Basic101
     attr_reader :for_stack
 
     def initialize(args = {})
-      @input = Input.new(args.fetch(:input_file, $stdin))
       @output = Output.new(args.fetch(:output_file, $stdout))
+      @input = Input.new(@output, args.fetch(:input_file, $stdin))
       @program = args.fetch(:program, Program.new)
       @functions = Functions.new
       @for_stack = ForStack.new

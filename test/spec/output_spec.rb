@@ -108,6 +108,22 @@ module Basic101
 
     end
 
+    describe '#isatty' do
+
+      before(:each) {file.stub(:isatty => file_isatty)}
+
+      context 'when file is tty' do
+        let(:file_isatty) {true}
+        its(:isatty) {should be_true}
+      end
+
+      context 'when file is tty' do
+        let(:file_isatty) {false}
+        its(:isatty) {should be_false}
+      end
+
+    end
+
   end
 
 end

@@ -35,6 +35,10 @@ module Basic101
       print ' ' * spaces_needed.call
     end
 
+    def isatty
+      @file.isatty
+    end
+
     private
 
     COLUMNS_PER_TAB = 14
