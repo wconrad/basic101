@@ -12,7 +12,7 @@ module Basic101
       if @args.transcript
         runtime.transcript = Transcript.make(@args.filenames.first)
       end
-      runtime.randomize
+      runtime.randomize if @args.randomize
       runtime.run
     rescue Error => e
       puts e
