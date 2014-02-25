@@ -1,3 +1,5 @@
+require_relative 'identity'
+
 module Basic101
 
   class Reference

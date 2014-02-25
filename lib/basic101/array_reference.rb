@@ -1,3 +1,5 @@
+require_relative 'reference'
+
 module Basic101
 
   class ArrayReference < Reference
