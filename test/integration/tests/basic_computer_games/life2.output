@@ -1,0 +1,113 @@
+                                 LIFE2
+               CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY
+
+
+
+          U.B. LIFE GAME
+
+PLAYER 1  - 3 LIVE PIECES.
+X,Y
+XXXXXX$$$$$$&&&&&&? 1,1
+X,Y
+XXXXXX$$$$$$&&&&&&? 2,2
+X,Y
+XXXXXX$$$$$$&&&&&&? 3,3
+
+PLAYER 2  - 3 LIVE PIECES.
+X,Y
+XXXXXX$$$$$$&&&&&&? 2,3
+X,Y
+XXXXXX$$$$$$&&&&&&? 3,4
+X,Y
+XXXXXX$$$$$$&&&&&&? 4,5
+
+ 0  1  2  3  4  5  0 
+ 1  *              1 
+ 2     *           2 
+ 3     #  *        3 
+ 4        #        4 
+ 5           #     5 
+ 0  1  2  3  4  5  0 
+
+ 0  1  2  3  4  5  0 
+ 1                 1 
+ 2  *  *  *        2 
+ 3     #  *        3 
+ 4     #  #  #     4 
+ 5                 5 
+ 0  1  2  3  4  5  0 
+
+PLAYER 1 X,Y
+XXXXXX$$$$$$&&&&&&? 3,1
+
+
+PLAYER 2 X,Y
+XXXXXX$$$$$$&&&&&&? 5,5
+
+
+ 0  1  2  3  4  5  0 
+ 1        *        1 
+ 2  *        *     2 
+ 3                 3 
+ 4     #     #     4 
+ 5        #  #     5 
+ 0  1  2  3  4  5  0 
+
+PLAYER 1 X,Y
+XXXXXX$$$$$$&&&&&&? 5,5
+
+
+PLAYER 2 X,Y
+XXXXXX$$$$$$&&&&&&? 3,1
+ILLEGAL COORDS. RETYPE
+X,Y
+XXXXXX$$$$$$&&&&&&? 4,2
+ILLEGAL COORDS. RETYPE
+X,Y
+XXXXXX$$$$$$&&&&&&? 3,2
+
+
+ 0  1  2  3  4  5  0 
+ 1     *  *  *     1 
+ 2     *  #  *     2 
+ 3     #     #     3 
+ 4           #  #  4 
+ 5        #  #  *  5 
+ 0  1  2  3  4  5  0 
+
+PLAYER 1 X,Y
+XXXXXX$$$$$$&&&&&&? 1,1
+
+
+PLAYER 2 X,Y
+XXXXXX$$$$$$&&&&&&? 5,1
+
+
+ 0  1  2  3  4  5  0 
+ 1  *           #  1 
+ 2                 2 
+ 3     #           3 
+ 4                 4 
+ 5        #     *  5 
+ 0  1  2  3  4  5  0 
+
+PLAYER 1 X,Y
+XXXXXX$$$$$$&&&&&&? 5,1
+ILLEGAL COORDS. RETYPE
+X,Y
+XXXXXX$$$$$$&&&&&&? 4,1
+
+
+PLAYER 2 X,Y
+XXXXXX$$$$$$&&&&&&? 4,5
+
+
+ 0  1  2  3  4  5  0 
+ 1                 1 
+ 2                 2 
+ 3                 3 
+ 4        #  #     4 
+ 5           #     5 
+ 0  1  2  3  4  5  0 
+PLAYER 2 IS THE WINNER
+Error on line 575: Undefined line number 800

@@ -1,0 +1,159 @@
+                                 CHOMP
+               CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY
+
+
+
+
+THIS IS THE GAME OF CHOMP (SCIENTIFIC AMERICAN, JAN 1973)
+DO YOU WANT THE RULES (1=YES, 0=NO!)? 1
+CHOMP IS FOR 1 OR MORE PLAYERS (HUMANS ONLY).
+
+HERE'S HOW A BOARD LOOKS (THIS ONE IS 5 BY 7):
+
+       1 2 3 4 5 6 7 8 9
+ 1     P * * * * * * 
+ 2     * * * * * * * 
+ 3     * * * * * * * 
+ 4     * * * * * * * 
+ 5     * * * * * * * 
+
+
+THE BOARD IS A BIG COOKIE - R ROWS HIGH AND C COLUMNS
+WIDE. YOU INPUT R AND C AT THE START. IN THE UPPER LEFT
+CORNER OF THE COOKIE IS A POISON SQUARE (P). THE ONE WHO
+CHOMPS THE POISON SQUARE LOSES. TO TAKE A CHOMP, TYPE THE
+ROW AND COLUMN OF ONE OF THE SQUARES ON THE COOKIE.
+ALL OF THE SQUARES BELOW AND TO THE RIGHT OF THAT SQUARE
+(INCLUDING THAT SQUARE, TOO) DISAPPEAR -- CHOMP!!
+NO FAIR CHOMPING SQUARES THAT HAVE ALREADY BEEN CHOMPED,
+OR THAT ARE OUTSIDE THE ORIGINAL DIMENSIONS OF THE COOKIE.
+
+HERE WE GO...
+
+HOW MANY PLAYERS? 2
+HOW MANY ROWS? 8
+HOW MANY COLUMNS? 8
+
+
+       1 2 3 4 5 6 7 8 9
+ 1     P * * * * * * * 
+ 2     * * * * * * * * 
+ 3     * * * * * * * * 
+ 4     * * * * * * * * 
+ 5     * * * * * * * * 
+ 6     * * * * * * * * 
+ 7     * * * * * * * * 
+ 8     * * * * * * * * 
+
+PLAYER 1 
+COORDINATES OF CHOMP (ROW,COLUMN)? 7,5
+
+       1 2 3 4 5 6 7 8 9
+ 1     P * * * * * * * 
+ 2     * * * * * * * * 
+ 3     * * * * * * * * 
+ 4     * * * * * * * * 
+ 5     * * * * * * * * 
+ 6     * * * * * * * * 
+ 7     * * * * 
+ 8     * * * * 
+
+PLAYER 2 
+COORDINATES OF CHOMP (ROW,COLUMN)? 4,7
+
+       1 2 3 4 5 6 7 8 9
+ 1     P * * * * * * * 
+ 2     * * * * * * * * 
+ 3     * * * * * * * * 
+ 4     * * * * * * 
+ 5     * * * * * * 
+ 6     * * * * * * 
+ 7     * * * * 
+ 8     * * * * 
+
+PLAYER 1 
+COORDINATES OF CHOMP (ROW,COLUMN)? 4,3
+
+       1 2 3 4 5 6 7 8 9
+ 1     P * * * * * * * 
+ 2     * * * * * * * * 
+ 3     * * * * * * * * 
+ 4     * * 
+ 5     * * 
+ 6     * * 
+ 7     * * 
+ 8     * * 
+
+PLAYER 2 
+COORDINATES OF CHOMP (ROW,COLUMN)? 1,5
+
+       1 2 3 4 5 6 7 8 9
+ 1     P * * * 
+ 2     * * * * 
+ 3     * * * * 
+ 4     * * 
+ 5     * * 
+ 6     * * 
+ 7     * * 
+ 8     * * 
+
+PLAYER 1 
+COORDINATES OF CHOMP (ROW,COLUMN)? 4,2
+
+       1 2 3 4 5 6 7 8 9
+ 1     P * * * 
+ 2     * * * * 
+ 3     * * * * 
+ 4     * 
+ 5     * 
+ 6     * 
+ 7     * 
+ 8     * 
+
+PLAYER 2 
+COORDINATES OF CHOMP (ROW,COLUMN)? 2,2
+
+       1 2 3 4 5 6 7 8 9
+ 1     P * * * 
+ 2     * 
+ 3     * 
+ 4     * 
+ 5     * 
+ 6     * 
+ 7     * 
+ 8     * 
+
+PLAYER 1 
+COORDINATES OF CHOMP (ROW,COLUMN)? 1,2
+
+       1 2 3 4 5 6 7 8 9
+ 1     P 
+ 2     * 
+ 3     * 
+ 4     * 
+ 5     * 
+ 6     * 
+ 7     * 
+ 8     * 
+
+PLAYER 2 
+COORDINATES OF CHOMP (ROW,COLUMN)? 2,8
+NO FAIR. YOU'RE TRYING TO CHOMP ON EMPTY SPACE!
+PLAYER 2 
+COORDINATES OF CHOMP (ROW,COLUMN)? 2,1
+
+       1 2 3 4 5 6 7 8 9
+ 1     P 
+ 2     
+ 3     
+ 4     
+ 5     
+ 6     
+ 7     
+ 8     
+
+PLAYER 1 
+COORDINATES OF CHOMP (ROW,COLUMN)? 1,1
+YOU LOSE, PLAYER 1 
+
+AGAIN (1=YES, 0=NO!)? 0

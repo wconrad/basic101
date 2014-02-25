@@ -1,0 +1,104 @@
+                              TIC-TAC-TOE
+               CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY
+
+
+
+THE BOARD IS NUMBERED:
+ 1  2  3
+ 4  5  6
+ 7  8  9
+
+
+
+DO YOU WANT 'X' OR 'O'? X
+
+WHERE DO YOU MOVE? 1
+
+ X !   !   
+---+---+---
+   !   !   
+---+---+---
+   !   !   
+
+
+
+THE COMPUTER MOVES TO...
+
+ X !   !   
+---+---+---
+   ! O !   
+---+---+---
+   !   !   
+
+
+
+WHERE DO YOU MOVE? 9
+
+ X !   !   
+---+---+---
+   ! O !   
+---+---+---
+   !   ! X 
+
+
+
+THE COMPUTER MOVES TO...
+
+ X ! O !   
+---+---+---
+   ! O !   
+---+---+---
+   !   ! X 
+
+
+
+WHERE DO YOU MOVE? 8
+
+ X ! O !   
+---+---+---
+   ! O !   
+---+---+---
+   ! X ! X 
+
+
+
+THE COMPUTER MOVES TO...
+
+ X ! O !   
+---+---+---
+   ! O !   
+---+---+---
+ O ! X ! X 
+
+
+
+WHERE DO YOU MOVE? 3
+
+ X ! O ! X 
+---+---+---
+   ! O !   
+---+---+---
+ O ! X ! X 
+
+
+
+THE COMPUTER MOVES TO...
+
+ X ! O ! X 
+---+---+---
+   ! O ! O 
+---+---+---
+ O ! X ! X 
+
+
+
+WHERE DO YOU MOVE? 4
+
+ X ! O ! X 
+---+---+---
+ X ! O ! O 
+---+---+---
+ O ! X ! X 
+
+
+IT'S A DRAW. THANK YOU.

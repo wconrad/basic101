@@ -1,0 +1,151 @@
+
+
+
+
+
+
+
+
+
+
+
+                                    ,------*------,
+                    ,-------------   '---  ------'
+                     '-------- --'      / /
+                         ,---' '-------/ /--,
+                          '----------------'
+
+                    THE USS ENTERPRISE --- NCC-1701
+
+
+
+
+
+YOUR ORDERS ARE AS FOLLOWS:
+     DESTROY THE 11 KLINGON WARSHIPS WHICH HAVE INVADED
+   THE GALAXY BEFORE THEY CAN ATTACK FEDERATION HEADQUARTERS
+   ON STARDATE 3032   THIS GIVES YOU 32 DAYS.  THERE ARE 
+   5 STARBASES IN THE GALAXY FOR RESUPPLYING YOUR SHIP
+
+
+YOUR MISSION BEGINS WITH YOUR STARSHIP LOCATED
+IN THE GALACTIC QUADRANT, 'ALDEBARAN I'.
+
+COMBAT AREA      CONDITION RED
+   SHIELDS DANGEROUSLY LOW
+---------------------------------
+                      *                 STARDATE           3000 
+  *                   *                 CONDITION          *RED*
+  *                  +K+                QUADRANT           5 , 5 
+                  *  <*>                SECTOR             4 , 6 
+                                        PHOTON TORPEDOES   10 
+                                        TOTAL ENERGY       3000 
+          *           *                 SHIELDS            0 
+                              *         KLINGONS REMAINING 11 
+---------------------------------
+COMMAND? PHA
+PHASERS LOCKED ON TARGET;  ENERGY AVAILABLE = 3000 UNITS
+NUMBER OF UNITS TO FIRE? 300
+ 861 UNIT HIT ON KLINGON AT SECTOR 3 , 6 
+*** KLINGON DESTROYED ***
+COMMAND? LRS
+LONG RANGE SCAN FOR QUADRANT 5 , 5 
+-------------------
+: 008 : 002 : 002 :
+-------------------
+: 103 : 008 : 006 :
+-------------------
+: 006 : 008 : 008 :
+-------------------
+COMMAND? NAV
+COURSE (0-9)? 8
+WARP FACTOR (0-8)? 0.2
+---------------------------------
+                      *                 STARDATE           3000.2 
+  *                   *                 CONDITION          GREEN
+  *                                     QUADRANT           5 , 5 
+                  *                     SECTOR             6 , 8 
+                                        PHOTON TORPEDOES   10 
+                             <*>        TOTAL ENERGY       2688 
+          *           *                 SHIELDS            0 
+                              *         KLINGONS REMAINING 10 
+---------------------------------
+COMMAND? NAV
+COURSE (0-9)? 3
+WARP FACTOR (0-8)? 0.2
+---------------------------------
+                      *                 STARDATE           3000.3 
+  *                   *                 CONDITION          GREEN
+  *                                     QUADRANT           5 , 5 
+                  *          <*>        SECTOR             4 , 8 
+                                        PHOTON TORPEDOES   10 
+                                        TOTAL ENERGY       2676 
+          *           *                 SHIELDS            0 
+                              *         KLINGONS REMAINING 10 
+---------------------------------
+COMMAND? NAV
+COURSE (0-9)? 5
+WARP FACTOR (0-8)? 0.2
+DAMAGE CONTROL REPORT:  LIBRARY-COMPUTER STATE OF REPAIR IMPROVED
+
+---------------------------------
+                      *                 STARDATE           3000.5 
+  *                   *                 CONDITION          GREEN
+  *                                     QUADRANT           5 , 5 
+                  *  <*>                SECTOR             4 , 6 
+                                        PHOTON TORPEDOES   10 
+                                        TOTAL ENERGY       2664 
+          *           *                 SHIELDS            0 
+                              *         KLINGONS REMAINING 10 
+---------------------------------
+COMMAND? NAV
+COURSE (0-9)? 6
+WARP FACTOR (0-8)? 0.2
+---------------------------------
+                      *                 STARDATE           3000.7 
+  *                   *                 CONDITION          GREEN
+  *                                     QUADRANT           5 , 5 
+                  *                     SECTOR             6 , 4 
+                                        PHOTON TORPEDOES   10 
+             <*>                        TOTAL ENERGY       2652 
+          *           *                 SHIELDS            0 
+                              *         KLINGONS REMAINING 10 
+---------------------------------
+COMMAND? NAV
+COURSE (0-9)? 5
+WARP FACTOR (0-8)? 1
+
+NOW ENTERING CANOPUS IV QUADRANT . . .
+
+COMBAT AREA      CONDITION RED
+   SHIELDS DANGEROUSLY LOW
+---------------------------------
+                                        STARDATE           3001.7 
+              *  +K+                    CONDITION          *RED*
+              *   *                     QUADRANT           5 , 4 
+                                        SECTOR             6 , 4 
+                                        PHOTON TORPEDOES   10 
+             <*>                        TOTAL ENERGY       2634 
+                                        SHIELDS            0 
+                                        KLINGONS REMAINING 10 
+---------------------------------
+COMMAND? TORP
+PHOTON TORPEDO COURSE (1-9)? 2.5
+TORPEDO TRACK:
+                5 , 5 
+                4 , 5 
+                3 , 6 
+                2 , 6 
+                1 , 7 
+TORPEDO MISSED
+ 73 UNIT HIT ON ENTERPRISE FROM SECTOR 2 , 5 
+
+THE ENTERPRISE HAS BEEN DESTROYED.  THEN FEDERATION WILL BE CONQUERED
+IT IS STARDATE 3001.8 
+THERE WERE 10 KLINGON BATTLE CRUISERS LEFT AT
+THE END OF YOUR MISSION.
+
+
+THE FEDERATION IS IN NEED OF A NEW STARSHIP COMMANDER
+FOR A SIMILAR MISSION -- IF THERE IS A VOLUNTEER,
+LET HIM STEP FORWARD AND ENTER 'AYE'? NO

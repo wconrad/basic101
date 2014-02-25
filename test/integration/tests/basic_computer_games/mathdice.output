@@ -1,0 +1,86 @@
+                               MATH DICE
+               CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY
+
+
+
+THIS PROGRAM GENERATES SUCCESIVE PICTURES OF TWO DICE.
+WHEN TWO DICE AND AN EQUAL SIGN FOLLOWED BY A QUESTION
+MARK HAVE BEEN PRINTED, TYPE YOUR ANSWER AND THE RETURN KEY.
+TO CONCLUDE THE LESSON, TYPE CONTROL-C AS YOUR ANSWER.
+
+
+ ----- 
+I * * I
+I     I
+I * * I
+ ----- 
+
+   +
+
+ ----- 
+I * * I
+I  *  I
+I * * I
+ ----- 
+
+      =? 9
+RIGHT!
+
+THE DICE ROLL AGAIN...
+
+ ----- 
+I * * I
+I     I
+I * * I
+ ----- 
+
+   +
+
+ ----- 
+I * * I
+I     I
+I * * I
+ ----- 
+
+      =? 8
+RIGHT!
+
+THE DICE ROLL AGAIN...
+
+ ----- 
+I *   I
+I  *  I
+I   * I
+ ----- 
+
+   +
+
+ ----- 
+I * * I
+I     I
+I * * I
+ ----- 
+
+      =? 1
+NO, COUNT THE SPOTS AND GIVE ANOTHER ANSWER.
+      =? 7
+RIGHT!
+
+THE DICE ROLL AGAIN...
+
+ ----- 
+I *   I
+I  *  I
+I   * I
+ ----- 
+
+   +
+
+ ----- 
+I * * I
+I * * I
+I * * I
+ ----- 
+
+      =? 
+Error on line 520: No more input

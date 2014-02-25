@@ -1,0 +1,889 @@
+                                HANGMAN
+               CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY
+
+
+
+HERE ARE THE LETTERS YOU USED:
+
+
+-------
+
+WHAT IS YOUR GUESS? E
+
+E-----E
+
+WHAT IS YOUR GUESS FOR THE WORD? T
+WRONG.  TRY ANOTHER LETTER.
+
+HERE ARE THE LETTERS YOU USED:
+E
+
+E-----E
+
+WHAT IS YOUR GUESS? A
+
+E-A---E
+
+WHAT IS YOUR GUESS FOR THE WORD? N
+WRONG.  TRY ANOTHER LETTER.
+
+HERE ARE THE LETTERS YOU USED:
+E,A
+
+E-A---E
+
+WHAT IS YOUR GUESS? R
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+FIRST, WE DRAW A HEAD
+XXXXXXX     
+X     X     
+X    ---    
+X   (. .)   
+X    ---    
+X           
+X           
+X           
+X           
+X           
+X           
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+E,A,R
+
+E-A---E
+
+WHAT IS YOUR GUESS? S
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+NOW WE DRAW A BODY.
+XXXXXXX     
+X     X     
+X    ---    
+X   (. .)   
+X    ---    
+X     X     
+X     X     
+X     X     
+X     X     
+X           
+X           
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+E,A,R,S
+
+E-A---E
+
+WHAT IS YOUR GUESS? H
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+NEXT WE DRAW AN ARM.
+XXXXXXX     
+X     X     
+X    ---    
+X \ (. .)   
+X  \ ---    
+X   \ X     
+X    \X     
+X     X     
+X     X     
+X           
+X           
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+E,A,R,S,H
+
+E-A---E
+
+WHAT IS YOUR GUESS? M
+
+E-AM--E
+
+WHAT IS YOUR GUESS FOR THE WORD? O
+WRONG.  TRY ANOTHER LETTER.
+
+HERE ARE THE LETTERS YOU USED:
+E,A,R,S,H,M
+
+E-AM--E
+
+WHAT IS YOUR GUESS? X
+
+EXAM--E
+
+WHAT IS YOUR GUESS FOR THE WORD? B
+WRONG.  TRY ANOTHER LETTER.
+
+HERE ARE THE LETTERS YOU USED:
+E,A,R,S,H,M,X
+
+EXAM--E
+
+WHAT IS YOUR GUESS? P
+
+EXAMP-E
+
+WHAT IS YOUR GUESS FOR THE WORD? L
+WRONG.  TRY ANOTHER LETTER.
+
+HERE ARE THE LETTERS YOU USED:
+E,A,R,S,H,M,X,P
+
+EXAMP-E
+
+WHAT IS YOUR GUESS? L
+YOU FOUND THE WORD!
+WANT ANOTHER WORD? YES
+HERE ARE THE LETTERS YOU USED:
+
+
+--------
+
+WHAT IS YOUR GUESS? E
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+FIRST, WE DRAW A HEAD
+XXXXXXX     
+X     X     
+X    ---    
+X   (. .)   
+X    ---    
+X           
+X           
+X           
+X           
+X           
+X           
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+E
+
+--------
+
+WHAT IS YOUR GUESS? T
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+NOW WE DRAW A BODY.
+XXXXXXX     
+X     X     
+X    ---    
+X   (. .)   
+X    ---    
+X     X     
+X     X     
+X     X     
+X     X     
+X           
+X           
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+E,T
+
+--------
+
+WHAT IS YOUR GUESS? A
+
+-A---A--
+
+WHAT IS YOUR GUESS FOR THE WORD? O
+WRONG.  TRY ANOTHER LETTER.
+
+HERE ARE THE LETTERS YOU USED:
+E,T,A
+
+-A---A--
+
+WHAT IS YOUR GUESS? N
+
+-A---AN-
+
+WHAT IS YOUR GUESS FOR THE WORD? G
+WRONG.  TRY ANOTHER LETTER.
+
+HERE ARE THE LETTERS YOU USED:
+E,T,A,N
+
+-A---AN-
+
+WHAT IS YOUR GUESS? S
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+NEXT WE DRAW AN ARM.
+XXXXXXX     
+X     X     
+X    ---    
+X \ (. .)   
+X  \ ---    
+X   \ X     
+X    \X     
+X     X     
+X     X     
+X           
+X           
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+E,T,A,N,S
+
+-A---AN-
+
+WHAT IS YOUR GUESS? R
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+THIS TIME IT'S THE OTHER ARM.
+XXXXXXX     
+X     X     
+X    ---    
+X \ (. .) / 
+X  \ --- /  
+X   \ X /   
+X    \X/    
+X     X     
+X     X     
+X           
+X           
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+E,T,A,N,S,R
+
+-A---AN-
+
+WHAT IS YOUR GUESS? K
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+NOW, LET'S DRAW THE RIGHT LEG.
+XXXXXXX     
+X     X     
+X    ---    
+X \ (. .) / 
+X  \ --- /  
+X   \ X /   
+X    \X/    
+X     X     
+X     X     
+X    /      
+X   /       
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+E,T,A,N,S,R,K
+
+-A---AN-
+
+WHAT IS YOUR GUESS? B
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+THIS TIME WE DRAW THE LEFT LEG.
+XXXXXXX     
+X     X     
+X    ---    
+X \ (. .) / 
+X  \ --- /  
+X   \ X /   
+X    \X/    
+X     X     
+X     X     
+X    / \    
+X   /   \   
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+E,T,A,N,S,R,K,B
+
+-A---AN-
+
+WHAT IS YOUR GUESS? L
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+NOW WE PUT UP A HAND.
+XXXXXXX     
+X     X     
+X    ---  \ 
+X \ (. .) / 
+X  \ --- /  
+X   \ X /   
+X    \X/    
+X     X     
+X     X     
+X    / \    
+X   /   \   
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+E,T,A,N,S,R,K,B,L
+
+-A---AN-
+
+WHAT IS YOUR GUESS? M
+
+MA---AN-
+
+WHAT IS YOUR GUESS FOR THE WORD? H
+WRONG.  TRY ANOTHER LETTER.
+
+HERE ARE THE LETTERS YOU USED:
+E,T,A,N,S,R,K,B,L,M
+
+MA---AN-
+
+WHAT IS YOUR GUESS? I
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+NEXT THE OTHER HAND.
+XXXXXXX     
+X     X     
+X /  ---  \ 
+X \ (. .) / 
+X  \ --- /  
+X   \ X /   
+X    \X/    
+X     X     
+X     X     
+X    / \    
+X   /   \   
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+E,T,A,N,S,R,K,B,L,M,I
+
+MA---AN-
+
+WHAT IS YOUR GUESS? O
+
+MA-O-AN-
+
+WHAT IS YOUR GUESS FOR THE WORD? Y
+WRONG.  TRY ANOTHER LETTER.
+
+HERE ARE THE LETTERS YOU USED:
+E,T,A,N,S,R,K,B,L,M,I,O
+
+MA-O-AN-
+
+WHAT IS YOUR GUESS? J
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+NOW WE DRAW ONE FOOT
+XXXXXXX     
+X     X     
+X /  ---  \ 
+X \ (. .) / 
+X  \ --- /  
+X   \ X /   
+X    \X/    
+X     X     
+X     X     
+X    / \    
+X   /   \   
+X        \- 
+
+
+HERE ARE THE LETTERS YOU USED:
+E,T,A,N,S,R,K,B,L,M,I,O,J
+
+MA-O-AN-
+
+WHAT IS YOUR GUESS? G
+
+MA-OGAN-
+
+WHAT IS YOUR GUESS FOR THE WORD? MAHOGANY
+RIGHT!!  IT TOOK YOU 14 GUESSES!
+WANT ANOTHER WORD? YES
+HERE ARE THE LETTERS YOU USED:
+
+
+------
+
+WHAT IS YOUR GUESS? T
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+FIRST, WE DRAW A HEAD
+XXXXXXX     
+X     X     
+X    ---    
+X   (. .)   
+X    ---    
+X           
+X           
+X           
+X           
+X           
+X           
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+T
+
+------
+
+WHAT IS YOUR GUESS? A
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+NOW WE DRAW A BODY.
+XXXXXXX     
+X     X     
+X    ---    
+X   (. .)   
+X    ---    
+X     X     
+X     X     
+X     X     
+X     X     
+X           
+X           
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+T,A
+
+------
+
+WHAT IS YOUR GUESS? E
+
+----E-
+
+WHAT IS YOUR GUESS FOR THE WORD? O
+WRONG.  TRY ANOTHER LETTER.
+
+HERE ARE THE LETTERS YOU USED:
+T,A,E
+
+----E-
+
+WHAT IS YOUR GUESS? I
+
+-I--E-
+
+WHAT IS YOUR GUESS FOR THE WORD? S
+WRONG.  TRY ANOTHER LETTER.
+
+HERE ARE THE LETTERS YOU USED:
+T,A,E,I
+
+-I--E-
+
+WHAT IS YOUR GUESS? H
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+NEXT WE DRAW AN ARM.
+XXXXXXX     
+X     X     
+X    ---    
+X \ (. .)   
+X  \ ---    
+X   \ X     
+X    \X     
+X     X     
+X     X     
+X           
+X           
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+T,A,E,I,H
+
+-I--E-
+
+WHAT IS YOUR GUESS? N
+
+-I-NE-
+
+WHAT IS YOUR GUESS FOR THE WORD? R
+WRONG.  TRY ANOTHER LETTER.
+
+HERE ARE THE LETTERS YOU USED:
+T,A,E,I,H,N
+
+-I-NE-
+
+WHAT IS YOUR GUESS? D
+
+-IDNE-
+
+WHAT IS YOUR GUESS FOR THE WORD? B
+WRONG.  TRY ANOTHER LETTER.
+
+HERE ARE THE LETTERS YOU USED:
+T,A,E,I,H,N,D
+
+-IDNE-
+
+WHAT IS YOUR GUESS? G
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+THIS TIME IT'S THE OTHER ARM.
+XXXXXXX     
+X     X     
+X    ---    
+X \ (. .) / 
+X  \ --- /  
+X   \ X /   
+X    \X/    
+X     X     
+X     X     
+X           
+X           
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+T,A,E,I,H,N,D,G
+
+-IDNE-
+
+WHAT IS YOUR GUESS? X
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+NOW, LET'S DRAW THE RIGHT LEG.
+XXXXXXX     
+X     X     
+X    ---    
+X \ (. .) / 
+X  \ --- /  
+X   \ X /   
+X    \X/    
+X     X     
+X     X     
+X    /      
+X   /       
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+T,A,E,I,H,N,D,G,X
+
+-IDNE-
+
+WHAT IS YOUR GUESS? Y
+
+-IDNEY
+
+WHAT IS YOUR GUESS FOR THE WORD? K
+WRONG.  TRY ANOTHER LETTER.
+
+HERE ARE THE LETTERS YOU USED:
+T,A,E,I,H,N,D,G,X,Y
+
+-IDNEY
+
+WHAT IS YOUR GUESS? K
+YOU FOUND THE WORD!
+WANT ANOTHER WORD? YES
+HERE ARE THE LETTERS YOU USED:
+
+
+------
+
+WHAT IS YOUR GUESS? A
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+FIRST, WE DRAW A HEAD
+XXXXXXX     
+X     X     
+X    ---    
+X   (. .)   
+X    ---    
+X           
+X           
+X           
+X           
+X           
+X           
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+A
+
+------
+
+WHAT IS YOUR GUESS? B
+
+B-----
+
+WHAT IS YOUR GUESS FOR THE WORD? C
+WRONG.  TRY ANOTHER LETTER.
+
+HERE ARE THE LETTERS YOU USED:
+A,B
+
+B-----
+
+WHAT IS YOUR GUESS? D
+
+B-D---
+
+WHAT IS YOUR GUESS FOR THE WORD? E
+WRONG.  TRY ANOTHER LETTER.
+
+HERE ARE THE LETTERS YOU USED:
+A,B,D
+
+B-D---
+
+WHAT IS YOUR GUESS? F
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+NOW WE DRAW A BODY.
+XXXXXXX     
+X     X     
+X    ---    
+X   (. .)   
+X    ---    
+X     X     
+X     X     
+X     X     
+X     X     
+X           
+X           
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+A,B,D,F
+
+B-D---
+
+WHAT IS YOUR GUESS? G
+
+B-DG--
+
+WHAT IS YOUR GUESS FOR THE WORD? H
+WRONG.  TRY ANOTHER LETTER.
+
+HERE ARE THE LETTERS YOU USED:
+A,B,D,F,G
+
+B-DG--
+
+WHAT IS YOUR GUESS? I
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+NEXT WE DRAW AN ARM.
+XXXXXXX     
+X     X     
+X    ---    
+X \ (. .)   
+X  \ ---    
+X   \ X     
+X    \X     
+X     X     
+X     X     
+X           
+X           
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+A,B,D,F,G,I
+
+B-DG--
+
+WHAT IS YOUR GUESS? J
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+THIS TIME IT'S THE OTHER ARM.
+XXXXXXX     
+X     X     
+X    ---    
+X \ (. .) / 
+X  \ --- /  
+X   \ X /   
+X    \X/    
+X     X     
+X     X     
+X           
+X           
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+A,B,D,F,G,I,J
+
+B-DG--
+
+WHAT IS YOUR GUESS? K
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+NOW, LET'S DRAW THE RIGHT LEG.
+XXXXXXX     
+X     X     
+X    ---    
+X \ (. .) / 
+X  \ --- /  
+X   \ X /   
+X    \X/    
+X     X     
+X     X     
+X    /      
+X   /       
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+A,B,D,F,G,I,J,K
+
+B-DG--
+
+WHAT IS YOUR GUESS? L
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+THIS TIME WE DRAW THE LEFT LEG.
+XXXXXXX     
+X     X     
+X    ---    
+X \ (. .) / 
+X  \ --- /  
+X   \ X /   
+X    \X/    
+X     X     
+X     X     
+X    / \    
+X   /   \   
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+A,B,D,F,G,I,J,K,L
+
+B-DG--
+
+WHAT IS YOUR GUESS? M
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+NOW WE PUT UP A HAND.
+XXXXXXX     
+X     X     
+X    ---  \ 
+X \ (. .) / 
+X  \ --- /  
+X   \ X /   
+X    \X/    
+X     X     
+X     X     
+X    / \    
+X   /   \   
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+A,B,D,F,G,I,J,K,L,M
+
+B-DG--
+
+WHAT IS YOUR GUESS? N
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+NEXT THE OTHER HAND.
+XXXXXXX     
+X     X     
+X /  ---  \ 
+X \ (. .) / 
+X  \ --- /  
+X   \ X /   
+X    \X/    
+X     X     
+X     X     
+X    / \    
+X   /   \   
+X           
+
+
+HERE ARE THE LETTERS YOU USED:
+A,B,D,F,G,I,J,K,L,M,N
+
+B-DG--
+
+WHAT IS YOUR GUESS? O
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+NOW WE DRAW ONE FOOT
+XXXXXXX     
+X     X     
+X /  ---  \ 
+X \ (. .) / 
+X  \ --- /  
+X   \ X /   
+X    \X/    
+X     X     
+X     X     
+X    / \    
+X   /   \   
+X        \- 
+
+
+HERE ARE THE LETTERS YOU USED:
+A,B,D,F,G,I,J,K,L,M,N,O
+
+B-DG--
+
+WHAT IS YOUR GUESS? P
+
+
+SORRY, THAT LETTER ISN'T IN THE WORD.
+HERE'S THE OTHER FOOT -- YOU'RE HUNG!!
+XXXXXXX     
+X     X     
+X /  ---  \ 
+X \ (. .) / 
+X  \ --- /  
+X   \ X /   
+X    \X/    
+X     X     
+X     X     
+X    / \    
+X   /   \   
+X -/     \- 
+
+
+SORRY, YOU LOSE.  THE WORD WAS BUDGET
+YOU MISSED THAT ONE.  DO YOU WANT ANOTHER WORD? NO
+
+IT'S BEEN FUN!  BYE FOR NOW.

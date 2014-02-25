@@ -1,0 +1,70 @@
+                                 DIGITS
+               CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY
+
+
+
+THIS IS A GAME OF GUESSING.
+FOR INSTRUCTIONS, TYPE '1', ELSE TYPE '0'? 1
+
+PLEASE TAKE A PIECE OF PAPER AND WRITE DOWN
+THE DIGITS '0', '1', OR '2' THIRTY TIMES AT RANDOM.
+ARRANGE THEM IN THREE LINES OF TEN DIGITS EACH.
+I WILL ASK FOR THEN TEN AT A TIME.
+I WILL ALWAYS GUESS THEM FIRST AND THEN LOOK AT YOUR
+NEXT NUMBER TO SEE IF I WAS RIGHT. BY PURE LUCK,
+I OUGHT TO BE RIGHT TEN TIMES. BUT I HOPE TO DO BETTER
+THAN THAT *****
+
+
+
+TEN NUMBERS, PLEASE? 0,1,1,2,1,0,2,1,2,0
+
+MY GUESS      YOUR NO.      RESULT        NO. RIGHT
+
+   1              0          WRONG         0 
+   1              1          RIGHT         1 
+   2              1          WRONG         1 
+   2              2          RIGHT         2 
+   2              1          WRONG         2 
+   1              0          WRONG         2 
+   2              2          RIGHT         3 
+   1              1          RIGHT         4 
+   2              2          RIGHT         5 
+   2              0          WRONG         5 
+
+TEN NUMBERS, PLEASE? 1,0,2,0,2,0,1,0,2,0
+
+MY GUESS      YOUR NO.      RESULT        NO. RIGHT
+
+   2              1          WRONG         5 
+   2              0          WRONG         5 
+   2              2          RIGHT         6 
+   1              0          WRONG         6 
+   1              2          WRONG         6 
+   1              0          WRONG         6 
+   1              1          RIGHT         7 
+   2              0          WRONG         7 
+   2              2          RIGHT         8 
+   2              0          WRONG         8 
+
+TEN NUMBERS, PLEASE? 2,2,2,1,1,1,0,1,1,2
+
+MY GUESS      YOUR NO.      RESULT        NO. RIGHT
+
+   2              2          RIGHT         9 
+   1              2          WRONG         9 
+   1              2          WRONG         9 
+   1              1          RIGHT         10 
+   2              1          WRONG         10 
+   2              1          WRONG         10 
+   2              0          WRONG         10 
+   2              1          WRONG         10 
+   2              1          WRONG         10 
+   2              2          RIGHT         11 
+
+I GUESSED MORE THAN 1/3 OF YOUR NUMBERS.
+I WIN.
+
+DO YOU WANT TO TRY AGAIN (1 FOR YES, 0 FOR NO)? 0
+
+THANKS FOR THE GAME.

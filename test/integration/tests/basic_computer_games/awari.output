@@ -1,0 +1,117 @@
+                                  AWARI
+               CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY
+
+
+
+     3   3   3   3   3   3 
+  0                         0 
+     3   3   3   3   3   3 
+
+YOUR MOVE? 6
+
+     3   3   3   3   4   4 
+  0                         1 
+     3   3   3   3   3   0 
+
+MY MOVE IS 1
+     3   4   4   4   5   0 
+  0                         1 
+     3   3   3   3   3   0 
+
+YOUR MOVE? 5
+
+     3   4   4   4   5   0 
+  0                         4 
+     3   3   3   3   0   0 
+
+MY MOVE IS 2,6
+     0   5   5   5   0   0 
+  2                         4 
+     4   4   4   3   0   0 
+
+YOUR MOVE? 4
+
+     0   5   5   5   0   0 
+  2                         5 
+     4   4   4   0   1   1 
+
+AGAIN? 6
+
+     0   5   5   5   0   0 
+  2                         6 
+     4   4   4   0   1   0 
+
+MY MOVE IS 5
+     1   0   5   5   0   0 
+  3                         6 
+     5   5   5   0   1   0 
+
+YOUR MOVE? 5
+
+     1   0   5   5   0   0 
+  3                         6 
+     5   5   5   0   0   1 
+
+MY MOVE IS 6,4
+     1   1   0   5   0   0 
+  5                         6 
+     6   6   5   0   0   1 
+
+YOUR MOVE? 6
+
+     1   1   0   5   0   0 
+  5                         7 
+     6   6   5   0   0   0 
+
+AGAIN? 1
+
+     1   1   0   5   0   0 
+  5                         8 
+     0   7   6   1   1   1 
+
+MY MOVE IS 3
+     0   2   1   0   0   0 
+  9                         8 
+     0   7   6   1   1   1 
+
+YOUR MOVE? 6
+
+     0   2   1   0   0   0 
+  9                         9 
+     0   7   6   1   1   0 
+
+AGAIN? 5
+
+     0   2   1   0   0   0 
+  9                         9 
+     0   7   6   1   0   1 
+
+MY MOVE IS 5,4
+     1   0   0   0   0   0 
+ 18                         9 
+     0   0   6   1   0   1 
+
+YOUR MOVE? 6
+
+     1   0   0   0   0   0 
+ 18                         10 
+     0   0   6   1   0   0 
+
+AGAIN? 4
+
+     1   0   0   0   0   0 
+ 18                         10 
+     0   0   6   0   1   0 
+
+MY MOVE IS 6
+GAME OVER
+I WIN BY 9 POINTS
+
+
+
+     3   3   3   3   3   3 
+  0                         0 
+     3   3   3   3   3   3 
+
+YOUR MOVE? 
+Error on line 110: No more input

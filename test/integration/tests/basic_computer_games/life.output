@@ -1,0 +1,200 @@
+                                  LIFE
+               CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY
+
+
+
+ENTER YOUR PATTERN:
+?  * ** *
+?  **  *
+? **
+? DONE
+
+
+
+GENERATION: 0               POPULATION: 9 
+
+
+
+
+
+
+
+
+
+                               * ** *
+                               **  *
+                              **
+
+
+
+
+
+
+
+
+
+
+
+GENERATION: 1               POPULATION: 10 
+
+
+
+
+
+
+
+
+
+                               * ***
+                                 ***
+                              ***
+
+
+
+
+
+
+
+
+
+
+GENERATION: 2               POPULATION: 11 
+
+
+
+
+
+
+
+
+                                  *
+                                ** *
+                              *    *
+                               ****
+                               *
+
+
+
+
+
+
+
+
+
+GENERATION: 3               POPULATION: 12 
+
+
+
+
+
+
+
+
+                                 **
+                                 * *
+                                   *
+                              *****
+                               * *
+
+
+
+
+
+
+
+
+
+GENERATION: 4               POPULATION: 14 
+
+
+
+
+
+
+
+
+                                 **
+                                 * *
+                               *   *
+                              ** **
+                              ** **
+
+
+
+
+
+
+
+
+
+GENERATION: 5               POPULATION: 15 
+
+
+
+
+
+
+
+
+                                 **
+                                ** *
+                              ** * *
+                                 * *
+                              ** **
+
+
+
+
+
+
+
+
+
+GENERATION: 6               POPULATION: 14 
+
+
+
+
+
+
+
+
+                                ***
+                               *   *
+                               * * **
+                                 * *
+                                ***
+
+
+
+
+
+
+
+
+
+GENERATION: 7               POPULATION: 15 
+
+
+
+
+
+
+
+                                 *
+                                ***
+                               *   **
+                                   **
+                                   **
+                                ***
+                                 *
+
+
+
+
+
+
+
+
+GENERATION: 8               POPULATION: 21 
+Error on line 225: Maximum output lines reached

@@ -1,0 +1,521 @@
+                                HEXAPAWN
+               CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY
+
+
+
+INSTRUCTIONS (Y-N)? Y
+
+THIS PROGRAM PLAYS THE GAME OF HEXAPAWN.
+HEXAPAWN IS PLAYED WITH CHESS PAWNS ON A 3 BY 3 BOARD.
+THE PAWNS ARE MOVED AS IN CHESS - ONE SPACE FORWARD TO
+AN EMPTY SPACE OR ONE SPACE FORWARD AND DIAGONALLY TO
+CAPTURE AN OPPOSING MAN.  ON THE BOARD, YOUR PAWNS
+ARE 'O', THE COMPUTER'S PAWNS ARE 'X', AND EMPTY 
+SQUARES ARE '.'.  TO ENTER A MOVE, TYPE THE NUMBER OF
+THE SQUARE YOU ARE MOVING FROM, FOLLOWED BY THE NUMBER
+OF THE SQUARE YOU WILL MOVE TO.  THE NUMBERS MUST BE
+SEPERATED BY A COMMA.
+
+THE COMPUTER STARTS A SERIES OF GAMES KNOWING ONLY WHEN
+THE GAME IS WON (A DRAW IS IMPOSSIBLE) AND HOW TO MOVE.
+IT HAS NO STRATEGY AT FIRST AND JUST MOVES RANDOMLY.
+HOWEVER, IT LEARNS FROM EACH GAME.  THUS, WINNING BECOMES
+MORE AND MORE DIFFICULT.  ALSO, TO HELP OFFSET YOUR
+INITIAL ADVANTAGE, YOU WILL NOT BE TOLD HOW TO WIN THE
+GAME BUT MUST LEARN THIS BY PLAYING.
+
+THE NUMBERING OF THE BOARD IS AS FOLLOWS:
+          123
+          456
+          789
+
+FOR EXAMPLE, TO MOVE YOUR RIGHTMOST PAWN FORWARD,
+YOU WOULD TYPE 9,6 IN RESPONSE TO THE QUESTION
+'YOUR MOVE ?'.  SINCE I'M A GOOD SPORT, YOU'LL ALWAYS
+GO FIRST.
+
+
+          XXX
+          ...
+          OOO
+
+YOUR MOVE? 7,4
+
+          XXX
+          O..
+          .OO
+
+I MOVE FROM 3 TO 6
+
+          XX.
+          O.X
+          .OO
+
+YOUR MOVE? 8,5
+
+          XX.
+          OOX
+          ..O
+
+I MOVE FROM 1 TO 5
+
+          .X.
+          OXX
+          ..O
+
+YOUR MOVE? 4,1
+
+          OX.
+          .XX
+          ..O
+
+YOU WIN.
+I HAVE WON 0 AND YOU 1 OUT OF 1 GAMES.
+
+
+          XXX
+          ...
+          OOO
+
+YOUR MOVE? 7,4
+
+          XXX
+          O..
+          .OO
+
+I MOVE FROM 3 TO 6
+
+          XX.
+          O.X
+          .OO
+
+YOUR MOVE? 4,2
+
+          XO.
+          ..X
+          .OO
+
+YOU WIN.
+I HAVE WON 0 AND YOU 2 OUT OF 2 GAMES.
+
+
+          XXX
+          ...
+          OOO
+
+YOUR MOVE? 7,4
+
+          XXX
+          O..
+          .OO
+
+I MOVE FROM 2 TO 5
+
+          X.X
+          OX.
+          .OO
+
+YOUR MOVE? 9,6
+
+          X.X
+          OXO
+          .O.
+
+YOU WIN.
+I HAVE WON 0 AND YOU 3 OUT OF 3 GAMES.
+
+
+          XXX
+          ...
+          OOO
+
+YOUR MOVE? 7,4
+
+          XXX
+          O..
+          .OO
+
+I MOVE FROM 2 TO 4
+
+          X.X
+          X..
+          .OO
+
+YOUR MOVE? 8,4
+
+          X.X
+          O..
+          ..O
+
+I MOVE FROM 3 TO 6
+
+          X..
+          O.X
+          ..O
+
+YOU CAN'T MOVE, SO I WIN.
+I HAVE WON 1 AND YOU 3 OUT OF 4 GAMES.
+
+
+          XXX
+          ...
+          OOO
+
+YOUR MOVE? 7,4
+
+          XXX
+          O..
+          .OO
+
+I MOVE FROM 2 TO 4
+
+          X.X
+          X..
+          .OO
+
+YOUR MOVE? 8,5
+
+          X.X
+          XO.
+          ..O
+
+I MOVE FROM 4 TO 7
+
+          X.X
+          .O.
+          X.O
+
+I WIN.
+I HAVE WON 2 AND YOU 3 OUT OF 5 GAMES.
+
+
+          XXX
+          ...
+          OOO
+
+YOUR MOVE? 9,6
+
+          XXX
+          ..O
+          OO.
+
+I MOVE FROM 2 TO 6
+
+          X.X
+          ..X
+          OO.
+
+YOUR MOVE? 8,6
+
+          X.X
+          ..O
+          O..
+
+I MOVE FROM 1 TO 4
+
+          ..X
+          X.O
+          O..
+
+YOU CAN'T MOVE, SO I WIN.
+I HAVE WON 3 AND YOU 3 OUT OF 6 GAMES.
+
+
+          XXX
+          ...
+          OOO
+
+YOUR MOVE? 9,6
+
+          XXX
+          ..O
+          OO.
+
+I MOVE FROM 2 TO 6
+
+          X.X
+          ..X
+          OO.
+
+YOUR MOVE? 7,4
+
+          X.X
+          O.X
+          .O.
+
+I MOVE FROM 6 TO 8
+
+          X.X
+          O..
+          .X.
+
+I WIN.
+I HAVE WON 4 AND YOU 3 OUT OF 7 GAMES.
+
+
+          XXX
+          ...
+          OOO
+
+YOUR MOVE? 8,5
+
+          XXX
+          .O.
+          O.O
+
+I MOVE FROM 1 TO 5
+
+          .XX
+          .X.
+          O.O
+
+YOUR MOVE? 7,5
+
+          .XX
+          .O.
+          ..O
+
+I MOVE FROM 3 TO 5
+
+          .X.
+          .X.
+          ..O
+
+YOUR MOVE? 9,5
+
+          .X.
+          .O.
+          ...
+
+YOU WIN.
+I HAVE WON 4 AND YOU 4 OUT OF 8 GAMES.
+
+
+          XXX
+          ...
+          OOO
+
+YOUR MOVE? 8,5
+
+          XXX
+          .O.
+          O.O
+
+I MOVE FROM 3 TO 6
+
+          XX.
+          .OX
+          O.O
+
+YOUR MOVE? 5,1
+
+          OX.
+          ..X
+          O.O
+
+YOU WIN.
+I HAVE WON 4 AND YOU 5 OUT OF 9 GAMES.
+
+
+          XXX
+          ...
+          OOO
+
+YOUR MOVE? 8,5
+
+          XXX
+          .O.
+          O.O
+
+I MOVE FROM 1 TO 4
+
+          .XX
+          XO.
+          O.O
+
+YOUR MOVE? 5,3
+
+          .XO
+          X..
+          O.O
+
+YOU WIN.
+I HAVE WON 4 AND YOU 6 OUT OF 10 GAMES.
+
+
+          XXX
+          ...
+          OOO
+
+YOUR MOVE? 8,5
+
+          XXX
+          .O.
+          O.O
+
+I MOVE FROM 1 TO 5
+
+          .XX
+          .X.
+          O.O
+
+YOUR MOVE? 5,3
+ILLEGAL MOVE.
+YOUR MOVE? 7,5
+
+          .XX
+          .O.
+          ..O
+
+I MOVE FROM 3 TO 6
+
+          .X.
+          .OX
+          ..O
+
+YOU CAN'T MOVE, SO I WIN.
+I HAVE WON 5 AND YOU 6 OUT OF 11 GAMES.
+
+
+          XXX
+          ...
+          OOO
+
+YOUR MOVE? 8,5
+
+          XXX
+          .O.
+          O.O
+
+I MOVE FROM 1 TO 5
+
+          .XX
+          .X.
+          O.O
+
+YOUR MOVE? 9,5
+
+          .XX
+          .O.
+          O..
+
+I MOVE FROM 3 TO 5
+
+          .X.
+          .X.
+          O..
+
+YOUR MOVE? 7,5
+
+          .X.
+          .O.
+          ...
+
+YOU WIN.
+I HAVE WON 5 AND YOU 7 OUT OF 12 GAMES.
+
+
+          XXX
+          ...
+          OOO
+
+YOUR MOVE? 8,5
+
+          XXX
+          .O.
+          O.O
+
+I MOVE FROM 1 TO 5
+
+          .XX
+          .X.
+          O.O
+
+YOUR MOVE? 9,5
+
+          .XX
+          .O.
+          O..
+
+I MOVE FROM 3 TO 6
+
+          .X.
+          .OX
+          O..
+
+YOUR MOVE? 7,4
+
+          .X.
+          OOX
+          ...
+
+I MOVE FROM 2 TO 4
+
+          ...
+          XOX
+          ...
+
+YOUR MOVE? 4,1
+ILLEGAL MOVE.
+YOUR MOVE? 5,1
+ILLEGAL MOVE.
+YOUR MOVE? 5,2
+
+          .O.
+          X.X
+          ...
+
+YOU WIN.
+I HAVE WON 5 AND YOU 8 OUT OF 13 GAMES.
+
+
+          XXX
+          ...
+          OOO
+
+YOUR MOVE? 8,5
+
+          XXX
+          .O.
+          O.O
+
+I MOVE FROM 1 TO 5
+
+          .XX
+          .X.
+          O.O
+
+YOUR MOVE? 9,5
+
+          .XX
+          .O.
+          O..
+
+I MOVE FROM 3 TO 6
+
+          .X.
+          .OX
+          O..
+
+YOUR MOVE? 7,4
+
+          .X.
+          OOX
+          ...
+
+I MOVE FROM 6 TO 9
+
+          .X.
+          OO.
+          ..X
+
+I WIN.
+I HAVE WON 6 AND YOU 8 OUT OF 14 GAMES.
+
+
+          XXX
+          ...
+          OOO
+
+YOUR MOVE? 
+Error on line 121: No more input

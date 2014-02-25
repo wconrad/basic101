@@ -1,0 +1,115 @@
+                                 H-I-Q
+               CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY
+
+
+
+HERE IS THE BOARD:
+
+          !    !    !
+         13   14   15
+
+          !    !    !
+         22   23   24
+
+!    !    !    !    !    !    !
+29   30   31   32   33   34   35
+
+!    !    !    !    !    !    !
+38   39   40   41   42   43   44
+
+!    !    !    !    !    !    !
+47   48   49   50   51   52   53
+
+          !    !    !
+         58   59   60
+
+          !    !    !
+         67   68   69
+
+TO SAVE TYPING TIME, A COMPRESSED VERSION OF THE GAME BOARD
+WILL BE USED DURING PLAY.  REFER TO THE ABOVE ONE FOR PEG
+NUMBERS.  OK, LET'S BEGIN.
+
+        ! ! !
+        ! ! !
+    ! ! ! ! ! ! !
+    ! ! ! O ! ! !
+    ! ! ! ! ! ! !
+        ! ! !
+        ! ! !
+
+MOVE WHICH PIECE? 
+Too few items, try again
+MOVE WHICH PIECE? 23
+TO WHERE? 41
+
+        ! ! !
+        ! O !
+    ! ! ! O ! ! !
+    ! ! ! ! ! ! !
+    ! ! ! ! ! ! !
+        ! ! !
+        ! ! !
+
+MOVE WHICH PIECE? 50
+TO WHERE? 32
+
+        ! ! !
+        ! O !
+    ! ! ! ! ! ! !
+    ! ! ! O ! ! !
+    ! ! ! O ! ! !
+        ! ! !
+        ! ! !
+
+MOVE WHICH PIECE? 68
+TO WHERE? 50
+
+        ! ! !
+        ! O !
+    ! ! ! ! ! ! !
+    ! ! ! O ! ! !
+    ! ! ! ! ! ! !
+        ! O !
+        ! O !
+
+MOVE WHICH PIECE? 39
+TO WHERE? 41
+
+        ! ! !
+        ! O !
+    ! ! ! ! ! ! !
+    ! O O ! ! ! !
+    ! ! ! ! ! ! !
+        ! O !
+        ! O !
+
+MOVE WHICH PIECE? 42
+TO WHERE? 40
+
+        ! ! !
+        ! O !
+    ! ! ! ! ! ! !
+    ! O ! O O ! !
+    ! ! ! ! ! ! !
+        ! O !
+        ! O !
+
+MOVE WHICH PIECE? 44
+TO WHERE? 42
+
+        ! ! !
+        ! O !
+    ! ! ! ! ! ! !
+    ! O ! O ! O O
+    ! ! ! ! ! ! !
+        ! O !
+        ! O !
+
+THE GAME IS OVER.
+YOU HAD 26 PIECES REMAINING.
+
+PLAY AGAIN (YES OR NO)? NO
+
+SO LONG FOR NOW.
+

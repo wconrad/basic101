@@ -1,0 +1,70 @@
+                                 TOWERS
+               CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY
+
+
+
+
+TOWERS OF HANOI PUZZLE.
+
+YOU MUST TRANSFER THE DISKS FROM THE LEFT TO THE RIGHT
+TOWER, ONE AT A TIME, NEVER PUTTING A LARGER DISK ON A
+SMALLER DISK.
+
+HOW MANY DISKS DO YOU WANT TO MOVE (7 IS MAX)? 2
+
+IN THIS PROGRAM, WE SHALL REFER TO DISKS BY NUMERICAL CODE.
+3 WILL REPRESENT THE SMALLEST DISK, 5 THE NEXT SIZE,
+7 THE NEXT, AND SO ON, UP TO 15.  IF YOU DO THE PUZZLE WITH
+2 DISKS, THEIR CODE NAMES WOULD BE 13 AND 15.  WITH 3 DISKS
+THE CODE NAMES WOULD BE 11, 13 AND 15, ETC.  THE NEEDLES
+ARE NUMBERED FROM LEFT TO RIGHT, 1 TO 3.  WE WILL
+START WITH THE DISKS ON NEEDLE 1, AND ATTEMPT TO MOVE THEM
+TO NEEDLE 3.
+
+GOOD LUCK!
+
+          *                    *                    *
+          *                    *                    *
+          *                    *                    *
+          *                    *                    *
+          *                    *                    *
+    *************              *                    *
+   ***************             *                    *
+WHICH DISK WOULD YOU LIKE TO MOVE? 0
+ILLEGAL ENTRY... YOU MAY ONLY TYPE 3,5,7,9,11,13, OR 15.
+? 13
+PLACE DISK ON WHICH NEEDLE? 2
+          *                    *                    *
+          *                    *                    *
+          *                    *                    *
+          *                    *                    *
+          *                    *                    *
+          *                    *                    *
+   ***************       *************              *
+WHICH DISK WOULD YOU LIKE TO MOVE? 15
+PLACE DISK ON WHICH NEEDLE? 3
+          *                    *                    *
+          *                    *                    *
+          *                    *                    *
+          *                    *                    *
+          *                    *                    *
+          *                    *                    *
+          *              *************       ***************
+WHICH DISK WOULD YOU LIKE TO MOVE? 13
+PLACE DISK ON WHICH NEEDLE? 3
+          *                    *                    *
+          *                    *                    *
+          *                    *                    *
+          *                    *                    *
+          *                    *                    *
+          *                    *              *************
+          *                    *             ***************
+
+CONGRATULATIONS!!
+
+YOU HAVE PERFORMED THE TASK IN 3 MOVES.
+
+TRY AGAIN (YES OR NO)? NO
+
+THANKS FOR THE GAME!
+

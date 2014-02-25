@@ -1,0 +1,66 @@
+                                 GOMOKO
+               CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY
+
+
+
+WELCOME TO THE ORIENTAL GAME OF GOMOKO.
+
+THE GAME IS PLAYED ON AN N BY N GRID OF A SIZE
+THAT YOU SPECIFY.  DURING YOUR PLAY, YOU MAY COVER ONE GRID
+INTERSECTION WITH A MARKER. THE OBJECT OF THE GAME IS TO GET
+5 ADJACENT MARKERS IN A ROW -- HORIZONTALLY, VERTICALLY, OR
+DIAGONALLY.  ON THE BOARD DIAGRAM, YOUR MOVES ARE MARKED
+WITH A '1' AND THE COMPUTER MOVES WITH A '2'.
+
+THE COMPUTER DOES NOT KEEP TRACK OF WHO HAS WON.
+TO END THE GAME, TYPE -1,-1 FOR YOUR MOVE.
+
+WHAT IS YOUR BOARD SIZE (MIN 7/ MAX 19)? 7
+
+WE ALTERNATE MOVES.  YOU GO FIRST...
+
+YOUR PLAY (I,J)? 1,1
+
+ 1  0  0  0  0  0  0 
+ 2  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0 
+
+YOUR PLAY (I,J)? 2,2
+
+ 1  0  0  0  0  0  0 
+ 2  1  0  0  0  0  0 
+ 0  0  2  0  0  0  0 
+ 0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0 
+
+YOUR PLAY (I,J)? 3,3
+
+SQUARE OCCUPIED.  TRY AGAIN...
+YOUR PLAY (I,J)? 4,4
+
+ 1  0  0  0  0  0  0 
+ 2  1  0  0  0  0  0 
+ 0  0  2  0  0  0  0 
+ 0  0  0  1  0  0  0 
+ 0  0  0  2  0  0  0 
+ 0  0  0  0  0  0  0 
+ 0  0  0  0  0  0  0 
+
+YOUR PLAY (I,J)? 5,5
+
+ 1  0  0  0  0  0  0 
+ 2  1  0  0  0  0  0 
+ 0  0  2  0  0  0  0 
+ 0  0  0  1  0  0  0 
+ 0  0  0  2  1  0  0 
+ 0  0  0  0  0  2  0 
+ 0  0  0  0  0  0  0 
+
+YOUR PLAY (I,J)? 
+Error on line 310: No more input

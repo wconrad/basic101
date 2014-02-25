@@ -1,0 +1,195 @@
+                                 LUNAR
+               CREATIVE COMPUTING MORRISTOWN, NEW JERSEY
+
+
+
+THIS IS A COMPUTER SIMULATION OF AN APOLLO LUNAR
+LANDING CAPSULE.
+
+
+THE ON-BOARD COMPUTER HAS FAILED (IT WAS MADE BY
+XEROX) SO YOU HAVE TO LAND THE CAPSULE MANUALLY.
+
+SET BURN RATE OF RETRO ROCKETS TO ANY VALUE BETWEEN
+0 (FREE FALL) AND 200 (MAXIMUM BURN) POUNDS PER SECOND.
+SET NEW BURN RATE EVERY 10 SECONDS.
+
+CAPSULE WEIGHT 32,500 LBS; FUEL WEIGHT 16,500 LBS.
+
+
+
+GOOD LUCK
+
+SEC           MI + FT       MPH           LB FUEL       BURN RATE
+
+ 0             120  0        3600          16500        ? 0
+ 10            109  5016     3636          16500        ? 0
+ 20            99  4224      3672          16500        ? 0
+ 30            89  2904      3708          16500        ? 0
+ 40            79  1056      3744          16500        ? 100
+ 50            69  134       3580.6        15500        ? 100
+ 60            59  1656      3410.868      14500        ? 100
+ 70            50  435       3234.39       13500        ? 100
+ 80            41  1855      3050.708      12500        ? 100
+ 90            33  745       2859.316      11500        ? 100
+ 100           25  2502      2659.654      10500        ? 100
+ 110           18  1972      2451.097      9500         ? 100
+ 120           11  4570      2232.946      8500         ? 100
+ 130           5  5163       2004.42       7500         ? 100
+ 140           0  3909       1764.634      6500         ? 100
+ON MOON AT 141.5269 SECONDS - IMPACT VELOCITY 1726.968 MPH
+SORRY THERE NERE NO SURVIVORS. YOU BLOW IT!
+IN FACT, YOU BLASTED A NEW LUNAR CRATER 392.0218 FEET DEEP!
+
+
+
+TRY AGAIN??
+
+SET BURN RATE OF RETRO ROCKETS TO ANY VALUE BETWEEN
+0 (FREE FALL) AND 200 (MAXIMUM BURN) POUNDS PER SECOND.
+SET NEW BURN RATE EVERY 10 SECONDS.
+
+CAPSULE WEIGHT 32,500 LBS; FUEL WEIGHT 16,500 LBS.
+
+
+
+GOOD LUCK
+
+SEC           MI + FT       MPH           LB FUEL       BURN RATE
+
+ 0             120  0        3600          16500        ? 0
+ 10            109  5016     3636          16500        ? 0
+ 20            99  4224      3672          16500        ? 0
+ 30            89  2904      3708          16500        ? 100
+ 40            79  2510      3544.6        15500        ? 100
+ 50            69  4560      3374.868      14500        ? 100
+ 60            60  3867      3198.39       13500        ? 100
+ 70            52  535       3014.708      12500        ? 100
+ 80            43  5233      2823.316      11500        ? 100
+ 90            36  2238      2623.654      10500        ? 100
+ 100           29  2236      2415.097      9500         ? 100
+ 110           23  82        2196.946      8500         ? 100
+ 120           17  1203      1968.42       7500         ? 100
+ 130           12  477       1728.634      6500         ? 100
+ 140           7  3357       1476.586      5500         ? 100
+ 150           3  4750       1211.136      4500         ? 100
+ 160           0  4862       930.9762      3500         ? 100
+ON MOON AT 163.7841 SECONDS - IMPACT VELOCITY 820.8196 MPH
+SORRY THERE NERE NO SURVIVORS. YOU BLOW IT!
+IN FACT, YOU BLASTED A NEW LUNAR CRATER 186.326 FEET DEEP!
+
+
+
+TRY AGAIN??
+
+SET BURN RATE OF RETRO ROCKETS TO ANY VALUE BETWEEN
+0 (FREE FALL) AND 200 (MAXIMUM BURN) POUNDS PER SECOND.
+SET NEW BURN RATE EVERY 10 SECONDS.
+
+CAPSULE WEIGHT 32,500 LBS; FUEL WEIGHT 16,500 LBS.
+
+
+
+GOOD LUCK
+
+SEC           MI + FT       MPH           LB FUEL       BURN RATE
+
+ 0             120  0        3600          16500        ? 0
+ 10            109  5016     3636          16500        ? 0
+ 20            99  4224      3672          16500        ? 100
+ 30            89  4358      3508.6        15500        ? 100
+ 40            80  1656      3338.868      14500        ? 100
+ 50            71  1491      3162.39       13500        ? 100
+ 60            62  3967      2978.708      12500        ? 100
+ 70            54  3913      2787.316      11500        ? 100
+ 80            47  1446      2587.654      10500        ? 100
+ 90            40  1972      2379.097      9500         ? 100
+ 100           34  346       2160.946      8500         ? 100
+ 110           28  1995      1932.42       7500         ? 100
+ 120           23  1797      1692.634      6500         ? 100
+ 130           18  5205      1440.586      5500         ? 100
+ 140           15  1846      1175.136      4500         ? 100
+ 150           12  2486      894.9762      3500         ? 100
+ 160           10  2072      598.5957      2500         ? 100
+ 170           9  855        284.2401      1500         ? 100
+ 180           8  4392      -50.14642      500          ? 0
+ 190           8  4864      -14.14642      500          ? 0
+ 200           8  4807       21.85358      500          ? 20
+ 210           8  4784      -18.8337       300          ? 0
+ 220           8  4796       17.1663       300          ? 10
+ 230           8  4564       14.47961      200          ? 0
+ 240           8  4088       50.47961      200          ? 5
+ 250           8  3226       67.04931      150          ? 6
+ 260           8  2150       79.65579      90           ? 6
+ 270           8  889        92.1775       30           ? 7
+FUEL OUT AT 274.2857 SECONDS
+ON MOON AT 377.3643 SECONDS - IMPACT VELOCITY 466.9177 MPH
+SORRY THERE NERE NO SURVIVORS. YOU BLOW IT!
+IN FACT, YOU BLASTED A NEW LUNAR CRATER 105.9903 FEET DEEP!
+
+
+
+TRY AGAIN??
+
+SET BURN RATE OF RETRO ROCKETS TO ANY VALUE BETWEEN
+0 (FREE FALL) AND 200 (MAXIMUM BURN) POUNDS PER SECOND.
+SET NEW BURN RATE EVERY 10 SECONDS.
+
+CAPSULE WEIGHT 32,500 LBS; FUEL WEIGHT 16,500 LBS.
+
+
+
+GOOD LUCK
+
+SEC           MI + FT       MPH           LB FUEL       BURN RATE
+
+ 0             120  0        3600          16500        ? 0
+ 10            109  5016     3636          16500        ? 0
+ 20            99  4224      3672          16500        ? 100
+ 30            89  4358      3508.6        15500        ? 100
+ 40            80  1656      3338.868      14500        ? 100
+ 50            71  1491      3162.39       13500        ? 100
+ 60            62  3967      2978.708      12500        ? 100
+ 70            54  3913      2787.316      11500        ? 100
+ 80            47  1446      2587.654      10500        ? 100
+ 90            40  1972      2379.097      9500         ? 100
+ 100           34  346       2160.946      8500         ? 100
+ 110           28  1995      1932.42       7500         ? 100
+ 120           23  1797      1692.634      6500         ? 100
+ 130           18  5205      1440.586      5500         ? 100
+ 140           15  1846      1175.136      4500         ? 100
+ 150           12  2486      894.9762      3500         ? 100
+ 160           10  2072      598.5957      2500         ? 100
+ 170           9  855        284.2401      1500         ? 20
+ 180           8  2232       247.8371      1300         ? 10
+ 190           7  3880       247.33        1200         ? 10
+ 200           7  258        246.616       1100         ? 10
+ 210           6  1927       245.6928      1000         ? 10
+ 220           5  3612       244.558       900          ? 10
+ 230           5  35         243.2092      800          ? 10
+ 240           4  1759       241.6439      700          ? 10
+ 250           3  3508       239.8595      600          ? 50
+ 260           3  1129       83.56057      100          ? 10
+FUEL OUT AT 270 SECONDS
+ON MOON AT 328.108 SECONDS - IMPACT VELOCITY 289.5952 MPH
+SORRY THERE NERE NO SURVIVORS. YOU BLOW IT!
+IN FACT, YOU BLASTED A NEW LUNAR CRATER 65.7381 FEET DEEP!
+
+
+
+TRY AGAIN??
+
+SET BURN RATE OF RETRO ROCKETS TO ANY VALUE BETWEEN
+0 (FREE FALL) AND 200 (MAXIMUM BURN) POUNDS PER SECOND.
+SET NEW BURN RATE EVERY 10 SECONDS.
+
+CAPSULE WEIGHT 32,500 LBS; FUEL WEIGHT 16,500 LBS.
+
+
+
+GOOD LUCK
+
+SEC           MI + FT       MPH           LB FUEL       BURN RATE
+
+ 0             120  0        3600          16500        ? 
+Error on line 150: No more input
