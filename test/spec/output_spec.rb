@@ -108,6 +108,30 @@ module Basic101
 
     end
 
+    describe 'transcript' do
+
+      let(:input_file) {StringIO.new}
+      let(:output_file) {StringIO.new}
+      let(:transcript) {Transcript.new(input_file, output_file)}
+
+      context 'when puts called' do
+        it 'should echo to the transcript' do
+          output.transcript = transcript
+          output.puts "abc"
+          expect(output_file.string).to eq "abc\n"
+        end
+      end
+
+      context 'when echo called' do
+        it 'should not echo to the transcript' do
+          output.transcript = transcript
+          output.echo "abc"
+          expect(output_file.string).to eq ""
+        end
+      end
+
+    end
+
     describe '#isatty' do
 
       before(:each) {file.stub(:isatty => file_isatty)}

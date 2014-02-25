@@ -9,6 +9,9 @@ module Basic101
     def run
       program = Program.load(ARGF)
       runtime = Runtime.new(:program => program)
+      if @args.transcript
+        runtime.transcript = Transcript.make(@args.filenames.first)
+      end
       runtime.randomize
       runtime.run
     rescue Error => e

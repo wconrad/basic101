@@ -13,6 +13,13 @@ module Basic101
       @functions = Functions.new
       @for_stack = ForStack.new
       @random = Random.new(0)
+      @transcript = NullTranscript.new
+    end
+
+    def transcript=(transcript)
+      @transcript = transcript
+      @output.transcript = @transcript
+      @input.transcript = @transcript
     end
 
     def randomize
@@ -48,15 +55,31 @@ module Basic101
     end
 
     def run
-      reset
-      begin
-        while !@program_counter.end?
-          statement = @program_counter.current_statement
-          @program_counter.goto_next_statement
-          statement.execute(self)
+      transcribe_errors do
+        reset
+        begin
+          while !@program_counter.end?
+            statement = @program_counter.current_statement
+            begin
+              @program_counter.goto_next_statement
+              statement.execute(self)
+            rescue StandardError => e
+              statement.raise_error_with_line_number(e)
+            end
+          end
         end
-      rescue StandardError => e
-        statement.error(e)
+      end
+    end
+
+    def transcribe_errors
+      begin
+        yield
+      rescue Parslet::ParseFailed => e
+        @transcript.save_output_lines e
+        raise
+      rescue Basic101::Error => e
+        @transcript.save_output_lines e
+        raise
       end
     end
 

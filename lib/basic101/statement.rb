@@ -9,7 +9,7 @@ module Basic101
     attr_writer :index
     attr_writer :line
 
-    def error(exception)
+    def raise_error_with_line_number(exception)
       message = "Error on line #{@line.line_number}: #{exception}"
       raise exception, message, exception.backtrace
     end

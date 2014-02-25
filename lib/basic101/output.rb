@@ -5,6 +5,11 @@ module Basic101
     def initialize(file = $stdout)
       @file = file
       @chars_on_line = 0
+      @transcript = NullTranscript.new
+    end
+
+    def transcript=(transcript)
+      @transcript = transcript
     end
 
     def puts(s = '')
@@ -12,21 +17,11 @@ module Basic101
     end
 
     def print(s)
-      s.chars.each do |c|
-        case c
-        when "\n"
-          write_char c
-          @chars_on_line = 0
-        when "\t"
-          write_char ' '
-          while @chars_on_line % COLUMNS_PER_TAB > 0
-            write_char ' '
-          end
-        else
-          write_char c
-        end
-      end
-      flush
+      write_string s, true
+    end
+
+    def echo(s)
+      write_string s, false
     end
 
     def tab_to(column)
@@ -44,7 +39,26 @@ module Basic101
 
     COLUMNS_PER_TAB = 14
 
-    def write_char(c)
+    def write_string(s, transcribe)
+      s.chars.each do |c|
+        case c
+        when "\n"
+          write_char c, transcribe
+          @chars_on_line = 0
+        when "\t"
+          write_char ' ', transcribe
+          while @chars_on_line % COLUMNS_PER_TAB > 0
+            write_char ' ', transcribe
+          end
+        else
+          write_char c, transcribe
+        end
+      end
+      flush
+    end
+
+    def write_char(c, transcribe)
+      @transcript.save_output(c) if transcribe
       @file.print c
       @chars_on_line += 1 if c =~ /[[:print:]]/
     end
