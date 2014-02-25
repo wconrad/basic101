@@ -1,3 +1,4 @@
+# simplecov must come first
 require 'simplecov'
 SimpleCov.command_name 'RSpec'
 
