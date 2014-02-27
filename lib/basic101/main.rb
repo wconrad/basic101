@@ -12,7 +12,7 @@ module Basic101
       runtime.randomize
       runtime.run
     rescue Error => e
-      $stderr.puts e
+      puts e
       exit 1
     end
 
