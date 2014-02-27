@@ -87,9 +87,40 @@ module Basic101
         built_in_function_identifier
     end
 
+    rule(:keyword) do
+      str('AND') |
+        str('DATA') |
+        str('DEF') |
+        str('DIM') |
+        str('ELSE') |
+        str('ELSE') |
+        str('END') |
+        str('FOR') |
+        str('GOSUB') |
+        str('GOTO') |
+        str('GOTO') |
+        str('IF') |
+        str('INPUT') |
+        str('LET') |
+        str('NEXT') |
+        str('NOT') |
+        str('ON') |
+        str('OR') |
+        str('PRINT') |
+        str('RANDOMIZE') |
+        str('READ') |
+        str('REM') |
+        str('RESTORE') |
+        str('RETURN') |
+        str('STEP') |
+        str('STOP') |
+        str('THEN') |
+        str('TO')
+    end
+
     rule(:base_identifier) do
-      str('ELSE').absent? >>
-        match('[A-Z]') >> match('[0-9]').repeat(0)
+      (keyword.absent? >> match('[A-Z]')) >>
+        (keyword.absent? >> match('[A-Z0-9]')).repeat(0)
     end
 
     rule(:numeric_identifier) do

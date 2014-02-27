@@ -139,6 +139,7 @@ module Basic101
       let(:rule) {parser.base_identifier}
       it_should_match 'A'
       it_should_match 'A1'
+      it_should_match 'AZ'
       it_should_not_match 'ELSE'
     end
 
