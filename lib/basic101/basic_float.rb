@@ -40,7 +40,7 @@ module Basic101
     private
 
     def format
-      @value.to_s
+      '%.7g' % @value
     end
 
   end
