@@ -19,7 +19,8 @@ module Integration
     end
 
     def run
-      output_file = StringIO.new
+      output_file = OutputFile.new
+      output_file.max_lines = options['max_output_lines']
       File.open(input_path, 'r') do |input_file|
         begin
           program = Basic101::Program.load_file(@basic_path)
@@ -27,6 +28,8 @@ module Integration
                                           :output_file => output_file,
                                           :program => program)
           runtime.run
+        rescue Error => e
+          output_file.puts_unchecked e
         rescue Parslet::ParseFailed => e
           output_file.puts e
         rescue Basic101::Error => e
@@ -71,6 +74,10 @@ module Integration
 
     private
 
+    DEFAULT_OPTIONS = {
+      'max_output_lines' => 10_000
+    }
+
     def base_path
       Pathname.new(__dir__) + 'tests'
     end
@@ -105,6 +112,18 @@ module Integration
 
     def expected_output_path
       path_without_extension + '.output'
+    end
+
+    def options_path
+      path_without_extension + '.options'
+    end
+
+    def options
+      if File.exists?(options_path)
+        YAML.load_file(options_path)
+      else
+        DEFAULT_OPTIONS
+      end
     end
 
     def path_without_extension
