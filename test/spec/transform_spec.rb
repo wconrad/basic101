@@ -272,10 +272,28 @@ module Basic101
       it_should_transform(',', PrintComma.new)
     end
 
+    describe 'print_arguments' do
+      let(:rule) {:print_arguments}
+      it_should_transform('"a"', [BasicString.new('a')])
+      it_should_transform('"a",', [
+                            BasicString.new('a'),
+                            PrintComma.new,
+                          ])
+    end
+ 
     describe 'print_statement' do
       let(:rule) {:print_statement}
       it_should_transform('PRINT',
                           PrintStatement.new)
+      it_should_transform('PRINT ,',
+                          PrintStatement.new([
+                                               PrintComma.new
+                                             ]))
+      it_should_transform('PRINT , 1',
+                          PrintStatement.new([
+                                               PrintComma.new,
+                                               BasicInteger.new(1),
+                                             ]))
       it_should_transform('PRINT "ABC"',
                           PrintStatement.new([BasicString.new("ABC")]))
       it_should_transform('PRINT 1;',

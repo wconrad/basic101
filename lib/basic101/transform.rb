@@ -131,18 +131,9 @@ module Basic101
       PrintComma.new
     end
 
-    rule(:print_arg1 => simple(:arg1)) do
-      arg1
-    end
-
-    rule(:print_arg1 => simple(:arg1),
-         :print_arg2 => simple(:arg2)) do
-      [arg1, arg2]
-    end
-
     rule(:print => simple(:_),
-         :args => subtree(:args)) do
-      PrintStatement.new(args.flatten)
+         :print_arguments => subtree(:args)) do
+      PrintStatement.new(Array(args))
     end
 
     rule(:lvalue => simple(:lvalue), :rvalue => simple(:rvalue)) do

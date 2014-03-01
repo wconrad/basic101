@@ -362,9 +362,19 @@ module Basic101
       it_should_match ','
     end
 
+    describe 'print_arguments' do
+      let(:rule) {parser.print_arguments}
+      it_should_match ''
+      it_should_match ';'
+      it_should_match '1'
+      it_should_match '1 "FOO" , A'
+    end
+
     describe 'print_statement' do
       let(:rule) {parser.print_statement}
       it_should_match 'PRINT'
+      it_should_match 'PRINT ,'
+      it_should_match 'PRINT , "A"'
       it_should_match 'PRINT "A"'
       it_should_match 'PRINT "A" ;'
       it_should_match 'PRINT "A", 1'
