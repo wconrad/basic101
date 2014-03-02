@@ -1,9 +1,9 @@
 # Basic101 [![Code Climate](https://codeclimate.com/github/wconrad/basic101.png)](https://codeclimate.com/github/wconrad/basic101) [![Build Status](https://travis-ci.org/wconrad/basic101.png)](https://travis-ci.org/wconrad/basic101)
 
 basic101 is a circa 1980 BASIC interpreter written in Ruby.  It
-supports a modified subset of [Microsoft's BASIC-80 v. 5][1] and runs
-the games published in [_Basic Computer Games, Microcomputer
-Edition_ by David H. Ahl][2].
+supports a modified subset of Microsoft's BASIC-80 v. 5 and runs
+the games published in Basic Computer Games, Microcomputer
+Edition by David H. Ahl
 
 ## Why?
 
