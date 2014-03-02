@@ -11,10 +11,13 @@ module Basic101
       @randomize = true
       OptionParser.new do |opts|
         opts.banner << " [PATH]..."
-        opts.on('-t', '--transcript') do |v|
+        opts.on('-t', '--transcript',
+                'Write transcript of input and output') do |v|
           @transcript = v
         end
-        opts.on('--[no-]randomize') do |v|
+        opts.on('--[no-]randomize',
+                'Randomize random number generator.',
+                'Default is --randomize') do |v|
           @randomize = v
         end
       end.parse!(argv)
