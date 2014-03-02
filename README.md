@@ -42,7 +42,7 @@ First, download a BASIC program such as one of those from [Classic
 Basic Games][9] or [Vintage BASIC's archive][8].  Then simply run the
 interpreter with the path of the program:
 
-    basic101.rb superstartrek.bas
+    basic101 superstartrek.bas
 
 Most of these programs are included with this gem, in the directory:
 
