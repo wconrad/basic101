@@ -7,4 +7,4 @@ end
 
 require 'basic101'
 
-Basic101::Main.new(ARGV).run if $0 == __FILE__
+Basic101::Main.new(ARGV).run
