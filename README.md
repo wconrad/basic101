@@ -20,7 +20,7 @@ Microcomputer Edition_][2] is perfect because:
 
 * The book contains short transcripts of each program running.
 
-### What parser?
+### Which parser?
 
 This interpreter uses [Parslet][12], a Ruby library for [Parsing
 Expression Grammars][11] (PEG).  Parslet has several attractive
