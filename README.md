@@ -30,7 +30,7 @@ properties:
   makes possible the dynamic generation of parse and transform rules.
 
 * It has an [elegant mechanism][14] for transforming the [parse
-  tree][17] into an [abstract syntax tree][13].
+  tree][15] into an [abstract syntax tree][13].
 
 ## Installation
 
@@ -188,6 +188,4 @@ Wayne Conrad <wconrad@yagni.com>
 [12]: http://kschiess.github.io/parslet/
 [13]: http://en.wikipedia.org/wiki/Abstract_syntax_tree
 [14]: http://kschiess.github.io/parslet/transform.html
-[15]: http://en.wikipedia.org/wiki/Fortran#FORTRAN_66
-[16]: http://www.fh-jena.de/~kleine/history/languages/ansi-x3dot9-1966-Fortran66.pdf
-[17]: http://en.wikipedia.org/wiki/Parse_tree
+[15]: http://en.wikipedia.org/wiki/Parse_tree
