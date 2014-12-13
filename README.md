@@ -1,5 +1,6 @@
 # Basic101
 [![Gem Version](https://badge.fury.io/rb/basic101.png)](http://badge.fury.io/rb/basic101)
+[![Dependency Status](https://gemnasium.com/wconrad/basic101.svg)](https://gemnasium.com/wconrad/basic101)
 [![Code Climate](https://codeclimate.com/github/wconrad/basic101.png)](https://codeclimate.com/github/wconrad/basic101)
 [![Build Status](https://travis-ci.org/wconrad/basic101.png)](https://travis-ci.org/wconrad/basic101)
 
