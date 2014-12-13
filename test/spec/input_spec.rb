@@ -9,7 +9,7 @@ module Basic101
     let(:file) {StringIO.new(input_string)}
     let(:output) {double Output, :isatty => output_isatty}
     subject(:input) {described_class.new(output, file)}
-    before(:each) {file.stub(:isatty => input_isatty)}
+    before(:each) {allow(file).to receive(:isatty).and_return(input_isatty)}
 
     describe 'transcript' do
 
@@ -61,7 +61,7 @@ module Basic101
           let(:input_isatty) {false}
           let(:output_isatty) {false}
           specify do
-            output.should receive(:echo).with(input_string)
+            expect(output).to receive(:echo).with(input_string)
             input.read_line
           end
         end
@@ -70,7 +70,7 @@ module Basic101
           let(:input_isatty) {false}
           let(:output_isatty) {true}
           specify do
-            output.should receive(:echo).with(input_string)
+            expect(output).to receive(:echo).with(input_string)
             input.read_line
           end
         end
@@ -79,7 +79,7 @@ module Basic101
           let(:input_isatty) {true}
           let(:output_isatty) {false}
           specify do
-            output.should receive(:echo).with(input_string)
+            expect(output).to receive(:echo).with(input_string)
             input.read_line
           end
         end
@@ -88,7 +88,7 @@ module Basic101
           let(:input_isatty) {true}
           let(:output_isatty) {true}
           specify do
-            output.should_not receive(:print)
+            expect(output).to_not receive(:print)
             input.read_line
           end
         end

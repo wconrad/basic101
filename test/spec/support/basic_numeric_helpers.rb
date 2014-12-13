@@ -286,7 +286,7 @@ module BasicNumericHelpers
 
         context 'when positive' do
           specify do
-            output.should_receive(:print).with(' 123 ')
+            expect(output).to receive(:print).with(' 123 ')
             subject.print_string(output)
           end
         end
@@ -294,7 +294,7 @@ module BasicNumericHelpers
         context 'when negative' do
           let(:value) {-123}
           specify do
-            output.should_receive(:print).with('-123 ')
+            expect(output).to receive(:print).with('-123 ')
             subject.print_string(output)
           end
         end
@@ -303,7 +303,7 @@ module BasicNumericHelpers
 
       describe '#print_new_line' do
         specify do
-          output.should_receive(:print).with("\n")
+          expect(output).to receive(:print).with("\n")
           subject.print_new_line(output)
         end
       end

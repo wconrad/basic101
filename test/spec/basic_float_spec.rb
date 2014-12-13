@@ -12,7 +12,7 @@ module Basic101
         it 'should return a basic integer' do
           a = described_class.new(12.0)
           b = a.simplest
-          b.should eq BasicInteger.new(12)
+          expect(b).to eq BasicInteger.new(12)
         end
       end
 
@@ -20,7 +20,7 @@ module Basic101
         it 'should return itself' do
           a = described_class.new(12.34)
           b = a.simplest
-          b.should eq a
+          expect(b).to eq a
         end
       end
 

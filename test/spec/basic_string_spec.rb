@@ -240,14 +240,14 @@ module Basic101
 
       describe '#print_string' do
         specify do
-          output.should_receive(:print).with('123')
+          expect(output).to receive(:print).with('123')
           subject.print_string(output)
         end
       end
 
       describe '#print_new_line' do
         specify do
-          output.should_receive(:print).with("\n")
+          expect(output).to receive(:print).with("\n")
           subject.print_new_line(output)
         end
       end

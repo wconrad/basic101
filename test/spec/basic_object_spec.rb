@@ -13,7 +13,7 @@ module Basic101
     describe '#eval' do
       let(:runtime) {double Runtime}
       it 'should return itself' do
-        subject.eval(runtime).should eq subject
+        expect(subject.eval(runtime)).to eq subject
       end
     end
 

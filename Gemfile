@@ -1,12 +1,13 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'parslet', '~> 1.5.0'
+gem "parslet", "~> 1.5"
 
 group :development do
-  gem 'jeweler', '~> 1.8.8'
-  gem 'rake', '~> 10.1.0'
-  gem 'redcarpet', '~> 3.0.0'
-  gem 'rspec', '~> 2.14.1'
-  gem 'simplecov', '~> 0.7.1', :require => false, :group => :test
-  gem 'yard', '~> 0.8.7'
+  gem "jeweler", "~> 2.0"
+  gem "rake", "~> 10.4"
+  gem "redcarpet", "~> 3.2"
+  gem "rspec", "~> 3.1"
+  gem "rspec-its", "~> 1.1"
+  gem "simplecov", "~> 0.9", :require => false, :group => :test
+  gem "yard", "~> 0.8.7"
 end

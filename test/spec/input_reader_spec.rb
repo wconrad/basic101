@@ -21,35 +21,35 @@ module Basic101
       context 'when unquoted' do
         let(:line) {%Q'abc,123'}
         specify do
-          input_reader.read_string.should eq 'abc'
+          expect(input_reader.read_string).to eq 'abc'
         end
       end
 
       context 'with comma' do
         let(:line) {%Q'"abc,def",123'}
         specify do
-          input_reader.read_string.should eq 'abc,def'
+          expect(input_reader.read_string).to eq 'abc,def'
         end
       end
 
       context 'with quote' do
         let(:line) {%Q'"abc""def",123'}
         specify do
-          input_reader.read_string.should eq 'abc"def'
+          expect(input_reader.read_string).to eq 'abc"def'
         end
       end
 
       context 'when blank' do
         let(:line) {",abc"}
         specify do
-          input_reader.read_string.should eq ''
+          expect(input_reader.read_string).to eq ''
         end
       end
 
       context 'when end of line' do
         let(:line) {""}
         specify do
-          input_reader.read_string.should eq ''
+          expect(input_reader.read_string).to eq ''
         end
       end
 
@@ -70,42 +70,42 @@ module Basic101
       context 'when integer' do
         let(:line) {"123,abc"}
         specify do
-          input_reader.read_numeric.should eq 123
+          expect(input_reader.read_numeric).to eq 123
         end
       end
 
       context 'when positive integer' do
         let(:line) {"+123,abc"}
         specify do
-          input_reader.read_numeric.should eq 123
+          expect(input_reader.read_numeric).to eq 123
         end
       end
 
       context 'when negative integer' do
         let(:line) {"-123,abc"}
         specify do
-          input_reader.read_numeric.should eq -123
+          expect(input_reader.read_numeric).to eq -123
         end
       end
 
       context 'when float' do
         let(:line) {"1.2,abc"}
         specify do
-          input_reader.read_numeric.should be_within(0.000001).of(1.2)
+          expect(input_reader.read_numeric).to be_within(0.000001).of(1.2)
         end
       end
 
       context 'when positive float' do
         let(:line) {"+1.2,abc"}
         specify do
-          input_reader.read_numeric.should be_within(0.000001).of(1.2)
+          expect(input_reader.read_numeric).to be_within(0.000001).of(1.2)
         end
       end
 
       context 'when negative float' do
         let(:line) {"-1.2,abc"}
         specify do
-          input_reader.read_numeric.should be_within(0.000001).of(-1.2)
+          expect(input_reader.read_numeric).to be_within(0.000001).of(-1.2)
         end
       end
 

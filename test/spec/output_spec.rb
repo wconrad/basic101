@@ -134,16 +134,16 @@ module Basic101
 
     describe '#isatty' do
 
-      before(:each) {file.stub(:isatty => file_isatty)}
+      before(:each) {allow(file).to receive(:isatty).and_return(file_isatty)}
 
       context 'when file is tty' do
         let(:file_isatty) {true}
-        its(:isatty) {should be_true}
+        its(:isatty) {should be_truthy}
       end
 
       context 'when file is tty' do
         let(:file_isatty) {false}
-        its(:isatty) {should be_false}
+        its(:isatty) {should be_falsey}
       end
 
     end
