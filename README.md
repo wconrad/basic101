@@ -1,4 +1,7 @@
-# Basic101 [![Code Climate](https://codeclimate.com/github/wconrad/basic101.png)](https://codeclimate.com/github/wconrad/basic101) [![Build Status](https://travis-ci.org/wconrad/basic101.png)](https://travis-ci.org/wconrad/basic101)
+# Basic101
+[![Gem Version](https://badge.fury.io/rb/basic101.png)](http://badge.fury.io/rb/basic101)
+[![Code Climate](https://codeclimate.com/github/wconrad/basic101.png)](https://codeclimate.com/github/wconrad/basic101)
+[![Build Status](https://travis-ci.org/wconrad/basic101.png)](https://travis-ci.org/wconrad/basic101)
 
 basic101 is a circa 1980 BASIC interpreter written in Ruby.  It
 supports a modified subset of Microsoft's BASIC-80 v. 5 and runs
