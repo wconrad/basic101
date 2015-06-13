@@ -6,18 +6,18 @@ module Basic101
 
     let(:parser) {Parser.new}
 
-    def self.parse(rule, s)
-      parser = Parser.new.send(rule)
+    def self.parse(rule_name, s)
+      parser = Parser.new.send(rule_name)
       parser.parse(s)
     end
 
-    def self.transform(rule, s)
-      parse_tree = parse(rule, s)
+    def self.transform(rule_name, s)
+      parse_tree = parse(rule_name, s)
       Transform.new.apply(parse_tree)
     end
 
-    def transform(s, rule = rule)
-      self.class.transform(rule, s)
+    def transform(s, rule_name = rule)
+      self.class.transform(rule_name, s)
     end
 
     def self.it_should_transform(s, expected_result)
