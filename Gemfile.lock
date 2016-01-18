@@ -46,7 +46,7 @@ GEM
     parslet (1.7.1)
       blankslate (>= 2.0, <= 4.0)
     rack (1.6.4)
-    rake (10.4.2)
+    rake (10.5.0)
     rdoc (4.2.1)
       json (~> 1.4)
     redcarpet (3.3.4)
