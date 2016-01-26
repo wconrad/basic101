@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'remark_statement'
 require_relative 'print_statement'
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # 0.4.0 - 2015-08-31
 
 * Update gems

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # simplecov must come first
 require 'simplecov'
 SimpleCov.command_name 'RSpec'

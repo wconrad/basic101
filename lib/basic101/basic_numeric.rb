@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'basic_math'
 require_relative 'basic_object'
 
