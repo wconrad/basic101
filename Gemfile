@@ -6,7 +6,7 @@ gem "parslet", "~> 1.5"
 
 group :development do
   gem "jeweler", "~> 2.0"
-  gem "rake", "~> 10.4"
+  gem "rake", "~> 11.1"
   gem "redcarpet", "~> 3.2"
   gem "rspec", "~> 3.1"
   gem "rspec-its", "~> 1.1"
