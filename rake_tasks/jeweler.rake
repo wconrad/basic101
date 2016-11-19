@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+Bundler.setup(:development)
+
 require 'jeweler'
 
 README_PATH = File.expand_path('../README.md', File.dirname(__FILE__))
