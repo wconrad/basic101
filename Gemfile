@@ -5,7 +5,7 @@ source "https://rubygems.org"
 gem "parslet", "~> 1.5"
 
 group :test, :development do
-  gem "rake", "~> 11.1"
+  gem "rake", "~> 12.0"
 end
 
 group :test do
