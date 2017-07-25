@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Development
+# 1.0.0 - 2017-07-24
 
 * Update gems
 * Fix warnings
