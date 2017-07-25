@@ -49,7 +49,7 @@ module Basic101
         specify do
           a = '-1.2E-2'
           b = described_class.from_s(a)
-          expect(b.value).to eq -1.2E-2
+          expect(b.value).to eq(-1.2E-2)
         end
       end
 

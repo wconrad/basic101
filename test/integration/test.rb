@@ -121,7 +121,7 @@ module Integration
     end
 
     def options
-      if File.exists?(options_path)
+      if File.exist?(options_path)
         YAML.load_file(options_path)
       else
         DEFAULT_OPTIONS

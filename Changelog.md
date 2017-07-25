@@ -3,6 +3,7 @@
 # Development
 
 * Update gems
+* Fix warnings
 
 # 0.4.0 - 2015-08-31
 

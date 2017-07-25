@@ -3,3 +3,4 @@ coverage
 pkg
 .bundle
 .yardoc
+spec/examples.txt

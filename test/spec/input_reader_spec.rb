@@ -86,7 +86,7 @@ module Basic101
       context 'when negative integer' do
         let(:line) {"-123,abc"}
         specify do
-          expect(input_reader.read_numeric).to eq -123
+          expect(input_reader.read_numeric).to eq(-123)
         end
       end
 

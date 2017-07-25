@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+$VERBOSE=true
+
 # Must come first
 require 'simplecov'
 SimpleCov.command_name 'Integration'

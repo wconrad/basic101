@@ -9,7 +9,7 @@ module Basic101
       line += ',' unless line.empty?
       line += EOS
       @columns = line.parse_csv
-    rescue CSV::MalformedCSVError => e
+    rescue CSV::MalformedCSVError
       raise BadInputFormatError, 'Invalid format'
     end
 

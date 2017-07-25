@@ -62,7 +62,7 @@ module BasicNumericHelpers
         b = BasicInteger.new(2)
         c = a - b
         expect(c).to be_a BasicInteger
-        expect(c.value).to eq -1
+        expect(c.value).to eq(-1)
       end
 
       it 'should subtract a BasicFloat yielding a BasicInteger' do
@@ -70,7 +70,7 @@ module BasicNumericHelpers
         b = BasicFloat.new(2)
         c = a - b
         expect(c).to be_a BasicInteger
-        expect(c.value).to eq -1
+        expect(c.value).to eq(-1)
       end
 
       it 'should subtract a BasicFloat yielding a BasicFloat' do
@@ -173,7 +173,7 @@ module BasicNumericHelpers
         it "should be less than a #{type}" do
           a = described_class.new(-1)
           b = BasicInteger.new(0)
-          expect(a.<=>(b)).to eq -1
+          expect(a.<=>(b)).to eq(-1)
         end
 
         it "should be equal to a #{type}" do
@@ -185,7 +185,7 @@ module BasicNumericHelpers
         it "should be greater than a #{type}" do
           a = described_class.new(1)
           b = BasicInteger.new(0)
-          expect(a.<=>(b)).to eq +1
+          expect(a.<=>(b)).to eq(+1)
         end
 
       end

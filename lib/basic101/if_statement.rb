@@ -10,6 +10,7 @@ module Basic101
 
     def initialize(condition)
       @condition = condition
+      @true_statement = nil
     end
 
     def end_statement=(statement)
