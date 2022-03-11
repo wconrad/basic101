@@ -74,11 +74,11 @@ Gem::Specification.new do |s|
   s.files += Dir["test/integration/tests/basic_computer_games/*.bas"]
   s.homepage = "http://github.com/wconrad/basic101"
   s.licenses = ["MIT"]
-  s.required_ruby_version = ">= 2.0"
+  s.required_ruby_version = ">= 2.5"
   s.rubygems_version = "2.4.6"
   s.summary = "Circa 1980 basic intepreter"
-  s.add_runtime_dependency("parslet", "~> 1.8")
-  s.add_development_dependency("rake", "~> 12.0")
+  s.add_runtime_dependency("parslet", "~> 2.0")
+  s.add_development_dependency("rake", "~> 13.0")
   s.add_development_dependency("rspec", "~> 3.6")
   s.add_development_dependency("rspec-its", "~> 1.2")
   s.add_development_dependency("simplecov", "~> 0.14")

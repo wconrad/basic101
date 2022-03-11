@@ -72,7 +72,7 @@ code."
 
 ## Ruby Compatability
 
-basic101 requires Ruby 2.0 or greater.
+basic101 requires Ruby 2.5 or greater.
 
 ## OS Compatability
 

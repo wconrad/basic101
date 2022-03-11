@@ -1,4 +1,6 @@
-# frozen_string_literal: true
+# Development
+
+* Update gems to support Ruby 3.0.  Now requires >= Ruby 2.5.
 
 # 1.0.0 - 2017-07-24
 
