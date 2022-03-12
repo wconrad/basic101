@@ -1,4 +1,4 @@
-# Development
+# 1.0.1 - 2022-03-11
 
 * Update gems to support Ruby 3.0.  Now requires >= Ruby 2.5.
 
