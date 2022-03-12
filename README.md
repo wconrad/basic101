@@ -186,7 +186,7 @@ Wayne Conrad <wconrad@yagni.com>
 [6]: http://www.vintage-basic.net/bcg/superstartrekins.bas
 [7]: http://www.vintage-basic.net/bcg/civilwar.bas
 [8]: http://www.vintage-basic.net/games.html
-[9]: http://www.classicbasicgames.org/
+[9]: https://web.archive.org/web/20200918091341/http://www.classicbasicgames.org/
 [10]: https://github.com/lylek/vintage-basic
 [11]: http://en.wikipedia.org/wiki/Parsing_expression_grammar
 [12]: http://kschiess.github.io/parslet/
