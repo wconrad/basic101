@@ -23,10 +23,11 @@ module Basic101
       tree = parser.parse(source)
       transform.apply(tree)
     rescue Parslet::ParseFailed => error
-      line_number, column_number =
-        error.cause.source.line_and_column(error.cause.pos)
+      error_cause = error.parse_failure_cause
+      error_source = error_cause.source
+      line_number, column_number = error_source.line_and_column(error_cause.pos)
       line = source.lines[line_number - 1]
-      raise SyntaxError.new(line, line_number, column_number, error.message)
+      raise SyntaxError.new(line, line_number, column_number, error.to_s)
     end
 
     def initialize(lines = [])
