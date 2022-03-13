@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    basic101 (1.0.1)
+    basic101 (1.0.2)
       parslet (~> 2.0)
 
 GEM

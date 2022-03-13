@@ -1,5 +1,7 @@
 # Development
 
+# 1.0.2 - 2022-03-12
+
 * Fix stack trace on parse error
 
 # 1.0.1 - 2022-03-11

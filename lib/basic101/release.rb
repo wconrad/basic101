@@ -6,8 +6,8 @@ module Basic101
   # by the library as well.
   module Release
 
-    VERSION = "1.0.1"
-    DATE = "2022-03-11"
+    VERSION = "1.0.2"
+    DATE = "2022-03-12"
 
   end
 end
