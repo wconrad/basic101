@@ -4,3 +4,4 @@ pkg
 .bundle
 .yardoc
 spec/examples.txt
+/temp/
