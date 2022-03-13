@@ -5,3 +5,4 @@ pkg
 .yardoc
 spec/examples.txt
 /temp/
+*.gem
