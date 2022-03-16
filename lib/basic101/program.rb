@@ -35,7 +35,7 @@ module Basic101
       @line_number_index = {}
       lines.each do |line|
         @line_number_index[line.line_number] = @statements.size
-        @statements += line.statements
+        @statements.concat(line.statements)
       end
       set_statement_indices
       link_if_statements
