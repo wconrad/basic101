@@ -14,6 +14,7 @@ module Basic101
 
     def execute(runtime)
       begin
+        runtime.before_input
         print_prompt(runtime)
         read_references(runtime)
       rescue InputError => e

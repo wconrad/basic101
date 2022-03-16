@@ -12,6 +12,7 @@ module Basic101
       @output = Output.new(args.fetch(:output_file, $stdout))
       @input = Input.new(@output, args.fetch(:input_file, $stdin))
       @program = args.fetch(:program, Program.new)
+      @before_input = args.fetch(:before_input, ->(_runtime){})
       @functions = Functions.new
       @for_stack = ForStack.new
       @random = Random.new(0)
@@ -118,6 +119,10 @@ module Basic101
 
     def restore(line_number = nil)
       @data_items = @program.data_items(line_number)
+    end
+
+    def before_input
+      @before_input.call(self)
     end
 
     private
