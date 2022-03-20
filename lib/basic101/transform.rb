@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require_relative 'clear_screen_statement'
 require_relative 'remark_statement'
 require_relative 'print_statement'
 
@@ -241,6 +242,10 @@ module Basic101
 
     rule(:return => simple(:_)) do
       ReturnStatement.new
+    end
+
+    rule(:cls => simple(:_)) do
+      ClearScreenStatement.new
     end
 
     rule(:restore => simple(:_),

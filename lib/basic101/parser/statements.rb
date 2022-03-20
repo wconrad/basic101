@@ -30,7 +30,8 @@ module Basic101
        stop_statement |
        restore_statement |
        define_function_statement |
-       let_statement)
+       let_statement |
+       cls_statement)
     end
 
   end

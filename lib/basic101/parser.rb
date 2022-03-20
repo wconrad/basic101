@@ -3,6 +3,7 @@
 require_relative 'parser/data_statement'
 require_relative 'parser/define_function_statement'
 require_relative 'parser/dim_statement'
+require_relative 'parser/cls_statement'
 require_relative 'parser/end_statement'
 require_relative 'parser/expression'
 require_relative 'parser/for_statement'
