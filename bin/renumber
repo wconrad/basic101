@@ -1,0 +1,168 @@
+#!/usr/bin/env ruby
+
+require "optparse"
+require "fileutils"
+
+module Renumber
+
+  class Arguments
+
+    attr_reader :path
+    attr_reader :start
+    attr_reader :increment
+    attr_reader :test_mode
+
+    def initialize(argv)
+      @start = 10
+      @increment = 10
+      @test_mode = false
+      OptionParser.new do |opts|
+        opts.banner << " #{PATH_TAG}"
+        opts.on(
+          "-s", "--start N", Integer,
+          "Starting line number (#{@start})",
+        ) do |v|
+          @start = v
+        end
+        opts.on(
+          "-i", "--increment N", Integer,
+          "Line number increment (#{@increment})",
+        ) do |v|
+          @increment = v
+        end
+        opts.on("--stdout", "Write output to stdout") do |v|
+          @test_mode = v
+        end
+      end.parse!(argv)
+      @path = argv.shift
+      unless @path
+        raise OptionParser::MissingArgument, PATH_TAG
+      end
+      unless argv.empty?
+        raise OptionParser::InvalidArgument, "Needless argument"
+      end
+    rescue OptionParser::ParseError => e
+      $stderr.puts e
+      exit 1
+    end
+
+    PATH_TAG = "<path>"
+
+  end
+
+  class Line
+
+    def initialize(line)
+      @line = line
+    end
+
+    def to_s
+      @line.to_s
+    end
+
+    def line_number
+      unless @line =~ /^\d+/
+        abort "Line number not found: #{@line}"
+      end
+      Integer($&)
+    end
+
+    def renumber(map)
+      @line.gsub!(/(^|GOSUB|GOTO|THEN|ELSE|RESTORE)\s*\d+(\s*,\s*\d+)*/) do |match|
+        match.gsub(/\d+/, map)
+      end
+    end
+    
+  end
+
+  class Program
+
+    def self.read(path)
+      program = new
+      File.open(path, "r") do |file|
+        file.each_line do |line|
+          program << Line.new(line.chomp)
+        end
+      end
+      program
+    end
+
+    def initialize
+      @lines = []
+    end
+
+    def write(path)
+      File.open(path, "w") do |file|
+        @lines.each do |line|
+          file.puts line.to_s
+        end
+      end
+    end
+
+    def <<(line)
+      @lines << line
+    end
+
+    def renumber(start, increment)
+      map = make_line_number_map(start, increment)
+      @lines.each do |line|
+        line.renumber(map)
+      end
+    end
+
+    private
+
+    def make_line_number_map(start, increment)
+      map = {}
+      new_line_number = start
+      @lines.each do |line|
+        map[line.line_number.to_s] = new_line_number.to_s
+        new_line_number += increment
+      end
+      map
+    end
+    
+  end
+
+  class Main
+
+    def initialize(argv)
+      @args = Arguments.new(argv)
+    end
+
+    def run
+      program = Program.read(@args.path)
+      program.renumber(@args.start, @args.increment)
+      if @args.test_mode
+        program.write("/dev/stdout")
+      else
+        backup
+        begin
+          program.write(temp_path)
+          FileUtils.mv(temp_path, @args.path)
+        rescue
+          FileUtils.rm_f(temp_path)
+          raise
+        end
+      end
+    end
+
+    private
+
+    def backup
+      FileUtils.cp(@args.path, backup_path)
+    end
+
+    def backup_path
+      @args.path + "~"
+    end
+
+    def temp_path
+      @args.path + ".tmp"
+    end
+
+  end
+
+end
+
+Renumber::Main.new(ARGV).run
