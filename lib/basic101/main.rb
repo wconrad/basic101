@@ -16,9 +16,14 @@ module Basic101
       end
       runtime.randomize if @args.randomize
       runtime.run
+    rescue NoMoreInputError => e
+      puts
+      abort e.message
+    rescue Interrupt => e
+      puts
+      abort "Interrupt"
     rescue Error => e
-      puts e
-      exit 1
+      abort e.to_s
     end
 
   end
