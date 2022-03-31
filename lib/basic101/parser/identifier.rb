@@ -50,7 +50,7 @@ module Basic101
 
     rule(:base_identifier) do
       (keyword.absent? >> match('[A-Z]')) >>
-        (keyword.absent? >> match('[A-Z0-9]')).repeat(0)
+        (keyword.absent? >> match('[A-Z0-9_]')).repeat(0)
     end
 
     rule(:keyword) do
