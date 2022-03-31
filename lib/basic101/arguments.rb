@@ -6,10 +6,12 @@ module Basic101
 
     attr_reader :filenames
     attr_reader :randomize
+    attr_reader :syntax_check_only
     attr_reader :transcript
 
     def initialize(argv)
       @transcript = false
+      @syntax_check_only = false
       @randomize = true
       OptionParser.new do |opts|
         opts.banner << " [PATH]..."
@@ -21,6 +23,9 @@ module Basic101
                 'Randomize random number generator.',
                 'Default is --randomize') do |v|
           @randomize = v
+        end
+        opts.on('-s', '--syntax', 'Syntax check only') do |v|
+          @syntax_check_only = v
         end
       end.parse!(argv)
       @filenames = argv.dup

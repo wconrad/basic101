@@ -10,12 +10,14 @@ module Basic101
 
     def run
       program = Program.load(ARGF)
-      runtime = Runtime.new(:program => program)
-      if @args.transcript
-        runtime.transcript = Transcript.make(@args.filenames.first)
+      unless @args.syntax_check_only
+        runtime = Runtime.new(:program => program)
+        if @args.transcript
+          runtime.transcript = Transcript.make(@args.filenames.first)
+        end
+        runtime.randomize if @args.randomize
+        runtime.run
       end
-      runtime.randomize if @args.randomize
-      runtime.run
     rescue NoMoreInputError => e
       puts
       abort e.message
