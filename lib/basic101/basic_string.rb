@@ -65,6 +65,14 @@ module Basic101
       self.class.new(substring)
     end
 
+    def ucase
+      self.class.new(@value.upcase)
+    end
+
+    def lcase
+      self.class.new(@value.downcase)
+    end
+
     def +(other)
       BasicString.new(value + other.to_string.value)
     end

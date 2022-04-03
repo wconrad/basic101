@@ -26,6 +26,8 @@ module Basic101
        str('$').maybe).as(:function_identifier)
     end
 
+    # Note: The list of built-in functions is duplicated in
+    # built_in_functions.rb
     rule(:built_in_function_identifier) do
       (str('ABS') |
        str('ASC') |
@@ -33,6 +35,7 @@ module Basic101
        str('COS') |
        str('EXP') |
        str('INT') |
+       str('LCASE$') |
        str('LEFT$') |
        str('LEN') |
        str('LOG') |
@@ -45,6 +48,7 @@ module Basic101
        str('STR$') |
        str('TAB') |
        str('TAN') |
+       str('UCASE$') |
        str('VAL')).as(:function_identifier)
     end
 

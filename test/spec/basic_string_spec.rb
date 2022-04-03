@@ -235,6 +235,44 @@ module Basic101
       end
     end
 
+    describe '#lcase' do
+
+      it 'should leave lowercase alone' do
+        a = described_class.new('abc')
+        expect(a.lcase).to eq BasicString.new('abc')
+      end
+
+      it 'should lowercase a capitalized string' do
+        a = described_class.new('Abc')
+        expect(a.lcase).to eq BasicString.new('abc')
+      end
+
+      it 'should lowercase an allcaps string' do
+        a = described_class.new('ABC')
+        expect(a.lcase).to eq BasicString.new('abc')
+      end
+      
+    end
+
+    describe '#ucase' do
+
+      it 'should uppercase a lowercase string' do
+        a = described_class.new('abc')
+        expect(a.ucase).to eq BasicString.new('ABC')
+      end
+
+      it 'should uppercase a capitalized string' do
+        a = described_class.new('Abc')
+        expect(a.ucase).to eq BasicString.new('ABC')
+      end
+
+      it 'should leave an uppercase string alone' do
+        a = described_class.new('ABC')
+        expect(a.ucase).to eq BasicString.new('ABC')
+      end
+      
+    end
+
     describe 'printing' do
 
       let(:output) {double Output}
