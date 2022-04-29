@@ -12,6 +12,7 @@ module Basic101
     let(:output) {double Output, :isatty => output_isatty}
     subject(:input) {described_class.new(output, file)}
     before(:each) {allow(file).to receive(:isatty).and_return(input_isatty)}
+    before(:each) {allow(output).to receive(:new_line)}
 
     describe 'transcript' do
 

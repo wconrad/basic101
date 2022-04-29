@@ -29,6 +29,7 @@ module Basic101
     private
 
     def echo(s)
+      @output.new_line
       return unless echo?
       @output.echo s
     end

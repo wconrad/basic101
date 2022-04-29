@@ -37,6 +37,10 @@ module Basic101
       @file.isatty
     end
 
+    def new_line
+      @chars_on_line = 0
+    end
+
     private
 
     COLUMNS_PER_TAB = 14
